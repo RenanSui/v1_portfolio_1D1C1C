@@ -7,10 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        nier: {
+          100: '#FAF8EF',
+          300: '#93928B',
+          400: '#A6A188',
+          800: '#302A24',
+          900: '#31312F',
+        },
+      },
+      fontFamily: {
+        Concielian: ['Concielian', 'sans-serif'],
       },
     },
   },
