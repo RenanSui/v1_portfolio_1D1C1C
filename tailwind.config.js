@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         nier: {
+          50: '#F2F2F2',
           100: '#FAF8EF',
           300: '##BCAEA3',
           // 300: '#93928B',
