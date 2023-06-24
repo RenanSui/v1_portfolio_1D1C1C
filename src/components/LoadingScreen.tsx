@@ -1,6 +1,7 @@
 'use client'
 import { Variants, motion } from 'framer-motion'
 import { Dispatch, SetStateAction, useState } from 'react'
+import { LoadingSpinner } from './LoadingSpinner'
 import { TextGlitch } from './TextGlitch'
 
 const LoadingState = [
@@ -56,6 +57,7 @@ const LoadingScreen = ({
       animate={{ opacity: 1, transition: { duration: 2 } }}
       onAnimationComplete={showOnAnimationComplete}
     >
+      <LoadingSpinner />
       <motion.div // z-50
         className={`absolute z-50 h-full w-full transition-all duration-500 ${
           showLoadingState ? 'backdrop-blur-[1.2px]' : 'backdrop-blur-[5px]'

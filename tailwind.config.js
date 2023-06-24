@@ -11,7 +11,7 @@ module.exports = {
         nier: {
           50: '#F2F2F2',
           100: '#FAF8EF',
-          300: '##BCAEA3',
+          300: '#BCAEA3',
           // 300: '#93928B',
           200: '#A19D93',
           400: '#A6A188',
@@ -25,6 +25,15 @@ module.exports = {
         RodinProL: ['RodinProL', 'sans-serif'],
         RodinProM: ['RodinProM', 'sans-serif'],
         RodinProDB: ['RodinProDB', 'sans-serif'],
+      },
+      animation: {
+        loading: 'loading 0.75s linear infinite',
+      },
+      keyframes: {
+        loading: {
+          from: { transform: 'rotate(0turn)' },
+          to: { transform: 'rotate(1turn)' },
+        },
       },
     },
   },
