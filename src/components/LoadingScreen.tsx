@@ -54,7 +54,7 @@ const LoadingScreen = ({
     <motion.div
       className="h-full w-full bg-nier-950 font-RodinProDB tracking-widest"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 2 } }}
+      animate={{ opacity: 1, transition: { duration: 1.5 } }}
       onAnimationComplete={showOnAnimationComplete}
     >
       <LoadingSpinner />
