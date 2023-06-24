@@ -17,6 +17,11 @@
   src: url("../../public/fonts/FOT-Rodin Pro DB.otf");
 }
 
+@font-face {
+  font-family: "RodinProL";
+  src: url("../../public/fonts/FOT-Rodin Pro L.otf");
+}
+
 .glitch {
   text-transform: uppercase;
 

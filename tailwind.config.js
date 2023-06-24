@@ -21,6 +21,7 @@ module.exports = {
       },
       fontFamily: {
         Concielian: ['Concielian', 'sans-serif'],
+        RodinProL: ['RodinProL', 'sans-serif'],
         RodinProM: ['RodinProM', 'sans-serif'],
         RodinProDB: ['RodinProDB', 'sans-serif'],
       },
