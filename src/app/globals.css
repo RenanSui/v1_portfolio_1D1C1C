@@ -21,7 +21,7 @@
   text-transform: uppercase;
 
   text-shadow: 
-    0.01em 0.01em 0.05em #91433B,
+    0.03em 0.03em 0.05em #91433B,
     -0.03em -0.03em 0.05em #314E45,
     0 0 3px #FAF8EF;
 }
@@ -30,9 +30,7 @@
   text-transform: capitalize;
 
   text-shadow: 
-    0.01em 0.01em 0.05em #91433B,
+    0.03em 0.03em 0.05em #91433B,
     -0.03em -0.03em 0.05em #314E45,
-    /* 0 0 10px hsla(40, 6%, 80%, 0.5); */
     0 0 10px hsla(43, 7%, 60%, 0.5);
-    /* 0 0 3px #93928B; */
 }
