@@ -71,14 +71,15 @@ const LoadingScreen = ({
       />
 
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="absolute z-10 h-full w-full backdrop-blur-[6px]" />
+        <div className="absolute z-10 h-full w-full backdrop-blur-[3px]" />
         <p className="font-RodinProDB text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all sm:text-7xl ">
           1D1C1C
         </p>
+        <p className="text-center text-nier-300">[ エラー ]</p>
       </div>
 
       <div // z-30
-        className="relative flex cursor-default select-none flex-wrap items-center p-8 text-nier-100 sm:p-12"
+        className="relative flex cursor-default select-none flex-wrap items-center p-8 text-nier-100 sm:p-12 md:px-32 md:pt-32"
       >
         <TextGlitch
           className="relative font-RodinProM text-4xl tracking-[0.3em] transition-all sm:text-5xl"
@@ -133,7 +134,7 @@ const LoadingScreen = ({
       {showLoadingState && (
         <motion.ul
           // z-30
-          className="relative flex cursor-default select-none flex-col gap-1 px-12 text-nier-300 sm:px-24"
+          className="relative flex cursor-default select-none flex-col gap-1 px-12 text-nier-300 sm:px-24 md:px-44"
           variants={LoadingTextContainer}
           initial="initial"
           animate="animate"
