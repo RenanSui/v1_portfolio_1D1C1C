@@ -1,17 +1,22 @@
 'use client'
 import { AnimatePresence, Variants, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 const svgVariants: Variants = {}
 
-const BootScreen = () => {
+const BootScreen = ({
+  setShowLoading,
+}: {
+  setShowLoading: Dispatch<SetStateAction<boolean>>
+}) => {
   const [show, setShow] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
       setShow((prev) => !prev)
+      setShowLoading(true)
     }, 3000)
-  }, [])
+  }, [setShowLoading])
 
   return (
     <AnimatePresence>
@@ -22,7 +27,7 @@ const BootScreen = () => {
             transition: { delay: 2, duration: 0.4 },
           }}
           exit={{ opacity: 0 }}
-          className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-nier-100"
+          className="absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center bg-nier-100"
         >
           <motion.h1
             initial={{ opacity: 0 }}
