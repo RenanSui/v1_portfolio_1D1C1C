@@ -6,6 +6,7 @@ import LoadingText from './LoadingText'
 import { TextGlitch } from './TextGlitch'
 
 export const LoadingState = [
+  'Initializing Client',
   'Initializing HTML',
   'Initializing CSS',
   'Commencing JavaScript',
@@ -13,11 +14,11 @@ export const LoadingState = [
   'Activating Scripts',
   'Vitals: Complete',
   'Loading Animations',
-  'Loading Geographic Data',
-  'Performance: Normal',
+  // 'Loading Geographic Data',
+  'Performance: Green',
   'Accessibility: Error',
   'Equipment Authentication: Complete',
-  'Equipment Status: Green',
+  // 'Equipment Status: Green',
   'Initializing API Connection',
   'Initializing Server',
   'All Systems Green',

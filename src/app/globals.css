@@ -22,6 +22,14 @@
   src: url("../../public/fonts/FOT-Rodin Pro L.otf");
 }
 
+.loadingList{
+  text-transform: capitalize;
+
+  text-shadow: 
+    0.03em 0.03em 0.05em #91433B,
+    -0.03em -0.03em 0.05em #314E45
+}
+
 .glitch {
   text-transform: uppercase;
 
@@ -29,13 +37,4 @@
     0.03em 0.03em 0.05em #91433B,
     -0.03em -0.03em 0.05em #314E45,
     0 0 3px #FAF8EF;
-}
-
-.loadingList{
-  text-transform: capitalize;
-
-  text-shadow: 
-    0.03em 0.03em 0.05em #91433B,
-    -0.03em -0.03em 0.05em #314E45,
-    0 0 10px hsla(43, 7%, 60%, 0.5);
 }

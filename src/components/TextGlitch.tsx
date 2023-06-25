@@ -1,21 +1,9 @@
-// import { mergeClass } from '@/utils/mergeClass'
-// import { VariantProps, cva } from 'class-variance-authority'
-import { FC, HTMLAttributes, ReactNode } from 'react'
-
-// const TextGlitchVariants = cva('transition-all duration-300', {
-//   variants: {
-//     variant: { default: '', primary: '' },
-//     size: { default: '', sm: '' },
-//   },
-//   defaultVariants: {
-//     variant: 'default',
-//     size: 'default',
-//   },
-// })
+import { motion } from 'framer-motion'
+import { FC, HTMLAttributes } from 'react'
 
 interface TextGlitchProps extends HTMLAttributes<HTMLDivElement> {
   // Change HTMLDivElement
-  children?: ReactNode
+  children: string
 }
 
 const TextGlitch: FC<TextGlitchProps> = ({
@@ -25,14 +13,45 @@ const TextGlitch: FC<TextGlitchProps> = ({
   // variant,
   ...props
 }) => {
-  // const beforeAfterStyles = `before:absolute before:left-0 before:top-0 before:content-[attr(data-text)] after:absolute after:left-0 after:top-0 after:content-[attr(data-text)]`
-
   return (
     <p // Change html tag
       {...props}
-      className={`glitch ${className}`}
+      className={`glitch relative text-transparent ${className}`}
+      // className={`glitch ${className}`}
     >
+      <motion.span
+        initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}
+        animate={{
+          x: [-4, 0],
+          transition: {
+            repeat: Infinity,
+            repeatType: 'loop',
+            repeatDelay: 7,
+            // repeatDelay:
+            //   ((2 * Math.floor(Math.random() * 10)) / children.length) * 8,
+          },
+        }}
+        className="absolute left-0 top-0 text-nier-100"
+      >
+        {children}
+      </motion.span>
       {children}
+      <motion.span
+        initial={{ clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)' }}
+        animate={{
+          x: [-4, 0],
+          transition: {
+            repeat: Infinity,
+            repeatType: 'loop',
+            repeatDelay: 4.5,
+            // repeatDelay:
+            //   ((2 * Math.floor(Math.random() * 10)) / children.length) * 8,
+          },
+        }}
+        className="absolute left-0 top-0 text-nier-100"
+      >
+        {children}
+      </motion.span>
     </p>
   )
 }
