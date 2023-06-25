@@ -52,7 +52,7 @@ const LoadingScreen = ({
 
   setTimeout(() => {
     setShowLoading(false)
-  }, 1000 * (LoadingState.length * 1.1))
+  }, 1000 * (LoadingState.length * 1.15))
 
   return (
     <motion.div
@@ -62,6 +62,7 @@ const LoadingScreen = ({
       exit={{ opacity: 0, transition: { duration: 1 } }}
       // animate={{ opacity: 1, transition: { duration: 1.5 } }}
       onAnimationComplete={showOnAnimationComplete}
+      onClick={() => setShowLoading(false)}
     >
       <LoadingSpinner />
       <motion.div // z-50
