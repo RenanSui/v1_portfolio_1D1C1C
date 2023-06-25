@@ -2,9 +2,10 @@
 import { Variants, motion } from 'framer-motion'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { LoadingSpinner } from './LoadingSpinner'
+import LoadingText from './LoadingText'
 import { TextGlitch } from './TextGlitch'
 
-const LoadingState = [
+export const LoadingState = [
   'Initializing HTML',
   'Initializing CSS',
   'Commencing JavaScript',
@@ -26,14 +27,10 @@ const LoadingState = [
 const LoadingTextContainer: Variants = {
   animate: {
     transition: {
-      staggerChildren: 1,
-      delayChildren: 1,
+      staggerChildren: 0.3,
+      delayChildren: 0.3,
     },
   },
-}
-const LoadingTextVariants: Variants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
 }
 
 const LoadingScreen = ({
@@ -54,7 +51,8 @@ const LoadingScreen = ({
     <motion.div
       className="h-full w-full bg-nier-950 font-RodinProDB tracking-widest"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 1.5 } }}
+      animate={{ opacity: 1, transition: { duration: 0.7 } }}
+      // animate={{ opacity: 1, transition: { duration: 1.5 } }}
       onAnimationComplete={showOnAnimationComplete}
     >
       <LoadingSpinner />
@@ -131,6 +129,7 @@ const LoadingScreen = ({
           </motion.span>
         </motion.span>
       </div>
+
       {showLoadingState && (
         <motion.ul
           // z-30
@@ -139,30 +138,9 @@ const LoadingScreen = ({
           initial="initial"
           animate="animate"
         >
-          {LoadingState.map((state, index) => (
-            <motion.li
-              className="loadingList font-RodinProL text-sm text-nier-100 sm:text-lg"
-              key={index}
-              variants={LoadingTextVariants}
-            >
-              {state}{' '}
-              {LoadingState.length - 1 === index && (
-                <motion.span
-                  animate={{
-                    opacity: [0, 0, 1],
-                    transition: {
-                      duration: 1,
-                      ease: 'anticipate',
-                      repeat: Infinity,
-                      repeatType: 'loop',
-                    },
-                  }}
-                >
-                  _
-                </motion.span>
-              )}
-            </motion.li>
-          ))}
+          {LoadingState.map((text, index) => {
+            return <LoadingText key={index} {...{ text, index }} />
+          })}
         </motion.ul>
       )}
     </motion.div>
