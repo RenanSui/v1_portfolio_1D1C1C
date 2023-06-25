@@ -20,7 +20,7 @@ const BootScreen = ({
               backgroundColor: '#000',
               transition: { delay: 2, duration: 0.4 },
             }}
-            exit={{ opacity: 0 }}
+            exit={{ opacity: 0, transition: { delay: 0.3 } }}
             onAnimationComplete={() => {
               // console.log('Completed')
               setShow(false)
