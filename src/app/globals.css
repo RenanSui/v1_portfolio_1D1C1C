@@ -26,8 +26,8 @@
   text-transform: capitalize;
 
   text-shadow: 
-    0.03em 0.03em 0.05em #91433B,
-    -0.03em -0.03em 0.05em #314E45
+    0.03em 0.03em 0em #91433B,
+    -0.03em -0.03em 0em #314E45
 }
 
 .glitch {

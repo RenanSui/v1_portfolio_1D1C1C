@@ -15,12 +15,12 @@ export const LoadingState = [
   'Vitals: Complete',
   'Loading Animations',
   // 'Loading Geographic Data',
-  'Performance: Green',
+  // 'Performance: Green',
   'Accessibility: Error',
   'Equipment Authentication: Complete',
   // 'Equipment Status: Green',
   'Initializing API Connection',
-  'Initializing Server',
+  // 'Initializing Server',
   'All Systems Green',
   'Systems Preparations Complete',
 ]
@@ -36,8 +36,10 @@ const LoadingTextContainer: Variants = {
 
 const LoadingScreen = ({
   setShowBootScreen,
+  setShowLoading,
 }: {
   setShowBootScreen: Dispatch<SetStateAction<boolean>>
+  setShowLoading: Dispatch<SetStateAction<boolean>>
 }) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
@@ -48,11 +50,16 @@ const LoadingScreen = ({
     }, 1 * 1000)
   }
 
+  setTimeout(() => {
+    setShowLoading(false)
+  }, 1000 * (LoadingState.length * 1.1))
+
   return (
     <motion.div
       className="h-full w-full bg-nier-950 font-RodinProDB tracking-widest"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.7 } }}
+      exit={{ opacity: 0, transition: { duration: 1 } }}
       // animate={{ opacity: 1, transition: { duration: 1.5 } }}
       onAnimationComplete={showOnAnimationComplete}
     >
