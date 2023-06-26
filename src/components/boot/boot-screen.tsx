@@ -4,7 +4,7 @@ import localFont from 'next/font/local'
 import { Dispatch, SetStateAction, useState } from 'react'
 
 export const Concielian = localFont({
-  src: '../../public/fonts/concielianjetexpand.ttf',
+  src: '../../../public/fonts/concielianjetexpand.ttf',
 })
 
 const BootScreen = ({
@@ -27,7 +27,7 @@ const BootScreen = ({
               backgroundColor: '#000',
               transition: { delay: 2, duration: 0.4 },
             }}
-            exit={{ opacity: 0, transition: { delay: 0.5 } }}
+            exit={{ opacity: 0 }}
             onAnimationComplete={() => {
               // console.log('Completed')
               setShow(false)

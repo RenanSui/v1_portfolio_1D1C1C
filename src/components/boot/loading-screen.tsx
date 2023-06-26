@@ -2,34 +2,34 @@
 import { Variants, motion } from 'framer-motion'
 import localFont from 'next/font/local'
 import { Dispatch, SetStateAction, useState } from 'react'
-import { LoadingSpinner } from './LoadingSpinner'
-import LoadingText from './LoadingText'
-import { TextGlitch } from './TextGlitch'
+import { GlitchText } from './glitch'
+import { LoadingDots } from './loading-dots'
+import { LoadingSpinner } from './loading-spinner'
 
 export const RodinPro = localFont({
   src: [
     {
-      path: '../../public/fonts/FOT-Rodin Pro L.otf',
+      path: '../../../public/fonts/FOT-Rodin Pro L.otf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/FOT-Rodin Pro M.otf',
+      path: '../../../public/fonts/FOT-Rodin Pro M.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/FOT-Rodin Pro DB.otf',
+      path: '../../../public/fonts/FOT-Rodin Pro DB.otf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/FOT-Rodin Pro B.otf',
+      path: '../../../public/fonts/FOT-Rodin Pro B.otf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/FOT-Rodin Pro UB.otf',
+      path: '../../../public/fonts/FOT-Rodin Pro UB.otf',
       weight: '800',
       style: 'normal',
     },
@@ -68,11 +68,13 @@ const LoadingTextContainer: Variants = {
 interface ILoadingScreen {
   setShowBootScreen: Dispatch<SetStateAction<boolean>>
   setShowLoading: Dispatch<SetStateAction<boolean>>
+  setShowMainMenu: Dispatch<SetStateAction<boolean>>
 }
 
 const LoadingScreen = ({
   setShowBootScreen,
   setShowLoading,
+  setShowMainMenu,
 }: ILoadingScreen) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
@@ -85,6 +87,7 @@ const LoadingScreen = ({
 
   setTimeout(() => {
     setShowLoading(false)
+    setShowMainMenu(true)
   }, 1000 * (LoadingState.length * 1.15))
 
   return (
@@ -94,7 +97,10 @@ const LoadingScreen = ({
       animate={{ opacity: 1, transition: { duration: 0.7 } }}
       exit={{ opacity: 0, transition: { duration: 1 } }}
       onAnimationComplete={showOnAnimationComplete}
-      onClick={() => setShowLoading(false)}
+      onClick={() => {
+        setShowLoading(false)
+        setShowMainMenu(true)
+      }}
     >
       <LoadingSpinner />
       <motion.div // z-50
@@ -122,12 +128,11 @@ const LoadingScreen = ({
       <div // z-30
         className="relative flex cursor-default select-none flex-wrap items-center p-8 text-nier-100 sm:p-12 md:px-32 md:pt-32"
       >
-        <TextGlitch
-          className={`relative text-4xl font-medium tracking-[0.3em] transition-all sm:text-5xl ${RodinPro.className}`}
-          data-text="LOADING"
-        >
-          LOADING
-        </TextGlitch>
+        <GlitchText
+          className={`glitchHeading text-4xl font-medium tracking-[0.3em] sm:text-5xl lg:text-5xl ${RodinPro.className}`}
+          text="LOADING"
+          index={-1}
+        />
         <span className="ml-2 mr-2 mt-3">-</span>
         <span
           className={`self-end text-lg font-semibold ${RodinPro.className}`}
@@ -135,45 +140,7 @@ const LoadingScreen = ({
           BOOTING SYSTEM
         </span>
         <motion.span className="mb-[2px] self-end">
-          <motion.span
-            animate={{
-              opacity: [0, 1, 1, 1],
-              transition: {
-                ease: 'anticipate',
-                repeat: Infinity,
-                repeatType: 'loop',
-                duration: 1.5,
-              },
-            }}
-          >
-            .
-          </motion.span>
-          <motion.span
-            animate={{
-              opacity: [0, 0, 1, 1],
-              transition: {
-                ease: 'anticipate',
-                repeat: Infinity,
-                repeatType: 'loop',
-                duration: 1.5,
-              },
-            }}
-          >
-            .
-          </motion.span>
-          <motion.span
-            animate={{
-              opacity: [0, 0, 0, 1],
-              transition: {
-                ease: 'anticipate',
-                repeat: Infinity,
-                repeatType: 'loop',
-                duration: 1.5,
-              },
-            }}
-          >
-            .
-          </motion.span>
+          <LoadingDots />
         </motion.span>
       </div>
 
@@ -186,7 +153,11 @@ const LoadingScreen = ({
           animate="animate"
         >
           {LoadingState.map((text, index) => {
-            return <LoadingText key={index} {...{ text, index }} />
+            return (
+              <>
+                <GlitchText key={index} {...{ text, index }} />
+              </>
+            )
           })}
         </motion.ul>
       )}

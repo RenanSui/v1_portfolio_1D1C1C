@@ -26,19 +26,19 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-.loadingList{
-  text-transform: capitalize;
 
-  text-shadow: 
-    0.03em 0.03em 0em #91433B,
-    -0.03em -0.03em 0em #314E45
-}
 
-.glitch {
+.glitchHeading {
   text-transform: uppercase;
 
   text-shadow: 
     0.03em 0.03em 0.05em #91433B,
     -0.03em -0.03em 0.05em #314E45,
     0 0 3px #FAF8EF;
+}
+.glich {
+
+  text-shadow: 
+    0.03em 0.03em 0.05em #91433B,
+    -0.03em -0.03em 0.05em #314E45,
 }

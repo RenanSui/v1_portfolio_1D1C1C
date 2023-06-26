@@ -1,59 +1,62 @@
 import { useTypingText } from '@/hooks/useTypingText'
-import { Variants, motion } from 'framer-motion'
-import { LoadingState, RodinPro } from './LoadingScreen'
+import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
+import React, { FC, forwardRef } from 'react'
+import { LoadingState } from './loading-screen'
 
-const LoadingTextVariants: Variants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
+interface GlitchTextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  text: string
+  index: number
 }
 
-const LoadingText = ({ text, index }: { text: string; index: number }) => {
-  const { word, start } = useTypingText(text, 40)
+const GlitchText: FC<GlitchTextProps> = forwardRef<
+  HTMLParagraphElement,
+  GlitchTextProps
+>(({ children, className, text, index, ...props }, ref) => {
+  const { word, start } = useTypingText(text, index === -1 ? 0 : 40)
 
   setTimeout(() => {
     start()
   }, 1250 * (index / 1.5))
 
   return (
-    <motion.li
-      className={`loadingList relative text-sm font-light tracking-[0.15em] text-transparent sm:text-lg ${RodinPro.className}`}
-      variants={LoadingTextVariants}
-      data-text={word}
+    <p
+      ref={ref}
+      className={cn(
+        'glich relative text-sm text-transparent sm:text-lg lg:text-xl',
+        className,
+      )}
+      {...props}
     >
       <motion.span
         initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}
         animate={{
-          x: [-2, 0],
+          x: [-4, 0],
           transition: {
             repeat: Infinity,
             repeatType: 'loop',
-            repeatDelay:
-              ((2 * Math.floor(Math.random() * 14)) / text.length) * 8,
+            repeatDelay: ((2 * Math.floor(Math.random() * 35)) / 40) * 10,
           },
         }}
         className="absolute left-0 top-0 text-nier-100"
       >
         {word}
       </motion.span>
-
       {word}
-
       <motion.span
         initial={{ clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)' }}
         animate={{
-          x: [-2, 0],
+          x: [-4, 0],
           transition: {
             repeat: Infinity,
             repeatType: 'loop',
-            repeatDelay:
-              ((2 * Math.floor(Math.random() * 8)) / text.length) * 8,
+            repeatDelay: ((2 * Math.floor(Math.random() * 35)) / 40) * 10,
           },
         }}
         className="absolute left-0 top-0 text-nier-100"
       >
         {word}
       </motion.span>
-
       <motion.span
         className="text-nier-100"
         animate={{
@@ -84,8 +87,9 @@ const LoadingText = ({ text, index }: { text: string; index: number }) => {
           _
         </motion.span>
       )}
-    </motion.li>
+    </p>
   )
-}
+})
+GlitchText.displayName = 'GlitchText'
 
-export default LoadingText
+export { GlitchText }
