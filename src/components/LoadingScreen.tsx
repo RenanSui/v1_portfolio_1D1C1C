@@ -1,9 +1,40 @@
 'use client'
 import { Variants, motion } from 'framer-motion'
+import localFont from 'next/font/local'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { LoadingSpinner } from './LoadingSpinner'
 import LoadingText from './LoadingText'
 import { TextGlitch } from './TextGlitch'
+
+export const RodinPro = localFont({
+  src: [
+    {
+      path: '../../public/fonts/FOT-Rodin Pro L.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/FOT-Rodin Pro M.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/FOT-Rodin Pro DB.otf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/FOT-Rodin Pro B.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/FOT-Rodin Pro UB.otf',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
+})
 
 export const LoadingState = [
   'Initializing Client',
@@ -14,13 +45,13 @@ export const LoadingState = [
   'Activating Scripts',
   'Vitals: Complete',
   'Loading Animations',
-  // 'Loading Geographic Data',
-  // 'Performance: Green',
+  'Loading Geographic Data',
+  'Performance: Green',
   'Accessibility: Error',
   'Equipment Authentication: Complete',
-  // 'Equipment Status: Green',
+  'Equipment Status: Green',
   'Initializing API Connection',
-  // 'Initializing Server',
+  'Initializing Server',
   'All Systems Green',
   'Systems Preparations Complete',
 ]
@@ -34,13 +65,15 @@ const LoadingTextContainer: Variants = {
   },
 }
 
+interface ILoadingScreen {
+  setShowBootScreen: Dispatch<SetStateAction<boolean>>
+  setShowLoading: Dispatch<SetStateAction<boolean>>
+}
+
 const LoadingScreen = ({
   setShowBootScreen,
   setShowLoading,
-}: {
-  setShowBootScreen: Dispatch<SetStateAction<boolean>>
-  setShowLoading: Dispatch<SetStateAction<boolean>>
-}) => {
+}: ILoadingScreen) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
   const showOnAnimationComplete = () => {
@@ -56,11 +89,10 @@ const LoadingScreen = ({
 
   return (
     <motion.div
-      className="h-full w-full bg-nier-950 font-RodinProDB tracking-widest"
+      className="h-full w-full bg-nier-950 tracking-widest"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.7 } }}
       exit={{ opacity: 0, transition: { duration: 1 } }}
-      // animate={{ opacity: 1, transition: { duration: 1.5 } }}
       onAnimationComplete={showOnAnimationComplete}
       onClick={() => setShowLoading(false)}
     >
@@ -79,23 +111,29 @@ const LoadingScreen = ({
 
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="absolute z-10 h-full w-full backdrop-blur-[3px]" />
-        <p className="font-RodinProDB text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all sm:text-7xl ">
+        <p
+          className={`select-none text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all sm:text-7xl ${RodinPro.className}`}
+        >
           1D1C1C
         </p>
-        <p className="text-center text-nier-300">[ エラー ]</p>
+        <p className="select-none text-center text-nier-300">[ エラー ]</p>
       </div>
 
       <div // z-30
         className="relative flex cursor-default select-none flex-wrap items-center p-8 text-nier-100 sm:p-12 md:px-32 md:pt-32"
       >
         <TextGlitch
-          className="relative font-RodinProM text-4xl tracking-[0.3em] transition-all sm:text-5xl"
+          className={`relative text-4xl font-medium tracking-[0.3em] transition-all sm:text-5xl ${RodinPro.className}`}
           data-text="LOADING"
         >
           LOADING
         </TextGlitch>
         <span className="ml-2 mr-2 mt-3">-</span>
-        <span className="self-end text-lg">BOOTING SYSTEM</span>
+        <span
+          className={`self-end text-lg font-semibold ${RodinPro.className}`}
+        >
+          BOOTING SYSTEM
+        </span>
         <motion.span className="mb-[2px] self-end">
           <motion.span
             animate={{

@@ -1,6 +1,6 @@
 import { useTypingText } from '@/hooks/useTypingText'
 import { Variants, motion } from 'framer-motion'
-import { LoadingState } from './LoadingScreen'
+import { LoadingState, RodinPro } from './LoadingScreen'
 
 const LoadingTextVariants: Variants = {
   initial: { opacity: 0 },
@@ -16,7 +16,7 @@ const LoadingText = ({ text, index }: { text: string; index: number }) => {
 
   return (
     <motion.li
-      className="loadingList relative font-RodinProL text-sm tracking-[0.15em] text-transparent sm:text-lg"
+      className={`loadingList relative text-sm font-light tracking-[0.15em] text-transparent sm:text-lg ${RodinPro.className}`}
       variants={LoadingTextVariants}
       data-text={word}
     >

@@ -20,12 +20,6 @@ module.exports = {
           950: '#191713',
         },
       },
-      fontFamily: {
-        Concielian: ['Concielian', 'sans-serif'],
-        RodinProL: ['RodinProL', 'sans-serif'],
-        RodinProM: ['RodinProM', 'sans-serif'],
-        RodinProDB: ['RodinProDB', 'sans-serif'],
-      },
       animation: {
         loading: 'loading 0.75s linear infinite',
       },
