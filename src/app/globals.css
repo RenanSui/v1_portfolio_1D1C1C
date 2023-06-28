@@ -42,3 +42,12 @@ body{
     0.03em 0.03em 0.05em #91433B,
     -0.03em -0.03em 0.05em #314E45,
 }
+
+.stars1{
+  clip-path: polygon(0 0, 100% 0%, 100% 35%, 0 35%);
+}
+
+.stars2{
+  clip-path: polygon(0 35%, 100% 35%, 100% 45%, 0 45%);
+
+}
