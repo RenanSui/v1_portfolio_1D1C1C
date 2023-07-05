@@ -1,3 +1,4 @@
+import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
 import '../styles/globals.css'
@@ -12,7 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				{children}
+				<TailwindIndicator />
+			</body>
 		</html>
 	)
 }

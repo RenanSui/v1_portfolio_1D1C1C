@@ -1,40 +1,10 @@
 'use client'
+import { RodinPro } from '@/lib/fonts'
 import { Variants, motion } from 'framer-motion'
-import localFont from 'next/font/local'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { GlitchText } from './glitch'
 import { LoadingDots } from './loading-dots'
 import { LoadingSpinner } from './loading-spinner'
-
-export const RodinPro = localFont({
-	src: [
-		{
-			path: '../../../public/fonts/FOT-Rodin Pro L.otf',
-			weight: '300',
-			style: 'normal',
-		},
-		{
-			path: '../../../public/fonts/FOT-Rodin Pro M.otf',
-			weight: '500',
-			style: 'normal',
-		},
-		{
-			path: '../../../public/fonts/FOT-Rodin Pro DB.otf',
-			weight: '600',
-			style: 'normal',
-		},
-		{
-			path: '../../../public/fonts/FOT-Rodin Pro B.otf',
-			weight: '700',
-			style: 'normal',
-		},
-		{
-			path: '../../../public/fonts/FOT-Rodin Pro UB.otf',
-			weight: '800',
-			style: 'normal',
-		},
-	],
-})
 
 export const LoadingState = [
 	'Initializing Client',

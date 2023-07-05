@@ -1,11 +1,7 @@
 'use client'
+import { Concielian } from '@/lib/fonts'
 import { AnimatePresence, motion } from 'framer-motion'
-import localFont from 'next/font/local'
 import { Dispatch, SetStateAction, useState } from 'react'
-
-export const Concielian = localFont({
-	src: '../../../public/fonts/concielianjetexpand.ttf',
-})
 
 const BootScreen = ({
 	setShowLoading,
