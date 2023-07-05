@@ -1,7 +1,7 @@
 'use client'
-import { BootScreen } from '@/components/boot/boot-screen'
-import { LoadingScreen } from '@/components/boot/loading-screen'
-import { MainMenu } from '@/components/main-menu/main-menu'
+import { BootScreen } from '@/components/boot-screen'
+import { LoadingScreen } from '@/components/loading-screen'
+import { MainMenu } from '@/components/main-menu'
 import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
