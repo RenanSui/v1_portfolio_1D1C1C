@@ -2,7 +2,6 @@ import localFont from 'next/font/local'
 
 export const Concielian = localFont({
 	src: '../../public/fonts/concielianjetexpand.ttf',
-	// src: '../../../public/fonts/concielianjetexpand.ttf',
 })
 
 export const RodinPro = localFont({

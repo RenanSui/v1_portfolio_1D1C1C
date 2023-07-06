@@ -78,12 +78,6 @@ const LoadingScreen = ({
 					showLoadingState ? 'backdrop-blur-[1.2px]' : 'backdrop-blur-[5px]'
 				}`}
 			/>
-			<div // z-10
-				className="absolute h-full w-full bg-[url(/images/pattern.png)] bg-[length:15px_15px] bg-repeat opacity-30"
-			/>
-			<div // z-10
-				className="absolute h-full w-full bg-[radial-gradient(circle,_hsla(0,_0%,_100%,_0.05)_0%,_hsla(0,_0%,_0%,_0.5)_100%)]"
-			/>
 
 			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 				<div className="absolute z-10 h-full w-full backdrop-blur-[3px]" />
@@ -123,11 +117,7 @@ const LoadingScreen = ({
 					animate="animate"
 				>
 					{LoadingState.map((text, index) => {
-						return (
-							<>
-								<GlitchText key={index} {...{ text, index }} />
-							</>
-						)
+						return <GlitchText key={index} {...{ text, index }} />
 					})}
 				</motion.ul>
 			)}
