@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import { GlitchText } from './glitch'
 import { LoadingDots } from './loading-dots'
 import { LoadingSpinner } from './loading-spinner'
+import { ShellAnimated } from './ui/ShellAnimated'
 
 export const LoadingState = [
   'Initializing Client',
@@ -36,41 +37,35 @@ const LoadingTextContainer: Variants = {
 }
 
 interface ILoadingScreen {
-  setShowBootScreen: Dispatch<SetStateAction<boolean>>
   setShowLoading: Dispatch<SetStateAction<boolean>>
   setShowMainMenu: Dispatch<SetStateAction<boolean>>
 }
 
-const LoadingScreen = ({
-  setShowBootScreen,
-  setShowLoading,
-  setShowMainMenu,
-}: ILoadingScreen) => {
+const LoadingScreen = ({ setShowLoading, setShowMainMenu }: ILoadingScreen) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
-  const showOnAnimationComplete = () => {
+  const handleAnimationComplete = () => {
     setTimeout(() => {
       setShowLoadingState(true)
-      setShowBootScreen(false)
-    }, 1 * 1000)
+    }, 1500)
+
+    setTimeout(() => {
+      setShowLoading(false)
+      setShowMainMenu(true)
+    }, 1000 * (LoadingState.length * 1.15))
   }
 
-  setTimeout(() => {
+  const handleEndAnimation = () => {
     setShowLoading(false)
     setShowMainMenu(true)
-  }, 1000 * (LoadingState.length * 1.15))
+  }
 
   return (
-    <motion.div
-      className="h-full w-full bg-nier-950 tracking-widest"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 0.7 } }}
-      exit={{ opacity: 0, transition: { duration: 1 } }}
-      onAnimationComplete={showOnAnimationComplete}
-      onClick={() => {
-        setShowLoading(false)
-        setShowMainMenu(true)
-      }}
+    <ShellAnimated
+      className="absolute h-full w-full bg-nier-950 tracking-widest"
+      animate={{ opacity: 1, transition: { duration: 0.6 } }}
+      onAnimationComplete={handleAnimationComplete}
+      onClick={handleEndAnimation}
     >
       <LoadingSpinner />
       <motion.div // z-50
@@ -103,13 +98,13 @@ const LoadingScreen = ({
         >
           BOOTING SYSTEM
         </span>
-        <motion.span className="mb-[2px] self-end">
+        <span className="mb-[2px] self-end">
           <LoadingDots />
-        </motion.span>
+        </span>
       </div>
 
       {showLoadingState && (
-        <motion.ul
+        <ShellAnimated
           // z-30
           className="relative flex cursor-default select-none flex-col gap-1 px-12 text-nier-300 sm:px-24 md:px-44"
           variants={LoadingTextContainer}
@@ -119,9 +114,9 @@ const LoadingScreen = ({
           {LoadingState.map((text, index) => {
             return <GlitchText key={index} {...{ text, index }} />
           })}
-        </motion.ul>
+        </ShellAnimated>
       )}
-    </motion.div>
+    </ShellAnimated>
   )
 }
 

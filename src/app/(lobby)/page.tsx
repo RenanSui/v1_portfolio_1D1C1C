@@ -17,15 +17,19 @@ export default function Home() {
       <main className="relative h-screen w-screen bg-black text-zinc-100">
         <Pattern />
         <Vignette />
-        {showBootScreen && <BootScreen {...{ setShowLoading }} />}
+        <AnimatePresence>
+          {showBootScreen && (
+            <BootScreen {...{ setShowBootScreen, setShowLoading }} />
+          )}
+        </AnimatePresence>
+
         <AnimatePresence>
           {showLoading && (
-            <LoadingScreen
-              {...{ setShowBootScreen, setShowLoading, setShowMainMenu }}
-            />
+            <LoadingScreen {...{ setShowLoading, setShowMainMenu }} />
           )}
-          {showMainMenu && <MainMenu />}
         </AnimatePresence>
+
+        <AnimatePresence>{showMainMenu && <MainMenu />}</AnimatePresence>
       </main>
     </>
   )

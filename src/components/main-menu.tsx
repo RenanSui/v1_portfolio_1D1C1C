@@ -20,38 +20,39 @@ const MainMenu = () => {
   }
 
   return (
-    <ShellAnimated
-      className={`flex h-full w-full flex-col bg-nier-800 font-medium tracking-[0.15em] ${RodinPro.className}`}
-    >
-      {/* <div className="h-full w-full">
-        <div className="stars1 absolute h-full w-full bg-[url(/images/stars-3.jpg)] bg-cover opacity-30" />
-        <div className="stars2 absolute h-full w-full bg-[url(/images/stars-3.jpg)] bg-cover opacity-30 blur-sm" />
-        <div></div>
-      </div> */}
-
-      <AnimatePresence>
-        {showPressAny && (
-          <ShellAnimated className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
-            <MenuOptions>
-              <MenuOption onClick={HandlePressAny}>Press Any Button</MenuOption>
-            </MenuOptions>
-          </ShellAnimated>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {showMenuOptions && (
-          <ShellAnimated className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
-            <MenuOptions className="flex flex-col gap-3">
-              <MenuOption>Continue</MenuOption>
-              <MenuOption>New Game</MenuOption>
-              <MenuOption>Settings</MenuOption>
-              <MenuOption>License</MenuOption>
-              <MenuOption onClick={HandleExitGame}>Exit Game</MenuOption>
-            </MenuOptions>
-          </ShellAnimated>
-        )}
-      </AnimatePresence>
-    </ShellAnimated>
+    <AnimatePresence>
+      <ShellAnimated
+        className={`flex h-full w-full flex-col font-medium tracking-[0.15em] ${RodinPro.className}`}
+      >
+        <div // z-50
+          className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-10 bg-[rgba(255,0,0,0)] backdrop-blur-[0.7px]"
+        />
+        <AnimatePresence>
+          {showPressAny && (
+            <ShellAnimated className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
+              <MenuOptions>
+                <MenuOption onClick={HandlePressAny}>
+                  Press Any Button
+                </MenuOption>
+              </MenuOptions>
+            </ShellAnimated>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {showMenuOptions && (
+            <ShellAnimated className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
+              <MenuOptions className="flex flex-col gap-3">
+                <MenuOption>Continue</MenuOption>
+                <MenuOption>New Game</MenuOption>
+                <MenuOption>Settings</MenuOption>
+                <MenuOption>License</MenuOption>
+                <MenuOption onClick={HandleExitGame}>Exit Game</MenuOption>
+              </MenuOptions>
+            </ShellAnimated>
+          )}
+        </AnimatePresence>
+      </ShellAnimated>
+    </AnimatePresence>
   )
 }
 
