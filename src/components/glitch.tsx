@@ -13,7 +13,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
   HTMLParagraphElement,
   GlitchTextProps
 >(({ children, className, text, index, ...props }, ref) => {
-  const { word, start } = useTypingText(text, index === -1 ? 0 : 40)
+  const { word, start } = useTypingText(text, index === -1 ? 0 : 30)
 
   setTimeout(() => {
     start()
