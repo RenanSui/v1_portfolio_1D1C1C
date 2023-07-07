@@ -5,22 +5,17 @@ import { Icons } from './icons'
 import { ShellAnimated } from './ui/ShellAnimated'
 
 interface BootScreenProps {
-  setShowLoading: Dispatch<SetStateAction<boolean>>
   setShowBootScreen: Dispatch<SetStateAction<boolean>>
 }
 
-const BootScreen = ({ setShowLoading, setShowBootScreen }: BootScreenProps) => {
+const BootScreen = ({ setShowBootScreen }: BootScreenProps) => {
   const handleAnimationComplete = () => {
     setTimeout(() => {
       setShowBootScreen(false)
-      console.log('completed')
     }, 1500)
   }
 
-  const finishAnimation = () => {
-    setShowBootScreen(false)
-    console.log('finished')
-  }
+  const finishAnimation = () => setShowBootScreen(false)
 
   return (
     <ShellAnimated
@@ -29,7 +24,7 @@ const BootScreen = ({ setShowLoading, setShowBootScreen }: BootScreenProps) => {
       onAnimationComplete={handleAnimationComplete}
       onClick={finishAnimation}
     >
-      <div // z-50
+      <div // z-10
         className="absolute bottom-0 left-0 right-0 top-0 z-10 bg-[rgba(255,0,0,0)] backdrop-blur-[1.2px]"
       />
       <h1 className={`${Concielian.className}`}>R</h1>

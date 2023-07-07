@@ -13,22 +13,19 @@ export default function Home() {
   const [showMainMenu, setShowMainMenu] = useState(false)
 
   return (
-    <>
-      <main className="relative h-screen w-screen bg-black text-zinc-100">
-        <Pattern />
-        <Vignette />
-        <AnimatePresence onExitComplete={() => setShowLoading(true)}>
-          {showBootScreen && (
-            <BootScreen {...{ setShowBootScreen, setShowLoading }} />
-          )}
-        </AnimatePresence>
+    <main className="relative h-screen w-screen bg-black text-zinc-100">
+      <Pattern />
+      <Vignette />
 
-        <AnimatePresence onExitComplete={() => setShowMainMenu(true)}>
-          {showLoading && <LoadingScreen {...{ setShowLoading }} />}
-        </AnimatePresence>
+      <AnimatePresence onExitComplete={() => setShowLoading(true)}>
+        {showBootScreen && <BootScreen {...{ setShowBootScreen }} />}
+      </AnimatePresence>
 
-        <AnimatePresence>{showMainMenu && <MainMenu />}</AnimatePresence>
-      </main>
-    </>
+      <AnimatePresence onExitComplete={() => setShowMainMenu(true)}>
+        {showLoading && <LoadingScreen {...{ setShowLoading }} />}
+      </AnimatePresence>
+
+      <AnimatePresence>{showMainMenu && <MainMenu />}</AnimatePresence>
+    </main>
   )
 }
