@@ -10,3 +10,10 @@ export const ArrayMaker = (quantity: number) => {
   for (let i = 0; i < quantity; i++) array.push(i)
   return array
 }
+
+// [0, 0, 1, 1, 1, 1, 0, 0],
+//   [1, 1, 0, 0, 1, 1, 0, 0],
+//   [0, 1, 0, 1, 1, 0, 1, 0],
+//   [0, 1, 1, 1, 1, 1, 1, 0],
+//   [0, 1, 0, 0, 0, 0, 1, 0],
+//   [0, 1, 0, 0, 1, 0, 1, 0],

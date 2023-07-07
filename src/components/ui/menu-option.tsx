@@ -1,12 +1,12 @@
 import { useTypingText } from '@/hooks/useTypingText'
 import { cn } from '@/lib/utils'
-import { FC, HTMLAttributes, ReactNode } from 'react'
+import { FC, HTMLAttributes, ReactNode, memo } from 'react'
 
 interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
 }
 
-const MenuOption: FC<MenuOptionsProps> = ({
+const MenuOptionComponent: FC<MenuOptionsProps> = ({
   children,
   className,
   ...props
@@ -39,4 +39,4 @@ const MenuOption: FC<MenuOptionsProps> = ({
   )
 }
 
-export { MenuOption }
+export const MenuOption = memo(MenuOptionComponent)

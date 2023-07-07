@@ -35,6 +35,7 @@ body::-webkit-scrollbar{
 
 .starBackground{
 	/* clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%); */
+	will-change: transform;
 }
 
 .glitchHeading {
