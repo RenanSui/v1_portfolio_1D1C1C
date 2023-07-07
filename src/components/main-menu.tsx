@@ -14,7 +14,7 @@ const MainMenu = () => {
 
   const onKeyPressed = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && showPressAny) setShowPressAny(false)
+      if (showPressAny) setShowPressAny(false)
       if (e.key === 'Escape' && showMenuOptions) setShowMenuOptions(false)
     },
     [showMenuOptions, showPressAny],
