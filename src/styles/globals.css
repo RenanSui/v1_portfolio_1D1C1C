@@ -28,10 +28,14 @@ body{
   scrollbar-width: none;  /* Firefox */
 }
 
+
 body::-webkit-scrollbar{
 	display: none;
 }
 
+.starBackground{
+	/* clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%); */
+}
 
 .glitchHeading {
   text-transform: uppercase;
