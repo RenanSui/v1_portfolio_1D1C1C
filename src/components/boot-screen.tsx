@@ -11,7 +11,7 @@ interface BootScreenProps {
 const BootScreen = ({ setShowBootScreen }: BootScreenProps) => {
   const handleAnimationComplete = () => {
     setTimeout(() => {
-      // setShowBootScreen(false)
+      setShowBootScreen(false)
     }, 1500)
   }
 
