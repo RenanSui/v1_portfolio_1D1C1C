@@ -138,7 +138,7 @@ const Stars = () => {
           return (
             <Star
               key={index}
-              className={`fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] ${StarsStyles[randomStar]}`}
+              className={`Star fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] ${StarsStyles[randomStar]}`}
               style={{
                 top: Math.floor(Math.random() * height),
                 left: Math.floor(Math.random() * width),
