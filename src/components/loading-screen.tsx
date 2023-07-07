@@ -71,12 +71,29 @@ const LoadingScreen = ({ setShowLoading }: ILoadingScreen) => {
 
   return (
     <>
+      <div // z-50
+        className={`pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-50 transition-all duration-500 ${
+          showLoadingState ? 'backdrop-blur-[1.2px]' : 'backdrop-blur-[5px]'
+        }`}
+      />
+
+      <div className="fixed bottom-0 left-0 right-0 top-0 z-10 backdrop-blur-[5px] transition-all" />
+      <ShellAnimated className="fixed left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2">
+        <p
+          className={`select-none text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all md:text-7xl ${RodinPro.className}`}
+        >
+          1D1C1C
+        </p>
+        <p className="select-none text-center text-nier-300">[ エラー ]</p>
+      </ShellAnimated>
+
       <ShellAnimated
-        className="absolute h-full w-full tracking-widest"
+        className="absolute z-20 h-full w-full tracking-widest"
         onAnimationComplete={handleAnimationComplete}
         onClick={finishAnimation}
       >
         <LoadingSpinner />
+
         <div className="p-8 sm:p-12 md:p-20 lg:px-24 lg:pt-24">
           <div className="relative flex cursor-default select-none flex-wrap items-center text-nier-100 ">
             <GlitchText
@@ -109,20 +126,6 @@ const LoadingScreen = ({ setShowLoading }: ILoadingScreen) => {
           )}
         </div>
       </ShellAnimated>
-      <div // z-50
-        className={`pointer-events-none fixed z-50 h-full w-full transition-all duration-500 ${
-          showLoadingState ? 'backdrop-blur-[1.2px]' : 'backdrop-blur-[5px]'
-        }`}
-      />
-      <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="absolute z-10 h-full w-full backdrop-blur-[3px]" />
-        <p
-          className={`select-none text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all md:text-7xl ${RodinPro.className}`}
-        >
-          1D1C1C
-        </p>
-        <p className="select-none text-center text-nier-300">[ エラー ]</p>
-      </div>
     </>
   )
 }
