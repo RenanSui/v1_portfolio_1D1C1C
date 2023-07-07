@@ -1,3 +1,4 @@
+import { useTypingText } from '@/hooks/useTypingText'
 import { cn } from '@/lib/utils'
 import { FC, HTMLAttributes, ReactNode } from 'react'
 
@@ -10,6 +11,12 @@ const MenuOption: FC<MenuOptionsProps> = ({
   className,
   ...props
 }) => {
+  const { word, start } = useTypingText(children as string, 20)
+
+  setTimeout(() => {
+    start()
+  }, 625)
+
   return (
     <div
       className="group flex w-full max-w-[280px] flex-col items-center"
@@ -21,7 +28,7 @@ const MenuOption: FC<MenuOptionsProps> = ({
           className,
         )}
       >
-        {children}
+        {word}
       </h1>
       <div className="flex items-center justify-center gap-1">
         <span className="h-[6px] w-[6px] rounded-full bg-nier-100 opacity-0 group-hover:opacity-100" />
