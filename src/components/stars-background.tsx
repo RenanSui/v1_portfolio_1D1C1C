@@ -56,97 +56,6 @@ const StarAnimations = [
   },
 ]
 
-const StarsRightAnimation = {
-  animationRightUpFast: {
-    x: [0, 80],
-    y: [0, -80],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-  animationRightDownFast: {
-    x: [0, 80],
-    y: [0, 80],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-  animationRightUpSlow: {
-    x: [0, 100],
-    y: [0, -20],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-  animationRightDownSlow: {
-    x: [0, 100],
-    y: [0, 20],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-}
-
-const StarsLeftAnimation = {
-  animationLeftUpFast: {
-    x: [0, -80],
-    y: [0, -80],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-  animationLeftDownFast: {
-    x: [0, -80],
-    y: [0, 80],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-  animationLeftUpSlow: {
-    x: [0, -100],
-    y: [0, -20],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-  animationLeftDownSlow: {
-    x: [0, -100],
-    y: [0, 20],
-    opacity: StarsOpacityAnimation,
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      repeatDelay: 5,
-    },
-  },
-}
-
-const starVariants = {
-  ...StarsRightAnimation,
-  ...StarsLeftAnimation,
-}
-
 const Stars = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
   const Array1000 = ArrayMaker(300)
@@ -187,7 +96,6 @@ const Stars = () => {
                 top: Math.floor(Math.random() * height),
                 left: Math.floor(Math.random() * width),
               }}
-              variants={starVariants}
               animate={
                 StarAnimations[
                   Math.floor(Math.random() * StarAnimations.length - 1)
