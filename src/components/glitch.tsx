@@ -23,7 +23,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
     <p
       ref={ref}
       className={cn(
-        'glich relative text-sm text-transparent sm:text-lg lg:text-xl',
+        'relative text-xs text-transparent sm:text-sm lg:text-lg',
         className,
       )}
       {...props}
@@ -42,7 +42,9 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
       >
         {word}
       </motion.span>
+      {/* Original Children */}
       {word}
+      {/* Original Children */}
       <motion.span
         initial={{ clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)' }}
         animate={{
