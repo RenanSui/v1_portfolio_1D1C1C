@@ -38,32 +38,26 @@ const LoadingTextContainer: Variants = {
 
 interface ILoadingScreen {
   setShowLoading: Dispatch<SetStateAction<boolean>>
-  setShowMainMenu: Dispatch<SetStateAction<boolean>>
 }
 
-const LoadingScreen = ({ setShowLoading, setShowMainMenu }: ILoadingScreen) => {
+const LoadingScreen = ({ setShowLoading }: ILoadingScreen) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
   const handleAnimationComplete = () => {
     setTimeout(() => {
       setShowLoadingState(true)
-    }, 1500)
+    }, 1000)
 
     setTimeout(() => {
       setShowLoading(false)
-      setShowMainMenu(true)
     }, 1000 * (LoadingState.length * 1.15))
   }
 
-  const handleEndAnimation = () => {
-    setShowLoading(false)
-    setShowMainMenu(true)
-  }
+  const handleEndAnimation = () => setShowLoading(false)
 
   return (
     <ShellAnimated
       className="absolute h-full w-full bg-nier-950 tracking-widest"
-      animate={{ opacity: 1, transition: { duration: 0.6 } }}
       onAnimationComplete={handleAnimationComplete}
       onClick={handleEndAnimation}
     >

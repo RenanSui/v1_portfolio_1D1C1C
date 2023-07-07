@@ -23,10 +23,8 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        <AnimatePresence>
-          {showLoading && (
-            <LoadingScreen {...{ setShowLoading, setShowMainMenu }} />
-          )}
+        <AnimatePresence onExitComplete={() => setShowMainMenu(true)}>
+          {showLoading && <LoadingScreen {...{ setShowLoading }} />}
         </AnimatePresence>
 
         <AnimatePresence>{showMainMenu && <MainMenu />}</AnimatePresence>
