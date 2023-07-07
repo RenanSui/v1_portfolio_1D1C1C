@@ -1,6 +1,6 @@
 'use client'
 import { Concielian } from '@/lib/fonts'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 import { Icons } from './icons'
 import { ShellAnimated } from './ui/ShellAnimated'
 
@@ -11,11 +11,19 @@ interface BootScreenProps {
 const BootScreen = ({ setShowBootScreen }: BootScreenProps) => {
   const handleAnimationComplete = () => {
     setTimeout(() => {
-      setShowBootScreen(false)
+      // setShowBootScreen(false)
     }, 1500)
   }
 
-  const finishAnimation = () => setShowBootScreen(false)
+  const finishAnimation = useCallback(
+    () => setShowBootScreen(false),
+    [setShowBootScreen],
+  )
+
+  useEffect(() => {
+    window.addEventListener('keydown', finishAnimation, true)
+    return () => window.removeEventListener('keydown', finishAnimation, true)
+  }, [finishAnimation])
 
   return (
     <ShellAnimated

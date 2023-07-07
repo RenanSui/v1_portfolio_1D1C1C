@@ -1,7 +1,13 @@
 'use client'
 import { RodinPro } from '@/lib/fonts'
 import { Variants } from 'framer-motion'
-import { Dispatch, SetStateAction, useState } from 'react'
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import { GlitchText } from './glitch'
 import { LoadingDots } from './loading-dots'
 import { LoadingSpinner } from './loading-spinner'
@@ -53,14 +59,22 @@ const LoadingScreen = ({ setShowLoading }: ILoadingScreen) => {
     }, 1000 * (LoadingState.length * 1.15))
   }
 
-  const handleEndAnimation = () => setShowLoading(false)
+  const finishAnimation = useCallback(
+    () => setShowLoading(false),
+    [setShowLoading],
+  )
+
+  useEffect(() => {
+    window.addEventListener('keydown', finishAnimation, true)
+    return () => window.removeEventListener('keydown', finishAnimation, true)
+  }, [finishAnimation])
 
   return (
     <>
       <ShellAnimated
         className="absolute h-full w-full tracking-widest"
         onAnimationComplete={handleAnimationComplete}
-        onClick={handleEndAnimation}
+        onClick={finishAnimation}
       >
         <LoadingSpinner />
         <div className="p-8 sm:p-12 md:p-20 lg:px-24 lg:pt-24">
