@@ -17,7 +17,7 @@ export default function Home() {
       <main className="relative h-screen w-screen bg-black text-zinc-100">
         <Pattern />
         <Vignette />
-        <AnimatePresence>
+        <AnimatePresence onExitComplete={() => setShowLoading(true)}>
           {showBootScreen && (
             <BootScreen {...{ setShowBootScreen, setShowLoading }} />
           )}
