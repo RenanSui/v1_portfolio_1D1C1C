@@ -13,12 +13,13 @@ const BootScreen = ({ setShowLoading, setShowBootScreen }: BootScreenProps) => {
   const handleAnimationComplete = () => {
     setTimeout(() => {
       setShowBootScreen(false)
-      setShowLoading(true)
+      console.log('completed')
     }, 1500)
   }
 
-  const handleEndAnimation = () => {
+  const finishAnimation = () => {
     setShowBootScreen(false)
+    console.log('finished')
   }
 
   return (
@@ -26,7 +27,7 @@ const BootScreen = ({ setShowLoading, setShowBootScreen }: BootScreenProps) => {
       className="absolute bottom-0 left-0 right-0 top-0 flex cursor-default select-none items-center justify-center bg-nier-100 text-9xl font-bold text-nier-900"
       animate={{ opacity: 1, transition: { duration: 0.6 } }}
       onAnimationComplete={handleAnimationComplete}
-      onClick={handleEndAnimation}
+      onClick={finishAnimation}
     >
       <div // z-50
         className="absolute bottom-0 left-0 right-0 top-0 z-10 bg-[rgba(255,0,0,0)] backdrop-blur-[1.2px]"
