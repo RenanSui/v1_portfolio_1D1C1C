@@ -115,9 +115,9 @@ const StarAnimations = [
 
 const Stars = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
-  const Array1000 = ArrayMaker(320)
-  const Array50 = ArrayMaker(50)
-  const Array30 = ArrayMaker(30)
+  const StarsQuantity320 = ArrayMaker(320)
+  const StarsQuantity50 = ArrayMaker(50)
+  const StarsQuantity30 = ArrayMaker(30)
   const width = screenSize.width
   const height = screenSize.height
 
@@ -142,7 +142,7 @@ const Stars = () => {
   return (
     <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 h-full w-full">
       <div className="starBackground fixed bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden ">
-        {Array1000.map((_, index) => {
+        {StarsQuantity320.map((_, index) => {
           const randomStar = Math.floor(Math.random() * StarsStyles.length)
           const AnimationDuration = Math.floor(Math.random() * 30)
 
@@ -168,7 +168,7 @@ const Stars = () => {
             />
           )
         })}
-        {Array30.map((_, index) => {
+        {StarsQuantity30.map((_, index) => {
           const randomStar = Math.floor(Math.random() * BigStarsStyles.length)
           const AnimationDuration = Math.floor(Math.random() * 100)
 
@@ -195,7 +195,7 @@ const Stars = () => {
             />
           )
         })}
-        {Array50.map((_, index) => {
+        {StarsQuantity50.map((_, index) => {
           const randomStar = Math.floor(
             Math.random() * BigStarsNoAnimation.length,
           )
