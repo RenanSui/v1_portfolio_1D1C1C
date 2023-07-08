@@ -2,15 +2,20 @@ import { RefObject, useEffect } from 'react'
 
 const useMenuSelectByMouse = (TextRef: RefObject<HTMLHeadingElement>) => {
   useEffect(() => {
+    const TextRefParent = TextRef.current?.parentElement || document
+
     const handleMouseOver = (e: Event) => {
       console.log(TextRef.current?.parentElement?.children)
-      const TextRefParent = TextRef.current?.parentElement
 
       if (TextRefParent) {
         for (let i = 0; i < TextRefParent.childElementCount; i++) {
           TextRefParent.children[i].setAttribute('data-active', 'false')
+
+          // Add Id to all Children
+          TextRefParent.children[i].setAttribute('id', `${i}`)
         }
       }
+
       if (TextRef.current) TextRef.current.setAttribute('data-active', 'true')
     }
 

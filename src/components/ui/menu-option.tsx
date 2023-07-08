@@ -44,9 +44,9 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
         {word}
       </h1>
       <div className="MenuLine flex items-center justify-center gap-1">
-        <span className="dot h-[6px] w-[6px] rounded-full bg-nier-100 opacity-0 group-hover:opacity-100" />
-        <span className="line h-[2px] w-0 bg-nier-100 transition-all duration-[30ms] group-hover:w-48 group-hover:md:w-72" />
-        <span className="dot h-[6px] w-[6px] rounded-full bg-nier-100 opacity-0 group-hover:opacity-100" />
+        <span className="dot h-[6px] w-[6px] rounded-full bg-nier-100 opacity-0" />
+        <span className="line h-[2px] w-0 bg-nier-100 opacity-0 transition-all duration-[30ms]" />
+        <span className="dot h-[6px] w-[6px] rounded-full bg-nier-100 opacity-0" />
       </div>
     </div>
   )

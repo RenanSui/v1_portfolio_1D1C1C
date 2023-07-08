@@ -9,6 +9,9 @@ const useMenuOptionsKeyboard = (ref: RefObject<HTMLDivElement>) => {
       if (ref.current) {
         for (let i = 0; i < ref.current.childElementCount; i++) {
           ref.current?.children[i].setAttribute('data-active', 'false')
+
+          // Add Id to all Children
+          ref.current?.children[i].setAttribute('id', `${i}`)
         }
       }
       ref.current?.children[MenuValue].setAttribute('data-active', 'true')

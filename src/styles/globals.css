@@ -66,10 +66,12 @@ div.MenuOption[data-active="true"] > .MenuLine > .dot {
 }
 div.MenuOption[data-active="true"] > .MenuLine > .line {
   width: 12rem;
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
   div.MenuOption[data-active="true"] > .MenuLine > .line {
     width: 18rem;
+    opacity: 1;
   }
 }
