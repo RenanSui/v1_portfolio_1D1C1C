@@ -115,11 +115,14 @@ const StarAnimations = [
 
 const Stars = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
-  const StarsQuantity320 = ArrayMaker(320)
-  const StarsQuantity50 = ArrayMaker(50)
-  const StarsQuantity30 = ArrayMaker(30)
   const width = screenSize.width
   const height = screenSize.height
+  const StarsQuantity320 = ArrayMaker(Math.floor(width / 6))
+  const StarsQuantity50 = ArrayMaker(Math.floor(width / 38))
+  const StarsQuantity30 = ArrayMaker(Math.floor(width / 64))
+  // const StarsQuantity320 = ArrayMaker(width < 640 ? 50 : 320)
+  // const StarsQuantity50 = ArrayMaker(width < 640 ? 20 : 50)
+  // const StarsQuantity30 = ArrayMaker(width < 640 ? 10 : 30)
 
   function getCurrentDimension() {
     return {
