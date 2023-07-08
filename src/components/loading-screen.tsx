@@ -42,11 +42,11 @@ const LoadingTextContainer: Variants = {
   },
 }
 
-interface ILoadingScreen {
+interface LoadingScreenProps {
   setShowLoading: Dispatch<SetStateAction<boolean>>
 }
 
-const LoadingScreen = ({ setShowLoading }: ILoadingScreen) => {
+const LoadingScreen = ({ setShowLoading }: LoadingScreenProps) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
   const handleAnimationComplete = () => {

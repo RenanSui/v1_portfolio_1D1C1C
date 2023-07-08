@@ -115,7 +115,7 @@ const StarAnimations = [
 
 const Stars = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
-  const Array1000 = ArrayMaker(300)
+  const Array1000 = ArrayMaker(320)
   const Array50 = ArrayMaker(50)
   const Array30 = ArrayMaker(30)
   const width = screenSize.width
@@ -161,8 +161,8 @@ const Stars = () => {
               }
               transition={{
                 repeat: Infinity,
-                delay: Math.floor(Math.random() * 5),
-                repeatDelay: Math.floor(Math.random() * 5),
+                delay: Math.floor(Math.random() * 15),
+                repeatDelay: Math.floor(Math.random() * 30),
                 duration: AnimationDuration <= 3 ? 3 : AnimationDuration,
               }}
             />
@@ -225,7 +225,7 @@ const Stars = () => {
         })}
       </div>
       {/* <div className="absolute top-0 z-10 h-[45px] w-full backdrop-blur-[5px]" /> */}
-      <div className="absolute bottom-0 z-10 h-[100px] w-full backdrop-blur-[3px]" />
+      <div className="absolute bottom-0 z-10 h-[30px] w-full backdrop-blur-[3px] md:h-[100px]" />
     </div>
   )
 }

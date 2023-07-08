@@ -1,24 +1,38 @@
 import { RodinPro } from '@/lib/fonts'
 import { AnimatePresence } from 'framer-motion'
-import { useCallback, useEffect, useState } from 'react'
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import { StarsBackground } from './stars-background'
 import { ShellAnimated } from './ui/ShellAnimated'
 import { MenuOption } from './ui/menu-option'
 import { MenuOptions } from './ui/menu-options'
+import { PressAnyButton } from './ui/press-any-button'
 
-const MainMenu = () => {
+interface MainMenuProps {
+  setShowMainMenu: Dispatch<SetStateAction<boolean>>
+}
+
+const MainMenu = ({ setShowMainMenu }: MainMenuProps) => {
   const [showPressAny, setShowPressAny] = useState(true)
   const [showMenuOptions, setShowMenuOptions] = useState(false)
 
   const HandlePressAny = () => setShowPressAny(false)
-  const HandleExitGame = () => setShowMenuOptions(false)
+  const HandleExitGame = useCallback(() => {
+    setShowMainMenu(false)
+    // setShowMenuOptions(false)
+  }, [setShowMainMenu])
 
   const onKeyPressed = useCallback(
     (e: KeyboardEvent) => {
       if (showPressAny) HandlePressAny()
       if (e.key === 'Escape' && showMenuOptions) HandleExitGame()
     },
-    [showMenuOptions, showPressAny],
+    [HandleExitGame, showMenuOptions, showPressAny],
   )
 
   // linear-gradient(180deg,_hsla(231,_39%,_6%,_1)_0%,_hsla(222,_67%,_10%,_1)_60%,_hsla(199,_17%,_19%,_1)_90%,_hsla(105,_7%,_34%,_1)_100%)
@@ -50,12 +64,14 @@ const MainMenu = () => {
     >
       <StarsBackground />
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-10 bg-[rgba(255,0,0,0)] backdrop-blur-[0.7px]" />
+      {/* Maybe a bug below ?  */}
       <AnimatePresence onExitComplete={() => setShowMenuOptions(true)}>
         {showPressAny && (
           <div className="h-full w-full" onClick={HandlePressAny}>
             <ShellAnimated className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
               <MenuOptions>
-                <MenuOption>Press Any Button</MenuOption>
+                <PressAnyButton />
+                {/* <MenuOption>Press Any Button</MenuOption> */}
               </MenuOptions>
             </ShellAnimated>
           </div>

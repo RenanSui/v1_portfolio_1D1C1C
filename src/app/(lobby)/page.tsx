@@ -6,8 +6,8 @@ import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 export default function Home() {
-  const [showLoading, setShowLoading] = useState(false)
   const [showBootScreen, setShowBootScreen] = useState(true)
+  const [showLoading, setShowLoading] = useState(false)
   const [showMainMenu, setShowMainMenu] = useState(false)
 
   return (
@@ -20,7 +20,9 @@ export default function Home() {
         {showLoading && <LoadingScreen {...{ setShowLoading }} />}
       </AnimatePresence>
 
-      <AnimatePresence>{showMainMenu && <MainMenu />}</AnimatePresence>
+      <AnimatePresence onExitComplete={() => setShowBootScreen(true)}>
+        {showMainMenu && <MainMenu {...{ setShowMainMenu }} />}
+      </AnimatePresence>
     </main>
   )
 }
