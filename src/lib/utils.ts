@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from 'clsx'
+import { RefObject } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -11,9 +12,31 @@ export const ArrayMaker = (quantity: number) => {
   return array
 }
 
-// [0, 0, 1, 1, 1, 1, 0, 0],
-//   [1, 1, 0, 0, 1, 1, 0, 0],
-//   [0, 1, 0, 1, 1, 0, 1, 0],
-//   [0, 1, 1, 1, 1, 1, 1, 0],
-//   [0, 1, 0, 0, 0, 0, 1, 0],
-//   [0, 1, 0, 0, 1, 0, 1, 0],
+export const getDataAttribute = (attribute: string, initialValue: string) => {
+  const dataNavAttr = document.body.getAttribute(attribute)
+  const MenuItem = dataNavAttr || initialValue
+  // const MenuItem = dataNavAttr || '0'
+  return MenuItem
+}
+export const getRefAttribute = (
+  ref: RefObject<HTMLDivElement>,
+  attribute: string,
+  initialValue: string,
+) => {
+  const dataNavAttr = ref.current?.getAttribute(attribute)
+  const MenuItem = dataNavAttr || initialValue
+  // const MenuItem = dataNavAttr || '0'
+  return MenuItem
+}
+
+export const setBodyAttribute = (attribute: string, value: any) => {
+  document.body.setAttribute(attribute, String(value))
+}
+
+export const setRefAttribute = (
+  ref: RefObject<HTMLDivElement>,
+  attribute: string,
+  value: any,
+) => {
+  ref.current?.setAttribute(attribute, String(value))
+}

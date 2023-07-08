@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`bg-black ${inter.className}`}>
+      <body className={`bg-black ${inter.className}`} data-menu="0">
         {children}
         <Pattern />
         <Vignette />

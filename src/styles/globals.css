@@ -61,3 +61,15 @@ body::-webkit-scrollbar{
 
 }
 
+div.MenuOption[data-active="true"] > .MenuLine > .dot {
+  opacity: 1;
+}
+div.MenuOption[data-active="true"] > .MenuLine > .line {
+  width: 12rem;
+}
+
+@media (min-width: 768px) {
+  div.MenuOption[data-active="true"] > .MenuLine > .line {
+    width: 18rem;
+  }
+}

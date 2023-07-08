@@ -1,4 +1,5 @@
 'use client'
+
 import { BootScreen } from '@/components/boot-screen'
 import { LoadingScreen } from '@/components/loading-screen'
 import { MainMenu } from '@/components/main-menu'
