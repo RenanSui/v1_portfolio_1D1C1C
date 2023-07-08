@@ -1,3 +1,4 @@
+import { useMenuSelectByMouse } from '@/hooks/use-menu-select-mouse'
 import { useTextHackerEffect } from '@/hooks/use-text-hacker-effect'
 import { useTypingText } from '@/hooks/useTypingText'
 import { cn } from '@/lib/utils'
@@ -16,8 +17,10 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
 }) => {
   const { word, start } = useTypingText(children as string, 20)
   const TextRef = useRef<HTMLHeadingElement>(null)
+  const MenuOption = useRef<HTMLDivElement>(null)
 
   useTextHackerEffect(TextRef)
+  useMenuSelectByMouse(MenuOption)
 
   setTimeout(() => {
     start()
@@ -25,6 +28,7 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
 
   return (
     <div
+      ref={MenuOption}
       className={cn(
         'MenuOption group flex w-full max-w-[280px] flex-col items-center',
         className,

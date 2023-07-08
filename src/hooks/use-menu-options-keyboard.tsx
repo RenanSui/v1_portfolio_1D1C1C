@@ -9,9 +9,9 @@ const useMenuOptionsKeyboard = (ref: RefObject<HTMLDivElement>) => {
       if (ref.current) {
         for (let i = 0; i < ref.current.childElementCount; i++) {
           ref.current?.children[i].setAttribute('data-active', 'false')
-          ref.current?.children[MenuValue].setAttribute('data-active', 'true')
         }
       }
+      ref.current?.children[MenuValue].setAttribute('data-active', 'true')
     }
 
     const onKeyUpOrDown = (e: KeyboardEvent) => {
