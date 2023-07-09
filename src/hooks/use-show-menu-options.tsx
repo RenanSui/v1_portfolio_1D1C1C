@@ -1,4 +1,4 @@
-import { appScreenStates } from '@/app/(lobby)/page'
+import { ScreenStates } from '@/app/(lobby)/page'
 import {
   Dispatch,
   SetStateAction,
@@ -8,7 +8,7 @@ import {
 } from 'react'
 
 const useShowMenuOptions = (
-  setScreenState: Dispatch<SetStateAction<appScreenStates>>,
+  setScreenState: Dispatch<SetStateAction<ScreenStates>>,
 ) => {
   const [showMenuOptions, setShowMenuOptions] = useState(false)
 

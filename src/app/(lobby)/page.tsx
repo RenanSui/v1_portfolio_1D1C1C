@@ -6,10 +6,10 @@ import { MainMenu } from '@/components/main-menu'
 import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
-export type appScreenStates = 'boot-screen' | 'loading-screen' | 'menu-screen'
+export type ScreenStates = 'boot-screen' | 'loading-screen' | 'menu-screen'
 
 export default function Home() {
-  const [screenState, setScreenState] = useState<appScreenStates>('boot-screen')
+  const [screenState, setScreenState] = useState<ScreenStates>('boot-screen')
 
   return (
     <main className="relative h-screen w-screen text-zinc-100">

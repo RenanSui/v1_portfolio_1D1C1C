@@ -1,12 +1,12 @@
 'use client'
-import { appScreenStates } from '@/app/(lobby)/page'
+import { ScreenStates } from '@/app/(lobby)/page'
 import { Concielian } from '@/lib/fonts'
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 import { Icons } from './icons'
 import { ShellAnimated } from './ui/ShellAnimated'
 
 interface BootScreenProps {
-  setScreenState: Dispatch<SetStateAction<appScreenStates>>
+  setScreenState: Dispatch<SetStateAction<ScreenStates>>
 }
 
 const BootScreen = ({ setScreenState }: BootScreenProps) => {

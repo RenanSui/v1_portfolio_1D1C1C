@@ -1,4 +1,4 @@
-import { appScreenStates } from '@/app/(lobby)/page'
+import { ScreenStates } from '@/app/(lobby)/page'
 import { useMenuOptionsKeyboard } from '@/hooks/use-menu-options-keyboard'
 import { useShowMenuOptions } from '@/hooks/use-show-menu-options'
 import { useShowPressAny } from '@/hooks/use-show-press-any'
@@ -12,7 +12,7 @@ import { MenuOptions } from './ui/menu-options'
 import { PressAnyButton } from './ui/press-any-button'
 
 interface MainMenuProps {
-  setScreenState: Dispatch<SetStateAction<appScreenStates>>
+  setScreenState: Dispatch<SetStateAction<ScreenStates>>
 }
 
 const MainMenu = ({ setScreenState }: MainMenuProps) => {

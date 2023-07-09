@@ -1,5 +1,5 @@
 'use client'
-import { appScreenStates } from '@/app/(lobby)/page'
+import { ScreenStates } from '@/app/(lobby)/page'
 import { RodinPro } from '@/lib/fonts'
 import { Variants } from 'framer-motion'
 import {
@@ -44,7 +44,7 @@ const LoadingTextContainer: Variants = {
 }
 
 interface LoadingScreenProps {
-  setScreenState: Dispatch<SetStateAction<appScreenStates>>
+  setScreenState: Dispatch<SetStateAction<ScreenStates>>
 }
 
 const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
