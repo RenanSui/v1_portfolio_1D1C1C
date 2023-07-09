@@ -2,7 +2,6 @@ import { ScreenStates } from '@/app/(lobby)/page'
 import { useMenuOptionsKeyboard } from '@/hooks/use-menu-options-keyboard'
 import { useShowMenuOptions } from '@/hooks/use-show-menu-options'
 import { useShowPressAny } from '@/hooks/use-show-press-any'
-import { RodinPro } from '@/lib/fonts'
 import { AnimatePresence } from 'framer-motion'
 import { Dispatch, SetStateAction, useRef } from 'react'
 import { StarsBackground } from './stars-background'
@@ -23,11 +22,10 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
     useShowMenuOptions(setScreenState)
 
   useMenuOptionsKeyboard(MenuRef)
-  // useMenuOptionsMouse(MenuRef)
 
   return (
     <ShellAnimated
-      className={`flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em] ${RodinPro.className}`}
+      className={`flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em]`}
     >
       <StarsBackground />
 

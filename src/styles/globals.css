@@ -12,8 +12,8 @@ body::-webkit-scrollbar{
 	display: none;
 }
 
-/* TODO ?  Remove glitchHeading and Glitch classes and add to GlitchText on loading-screen */
+
 /* TODO ?  Remove inter font from (lobby)page.tsx and add RodinPro instead */
-/* TODO ?  Commit with message "remove unused globals.css classes" */
+
 
 

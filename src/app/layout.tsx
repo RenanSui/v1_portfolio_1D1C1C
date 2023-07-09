@@ -1,11 +1,9 @@
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Pattern } from '@/components/ui/pattern'
 import { Vignette } from '@/components/ui/vignette'
-import { Inter } from 'next/font/google'
+import { RodinPro } from '@/lib/fonts'
 import { ReactNode } from 'react'
 import '../styles/globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Renan Sui',
@@ -24,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`bg-black ${inter.className}`} data-menu="0">
+      <body className={`bg-black ${RodinPro.className}`} data-menu="0">
         {children}
         <Pattern />
         <Vignette />

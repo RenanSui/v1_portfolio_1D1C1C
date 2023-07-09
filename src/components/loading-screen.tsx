@@ -1,6 +1,5 @@
 'use client'
 import { ScreenStates } from '@/app/(lobby)/page'
-import { RodinPro } from '@/lib/fonts'
 import { Variants } from 'framer-motion'
 import {
   Dispatch,
@@ -81,7 +80,7 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
       <div className="fixed bottom-0 left-0 right-0 top-0 z-10 backdrop-blur-[5px] transition-all" />
       <ShellAnimated className="fixed left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2">
         <p
-          className={`select-none text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all md:text-7xl ${RodinPro.className}`}
+          className={`select-none text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all md:text-7xl `}
         >
           1D1C1C
         </p>
@@ -98,15 +97,13 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
         <div className="p-8 sm:p-12 md:p-20 lg:px-24 lg:pt-24">
           <div className="relative flex cursor-default select-none flex-wrap items-center text-nier-100 ">
             <GlitchText
-              className={`text-3xl font-medium uppercase tracking-[0.3em] sm:text-4xl lg:text-5xl ${RodinPro.className}`}
+              className={`text-3xl font-medium uppercase tracking-[0.3em] sm:text-4xl lg:text-5xl `}
               // shadow-[0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45,_0_0_3px_#FAF8EF]
               text="LOADING"
               index={-1}
             />
             <span className="ml-2 mr-2 mt-3">-</span>
-            <span
-              className={`self-end text-base font-semibold sm:text-lg ${RodinPro.className}`}
-            >
+            <span className={`self-end text-base font-semibold sm:text-lg `}>
               BOOTING SYSTEM
             </span>
             <span className="self-end sm:mb-[2px]">
