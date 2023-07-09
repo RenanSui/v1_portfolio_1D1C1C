@@ -10,16 +10,20 @@ interface BootScreenProps {
 }
 
 const BootScreen = ({ setScreenState }: BootScreenProps) => {
-  const handleAnimationComplete = () => {
-    setTimeout(() => {
-      setScreenState('loading-screen')
-    }, 1500)
-  }
+  const stateTimeout = setTimeout(() => {
+    setScreenState('loading-screen')
+  }, 2000)
 
-  const finishAnimation = useCallback(
-    () => setScreenState('loading-screen'),
-    [setScreenState],
-  )
+  // const handleAnimationComplete = () => {
+  //   const stateTimeout = setTimeout(() => {
+  //     setScreenState('loading-screen')
+  //   }, 1500)
+  // }
+
+  const finishAnimation = useCallback(() => {
+    setScreenState('loading-screen')
+    clearTimeout(stateTimeout)
+  }, [setScreenState, stateTimeout])
 
   useEffect(() => {
     window.addEventListener('keydown', finishAnimation, true)
@@ -30,7 +34,7 @@ const BootScreen = ({ setScreenState }: BootScreenProps) => {
     <ShellAnimated
       className="absolute bottom-0 left-0 right-0 top-0 flex cursor-default select-none items-center justify-center bg-nier-100 text-9xl font-bold text-nier-900"
       animate={{ opacity: 1, transition: { duration: 0.6 } }}
-      onAnimationComplete={handleAnimationComplete}
+      // onAnimationComplete={handleAnimationComplete}
       onClick={finishAnimation}
     >
       <div // z-10

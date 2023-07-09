@@ -50,20 +50,20 @@ interface LoadingScreenProps {
 const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
+  const stateTimeout = setTimeout(() => {
+    setScreenState('menu-screen')
+  }, 1000 * (LoadingState.length * 1.15))
+
   const handleAnimationComplete = () => {
     setTimeout(() => {
       setShowLoadingState(true)
     }, 1000)
-
-    setTimeout(() => {
-      setScreenState('menu-screen')
-    }, 1000 * (LoadingState.length * 1.15))
   }
 
-  const finishAnimation = useCallback(
-    () => setScreenState('menu-screen'),
-    [setScreenState],
-  )
+  const finishAnimation = useCallback(() => {
+    setScreenState('menu-screen')
+    clearTimeout(stateTimeout)
+  }, [setScreenState, stateTimeout])
 
   useEffect(() => {
     window.addEventListener('keydown', finishAnimation, true)
