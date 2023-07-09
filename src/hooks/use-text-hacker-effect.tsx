@@ -65,13 +65,15 @@ const useTextHackerEffect = (TextRef: RefObject<HTMLHeadingElement>) => {
       }, 30)
     }
 
-    const TextCurrent = TextRef.current || document
+    // const TextCurrent = TextRef.current || document
+    const TextParent =
+      TextRef.current?.parentElement || TextRef.current || document
 
-    TextCurrent.addEventListener('mouseover', handleMouseOver, true)
-    TextCurrent.addEventListener('mouseleave', handleMouseLeave, true)
+    TextParent.addEventListener('mouseover', handleMouseOver, true)
+    TextParent.addEventListener('mouseleave', handleMouseLeave, true)
     return () => {
-      TextCurrent.removeEventListener('mouseover', handleMouseOver, true)
-      TextCurrent.removeEventListener('mouseleave', handleMouseLeave, true)
+      TextParent.removeEventListener('mouseover', handleMouseOver, true)
+      TextParent.removeEventListener('mouseleave', handleMouseLeave, true)
     }
   }, [TextRef])
 
