@@ -33,7 +33,7 @@ const BootScreen = ({ setScreenState }: BootScreenProps) => {
   return (
     <ShellAnimated
       className="absolute bottom-0 left-0 right-0 top-0 flex cursor-default select-none items-center justify-center bg-nier-100 text-9xl font-bold text-nier-900"
-      animate={{ opacity: 1, transition: { duration: 0.6 } }}
+      animate={{ opacity: 1, transition: { duration: 1, delay: 0.3 } }}
       // onAnimationComplete={handleAnimationComplete}
       onClick={finishAnimation}
     >
