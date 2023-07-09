@@ -8,6 +8,9 @@ dependencies:
   '@t3-oss/env-nextjs':
     specifier: ^0.6.0
     version: 0.6.0(typescript@5.1.6)(zod@3.21.4)
+  '@total-typescript/ts-reset':
+    specifier: ^0.4.2
+    version: 0.4.2
   '@types/node':
     specifier: 20.3.1
     version: 20.3.1
@@ -363,6 +366,10 @@ packages:
       '@t3-oss/env-core': 0.6.0(typescript@5.1.6)(zod@3.21.4)
       typescript: 5.1.6
       zod: 3.21.4
+    dev: false
+
+  /@total-typescript/ts-reset@0.4.2:
+    resolution: {integrity: sha512-vqd7ZUDSrXFVT1n8b2kc3LnklncDQFPvR58yUS1kEP23/nHPAO9l1lMjUfnPrXYYk4Hj54rrLKMW5ipwk7k09A==}
     dev: false
 
   /@types/json-schema@7.0.12:

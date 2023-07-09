@@ -11,9 +11,3 @@ body{
 body::-webkit-scrollbar{
 	display: none;
 }
-
-
-/* TODO ?  Remove inter font from (lobby)page.tsx and add RodinPro instead */
-
-
-
