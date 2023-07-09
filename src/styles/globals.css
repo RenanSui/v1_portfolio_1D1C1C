@@ -2,76 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Concielian";
-  src: url("../../public/fonts/concielianjetexpand.ttf");
-}
-
-@font-face {
-  font-family: "RodinProM";
-  src: url("../../public/fonts/FOT-Rodin Pro M.otf");
-}
-
-@font-face {
-  font-family: "RodinProDB";
-  src: url("../../public/fonts/FOT-Rodin Pro DB.otf");
-}
-
-@font-face {
-  font-family: "RodinProL";
-  src: url("../../public/fonts/FOT-Rodin Pro L.otf");
-}
-
 body{
   -webkit-font-smoothing: antialiased;
 	-ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
-
 body::-webkit-scrollbar{
 	display: none;
 }
 
-.Star{
-	will-change: auto;
-}
+/* TODO ?  Remove glitchHeading and Glitch classes and add to GlitchText on loading-screen */
+/* TODO ?  Remove inter font from (lobby)page.tsx and add RodinPro instead */
+/* TODO ?  Commit with message "remove unused globals.css classes" */
 
-.glitchHeading {
-  text-transform: uppercase;
 
-  text-shadow: 
-    0.03em 0.03em 0.05em #91433B,
-    -0.03em -0.03em 0.05em #314E45,
-    0 0 3px #FAF8EF;
-}
-.glich {
-
-  text-shadow: 
-    0.03em 0.03em 0.05em #91433B,
-    -0.03em -0.03em 0.05em #314E45,
-}
-
-.stars1{
-  clip-path: polygon(0 0, 100% 0%, 100% 35%, 0 35%);
-}
-
-.stars2{
-  clip-path: polygon(0 35%, 100% 35%, 100% 45%, 0 45%);
-
-}
-
-div.MenuOption[data-active="true"] > .MenuLine > .dot {
-  opacity: 1;
-}
-div.MenuOption[data-active="true"] > .MenuLine > .line {
-  width: 12rem;
-  opacity: 1;
-}
-
-@media (min-width: 768px) {
-  div.MenuOption[data-active="true"] > .MenuLine > .line {
-    width: 18rem;
-    opacity: 1;
-  }
-}

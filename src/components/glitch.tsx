@@ -23,7 +23,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
     <p
       ref={ref}
       className={cn(
-        'relative text-xs text-transparent sm:text-sm lg:text-lg',
+        'relative text-xs text-transparent [text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45,_0_0_5px_#FAF8EF] sm:text-sm lg:text-lg',
         className,
       )}
       {...props}
@@ -38,7 +38,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
             repeatDelay: ((2 * Math.floor(Math.random() * 35)) / 40) * 10,
           },
         }}
-        className="absolute left-0 top-0 text-nier-100"
+        className="absolute left-0 top-0 text-nier-100 "
       >
         {word}
       </motion.span>
@@ -55,7 +55,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
             repeatDelay: ((2 * Math.floor(Math.random() * 35)) / 40) * 10,
           },
         }}
-        className="absolute left-0 top-0 text-nier-100"
+        className="absolute left-0 top-0 text-nier-100 "
       >
         {word}
       </motion.span>

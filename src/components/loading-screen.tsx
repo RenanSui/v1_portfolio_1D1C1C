@@ -98,7 +98,8 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
         <div className="p-8 sm:p-12 md:p-20 lg:px-24 lg:pt-24">
           <div className="relative flex cursor-default select-none flex-wrap items-center text-nier-100 ">
             <GlitchText
-              className={`glitchHeading text-3xl font-medium tracking-[0.3em] sm:text-4xl lg:text-5xl ${RodinPro.className}`}
+              className={`text-3xl font-medium uppercase tracking-[0.3em] sm:text-4xl lg:text-5xl ${RodinPro.className}`}
+              // shadow-[0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45,_0_0_3px_#FAF8EF]
               text="LOADING"
               index={-1}
             />
@@ -121,7 +122,13 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
               animate="animate"
             >
               {LoadingState.map((text, index) => {
-                return <GlitchText key={index} {...{ text, index }} />
+                return (
+                  <GlitchText
+                    key={index}
+                    {...{ text, index }}
+                    className="[text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45]"
+                  />
+                )
               })}
             </ShellAnimated>
           )}

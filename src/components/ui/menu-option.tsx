@@ -40,25 +40,37 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
       <h1
         ref={TextRef}
         className={
-          'pointer-events-none select-none text-lg text-nier-100 md:text-xl'
+          'pointer-events-none select-none text-lg text-nier-100 [text-shadow:_2px_2px_1px_rgba(48,42,36,0.5)] md:text-xl'
         }
         data-value={word}
         data-hidden={textHidden}
       >
         {word}
       </h1>
-      <div className="MenuLine pointer-events-none flex items-center justify-center gap-1">
+      <div className="MenuLine group pointer-events-none flex items-center justify-center gap-1">
         <span
           className={`dot h-[6px] w-[6px] rounded-full bg-nier-100 
-          ${showLine ? 'opacity-100' : 'opacity-0'}`}
+          ${
+            showLine
+              ? 'opacity-100'
+              : 'opacity-0 group-data-[active=true]:opacity-100'
+          }`}
         />
         <span
-          className={`line h-[2px] bg-nier-100 transition-all duration-[30ms] 
-          ${showLine ? 'w-48 opacity-100 md:w-72' : 'w-0 opacity-0'}`}
+          className={`text- line h-[2px] bg-nier-100 transition-all duration-[30ms] 
+          ${
+            showLine
+              ? 'w-48 opacity-100 md:w-72'
+              : 'w-0 opacity-0 group-data-[active=true]:w-48 group-data-[active=true]:opacity-100 group-data-[active=true]:md:w-72'
+          }`}
         />
         <span
           className={`dot h-[6px] w-[6px] rounded-full bg-nier-100 
-          ${showLine ? 'opacity-100' : 'opacity-0'}`}
+          ${
+            showLine
+              ? 'opacity-100'
+              : 'opacity-0 group-data-[active=true]:opacity-100'
+          }`}
         />
       </div>
     </div>

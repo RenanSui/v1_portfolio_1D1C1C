@@ -144,7 +144,7 @@ const Stars = () => {
 
   return (
     <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 h-full w-full">
-      <div className="starBackground fixed bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden ">
+      <div className="fixed bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden ">
         {StarsSmall.map((_, index) => {
           const randomStar = Math.floor(Math.random() * StarsStyles.length)
           const AnimationDuration = Math.floor(Math.random() * 30)
@@ -152,7 +152,7 @@ const Stars = () => {
           return (
             <Star
               key={index}
-              className={`Star fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] ${StarsStyles[randomStar]}`}
+              className={`fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto ${StarsStyles[randomStar]}`}
               style={{
                 top: Math.floor(Math.random() * height),
                 left: Math.floor(Math.random() * width),
@@ -171,6 +171,7 @@ const Stars = () => {
             />
           )
         })}
+
         {StarsBig.map((_, index) => {
           const randomStar = Math.floor(Math.random() * BigStarsStyles.length)
           const AnimationDuration = Math.floor(Math.random() * 100)
@@ -179,7 +180,7 @@ const Stars = () => {
             <Star
               key={`B${index}`}
               // key={index * -1}
-              className={`Star fixed bg-nier-50 ${BigStarsStyles[randomStar]}`}
+              className={`fixed bg-nier-50 will-change-auto ${BigStarsStyles[randomStar]}`}
               style={{
                 top: Math.floor(Math.random() * height),
                 left: Math.floor(Math.random() * width),
@@ -198,6 +199,7 @@ const Stars = () => {
             />
           )
         })}
+
         {StarsMedium.map((_, index) => {
           const randomStar = Math.floor(
             Math.random() * BigStarsNoAnimation.length,
@@ -207,7 +209,7 @@ const Stars = () => {
           return (
             <Star
               key={`C${index}`}
-              className={`Star fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] ${BigStarsNoAnimation[randomStar]}`}
+              className={`fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto ${BigStarsNoAnimation[randomStar]}`}
               style={{
                 top: Math.floor(Math.random() * height),
                 left: Math.floor(Math.random() * width),
