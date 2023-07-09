@@ -9,7 +9,6 @@ import { StarsBackground } from './stars-background'
 import { ShellAnimated } from './ui/ShellAnimated'
 import { MenuOption } from './ui/menu-option'
 import { MenuOptions } from './ui/menu-options'
-import { PressAnyButton } from './ui/press-any-button'
 
 interface MainMenuProps {
   setScreenState: Dispatch<SetStateAction<ScreenStates>>
@@ -17,6 +16,7 @@ interface MainMenuProps {
 
 const MainMenu = ({ setScreenState }: MainMenuProps) => {
   const MenuRef = useRef<HTMLDivElement>(null)
+  const PressAnyRef = useRef<HTMLDivElement>(null)
 
   const { HandlePressAny, setShowPressAny, showPressAny } = useShowPressAny()
   const { showMenuOptions, setShowMenuOptions, handleExitToAny } =
@@ -35,10 +35,10 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         {showPressAny && (
           <div className="h-full w-full" onClick={HandlePressAny}>
             <ShellAnimated className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
-              <MenuOptions className="flex flex-col gap-3">
-                <PressAnyButton textHidden={'Menu'}>
+              <MenuOptions className="flex flex-col gap-3" ref={PressAnyRef}>
+                <MenuOption textHidden={'Main Menu'} showLine>
                   Press Any Button
-                </PressAnyButton>
+                </MenuOption>
               </MenuOptions>
             </ShellAnimated>
           </div>
