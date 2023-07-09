@@ -1,4 +1,5 @@
 'use client'
+import { appScreenStates } from '@/app/(lobby)/page'
 import { RodinPro } from '@/lib/fonts'
 import { Variants } from 'framer-motion'
 import {
@@ -43,10 +44,10 @@ const LoadingTextContainer: Variants = {
 }
 
 interface LoadingScreenProps {
-  setShowLoading: Dispatch<SetStateAction<boolean>>
+  setScreenState: Dispatch<SetStateAction<appScreenStates>>
 }
 
-const LoadingScreen = ({ setShowLoading }: LoadingScreenProps) => {
+const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
 
   const handleAnimationComplete = () => {
@@ -55,13 +56,13 @@ const LoadingScreen = ({ setShowLoading }: LoadingScreenProps) => {
     }, 1000)
 
     setTimeout(() => {
-      setShowLoading(false)
+      setScreenState('menu-screen')
     }, 1000 * (LoadingState.length * 1.15))
   }
 
   const finishAnimation = useCallback(
-    () => setShowLoading(false),
-    [setShowLoading],
+    () => setScreenState('menu-screen'),
+    [setScreenState],
   )
 
   useEffect(() => {

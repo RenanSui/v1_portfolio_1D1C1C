@@ -1,23 +1,24 @@
 'use client'
+import { appScreenStates } from '@/app/(lobby)/page'
 import { Concielian } from '@/lib/fonts'
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 import { Icons } from './icons'
 import { ShellAnimated } from './ui/ShellAnimated'
 
 interface BootScreenProps {
-  setShowBootScreen: Dispatch<SetStateAction<boolean>>
+  setScreenState: Dispatch<SetStateAction<appScreenStates>>
 }
 
-const BootScreen = ({ setShowBootScreen }: BootScreenProps) => {
+const BootScreen = ({ setScreenState }: BootScreenProps) => {
   const handleAnimationComplete = () => {
     setTimeout(() => {
-      setShowBootScreen(false)
+      setScreenState('loading-screen')
     }, 1500)
   }
 
   const finishAnimation = useCallback(
-    () => setShowBootScreen(false),
-    [setShowBootScreen],
+    () => setScreenState('loading-screen'),
+    [setScreenState],
   )
 
   useEffect(() => {

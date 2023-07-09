@@ -1,3 +1,4 @@
+import { appScreenStates } from '@/app/(lobby)/page'
 import {
   Dispatch,
   SetStateAction,
@@ -7,14 +8,19 @@ import {
 } from 'react'
 
 const useShowMenuOptions = (
-  setShowMainMenu: Dispatch<SetStateAction<boolean>>,
+  setScreenState: Dispatch<SetStateAction<appScreenStates>>,
 ) => {
   const [showMenuOptions, setShowMenuOptions] = useState(false)
 
   const handleExitToDesktop = useCallback(() => {
-    setShowMainMenu(false)
-  }, [setShowMainMenu])
-  const handleExitToAny = () => setShowMenuOptions(false)
+    setScreenState('boot-screen')
+  }, [setScreenState])
+
+  const handleExitToAny = useCallback(
+    () => setScreenState('boot-screen'),
+    [setScreenState],
+  )
+  // const handleExitToAny = () => setShowMenuOptions(false)
 
   useEffect(() => {
     const onKeyPressed = (e: KeyboardEvent) => {
@@ -24,7 +30,7 @@ const useShowMenuOptions = (
 
     window.addEventListener('keydown', onKeyPressed, true)
     return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [showMenuOptions])
+  }, [handleExitToAny, showMenuOptions])
 
   return {
     showMenuOptions,
