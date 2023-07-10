@@ -2,26 +2,27 @@ import { RefObject, useEffect } from 'react'
 
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-const useTextHackerEffect = (TextRef: RefObject<HTMLHeadingElement>) => {
+const useTextHackerEffect = (MenuOptionRef: RefObject<HTMLHeadingElement>) => {
+  const currentElement = MenuOptionRef.current
+  const textContainer = currentElement?.children[0] as HTMLHeadingElement
+
   useEffect(() => {
     const handleMouseOver = (e: Event) => {
-      // console.log(e)
       let iterations = 0
-      const maxIteration = TextRef.current?.dataset.hidden?.length || 10
+      const maxIteration = textContainer.dataset.hidden?.length || 10
 
       const interval = setInterval(() => {
-        // if (TextRef.current) {
-        if (TextRef.current?.dataset.hidden) {
-          // TextRef.current.innerText = TextRef.current.innerText
-          TextRef.current.innerText = TextRef.current?.dataset.hidden
+
+        if (textContainer.dataset.hidden) {
+          textContainer.innerText = textContainer.dataset.hidden
             .split('')
             .map((letter, index) => {
               if (
                 index < iterations &&
-                TextRef.current &&
-                TextRef.current.dataset.hidden
+                textContainer &&
+                textContainer.dataset.hidden
               ) {
-                return TextRef.current.dataset.hidden[index]
+                return textContainer.dataset.hidden[index]
               }
 
               return letters[Math.floor(Math.random() * 26)]
@@ -37,21 +38,19 @@ const useTextHackerEffect = (TextRef: RefObject<HTMLHeadingElement>) => {
 
     const handleMouseLeave = (e: Event) => {
       let iterations = 0
-      const maxIteration = TextRef.current?.dataset.value?.length || 10
+      const maxIteration = textContainer.dataset.value?.length || 10
 
       const interval = setInterval(() => {
-        // if (TextRef.current) {
-        if (TextRef.current?.dataset.value) {
-          // TextRef.current.innerText = TextRef.current.innerText
-          TextRef.current.innerText = TextRef.current?.dataset.value
+        if (textContainer.dataset.value) {
+          textContainer.innerText = textContainer.dataset.value
             .split('')
             .map((letter, index) => {
               if (
                 index < iterations &&
-                TextRef.current &&
-                TextRef.current.dataset.value
+                textContainer &&
+                textContainer.dataset.value
               ) {
-                return TextRef.current.dataset.value[index]
+                return textContainer.dataset.value[index]
               }
 
               return letters[Math.floor(Math.random() * 26)]
@@ -65,17 +64,13 @@ const useTextHackerEffect = (TextRef: RefObject<HTMLHeadingElement>) => {
       }, 30)
     }
 
-    // const TextCurrent = TextRef.current || document
-    const TextParent =
-      TextRef.current?.parentElement || TextRef.current || document
-
-    TextParent.addEventListener('mouseover', handleMouseOver, true)
-    TextParent.addEventListener('mouseleave', handleMouseLeave, true)
+    currentElement?.addEventListener('mouseover', handleMouseOver, true)
+    currentElement?.addEventListener('mouseleave', handleMouseLeave, true)
     return () => {
-      TextParent.removeEventListener('mouseover', handleMouseOver, true)
-      TextParent.removeEventListener('mouseleave', handleMouseLeave, true)
+      currentElement?.removeEventListener('mouseover', handleMouseOver, true)
+      currentElement?.removeEventListener('mouseleave', handleMouseLeave, true)
     }
-  }, [TextRef])
+  }, [])
 
   return {}
 }

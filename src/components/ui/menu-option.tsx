@@ -22,7 +22,9 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
   const TextRef = useRef<HTMLHeadingElement>(null)
   const MenuOptionRef = useRef<HTMLDivElement>(null)
 
-  useTextHackerEffect(TextRef)
+  // Fix TEXTEF to use MENUOPTIONREF
+  // useTextHackerEffect(TextRef)
+  useTextHackerEffect(MenuOptionRef)
   useMenuSelectByMouse(MenuOptionRef)
 
   setTimeout(() => {
