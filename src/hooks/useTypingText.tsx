@@ -23,8 +23,8 @@ const useTypingText = (words: string, keySpeed = 1000) => {
       if (wordIndex === words.length) return
 
       setWordIndex((prev) => prev + 1)
-      const segmentedWord = words[wordIndex] && words[wordIndex].split('')
-      setCurrentWord(currentWord.concat(segmentedWord))
+      const segmentedWord = words[wordIndex] ? words[wordIndex]?.split('') : ['']
+      if (segmentedWord) setCurrentWord(currentWord.concat(segmentedWord))
     }
 
     return () => {
