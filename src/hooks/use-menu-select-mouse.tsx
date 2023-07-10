@@ -1,30 +1,24 @@
 import { RefObject, useEffect } from 'react'
 
-const useMenuSelectByMouse = (TextRef: RefObject<HTMLHeadingElement>) => {
+const useMenuSelectByMouse = (MenuOptionRef: RefObject<HTMLElement>) => {
   useEffect(() => {
-    const TextRefParent = TextRef.current?.parentElement || document
+    const currentElement = MenuOptionRef.current
+    const parentElement = MenuOptionRef.current?.parentElement
 
     const handleMouseOver = (e: Event) => {
-      console.log(TextRef.current?.parentElement?.children)
-
-      if (TextRefParent) {
-        for (let i = 0; i < TextRefParent.childElementCount; i++) {
-          TextRefParent.children[i].setAttribute('data-active', 'false')
+      if (parentElement) {
+        for (let i = 0; i < parentElement.childElementCount; i++) {
+          parentElement.children[i]?.setAttribute('data-active', 'false')
 
           // Add Id to all Children
-          TextRefParent.children[i].setAttribute('id', `${i}`)
+          parentElement.children[i]?.setAttribute('data-option-id', `${i}`)
         }
       }
 
-      if (TextRef.current) TextRef.current.setAttribute('data-active', 'true')
+      if (MenuOptionRef.current) MenuOptionRef.current.setAttribute('data-active', 'true')
     }
 
-    // const handleMouseLeave = (e: Event) => {
-    //   console.log(e)
-    //   if (TextRef.current) TextRef.current.setAttribute('data-active', 'false')
-    // }
-
-    const TextCurrent = TextRef.current || document
+    const TextCurrent = currentElement || document
 
     TextCurrent.addEventListener('mouseover', handleMouseOver, true)
     // TextCurrent.addEventListener('mouseleave', handleMouseLeave, true)
@@ -32,7 +26,7 @@ const useMenuSelectByMouse = (TextRef: RefObject<HTMLHeadingElement>) => {
       TextCurrent.removeEventListener('mouseover', handleMouseOver, true)
       // TextCurrent.removeEventListener('mouseleave', handleMouseLeave, true)
     }
-  }, [TextRef])
+  }, [MenuOptionRef])
 
   return {}
 }

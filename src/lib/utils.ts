@@ -1,5 +1,4 @@
 import { clsx, type ClassValue } from 'clsx'
-import { RefObject } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -12,31 +11,37 @@ export const ArrayMaker = (quantity: number) => {
   return array
 }
 
-export const getDataAttribute = (attribute: string, initialValue: string) => {
+export const getBodyDataAttribute = (attribute: string, initialValue: string) => {
   const dataNavAttr = document.body.getAttribute(attribute)
   const MenuItem = dataNavAttr || initialValue
-  // const MenuItem = dataNavAttr || '0'
-  return MenuItem
-}
-export const getRefAttribute = (
-  ref: RefObject<HTMLDivElement>,
-  attribute: string,
-  initialValue: string,
-) => {
-  const dataNavAttr = ref.current?.getAttribute(attribute)
-  const MenuItem = dataNavAttr || initialValue
-  // const MenuItem = dataNavAttr || '0'
   return MenuItem
 }
 
-export const setBodyAttribute = (attribute: string, value: any) => {
+export const getRefAttribute = (
+
+  ref: HTMLElement,
+  attribute: string,
+  initialValue: string,
+) => {
+  const dataNavAttr = ref?.getAttribute(attribute)
+  if(!dataNavAttr) {
+    setRefAttribute(ref, attribute, initialValue)
+    const dataNavAttr = ref?.getAttribute(attribute)
+    const MenuItem = dataNavAttr || initialValue
+    return MenuItem
+  }
+  const MenuItem = dataNavAttr || initialValue
+  return MenuItem
+}
+
+export const setBodyAttribute = (attribute: string, value: string) => {
   document.body.setAttribute(attribute, String(value))
 }
 
 export const setRefAttribute = (
-  ref: RefObject<HTMLDivElement>,
+  ref: HTMLElement,
   attribute: string,
   value: any,
 ) => {
-  ref.current?.setAttribute(attribute, String(value))
+  ref?.setAttribute(attribute, String(value))
 }

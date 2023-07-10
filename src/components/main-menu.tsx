@@ -1,5 +1,5 @@
 import { ScreenStates } from '@/app/(lobby)/page'
-import { useMenuOptionsKeyboard } from '@/hooks/use-menu-options-keyboard'
+// import { useMenuOptionsKeyboard } from '@/hooks/use-menu-options-keyboard'
 import { useShowMenuOptions } from '@/hooks/use-show-menu-options'
 import { useShowPressAny } from '@/hooks/use-show-press-any'
 import { AnimatePresence } from 'framer-motion'
@@ -14,14 +14,14 @@ interface MainMenuProps {
 }
 
 const MainMenu = ({ setScreenState }: MainMenuProps) => {
-  const MenuRef = useRef<HTMLDivElement>(null)
-  const PressAnyRef = useRef<HTMLDivElement>(null)
+  // const MenuRef = useRef<HTMLDivElement>(null)
+  // const PressAnyRef = useRef<HTMLDivElement>(null)
 
   const { HandlePressAny, setShowPressAny, showPressAny } = useShowPressAny()
   const { showMenuOptions, setShowMenuOptions, handleExitToAny } =
     useShowMenuOptions(setScreenState)
 
-  useMenuOptionsKeyboard(MenuRef)
+  // useMenuOptionsKeyboard(MenuRef)
 
   return (
     <ShellAnimated
@@ -33,7 +33,8 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         {showPressAny && (
           <div className="h-full w-full" onClick={HandlePressAny}>
             <ShellAnimated className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
-              <MenuOptions className="flex flex-col gap-3" ref={PressAnyRef}>
+              {/* <MenuOptions className="flex flex-col gap-3" ref={PressAnyRef}> */}
+              <MenuOptions className="flex flex-col gap-3">
                 <MenuOption textHidden={'Main Menu'} showLine>
                   Press Any Button
                 </MenuOption>
@@ -46,7 +47,8 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
       <AnimatePresence onExitComplete={() => setShowPressAny(true)}>
         {showMenuOptions && (
           <ShellAnimated className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
-            <MenuOptions className="flex flex-col gap-3" ref={MenuRef}>
+            {/* <MenuOptions className="flex flex-col gap-3" ref={MenuRef}> */}
+            <MenuOptions className="flex flex-col gap-3">
               <MenuOption textHidden={'About Me'} data-active="true">
                 Continue
               </MenuOption>

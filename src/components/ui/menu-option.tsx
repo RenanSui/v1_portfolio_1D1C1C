@@ -15,14 +15,15 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
   textHidden,
   className,
   showLine,
+  onClick,
   ...props
 }) => {
   const { word, start } = useTypingText(children as string, 20)
   const TextRef = useRef<HTMLHeadingElement>(null)
-  const MenuOption = useRef<HTMLDivElement>(null)
+  const MenuOptionRef = useRef<HTMLDivElement>(null)
 
   useTextHackerEffect(TextRef)
-  useMenuSelectByMouse(MenuOption)
+  useMenuSelectByMouse(MenuOptionRef)
 
   setTimeout(() => {
     start()
@@ -30,11 +31,12 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
 
   return (
     <div
-      ref={MenuOption}
+      ref={MenuOptionRef}
       className={cn(
         'MenuOption group flex w-full max-w-[280px] flex-col items-center',
         className,
       )}
+      onClick={onClick}
       {...props}
     >
       <h1
@@ -42,7 +44,7 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
         className={
           'pointer-events-none select-none text-lg text-nier-100 [text-shadow:_2px_2px_1px_rgba(48,42,36,0.5)] md:text-xl'
         }
-        data-value={word}
+        data-value={children as string}
         data-hidden={textHidden}
       >
         {word}

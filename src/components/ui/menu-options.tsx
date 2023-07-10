@@ -1,6 +1,7 @@
 'use client'
+import { useMenuSelectByKeyboard } from '@/hooks/use-menu-select-keyboard'
 import { cn } from '@/lib/utils'
-import { HTMLAttributes, ReactNode, forwardRef } from 'react'
+import { HTMLAttributes, ReactNode, forwardRef, useRef } from 'react'
 
 interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
@@ -9,15 +10,19 @@ interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
 
 const MenuOptions = forwardRef<HTMLDivElement, MenuOptionsProps>(
   ({ children, className, layout = 'default', ...props }, ref) => {
+    const MenuRef = useRef<HTMLDivElement>(null)
+
+    useMenuSelectByKeyboard(MenuRef)
+
     return (
       <div
-        ref={ref}
+        ref={MenuRef}
         className={cn(
           '',
           layout === 'default' && '',
           layout === 'full' && 'h-full w-full',
           layout === 'centered' &&
-            'flex h-full w-full flex-col items-center justify-center',
+          'flex h-full w-full flex-col items-center justify-center',
           className,
         )}
         {...props}
