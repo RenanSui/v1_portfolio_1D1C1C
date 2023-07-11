@@ -53,16 +53,15 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
     setScreenState('menu-screen')
   }, 1000 * (LoadingState.length * 1.15))
 
-  const handleAnimationComplete = () => {
-    setTimeout(() => {
-      setShowLoadingState(true)
-    }, 1000)
-  }
+  const loadingState = setTimeout(() => {
+    setShowLoadingState(true)
+  }, 2000)
 
   const finishAnimation = useCallback(() => {
     setScreenState('menu-screen')
     clearTimeout(stateTimeout)
-  }, [setScreenState, stateTimeout])
+    clearTimeout(loadingState)
+  }, [setScreenState, stateTimeout, loadingState])
 
   useEffect(() => {
     window.addEventListener('keydown', finishAnimation, true)
@@ -89,7 +88,6 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
 
       <ShellAnimated
         className="absolute z-20 h-full w-full tracking-widest"
-        onAnimationComplete={handleAnimationComplete}
         onClick={finishAnimation}
       >
         <LoadingSpinner />

@@ -22,7 +22,7 @@ const MenuOptions = forwardRef<HTMLDivElement, MenuOptionsProps>(
           layout === 'default' && '',
           layout === 'full' && 'h-full w-full',
           layout === 'centered' &&
-          'flex h-full w-full flex-col items-center justify-center',
+            'flex h-full w-full flex-col items-center justify-center',
           className,
         )}
         {...props}

@@ -12,7 +12,6 @@ const useTextHackerEffect = (MenuOptionRef: RefObject<HTMLHeadingElement>) => {
       const maxIteration = textContainer.dataset.hidden?.length || 10
 
       const interval = setInterval(() => {
-
         if (textContainer.dataset.hidden) {
           textContainer.innerText = textContainer.dataset.hidden
             .split('')
@@ -70,7 +69,7 @@ const useTextHackerEffect = (MenuOptionRef: RefObject<HTMLHeadingElement>) => {
       currentElement?.removeEventListener('mouseover', handleMouseOver, true)
       currentElement?.removeEventListener('mouseleave', handleMouseLeave, true)
     }
-  }, [])
+  }, [currentElement, textContainer])
 
   return {}
 }

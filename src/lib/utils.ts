@@ -11,20 +11,22 @@ export const ArrayMaker = (quantity: number) => {
   return array
 }
 
-export const getBodyDataAttribute = (attribute: string, initialValue: string) => {
+export const getBodyDataAttribute = (
+  attribute: string,
+  initialValue: string,
+) => {
   const dataNavAttr = document.body.getAttribute(attribute)
   const MenuItem = dataNavAttr || initialValue
   return MenuItem
 }
 
 export const getRefAttribute = (
-
   ref: HTMLElement,
   attribute: string,
   initialValue: string,
 ) => {
   const dataNavAttr = ref?.getAttribute(attribute)
-  if(!dataNavAttr) {
+  if (!dataNavAttr) {
     setRefAttribute(ref, attribute, initialValue)
     const dataNavAttr = ref?.getAttribute(attribute)
     const MenuItem = dataNavAttr || initialValue

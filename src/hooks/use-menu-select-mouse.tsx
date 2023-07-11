@@ -15,7 +15,8 @@ const useMenuSelectByMouse = (MenuOptionRef: RefObject<HTMLElement>) => {
         }
       }
 
-      if (MenuOptionRef.current) MenuOptionRef.current.setAttribute('data-active', 'true')
+      if (MenuOptionRef.current)
+        MenuOptionRef.current.setAttribute('data-active', 'true')
     }
 
     const TextCurrent = currentElement || document
