@@ -13,19 +13,19 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-screen text-zinc-100">
-      <AnimatePresence onExitComplete={() => setScreenState('loading-screen')}>
+      <AnimatePresence>
         {screenState === 'boot-screen' && (
           <BootScreen {...{ setScreenState }} />
         )}
       </AnimatePresence>
 
-      <AnimatePresence onExitComplete={() => setScreenState('menu-screen')}>
+      <AnimatePresence>
         {screenState === 'loading-screen' && (
           <LoadingScreen {...{ setScreenState }} />
         )}
       </AnimatePresence>
 
-      <AnimatePresence onExitComplete={() => setScreenState('boot-screen')}>
+      <AnimatePresence>
         {screenState === 'menu-screen' && <MainMenu {...{ setScreenState }} />}
       </AnimatePresence>
     </main>

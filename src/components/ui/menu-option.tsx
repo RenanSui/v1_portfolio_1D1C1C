@@ -19,11 +19,8 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
   ...props
 }) => {
   const { word, start } = useTypingText(children as string, 20)
-  const TextRef = useRef<HTMLHeadingElement>(null)
   const MenuOptionRef = useRef<HTMLDivElement>(null)
 
-  // Fix TEXTEF to use MENUOPTIONREF
-  // useTextHackerEffect(TextRef)
   useTextHackerEffect(MenuOptionRef)
   useMenuSelectByMouse(MenuOptionRef)
 
@@ -42,7 +39,6 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
       {...props}
     >
       <h1
-        ref={TextRef}
         className={
           'pointer-events-none select-none text-lg text-nier-100 [text-shadow:_2px_2px_1px_rgba(48,42,36,0.5)] md:text-xl'
         }
