@@ -1,6 +1,11 @@
 import { ArrayMaker } from '@/lib/utils'
 import { memo, useEffect, useState } from 'react'
+import { OptionStates } from './main-menu'
 import { Star } from './ui/star'
+
+interface StarsProps {
+  optionState: OptionStates
+}
 
 const StarsStyles = ['h-[1px] w-[1px]', 'h-[2px] w-[2px]', 'h-[3px] w-[3px]']
 const BigStarsStyles = [
@@ -113,7 +118,7 @@ const StarAnimations = [
   },
 ]
 
-const Stars = () => {
+const Stars = ({ optionState }: StarsProps) => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
   const width = screenSize.width
   const height = screenSize.height
@@ -142,89 +147,92 @@ const Stars = () => {
   return (
     <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 h-full w-full">
       <div className="fixed bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden ">
-        {StarsSmall.map((_, index) => {
-          const randomStar = Math.floor(Math.random() * StarsStyles.length)
-          const AnimationDuration = Math.floor(Math.random() * 30)
+        {optionState === '' &&
+          StarsSmall.map((_, index) => {
+            const randomStar = Math.floor(Math.random() * StarsStyles.length)
+            const AnimationDuration = Math.floor(Math.random() * 30)
 
-          return (
-            <Star
-              key={index}
-              className={`fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto ${StarsStyles[randomStar]}`}
-              style={{
-                top: Math.floor(Math.random() * height),
-                left: Math.floor(Math.random() * width),
-              }}
-              animate={
-                StarAnimations[
-                  Math.floor(Math.random() * StarAnimations.length - 1)
-                ]
-              }
-              transition={{
-                repeat: Infinity,
-                delay: Math.floor(Math.random() * 15),
-                repeatDelay: Math.floor(Math.random() * 30),
-                duration: AnimationDuration <= 3 ? 3 : AnimationDuration,
-              }}
-            />
-          )
-        })}
+            return (
+              <Star
+                key={index}
+                className={`fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto ${StarsStyles[randomStar]}`}
+                style={{
+                  top: Math.floor(Math.random() * height),
+                  left: Math.floor(Math.random() * width),
+                }}
+                animate={
+                  StarAnimations[
+                    Math.floor(Math.random() * StarAnimations.length - 1)
+                  ]
+                }
+                transition={{
+                  repeat: Infinity,
+                  delay: Math.floor(Math.random() * 15),
+                  repeatDelay: Math.floor(Math.random() * 30),
+                  duration: AnimationDuration <= 3 ? 3 : AnimationDuration,
+                }}
+              />
+            )
+          })}
 
-        {StarsMedium.map((_, index) => {
-          const randomStar = Math.floor(
-            Math.random() * BigStarsNoAnimation.length,
-          )
-          const AnimationDuration = Math.floor(Math.random() * 30)
+        {optionState === '' &&
+          StarsMedium.map((_, index) => {
+            const randomStar = Math.floor(
+              Math.random() * BigStarsNoAnimation.length,
+            )
+            const AnimationDuration = Math.floor(Math.random() * 30)
 
-          return (
-            <Star
-              key={`C${index}`}
-              className={`fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto ${BigStarsNoAnimation[randomStar]}`}
-              style={{
-                top: Math.floor(Math.random() * height),
-                left: Math.floor(Math.random() * width),
-              }}
-              animate={
-                StarAnimations[
-                  Math.floor(Math.random() * StarAnimations.length - 1)
-                ]
-              }
-              transition={{
-                repeat: Infinity,
-                delay: Math.floor(Math.random() * 5),
-                repeatDelay: Math.floor(Math.random() * 5),
-                duration: AnimationDuration <= 3 ? 3 : AnimationDuration,
-              }}
-            />
-          )
-        })}
+            return (
+              <Star
+                key={`C${index}`}
+                className={`fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto ${BigStarsNoAnimation[randomStar]}`}
+                style={{
+                  top: Math.floor(Math.random() * height),
+                  left: Math.floor(Math.random() * width),
+                }}
+                animate={
+                  StarAnimations[
+                    Math.floor(Math.random() * StarAnimations.length - 1)
+                  ]
+                }
+                transition={{
+                  repeat: Infinity,
+                  delay: Math.floor(Math.random() * 5),
+                  repeatDelay: Math.floor(Math.random() * 5),
+                  duration: AnimationDuration <= 3 ? 3 : AnimationDuration,
+                }}
+              />
+            )
+          })}
 
-        {StarsBig.map((_, index) => {
-          const randomStar = Math.floor(Math.random() * BigStarsStyles.length)
-          const AnimationDuration = Math.floor(Math.random() * 100)
+        {optionState === '' &&
+          StarsBig.map((_, index) => {
+            const randomStar = Math.floor(Math.random() * BigStarsStyles.length)
+            const AnimationDuration = Math.floor(Math.random() * 100)
 
-          return (
-            <Star
-              key={`B${index}`}
-              // key={index * -1}
-              className={`fixed bg-nier-50 will-change-auto ${BigStarsStyles[randomStar]}`}
-              style={{
-                top: Math.floor(Math.random() * height),
-                left: Math.floor(Math.random() * width),
-              }}
-              animate={{
-                x: width,
-                y: -height,
-                opacity: [0, 1, 1, 1, 1, 1, 1, 0, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                delay: Math.floor(Math.random() * 15),
-                repeatDelay: Math.floor(Math.random() * 5),
-                duration: AnimationDuration,
-              }}
-            />
-          )
-        })}
+            return (
+              <Star
+                key={`B${index}`}
+                // key={index * -1}
+                className={`fixed bg-nier-50 will-change-auto ${BigStarsStyles[randomStar]}`}
+                style={{
+                  top: Math.floor(Math.random() * height),
+                  left: Math.floor(Math.random() * width),
+                }}
+                animate={{
+                  x: width,
+                  y: -height,
+                  opacity: [0, 1, 1, 1, 1, 1, 1, 0, 0],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  delay: Math.floor(Math.random() * 15),
+                  repeatDelay: Math.floor(Math.random() * 5),
+                  duration: AnimationDuration,
+                }}
+              />
+            )
+          })}
       </div>
 
       <div className="absolute bottom-0 z-10 h-[30px] w-full backdrop-blur-[3px] md:h-[100px]" />

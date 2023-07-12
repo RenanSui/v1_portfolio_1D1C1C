@@ -30,8 +30,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
       <ShellAnimated
         className={`flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em]`}
       >
-        {/* {optionState === '' && <StarsBackground />} */}
-        <StarsBackground />
+        <StarsBackground {...{ optionState }} />
 
         <AnimatePresence>
           {menuState === 'press-any' && (
@@ -79,6 +78,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
             <ShellAnimated
               className="z-10 h-full w-full"
               animate={{ opacity: 1, transition: { delay: 0, duration: 0.3 } }}
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
             >
               {optionState === 'continue' && (
                 <AboutMe {...{ setMenuState, setOptionState }} />
