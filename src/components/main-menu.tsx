@@ -74,7 +74,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
           )}
         </AnimatePresence>
 
-        {/* <AnimatePresence>
+        <AnimatePresence>
           {optionState !== '' && (
             <ShellAnimated
               className="z-10 h-full w-full"
@@ -88,7 +88,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
               )}
             </ShellAnimated>
           )}
-        </AnimatePresence> */}
+        </AnimatePresence>
 
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-50 bg-[rgba(255,0,0,0)] backdrop-blur-[0.8px]" />
       </ShellAnimated>
