@@ -16,13 +16,15 @@ const BootScreen = ({ setScreenState }: BootScreenProps) => {
 
   const finishAnimation = useCallback(() => {
     setScreenState('loading-screen')
-    clearTimeout(stateTimeout)
-  }, [setScreenState, stateTimeout])
+  }, [setScreenState])
 
   useEffect(() => {
     window.addEventListener('keydown', finishAnimation, true)
-    return () => window.removeEventListener('keydown', finishAnimation, true)
-  }, [finishAnimation])
+    return () => {
+      window.removeEventListener('keydown', finishAnimation, true)
+      clearTimeout(stateTimeout)
+    }
+  }, [finishAnimation, stateTimeout])
 
   return (
     <ShellAnimated

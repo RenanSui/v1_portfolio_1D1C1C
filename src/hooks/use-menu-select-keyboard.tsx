@@ -67,7 +67,10 @@ const useMenuSelectByKeyboard = (MenuRef: RefObject<HTMLElement>) => {
 
     const handleKeyboard = (e: KeyboardEvent) => {
       if (MenuRef.current) {
-        if (e.key === 'Enter') handleElementClickEvent()
+        if (e.key === 'Enter' || e.key === 'e' || e.key === 'f') {
+          handleElementClickEvent()
+        }
+
         if (e.key === 'ArrowUp') handleArrowUp()
         if (e.key === 'ArrowDown') handleArrowDown()
       }

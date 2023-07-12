@@ -1,22 +1,12 @@
 import { ScreenStates } from '@/app/(lobby)/page'
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { MenuStates } from '@/components/main-menu'
+import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 
 const useShowMenuOptions = (
+  menuState: MenuStates,
   setScreenState: Dispatch<SetStateAction<ScreenStates>>,
 ) => {
-  const [showMenuOptions, setShowMenuOptions] = useState(false)
-
-  const handleExitToDesktop = useCallback(() => {
-    setScreenState('boot-screen')
-  }, [setScreenState])
-
-  const handleExitToAny = useCallback(
+  const handleExitGame = useCallback(
     () => setScreenState('boot-screen'),
     [setScreenState],
   )
@@ -24,19 +14,15 @@ const useShowMenuOptions = (
 
   useEffect(() => {
     const onKeyPressed = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && showMenuOptions) handleExitToAny()
-      // if (e.key !== 'Escape' && showMenuOptions) handleExitToAny()
+      if (e.key === 'Escape' && menuState === 'menu') handleExitGame()
     }
 
     window.addEventListener('keydown', onKeyPressed, true)
     return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [handleExitToAny, showMenuOptions])
+  }, [handleExitGame, menuState])
 
   return {
-    showMenuOptions,
-    setShowMenuOptions,
-    handleExitToAny,
-    handleExitToDesktop,
+    handleExitGame,
   }
 }
 

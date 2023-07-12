@@ -117,12 +117,9 @@ const Stars = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
   const width = screenSize.width
   const height = screenSize.height
-  const StarsSmall = ArrayMaker(Math.floor(width / 8))
+  const StarsSmall = ArrayMaker(Math.floor(width / 10))
   const StarsMedium = ArrayMaker(Math.floor(width / 38))
   const StarsBig = ArrayMaker(Math.floor(width / 64))
-  // const StarsQuantity320 = ArrayMaker(width < 640 ? 50 : 320)
-  // const StarsQuantity50 = ArrayMaker(width < 640 ? 20 : 50)
-  // const StarsQuantity30 = ArrayMaker(width < 640 ? 10 : 30)
 
   function getCurrentDimension() {
     return {
@@ -172,34 +169,6 @@ const Stars = () => {
           )
         })}
 
-        {StarsBig.map((_, index) => {
-          const randomStar = Math.floor(Math.random() * BigStarsStyles.length)
-          const AnimationDuration = Math.floor(Math.random() * 100)
-
-          return (
-            <Star
-              key={`B${index}`}
-              // key={index * -1}
-              className={`fixed bg-nier-50 will-change-auto ${BigStarsStyles[randomStar]}`}
-              style={{
-                top: Math.floor(Math.random() * height),
-                left: Math.floor(Math.random() * width),
-              }}
-              animate={{
-                x: width,
-                y: -height,
-                opacity: [0, 1, 1, 1, 1, 1, 1, 0, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                delay: Math.floor(Math.random() * 15),
-                repeatDelay: Math.floor(Math.random() * 5),
-                duration: AnimationDuration,
-              }}
-            />
-          )
-        })}
-
         {StarsMedium.map((_, index) => {
           const randomStar = Math.floor(
             Math.random() * BigStarsNoAnimation.length,
@@ -228,8 +197,36 @@ const Stars = () => {
             />
           )
         })}
+
+        {StarsBig.map((_, index) => {
+          const randomStar = Math.floor(Math.random() * BigStarsStyles.length)
+          const AnimationDuration = Math.floor(Math.random() * 100)
+
+          return (
+            <Star
+              key={`B${index}`}
+              // key={index * -1}
+              className={`fixed bg-nier-50 will-change-auto ${BigStarsStyles[randomStar]}`}
+              style={{
+                top: Math.floor(Math.random() * height),
+                left: Math.floor(Math.random() * width),
+              }}
+              animate={{
+                x: width,
+                y: -height,
+                opacity: [0, 1, 1, 1, 1, 1, 1, 0, 0],
+              }}
+              transition={{
+                repeat: Infinity,
+                delay: Math.floor(Math.random() * 15),
+                repeatDelay: Math.floor(Math.random() * 5),
+                duration: AnimationDuration,
+              }}
+            />
+          )
+        })}
       </div>
-      {/* <div className="absolute top-0 z-10 h-[45px] w-full backdrop-blur-[5px]" /> */}
+
       <div className="absolute bottom-0 z-10 h-[30px] w-full backdrop-blur-[3px] md:h-[100px]" />
     </div>
   )

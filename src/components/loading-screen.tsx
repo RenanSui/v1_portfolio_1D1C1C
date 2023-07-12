@@ -51,6 +51,7 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
 
   const stateTimeout = setTimeout(() => {
     setScreenState('menu-screen')
+    console.log('rodou!')
   }, 1000 * (LoadingState.length * 1.15))
 
   const loadingState = setTimeout(() => {
@@ -59,14 +60,16 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
 
   const finishAnimation = useCallback(() => {
     setScreenState('menu-screen')
-    clearTimeout(stateTimeout)
-    clearTimeout(loadingState)
-  }, [setScreenState, stateTimeout, loadingState])
+  }, [setScreenState])
 
   useEffect(() => {
     window.addEventListener('keydown', finishAnimation, true)
-    return () => window.removeEventListener('keydown', finishAnimation, true)
-  }, [finishAnimation])
+    return () => {
+      window.removeEventListener('keydown', finishAnimation, true)
+      clearTimeout(stateTimeout)
+      clearTimeout(loadingState)
+    }
+  }, [finishAnimation, loadingState, stateTimeout])
 
   return (
     <>

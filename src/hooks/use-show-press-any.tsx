@@ -1,19 +1,21 @@
-import { useEffect, useState } from 'react'
+import { MenuStates } from '@/components/main-menu'
+import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 
-const useShowPressAny = () => {
-  const [showPressAny, setShowPressAny] = useState(true)
-
-  const HandlePressAny = () => setShowPressAny(false)
+const useShowPressAny = (
+  menuState: MenuStates,
+  setMenuState: Dispatch<SetStateAction<MenuStates>>,
+) => {
+  const HandlePressAny = useCallback(() => setMenuState('menu'), [setMenuState])
 
   useEffect(() => {
     const onKeyPressed = (e: KeyboardEvent) => {
-      if (showPressAny) HandlePressAny()
+      if (menuState === 'press-any') HandlePressAny()
     }
 
     window.addEventListener('keydown', onKeyPressed, true)
     return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [showPressAny])
-  return { showPressAny, setShowPressAny, HandlePressAny }
+  }, [HandlePressAny, menuState])
+  return { HandlePressAny }
 }
 
 export { useShowPressAny }
