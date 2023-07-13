@@ -33,6 +33,12 @@ const StarAnimations = [
     opacity: StarsOpacityAnimation,
   },
   {
+    // animationType: 'RightUpFast',
+    x: [0, 160],
+    y: [0, -160],
+    opacity: StarsOpacityAnimation,
+  },
+  {
     // animationType: 'RightDownFast',
     x: [0, 40],
     y: [0, 40],
@@ -42,6 +48,12 @@ const StarAnimations = [
     // animationType: 'RightDownFast',
     x: [0, 80],
     y: [0, 80],
+    opacity: StarsOpacityAnimation,
+  },
+  {
+    // animationType: 'RightDownFast',
+    x: [0, 160],
+    y: [0, 160],
     opacity: StarsOpacityAnimation,
   },
   {
@@ -81,6 +93,12 @@ const StarAnimations = [
     opacity: StarsOpacityAnimation,
   },
   {
+    // animationType: 'LeftUpFast',
+    x: [0, -160],
+    y: [0, -160],
+    opacity: StarsOpacityAnimation,
+  },
+  {
     // animationType: 'LeftDownFast',
     x: [0, -40],
     y: [0, 40],
@@ -90,6 +108,12 @@ const StarAnimations = [
     // animationType: 'LeftDownFast',
     x: [0, -80],
     y: [0, 80],
+    opacity: StarsOpacityAnimation,
+  },
+  {
+    // animationType: 'LeftDownFast',
+    x: [0, -160],
+    y: [0, 160],
     opacity: StarsOpacityAnimation,
   },
   {
