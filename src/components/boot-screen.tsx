@@ -12,7 +12,7 @@ interface BootScreenProps {
 const BootScreen = ({ setScreenState }: BootScreenProps) => {
   const stateTimeout = setTimeout(() => {
     setScreenState('loading-screen')
-  }, 2000)
+  }, 3000)
 
   const finishAnimation = useCallback(() => {
     setScreenState('loading-screen')
