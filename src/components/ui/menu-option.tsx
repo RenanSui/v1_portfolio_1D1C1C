@@ -3,6 +3,7 @@ import { useTextHackerEffect } from '@/hooks/use-text-hacker-effect'
 import { useTypingText } from '@/hooks/useTypingText'
 import { cn } from '@/lib/utils'
 import { FC, HTMLAttributes, ReactNode, memo, useRef } from 'react'
+import { GlitchText } from '../glitch'
 
 interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
@@ -38,15 +39,17 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
       onClick={onClick}
       {...props}
     >
-      <h1
+      <GlitchText
         className={
           'pointer-events-none select-none text-lg text-nier-100 [text-shadow:_2px_2px_1px_rgba(48,42,36,0.5)] md:text-xl'
         }
+        index={0}
+        text={children as string}
         data-value={children as string}
         data-hidden={textHidden}
       >
         {word}
-      </h1>
+      </GlitchText>
       <div className="MenuLine group pointer-events-none flex items-center justify-center gap-1">
         <span
           className={`dot h-[6px] w-[6px] rounded-full bg-nier-100 

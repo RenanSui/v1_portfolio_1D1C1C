@@ -12,7 +12,7 @@ interface GlitchTextProps extends React.HTMLAttributes<HTMLParagraphElement> {
 const GlitchText: FC<GlitchTextProps> = forwardRef<
   HTMLParagraphElement,
   GlitchTextProps
->(({ children, className, text, index, ...props }, ref) => {
+>(({ children, className, text, index = 0, ...props }, ref) => {
   const { word, start } = useTypingText(text, index === -1 ? 0 : 30)
 
   setTimeout(() => {
