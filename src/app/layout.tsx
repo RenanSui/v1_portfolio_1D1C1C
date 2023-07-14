@@ -8,6 +8,7 @@ import '../styles/globals.css'
 export const metadata = {
   title: 'Renan Sui',
   description: "Renan Sui's Personal Portfolio",
+  metadataBase: new URL('https://renansui.vercel.app'),
   icons: {
     icon: 'images/favicon.ico',
     shortcut: 'images/favicon.ico',
