@@ -23,7 +23,11 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
   const [optionState, setOptionState] = useState<OptionStates>('')
 
   const { HandlePressAny } = useShowPressAny(menuState, setMenuState)
-  const { handleExitGame } = useShowMenuOptions(menuState, setScreenState)
+  const { handleExitGame } = useShowMenuOptions(
+    menuState,
+    optionState,
+    setScreenState,
+  )
 
   return (
     <AnimatePresence>
@@ -55,13 +59,13 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                   data-active="true"
                   onClick={() => setOptionState('continue')}
                 >
-                  Continue
+                  About Me
                 </MenuOption>
                 <MenuOption
                   textHidden={'Projects'}
                   onClick={() => setOptionState('new-game')}
                 >
-                  New Game
+                  Projects
                 </MenuOption>
                 <MenuOption textHidden={'Nothing'}>Settings</MenuOption>
                 <MenuOption textHidden={'Nothing'}>License</MenuOption>
