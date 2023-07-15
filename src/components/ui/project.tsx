@@ -6,15 +6,15 @@ const ProjectShell = ({
   href,
 }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
-    <section className="group h-[145px] w-full text-lg">
-      <a
+    <section className="group flex h-[145px] w-full cursor-default flex-col gap-3 text-lg sm:flex-row md:gap-4">
+      {/* <a
         href={href}
         target="_blank"
         className="flex cursor-default flex-col gap-3 sm:flex-row md:gap-4"
         rel="noreferrer"
-      >
-        {children}
-      </a>
+      > */}
+      {children}
+      {/* </a> */}
     </section>
   )
 }
@@ -23,7 +23,7 @@ const ProjectImage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={`${cn(
-        'relative h-[145px] w-[260px] bg-zinc-300 bg-cover bg-center group-hover:animate-pulse',
+        'relative h-[145px] w-[260px] bg-zinc-300 bg-cover bg-left-top group-hover:animate-pulse',
         className,
       )}`}
     >

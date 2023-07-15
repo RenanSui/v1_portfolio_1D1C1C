@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body, .projects{
   -webkit-font-smoothing: antialiased;
 	-ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar, .projects::-webkit-scrollbar{
 	display: none;
 }

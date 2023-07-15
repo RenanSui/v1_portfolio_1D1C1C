@@ -27,8 +27,8 @@ export const LoadingState = [
   'Accessibility: Error',
   'Equipment Authentication: Complete',
   'Equipment Status: Green',
-  'Initializing API Connection',
   'Initializing Server',
+  'Initializing API Connection',
   'All Systems Green',
   'Systems Preparations Complete',
 ]
@@ -51,7 +51,6 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
 
   const stateTimeout = setTimeout(() => {
     setScreenState('menu-screen')
-    console.log('rodou!')
   }, 1000 * (LoadingState.length * 1.15))
 
   const loadingState = setTimeout(() => {
@@ -99,7 +98,6 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
           <div className="relative flex cursor-default select-none flex-wrap items-center text-nier-100 ">
             <GlitchText
               className={`text-3xl font-medium uppercase tracking-[0.3em] sm:text-4xl lg:text-5xl `}
-              // shadow-[0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45,_0_0_3px_#FAF8EF]
               text="LOADING"
               index={-1}
             />
