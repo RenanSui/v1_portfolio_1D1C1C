@@ -34,8 +34,13 @@ const ProjectItem: FC<ProjectItemProps> = ({
   return (
     <div className="flex flex-col" {...props} title={description}>
       <ProjectShell href="https://ren-weatherapp.vercel.app">
-        <a href={liveDemoLink} className="cursor-default">
-          <ProjectImage className={`w-[300px] ${imagePreview}`} />
+        <a
+          href={liveDemoLink}
+          className="cursor-default"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <ProjectImage className={`projectImage ${imagePreview}`} />
         </a>
         <ProjectContent>
           <ProjectHeader>

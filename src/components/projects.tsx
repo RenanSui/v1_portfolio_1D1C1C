@@ -87,7 +87,7 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
         </div>
       </div>
 
-      <div className="mx-12 mt-16 flex h-[80px] w-[95%] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)]">
+      <div className="mx-12 mt-16 hidden h-[80px] w-[95%] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
         <div className="flex gap-2">
           <div className="h-full w-[15px] bg-nier-700" />
           <div className="h-full w-[5px] bg-nier-700" />

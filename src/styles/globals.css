@@ -11,3 +11,7 @@ body, .projects{
 body::-webkit-scrollbar, .projects::-webkit-scrollbar{
 	display: none;
 }
+
+.projectImage{
+  filter: sepia(100%) hue-rotate(10deg) grayscale(50%) brightness(120%);
+}

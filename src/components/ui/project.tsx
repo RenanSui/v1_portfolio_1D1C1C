@@ -27,7 +27,7 @@ const ProjectImage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
         className,
       )}`}
     >
-      <div className="absolute -left-6 top-1/2 z-50 h-4 w-4 -translate-y-1/2 rotate-45 bg-nier-700 opacity-0 group-hover:opacity-100"></div>
+      <div className="absolute -left-6 top-1/2 z-50 h-4 w-4 -translate-y-1/2 rotate-45 bg-nier-700 opacity-0 group-hover:opacity-100" />
     </div>
   )
 }
