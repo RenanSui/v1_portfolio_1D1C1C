@@ -7,7 +7,7 @@ const useShowMenuOptions = (
   optionState: OptionStates,
   setScreenState: Dispatch<SetStateAction<ScreenStates>>,
 ) => {
-  const handleExitGame = useCallback(
+  const exitMainMenu = useCallback(
     () => setScreenState('boot-screen'),
     [setScreenState],
   )
@@ -16,15 +16,15 @@ const useShowMenuOptions = (
   useEffect(() => {
     const onKeyPressed = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && menuState === 'menu' && optionState !== '')
-        handleExitGame()
+        exitMainMenu()
     }
 
     window.addEventListener('keydown', onKeyPressed, true)
     return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [handleExitGame, menuState, optionState])
+  }, [exitMainMenu, menuState, optionState])
 
   return {
-    handleExitGame,
+    exitMainMenu,
   }
 }
 

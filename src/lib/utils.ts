@@ -5,19 +5,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const ArrayMaker = (quantity: number) => {
+export const arrayMaker = (quantity: number) => {
   const array = []
   for (let i = 0; i < quantity; i++) array.push(i)
   return array
-}
-
-export const getBodyDataAttribute = (
-  attribute: string,
-  initialValue: string,
-) => {
-  const dataNavAttr = document.body.getAttribute(attribute)
-  const MenuItem = dataNavAttr || initialValue
-  return MenuItem
 }
 
 export const getRefAttribute = (
@@ -34,10 +25,6 @@ export const getRefAttribute = (
   }
   const MenuItem = dataNavAttr || initialValue
   return MenuItem
-}
-
-export const setBodyAttribute = (attribute: string, value: string) => {
-  document.body.setAttribute(attribute, String(value))
 }
 
 export const setRefAttribute = (

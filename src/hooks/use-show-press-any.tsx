@@ -5,17 +5,17 @@ const useShowPressAny = (
   menuState: MenuStates,
   setMenuState: Dispatch<SetStateAction<MenuStates>>,
 ) => {
-  const HandlePressAny = useCallback(() => setMenuState('menu'), [setMenuState])
+  const exitPressAny = useCallback(() => setMenuState('menu'), [setMenuState])
 
   useEffect(() => {
     const onKeyPressed = (e: KeyboardEvent) => {
-      if (menuState === 'press-any') HandlePressAny()
+      if (menuState === 'press-any') exitPressAny()
     }
 
     window.addEventListener('keydown', onKeyPressed, true)
     return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [HandlePressAny, menuState])
-  return { HandlePressAny }
+  }, [exitPressAny, menuState])
+  return { exitPressAny }
 }
 
 export { useShowPressAny }

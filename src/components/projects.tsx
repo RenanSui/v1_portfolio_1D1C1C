@@ -70,24 +70,24 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
     >
       <LinePattern variant={'top'} />
 
-      <h1 className="mx-12 mb-12 mt-20 cursor-default text-5xl font-semibold tracking-[0.2em] text-nier-700 [text-shadow:_6px_6px_0px_rgba(166,161,136,1)]">
+      <h1 className="mx-3 mb-6 mt-12 cursor-default text-4xl font-semibold tracking-[0.2em] text-nier-700 [text-shadow:_6px_6px_0px_rgba(166,161,136,1)] md:mx-12 md:mb-12 md:mt-20 md:text-5xl">
         PROJECTS
       </h1>
 
-      <div className="mx-12 flex h-fit gap-8">
+      <div className="mx-3 flex h-fit gap-4 md:mx-12">
         <div className="flex gap-2">
           <div className="h-full w-[15px] bg-nier-400" />
           <div className="h-full w-[5px] bg-nier-400" />
         </div>
 
-        <div className="projects flex max-h-[62vh] flex-col gap-16 overflow-y-scroll">
+        <div className="projects flex max-h-[70vh] flex-col gap-16 overflow-y-scroll md:max-h-[62vh]">
           {projectsDB.map((project) => {
             return <ProjectItem key={project.id} project={project} />
           })}
         </div>
       </div>
 
-      <div className="mx-12 mt-16 hidden h-[80px] w-[95%] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
+      <div className="mx-12 mt-16 hidden h-[80px] w-[95%] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] lg:flex">
         <div className="flex gap-2">
           <div className="h-full w-[15px] bg-nier-700" />
           <div className="h-full w-[5px] bg-nier-700" />

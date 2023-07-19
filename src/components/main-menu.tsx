@@ -22,8 +22,8 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
   const [menuState, setMenuState] = useState<MenuStates>('press-any')
   const [optionState, setOptionState] = useState<OptionStates>('')
 
-  const { HandlePressAny } = useShowPressAny(menuState, setMenuState)
-  const { handleExitGame } = useShowMenuOptions(
+  const { exitPressAny } = useShowPressAny(menuState, setMenuState)
+  const { exitMainMenu } = useShowMenuOptions(
     menuState,
     optionState,
     setScreenState,
@@ -38,7 +38,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
 
         <AnimatePresence>
           {menuState === 'press-any' && (
-            <div className="h-full w-full" onClick={HandlePressAny}>
+            <div className="h-full w-full" onClick={exitPressAny}>
               <ShellAnimated className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
                 <MenuOptions className="flex flex-col gap-3">
                   <MenuOption textHidden={'Main Menu'} showLine>
@@ -69,7 +69,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                 </MenuOption>
                 <MenuOption textHidden={'Nothing'}>Settings</MenuOption>
                 <MenuOption textHidden={'Nothing'}>License</MenuOption>
-                <MenuOption textHidden={'Exit Game'} onClick={handleExitGame}>
+                <MenuOption textHidden={'Exit Game'} onClick={exitMainMenu}>
                   Exit Game
                 </MenuOption>
               </MenuOptions>

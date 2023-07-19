@@ -32,8 +32,13 @@ const ProjectItem: FC<ProjectItemProps> = ({
   } = project
 
   return (
-    <div className="flex flex-col" {...props} title={description}>
+    <div className="mb-20 flex flex-col md:mb-0" {...props} title={description}>
       <ProjectShell href="https://ren-weatherapp.vercel.app">
+        <ProjectContent className="max-w-[260px] md:hidden">
+          <ProjectHeader>
+            <p>{name}</p>
+          </ProjectHeader>
+        </ProjectContent>
         <a
           href={liveDemoLink}
           className="cursor-default"
@@ -42,10 +47,19 @@ const ProjectItem: FC<ProjectItemProps> = ({
         >
           <ProjectImage className={`projectImage ${imagePreview}`} />
         </a>
-        <ProjectContent>
+        <ProjectFooter className="md:hidden">
+          <ProjectButton className="px-4 py-2" href={liveDemoLink}>
+            Live Demo
+          </ProjectButton>
+          <ProjectButton className="px-[14px] py-2" href={githubLink}>
+            Github
+          </ProjectButton>
+        </ProjectFooter>
+
+        <ProjectContent className="hidden md:flex">
           <ProjectHeader>
             <p>{name}</p>
-            <p className="mx-4 hidden sm:block">{date}</p>
+            <p className="mx-4 hidden md:block">{date}</p>
           </ProjectHeader>
 
           <ProjectDescription>

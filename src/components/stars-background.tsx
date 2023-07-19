@@ -1,4 +1,4 @@
-import { ArrayMaker } from '@/lib/utils'
+import { arrayMaker } from '@/lib/utils'
 import { memo, useEffect, useState } from 'react'
 import { OptionStates } from './main-menu'
 import { Star } from './ui/star'
@@ -146,9 +146,9 @@ const Stars = ({ optionState }: StarsProps) => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
   const width = screenSize.width
   const height = screenSize.height
-  const StarsSmall = ArrayMaker(Math.floor(width / 10))
-  const StarsMedium = ArrayMaker(Math.floor(width / 38))
-  const StarsBig = ArrayMaker(Math.floor(width / 64))
+  const StarsSmall = arrayMaker(Math.floor(width / 10))
+  const StarsMedium = arrayMaker(Math.floor(width / 38))
+  const StarsBig = arrayMaker(Math.floor(width / 64))
 
   function getCurrentDimension() {
     return {

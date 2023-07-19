@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 import { VariantProps, cva } from 'class-variance-authority'
 import { FC, HTMLAttributes, JSX } from 'react'
 
-const LinePatternVariants = cva('transition-all duration-300', {
+const LinePatternVariants = cva('transition-all duration-300 bg-nier-500', {
   variants: {
     variant: {
       top: 'absolute left-0 top-4 w-full md:top-8',

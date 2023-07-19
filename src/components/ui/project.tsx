@@ -6,7 +6,7 @@ const ProjectShell = ({
   href,
 }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
-    <section className="group flex h-[145px] w-full cursor-default flex-col gap-3 text-lg sm:flex-row md:gap-4">
+    <section className="group flex h-[145px] w-full cursor-default flex-col gap-3 text-lg md:flex-row md:gap-4">
       {/* <a
         href={href}
         target="_blank"
