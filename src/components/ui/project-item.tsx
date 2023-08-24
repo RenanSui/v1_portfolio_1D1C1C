@@ -36,7 +36,7 @@ const ProjectItem: FC<ProjectItemProps> = ({
       <ProjectShell href="https://ren-weatherapp.vercel.app">
         <ProjectContent className="max-w-[260px] md:hidden">
           <ProjectHeader>
-            <p>{name}</p>
+            <h1>{name}</h1>
           </ProjectHeader>
         </ProjectContent>
         <a

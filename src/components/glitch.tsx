@@ -28,7 +28,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
       )}
       {...props}
     >
-      <motion.span
+      <motion.h1
         initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}
         animate={{
           x: [-4, 0],
@@ -41,7 +41,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
         className="absolute left-0 top-0 text-nier-100 "
       >
         {word}
-      </motion.span>
+      </motion.h1>
       {/* Original Children */}
       {word}
       {/* Original Children */}
