@@ -1,14 +1,14 @@
 import { ScreenStates } from '@/app/(lobby)/page'
 import { useShowMenuOptions } from '@/hooks/use-show-menu-options'
 import { useShowPressAny } from '@/hooks/use-show-press-any'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { AboutMe } from './about-me'
 import { Projects } from './projects'
-import { StarsBackground } from './stars-background'
 import { ShellAnimated } from './ui/ShellAnimated'
 import { MenuOption } from './ui/menu-option'
 import { MenuOptions } from './ui/menu-options'
+import { StarsBackground } from './stars-background'
 
 export type MenuStates = '' | 'press-any' | 'menu'
 
@@ -32,9 +32,50 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
   return (
     <AnimatePresence>
       <ShellAnimated
-        className={`flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em]`}
+        className={`relative z-40 flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em]`}
       >
-        <StarsBackground {...{ optionState }} />
+        <AnimatePresence>
+          {menuState === 'press-any' && (
+            <ShellAnimated exit={{ opacity: 0, transition: { duration: 2 } }}>
+              <StarsBackground {...{ optionState }} />
+            </ShellAnimated>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {menuState === 'menu' && (
+            <ShellAnimated>
+              <motion.video
+                loop
+                autoPlay
+                className="pointer-events-none fixed left-0 top-0 h-[100vh] w-[100vw] object-cover opacity-20"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: [
+                    0, 0.05, 0.1, 0.15, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2,
+                    0.2, 0,
+                  ],
+                  transition: { duration: 14.15, repeat: Infinity },
+                }}
+              >
+                <source src="videos/stars-1.mp4" type="video/mp4" />
+              </motion.video>
+              <motion.video
+                loop
+                autoPlay
+                className="pointer-events-none fixed left-0 top-0 h-[100vh] w-[100vw] scale-x-[-1] object-cover opacity-20"
+                initial={{ opacity: 0 }}
+                animate={{
+                  // opacity: [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0],
+                  opacity: [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0],
+                  transition: { duration: 10, repeat: Infinity, delay: 10 },
+                }}
+              >
+                <source src="videos/stars-2.mp4" type="video/mp4" />
+              </motion.video>
+            </ShellAnimated>
+          )}
+        </AnimatePresence>
 
         <AnimatePresence>
           {menuState === 'press-any' && (

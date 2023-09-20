@@ -79,6 +79,7 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
       />
 
       <div className="fixed bottom-0 left-0 right-0 top-0 z-10 backdrop-blur-[5px] transition-all" />
+
       <ShellAnimated className="fixed left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2">
         <p
           className={`select-none text-5xl font-bold tracking-widest text-nier-300 opacity-10 transition-all md:text-7xl `}
