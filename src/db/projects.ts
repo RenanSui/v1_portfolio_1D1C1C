@@ -1,15 +1,15 @@
 export const projectsDB = [
   {
     id: 1,
-    name: 'Weather App',
-    description: 'Accurate source of weather forecasts',
-    githubLink: 'https://github.com/RenanSui/weather-app',
-    liveDemoLink: 'https://ren-weatherapp.vercel.app',
-    imagePreview: 'bg-[url(/images/weather.png)]',
+    name: 'Salvage',
+    description: 'Simple Backup Automator',
+    githubLink: 'https://github.com/RenanSui/salvage',
+    liveDemoLink: 'https://github.com/RenanSui/salvage',
+    imagePreview: 'bg-[url(/images/salvage.png)]',
   },
   {
     id: 2,
-    name: 'Pokédex',
+    name: 'Poképedia',
     description: 'Detailed stats for every creature from the Pokémon games',
     githubLink: 'https://github.com/RenanSui/pokedex',
     liveDemoLink: 'https://ren-pokedex.vercel.app',
@@ -22,6 +22,14 @@ export const projectsDB = [
     githubLink: 'https://github.com/RenanSui/expense-tracker',
     liveDemoLink: 'https://renansui.github.io/expense-tracker/',
     imagePreview: 'bg-[url(/images/tracker.png)]',
+  },
+  {
+    id: 4,
+    name: 'Weatherium',
+    description: 'Accurate source of weather forecasts',
+    githubLink: 'https://github.com/RenanSui/weather-app',
+    liveDemoLink: 'https://ren-weatherapp.vercel.app',
+    imagePreview: 'bg-[url(/images/weather.png)]',
   },
 ]
 

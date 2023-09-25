@@ -13,7 +13,7 @@ import { ShellAnimated } from './ui/ShellAnimated'
 import { MenuOption } from './ui/menu-option'
 import { MenuOptions } from './ui/menu-options'
 
-export type MenuStates = '' | 'press-any' | 'menu'
+export type MenuStates = '' | 'start' | 'press-any' | 'menu'
 
 export type OptionStates = '' | 'about-me' | 'projects' | 'settings' | 'contact'
 
@@ -24,6 +24,12 @@ interface MainMenuProps {
 const MainMenu = ({ setScreenState }: MainMenuProps) => {
   const [menuState, setMenuState] = useState<MenuStates>('press-any')
   const [optionState, setOptionState] = useState<OptionStates>('')
+
+  const Validate = (func: Function) => {
+    if (optionState !== '') return null
+    if (menuState !== 'menu') return null
+    func()
+  }
 
   const { exitPressAny } = useShowPressAny(menuState, setMenuState)
   const { exitMainMenu } = useShowMenuOptions(
@@ -72,39 +78,31 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                 <MenuOption
                   textHidden={'About Me'}
                   data-active="true"
-                  onClick={() =>
-                    optionState === '' && setOptionState('about-me')
-                  }
+                  onClick={() => Validate(() => setOptionState('about-me'))}
                 >
                   About Me
                 </MenuOption>
                 <MenuOption
                   textHidden={'Projects'}
-                  onClick={() =>
-                    optionState === '' && setOptionState('projects')
-                  }
+                  onClick={() => Validate(() => setOptionState('projects'))}
                 >
                   Projects
                 </MenuOption>
                 <MenuOption
-                  textHidden={'Nothing'}
-                  onClick={() =>
-                    optionState === '' && setOptionState('settings')
-                  }
+                  textHidden={'Settings'}
+                  onClick={() => Validate(() => setOptionState('settings'))}
                 >
                   Settings
                 </MenuOption>
                 <MenuOption
-                  textHidden={'Nothing'}
-                  onClick={() =>
-                    optionState === '' && setOptionState('contact')
-                  }
+                  textHidden={'Contact'}
+                  onClick={() => Validate(() => setOptionState('contact'))}
                 >
                   Contact
                 </MenuOption>
                 <MenuOption
                   textHidden={'Exit Game'}
-                  onClick={() => optionState === '' && exitMainMenu()}
+                  onClick={() => Validate(exitMainMenu)}
                 >
                   Exit Game
                 </MenuOption>

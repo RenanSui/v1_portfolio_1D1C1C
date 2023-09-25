@@ -12,6 +12,11 @@ body::-webkit-scrollbar, .projects::-webkit-scrollbar{
 	display: none;
 }
 
+::selection {
+  color: rgb(49, 49, 47);
+  background: rgb(166, 161, 136);
+}
+
 .projectImage{
   filter: sepia(100%) hue-rotate(10deg) grayscale(50%) brightness(120%);
 }
