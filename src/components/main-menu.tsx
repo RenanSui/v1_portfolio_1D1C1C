@@ -3,12 +3,13 @@ import { useShowMenuOptions } from '@/hooks/use-show-menu-options'
 import { useShowPressAny } from '@/hooks/use-show-press-any'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Dispatch, SetStateAction, useState } from 'react'
+import { AnotherProjects } from './AnotherProjects'
 import { AboutMe } from './about-me'
-import { Projects } from './projects'
+import { StarsBackground } from './stars-background'
 import { ShellAnimated } from './ui/ShellAnimated'
 import { MenuOption } from './ui/menu-option'
 import { MenuOptions } from './ui/menu-options'
-import { StarsBackground } from './stars-background'
+import { Projects } from './projects'
 
 export type MenuStates = '' | 'press-any' | 'menu'
 
@@ -43,7 +44,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         </AnimatePresence>
 
         <AnimatePresence>
-          {menuState === 'menu' && (
+          {!(menuState === 'press-any') && (
             <ShellAnimated>
               <motion.video
                 loop
@@ -67,7 +68,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                 initial={{ opacity: 0 }}
                 animate={{
                   // opacity: [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0],
-                  opacity: [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0],
+                  opacity: [0, 0, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0, 0],
                   transition: { duration: 10, repeat: Infinity, delay: 10 },
                 }}
               >
@@ -129,6 +130,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                 <AboutMe {...{ setMenuState, setOptionState }} />
               )}
               {optionState === 'new-game' && (
+                // <Projects {...{ setMenuState, setOptionState }} />
                 <Projects {...{ setMenuState, setOptionState }} />
               )}
             </ShellAnimated>
