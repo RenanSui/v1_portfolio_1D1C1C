@@ -8,32 +8,26 @@ const projectsDB = [
   {
     id: 1,
     name: 'Weather App',
-    date: '11/21/2022',
     description: 'Accurate source of weather forecasts',
     githubLink: 'https://github.com/RenanSui/weather-app',
     liveDemoLink: 'https://ren-weatherapp.vercel.app',
     imagePreview: 'bg-[url(/images/weather.png)]',
-    techs: ['React', 'TailwindCSS', 'NextJS', 'TypeScript'],
   },
   {
     id: 2,
     name: 'Pokédex',
-    date: '02/28/2023',
     description: 'Detailed stats for every creature from the Pokémon games',
     githubLink: 'https://github.com/RenanSui/pokedex',
     liveDemoLink: 'https://ren-pokedex.vercel.app',
     imagePreview: 'bg-[url(/images/pokedex.png)]',
-    techs: ['React', 'TailwindCSS', 'NextJS', 'TypeScript'],
   },
   {
     id: 3,
     name: 'Expense Tracker',
-    date: '10/23/2022',
     description: 'Tracking where your money is going',
     githubLink: 'https://github.com/RenanSui/expense-tracker',
     liveDemoLink: 'https://renansui.github.io/expense-tracker/',
     imagePreview: 'bg-[url(/images/tracker.png)]',
-    techs: ['JavaScript', 'Sass', 'TypeScript', ''],
   },
 ]
 
@@ -82,7 +76,7 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
         </div>
       </div>
 
-      <div className="absolute bottom-24 mx-12 mt-auto hidden h-[80px] w-[93%] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
+      <div className="absolute bottom-24 left-12 right-12 mt-auto hidden h-[80px] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
         <div className="flex gap-2">
           <div className="h-full w-[15px] bg-nier-700" />
           <div className="h-full w-[5px] bg-nier-700" />
