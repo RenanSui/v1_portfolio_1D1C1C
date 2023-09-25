@@ -41,7 +41,7 @@ const ProjectImage = ({
       target="_blank"
       rel="noreferrer"
       className={`${cn(
-        'projectImage aspect-video h-auto w-full bg-cover md:max-w-[260px]',
+        'projectImage aspect-video h-auto w-full border-2 border-nier-700 bg-cover md:max-w-[260px]',
         className,
       )}`}
     />
