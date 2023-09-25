@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction, useEffect } from 'react'
+import { Icons } from './icons'
 import { OptionStates } from './main-menu'
 import { LinePattern } from './ui/line-pattern'
-import { Icons } from './icons'
 
-interface AboutMeProps {
+interface SettingsProps {
   setOptionState: Dispatch<SetStateAction<OptionStates>>
 }
 
-const AboutMe = ({ setOptionState }: AboutMeProps) => {
+const SiteSettings = ({ setOptionState }: SettingsProps) => {
   const backToMenu = () => setOptionState('')
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const AboutMe = ({ setOptionState }: AboutMeProps) => {
           onClick={backToMenu}
         />
         <h1 className="text-4xl font-semibold tracking-[0.2em] text-nier-700 [text-shadow:_6px_6px_0px_rgba(166,161,136,1)] md:text-5xl">
-          ABOUT ME
+          SETTINGS
         </h1>
       </div>
 
@@ -38,4 +38,4 @@ const AboutMe = ({ setOptionState }: AboutMeProps) => {
   )
 }
 
-export { AboutMe }
+export { SiteSettings }

@@ -1,8 +1,10 @@
-import { ChevronLeft, Github } from 'lucide-react'
+import { ChevronDown, ChevronLeft, ChevronUp, Github } from 'lucide-react'
 
 export const Icons = {
   github: Github,
   chevronLeft: ChevronLeft,
+  chevronUp: ChevronUp,
+  chevronDown: ChevronDown,
   stars: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

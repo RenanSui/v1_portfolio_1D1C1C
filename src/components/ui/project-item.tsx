@@ -1,5 +1,6 @@
-import { FC, HTMLAttributes, JSX } from 'react'
-import { ProjectDB } from '../projects'
+import { ProjectsDB } from '@/db/projects'
+import { useProjectSelectByMouse } from '@/hooks/use-project-select-mouse'
+import { FC, HTMLAttributes, JSX, useRef } from 'react'
 import {
   ProjectBox,
   ProjectButton,
@@ -12,7 +13,7 @@ import {
 
 interface ProjectItemProps extends HTMLAttributes<HTMLDivElement> {
   children?: string | JSX.Element | JSX.Element[] | (string | JSX.Element)[]
-  project: ProjectDB
+  project: ProjectsDB[0]
 }
 
 const ProjectItem: FC<ProjectItemProps> = ({
@@ -21,6 +22,8 @@ const ProjectItem: FC<ProjectItemProps> = ({
   project,
   ...props
 }) => {
+  const ProjectRef = useRef<HTMLDivElement>(null)
+
   const {
     // date,
     description,
@@ -31,8 +34,11 @@ const ProjectItem: FC<ProjectItemProps> = ({
     // techs,
   } = project
 
+  useProjectSelectByMouse(ProjectRef)
+
   return (
     <ProjectShell
+      ref={ProjectRef}
       {...props}
       // title={description}
     >

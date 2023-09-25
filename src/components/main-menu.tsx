@@ -1,18 +1,21 @@
 import { ScreenStates } from '@/app/(lobby)/page'
 import { useShowMenuOptions } from '@/hooks/use-show-menu-options'
 import { useShowPressAny } from '@/hooks/use-show-press-any'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { AboutMe } from './about-me'
+import { ContactMe } from './contact-me'
 import { Projects } from './projects'
+import { SiteSettings } from './settings'
 import { StarsBackground } from './stars-background'
+import { StarsVideo } from './stars-video'
 import { ShellAnimated } from './ui/ShellAnimated'
 import { MenuOption } from './ui/menu-option'
 import { MenuOptions } from './ui/menu-options'
 
 export type MenuStates = '' | 'press-any' | 'menu'
 
-export type OptionStates = '' | 'continue' | 'new-game' | 'settings' | 'license'
+export type OptionStates = '' | 'about-me' | 'projects' | 'settings' | 'contact'
 
 interface MainMenuProps {
   setScreenState: Dispatch<SetStateAction<ScreenStates>>
@@ -43,38 +46,9 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         </AnimatePresence>
 
         <AnimatePresence>
-          {!(menuState === 'press-any') && (
-            <ShellAnimated>
-              <motion.video
-                loop
-                autoPlay
-                className="pointer-events-none fixed left-0 top-0 h-[100vh] w-[100vw] object-cover opacity-20"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: [
-                    0, 0.05, 0.1, 0.15, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2,
-                    0.2, 0,
-                  ],
-                  transition: { duration: 14.15, repeat: Infinity },
-                }}
-              >
-                <source src="videos/stars-1.mp4" type="video/mp4" />
-              </motion.video>
-              <motion.video
-                loop
-                autoPlay
-                className="pointer-events-none fixed left-0 top-0 h-[100vh] w-[100vw] scale-x-[-1] object-cover opacity-20"
-                initial={{ opacity: 0 }}
-                animate={{
-                  // opacity: [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0],
-                  opacity: [0, 0, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0, 0],
-                  transition: { duration: 10, repeat: Infinity, delay: 10 },
-                }}
-              >
-                <source src="videos/stars-2.mp4" type="video/mp4" />
-              </motion.video>
-            </ShellAnimated>
-          )}
+          <ShellAnimated>
+            {!(menuState === 'press-any') && <StarsVideo />}
+          </ShellAnimated>
         </AnimatePresence>
 
         <AnimatePresence>
@@ -98,19 +72,40 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                 <MenuOption
                   textHidden={'About Me'}
                   data-active="true"
-                  onClick={() => setOptionState('continue')}
+                  onClick={() =>
+                    optionState === '' && setOptionState('about-me')
+                  }
                 >
                   About Me
                 </MenuOption>
                 <MenuOption
                   textHidden={'Projects'}
-                  onClick={() => setOptionState('new-game')}
+                  onClick={() =>
+                    optionState === '' && setOptionState('projects')
+                  }
                 >
                   Projects
                 </MenuOption>
-                <MenuOption textHidden={'Nothing'}>Settings</MenuOption>
-                <MenuOption textHidden={'Nothing'}>License</MenuOption>
-                <MenuOption textHidden={'Exit Game'} onClick={exitMainMenu}>
+                <MenuOption
+                  textHidden={'Nothing'}
+                  onClick={() =>
+                    optionState === '' && setOptionState('settings')
+                  }
+                >
+                  Settings
+                </MenuOption>
+                <MenuOption
+                  textHidden={'Nothing'}
+                  onClick={() =>
+                    optionState === '' && setOptionState('contact')
+                  }
+                >
+                  Contact
+                </MenuOption>
+                <MenuOption
+                  textHidden={'Exit Game'}
+                  onClick={() => optionState === '' && exitMainMenu()}
+                >
                   Exit Game
                 </MenuOption>
               </MenuOptions>
@@ -125,18 +120,26 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
               animate={{ opacity: 1, transition: { delay: 0, duration: 0.3 } }}
               exit={{ opacity: 0, transition: { duration: 0.2 } }}
             >
-              {optionState === 'continue' && (
-                <AboutMe {...{ setMenuState, setOptionState }} />
+              {optionState === 'about-me' && (
+                <AboutMe {...{ setOptionState }} />
               )}
-              {optionState === 'new-game' && (
-                // <Projects {...{ setMenuState, setOptionState }} />
-                <Projects {...{ setMenuState, setOptionState }} />
+
+              {optionState === 'projects' && (
+                <Projects {...{ setOptionState }} />
+              )}
+
+              {optionState === 'settings' && (
+                <SiteSettings {...{ setOptionState }} />
+              )}
+
+              {optionState === 'contact' && (
+                <ContactMe {...{ setOptionState }} />
               )}
             </ShellAnimated>
           )}
         </AnimatePresence>
 
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-50 bg-[rgba(255,0,0,0)] backdrop-blur-[0.8px]" />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-50 bg-[rgba(255,0,0,0)] backdrop-blur-[1px]" />
       </ShellAnimated>
     </AnimatePresence>
   )
