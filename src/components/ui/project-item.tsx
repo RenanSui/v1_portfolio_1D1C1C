@@ -53,7 +53,7 @@ const ProjectItem: FC<ProjectItemProps> = ({
         </div>
       </ProjectHeader>
 
-      <ProjectImage href={liveDemoLink} className={imagePreview} />
+      <ProjectImage href={liveDemoLink} className={`${imagePreview}`} />
     </ProjectShell>
   )
 }
