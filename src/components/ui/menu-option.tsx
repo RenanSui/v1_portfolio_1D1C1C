@@ -33,7 +33,7 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
     <div
       ref={MenuOptionRef}
       className={cn(
-        'MenuOption group flex w-full max-w-[280px] flex-col items-center',
+        'MenuOption group flex w-full max-w-[350px] flex-col items-center',
         className,
       )}
       onClick={onClick}
@@ -64,7 +64,7 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
           ${
             showLine
               ? 'w-48 opacity-100 md:w-72'
-              : 'w-0 opacity-0 group-data-[active=true]:w-48 group-data-[active=true]:opacity-100 group-data-[active=true]:md:w-72'
+              : 'w-0 opacity-0 group-data-[active=true]:w-48 group-data-[active=true]:opacity-100 group-data-[active=true]:md:w-[350px]'
           }`}
         />
         <span
