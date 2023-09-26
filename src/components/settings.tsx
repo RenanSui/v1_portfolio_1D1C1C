@@ -1,3 +1,4 @@
+import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { Dispatch, SetStateAction, useEffect } from 'react'
 import { Icons } from './icons'
 import { OptionStates } from './main-menu'
@@ -20,7 +21,7 @@ const SiteSettings = ({ setOptionState }: SettingsProps) => {
   }, [setOptionState])
 
   return (
-    <div className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
+    <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
       <LinePattern variant={'top'} />
 
       <div className="mb-7 mt-14 flex cursor-default items-center gap-2 pl-7 md:mt-20">
@@ -33,7 +34,39 @@ const SiteSettings = ({ setOptionState }: SettingsProps) => {
         </h1>
       </div>
 
+      <section className="projects mx-20 mt-20 max-h-[80vh] md:mx-28">
+        <SettingItem keyValue="starAnimation">Star Animation</SettingItem>
+      </section>
+
       <LinePattern variant={'bottom'} />
+    </section>
+  )
+}
+
+interface SettingItemProps {
+  children: string
+  keyValue: string
+}
+
+const SettingItem = ({ children, keyValue }: SettingItemProps) => {
+  const [isChecked, setIsChecked] = useLocalStorageBoolean(keyValue, false)
+
+  return (
+    <div className="flex cursor-pointer items-center gap-2">
+      <div
+        className="flex cursor-pointer items-center gap-2"
+        onClick={() => setIsChecked(!isChecked)}
+      >
+        <div
+          className={`relative h-4 w-4 rotate-45 ${
+            isChecked ? 'bg-nier-900' : 'bg-transparent'
+          }`}
+        >
+          <Icons.diamond className="absolute -left-1 -top-1 mb-1 -rotate-45" />
+        </div>
+
+        <h1>{isChecked ? `Disable ${children}` : `Enable ${children}`}</h1>
+      </div>
     </div>
   )
 }
