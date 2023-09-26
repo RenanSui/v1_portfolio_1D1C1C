@@ -113,7 +113,7 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
 
           {showLoadingState && (
             <ShellAnimated
-              className="relative flex cursor-default select-none flex-col gap-1 px-6 pt-3 text-nier-300 sm:px-12 sm:pt-6 lg:px-24 lg:pt-12"
+              className="relative flex cursor-default select-none flex-col gap-1 px-6 pt-9 text-nier-300 sm:px-12 sm:pt-12 lg:px-24 lg:pt-12"
               variants={LoadingTextContainer}
               initial="initial"
               animate="animate"
