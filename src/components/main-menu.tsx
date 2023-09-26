@@ -1,4 +1,5 @@
 import { ScreenStates } from '@/app/(lobby)/page'
+import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { useShowMenuOptions } from '@/hooks/use-show-menu-options'
 import { useShowPressAny } from '@/hooks/use-show-press-any'
 import { AnimatePresence } from 'framer-motion'
@@ -25,7 +26,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
   const [menuState, setMenuState] = useState<MenuStates>('press-any')
   const [optionState, setOptionState] = useState<OptionStates>('')
 
-  const starAnimationValue = localStorage.getItem('starAnimation')
+  const [isChecked] = useLocalStorageBoolean('starAnimation', true)
 
   const Validate = (func: Function) => {
     if (optionState !== '') return null
@@ -46,7 +47,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         className={`relative z-40 flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em]`}
       >
         <AnimatePresence>
-          {menuState === 'press-any' && starAnimationValue === 'true' && (
+          {menuState === 'press-any' && isChecked && (
             <ShellAnimated exit={{ opacity: 0, transition: { duration: 2 } }}>
               <StarsBackground {...{ optionState }} />
             </ShellAnimated>
