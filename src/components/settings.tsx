@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useEffect } from 'react'
 import { Icons } from './icons'
 import { OptionStates } from './main-menu'
 import { LinePattern } from './ui/line-pattern'
+import MenuSuggestions from './menu-suggestions'
 
 interface SettingsProps {
   setOptionState: Dispatch<SetStateAction<OptionStates>>
@@ -34,9 +35,20 @@ const SiteSettings = ({ setOptionState }: SettingsProps) => {
         </h1>
       </div>
 
-      <section className="projects mx-20 mt-20 max-h-[80vh] md:mx-28">
-        <SettingItem keyValue="starAnimation">Star Animation</SettingItem>
-      </section>
+      <div className="mx-3 flex h-fit gap-1 md:mx-12">
+        <div className="hidden gap-2 md:flex ">
+          <div className="h-full w-[15px] bg-nier-400" />
+          <div className="h-full w-[5px] bg-nier-400" />
+        </div>
+
+        <section className="projects flex max-h-[80vh] w-full flex-col gap-16 overflow-y-scroll pb-24 md:max-h-[60vh]">
+          <SettingItem keyValue="starAnimation">Star Animation</SettingItem>
+        </section>
+      </div>
+
+      <MenuSuggestions backToMenu={backToMenu}>
+        Adjust Website Settings
+      </MenuSuggestions>
 
       <LinePattern variant={'bottom'} />
     </section>
