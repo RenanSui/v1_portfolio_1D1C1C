@@ -25,6 +25,8 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
   const [menuState, setMenuState] = useState<MenuStates>('press-any')
   const [optionState, setOptionState] = useState<OptionStates>('')
 
+  const starAnimationValue = localStorage.getItem('starAnimation')
+
   const Validate = (func: Function) => {
     if (optionState !== '') return null
     if (menuState !== 'menu') return null
@@ -44,7 +46,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         className={`relative z-40 flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em]`}
       >
         <AnimatePresence>
-          {menuState === 'press-any' && (
+          {menuState === 'press-any' && starAnimationValue === 'true' && (
             <ShellAnimated exit={{ opacity: 0, transition: { duration: 2 } }}>
               <StarsBackground {...{ optionState }} />
             </ShellAnimated>
