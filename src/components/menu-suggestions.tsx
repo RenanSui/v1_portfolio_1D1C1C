@@ -5,7 +5,10 @@ interface MenuSuggestionsProps extends HTMLAttributes<HTMLDivElement> {
   backToMenu: () => void
 }
 
-const MenuSuggestions = ({ children, backToMenu }: MenuSuggestionsProps) => {
+export const MenuSuggestions = ({
+  children,
+  backToMenu,
+}: MenuSuggestionsProps) => {
   return (
     <div className="absolute bottom-24 left-12 right-12 mt-auto hidden h-[80px] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
       <div className="flex gap-2">
@@ -45,5 +48,3 @@ const MenuSuggestions = ({ children, backToMenu }: MenuSuggestionsProps) => {
     </div>
   )
 }
-
-export default MenuSuggestions

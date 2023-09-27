@@ -1,15 +1,18 @@
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import { cn } from '@/lib/utils'
+import { Dispatch, HTMLAttributes, SetStateAction, useEffect } from 'react'
 import { Icons } from './icons'
 import { OptionStates } from './main-menu'
+import { MenuSuggestions } from './menu-suggestions'
+import { OptionTitle } from './option-title'
 import { LinePattern } from './ui/line-pattern'
-import MenuSuggestions from './menu-suggestions'
+import { ProjectBox, ProjectLine } from './ui/project'
 
 interface SettingsProps {
   setOptionState: Dispatch<SetStateAction<OptionStates>>
 }
 
-const SiteSettings = ({ setOptionState }: SettingsProps) => {
+export const SiteSettings = ({ setOptionState }: SettingsProps) => {
   const backToMenu = () => setOptionState('')
 
   useEffect(() => {
@@ -30,19 +33,19 @@ const SiteSettings = ({ setOptionState }: SettingsProps) => {
           className="h-8 w-8 cursor-pointer"
           onClick={backToMenu}
         />
-        <h1 className="text-4xl font-semibold tracking-[0.2em] text-nier-700 [text-shadow:_6px_6px_0px_rgba(166,161,136,1)] md:text-5xl">
-          SETTINGS
-        </h1>
+        <OptionTitle onClick={backToMenu}>SETTINGS</OptionTitle>
       </div>
 
       <div className="mx-3 flex h-fit gap-1 md:mx-12">
-        <div className="hidden gap-2 md:flex ">
-          <div className="h-full w-[15px] bg-nier-400" />
-          <div className="h-full w-[5px] bg-nier-400" />
-        </div>
+        <ProjectLine />
 
-        <section className="projects flex max-h-[80vh] w-full flex-col gap-16 overflow-y-scroll pb-24 md:max-h-[60vh]">
+        <section className="projects flex max-h-[80vh] w-full flex-col gap-4 overflow-y-scroll pb-24 md:max-h-[60vh] md:pl-8">
+          {/* Settings Here */}
           <SettingItem keyValue="starAnimation">Star Animation</SettingItem>
+          <SettingItem keyValue="loadingAnimation">
+            Loading Animation
+          </SettingItem>
+          <SettingItem keyValue="bootAnimation">Boot Animationn</SettingItem>
         </section>
       </div>
 
@@ -64,23 +67,40 @@ const SettingItem = ({ children, keyValue }: SettingItemProps) => {
   const [isChecked, setIsChecked] = useLocalStorageBoolean(keyValue, false)
 
   return (
-    <div className="flex cursor-pointer items-center gap-2">
+    <div className="group relative w-full max-w-[400px]">
+      <ProjectBox className="-left-7" />
+
       <div
-        className="flex cursor-pointer items-center gap-2"
+        className={`h-[6px] border-t-2 border-transparent group-hover:border-t-nier-700 group-hover:bg-nier-500 ${
+          isChecked ? 'border-t-nier-700' : ''
+        }`}
+      />
+
+      <div
+        className="flex h-[70px] cursor-default items-center gap-2 bg-nier-400 text-nier-900 hover:bg-nier-700 hover:text-nier-500 md:h-[50px]"
         onClick={() => setIsChecked(!isChecked)}
       >
-        <div
-          className={`relative h-4 w-4 rotate-45 ${
-            isChecked ? 'bg-nier-900' : 'bg-transparent'
-          }`}
-        >
-          <Icons.diamond className="absolute -left-1 -top-1 mb-1 -rotate-45" />
-        </div>
-
-        <h1>{isChecked ? `Disable ${children}` : `Enable ${children}`}</h1>
+        <h1 className="mx-3 flex items-center gap-3 md:text-xl">
+          <SettingSquare
+            className={`${isChecked ? 'rotate-45 bg-nier-950' : ''}`}
+          />
+          {isChecked ? `Disable ${children}` : `Enable ${children}`}
+        </h1>
       </div>
+      <div
+        className={`h-[6px] border-b-2 border-transparent group-hover:border-b-2 group-hover:border-b-nier-700 group-hover:bg-nier-500 ${
+          isChecked ? 'border-b-nier-700' : ''
+        }`}
+      />
     </div>
   )
 }
 
-export { SiteSettings }
+const SettingSquare = ({ className }: HTMLAttributes<HTMLDivElement>) => (
+  <span
+    className={`${cn(
+      'h-[25px] w-[25px] cursor-pointer bg-nier-700 transition-all group-hover:bg-nier-500 group-data-[active=true]:bg-nier-500',
+      className,
+    )}`}
+  />
+)

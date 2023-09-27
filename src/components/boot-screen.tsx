@@ -4,12 +4,15 @@ import { Concielian } from '@/lib/fonts'
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 import { Icons } from './icons'
 import { ShellAnimated } from './ui/ShellAnimated'
+import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 
 interface BootScreenProps {
   setScreenState: Dispatch<SetStateAction<ScreenStates>>
 }
 
 const BootScreen = ({ setScreenState }: BootScreenProps) => {
+  const [isChecked] = useLocalStorageBoolean('bootAnimation', true)
+
   const stateTimeout = setTimeout(() => {
     setScreenState('loading-screen')
   }, 3000)
@@ -19,12 +22,14 @@ const BootScreen = ({ setScreenState }: BootScreenProps) => {
   }, [setScreenState])
 
   useEffect(() => {
+    if (!isChecked) setScreenState('loading-screen')
+
     window.addEventListener('keydown', finishAnimation, true)
     return () => {
       window.removeEventListener('keydown', finishAnimation, true)
       clearTimeout(stateTimeout)
     }
-  }, [finishAnimation, stateTimeout])
+  }, [finishAnimation, isChecked, setScreenState, stateTimeout])
 
   return (
     <ShellAnimated

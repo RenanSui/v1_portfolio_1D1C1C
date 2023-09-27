@@ -20,7 +20,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
   }, 1250 * (index / 1.5))
 
   return (
-    <p
+    <section
       ref={ref}
       className={cn(
         'relative text-xs text-transparent [text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45,_0_0_5px_#FAF8EF] sm:text-sm lg:text-lg',
@@ -89,7 +89,7 @@ const GlitchText: FC<GlitchTextProps> = forwardRef<
           _
         </motion.span>
       )}
-    </p>
+    </section>
   )
 })
 GlitchText.displayName = 'GlitchText'

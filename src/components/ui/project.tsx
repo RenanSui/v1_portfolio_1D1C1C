@@ -25,9 +25,14 @@ const ProjectShell = forwardRef<HTMLDivElement, ProjectShellProps>(
 )
 ProjectShell.displayName = 'ProjectShell'
 
-const ProjectBox = () => {
+const ProjectBox = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className="absolute left-1 top-1/2 z-50 hidden h-4 w-4 -translate-y-1/2 rotate-45 bg-nier-700 opacity-0 group-hover:opacity-100 group-data-[active=true]:opacity-100 md:block" />
+    <div
+      className={`${cn(
+        'absolute left-1 top-1/2 z-50 hidden h-4 w-4 -translate-y-1/2 rotate-45 bg-nier-700 opacity-0 group-hover:opacity-100 group-data-[active=true]:opacity-100 md:block',
+        className,
+      )}`}
+    />
   )
 }
 
@@ -119,12 +124,19 @@ const ProjectButton = ({
   )
 }
 
+const ProjectLine = () => (
+  <div className="hidden gap-2 md:flex ">
+    <div className="h-full w-[15px] bg-nier-400" />
+    <div className="h-full w-[5px] bg-nier-400" />
+  </div>
+)
 export {
   ProjectBox,
   ProjectButton,
   ProjectDescription,
   ProjectHeader,
   ProjectImage,
+  ProjectLine,
   ProjectShell,
   ProjectSquare,
   ProjectTitle,

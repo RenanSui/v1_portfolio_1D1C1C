@@ -1,5 +1,6 @@
 'use client'
 import { ScreenStates } from '@/app/(lobby)/page'
+import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { Variants } from 'framer-motion'
 import {
   Dispatch,
@@ -48,6 +49,7 @@ interface LoadingScreenProps {
 
 const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
   const [showLoadingState, setShowLoadingState] = useState(false)
+  const [isChecked] = useLocalStorageBoolean('loadingAnimation', true)
 
   const stateTimeout = setTimeout(() => {
     setScreenState('menu-screen')
@@ -62,13 +64,15 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
   }, [setScreenState])
 
   useEffect(() => {
+    if (!isChecked) setScreenState('menu-screen')
+
     window.addEventListener('keydown', finishAnimation, true)
     return () => {
       window.removeEventListener('keydown', finishAnimation, true)
       clearTimeout(stateTimeout)
       clearTimeout(loadingState)
     }
-  }, [finishAnimation, loadingState, stateTimeout])
+  }, [finishAnimation, isChecked, loadingState, setScreenState, stateTimeout])
 
   return (
     <>

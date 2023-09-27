@@ -1,7 +1,22 @@
+import { CapitalizeWords } from '@/lib/utils'
 import { Dispatch, SetStateAction, useEffect } from 'react'
+import { z } from 'zod'
 import { Icons } from './icons'
 import { OptionStates } from './main-menu'
 import { LinePattern } from './ui/line-pattern'
+
+const messageSchema = z.object({
+  fullName: z
+    .string()
+    .nonempty('Name is required')
+    .toLowerCase()
+    .min(2, 'Name must contain at least 2 character(s).')
+    .transform((name) => CapitalizeWords(name)),
+  email: z.string().nonempty('Email is required.').email().toLowerCase(),
+  message: z.string().nonempty('Message is required.'),
+})
+
+export type MessageData = z.infer<typeof messageSchema>
 
 interface ContactMeProps {
   setOptionState: Dispatch<SetStateAction<OptionStates>>

@@ -1,6 +1,7 @@
 import { ProjectsDB } from '@/db/projects'
 import { useProjectSelectByMouse } from '@/hooks/use-project-select-mouse'
 import { FC, HTMLAttributes, JSX, useRef } from 'react'
+import { LoadingText } from './loading-text'
 import {
   ProjectBox,
   ProjectButton,
@@ -45,11 +46,19 @@ const ProjectItem: FC<ProjectItemProps> = ({
       <ProjectBox />
 
       <ProjectHeader>
-        <ProjectTitle href={githubLink}>{name}</ProjectTitle>
-        <ProjectDescription>{description}</ProjectDescription>
+        <ProjectTitle href={githubLink}>
+          <LoadingText>{name}</LoadingText>
+        </ProjectTitle>
+        <ProjectDescription>
+          <LoadingText>{description}</LoadingText>
+        </ProjectDescription>
         <div className="hidden gap-2 md:flex">
-          <ProjectButton href={liveDemoLink}>Live Demo</ProjectButton>
-          <ProjectButton href={githubLink}>Github</ProjectButton>
+          <ProjectButton href={liveDemoLink}>
+            <LoadingText>Live Demo</LoadingText>
+          </ProjectButton>
+          <ProjectButton href={githubLink}>
+            <LoadingText>Github</LoadingText>
+          </ProjectButton>
         </div>
       </ProjectHeader>
 

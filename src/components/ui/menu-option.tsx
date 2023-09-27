@@ -19,7 +19,7 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
   onClick,
   ...props
 }) => {
-  const { word, start } = useTypingText(children as string, 20)
+  const { word, start } = useTypingText(children as string, 50)
   const MenuOptionRef = useRef<HTMLDivElement>(null)
 
   useTextHackerEffect(MenuOptionRef)

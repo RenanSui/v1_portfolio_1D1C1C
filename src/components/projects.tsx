@@ -1,10 +1,12 @@
 import { projectsDB } from '@/db/projects'
 import { Dispatch, SetStateAction, useEffect } from 'react'
-import { Icons } from './icons'
 import { OptionStates } from './main-menu'
-import MenuSuggestions from './menu-suggestions'
+import { MenuSuggestions } from './menu-suggestions'
+import { OptionTitle } from './option-title'
 import { ProjectOptions } from './project-options'
 import { LinePattern } from './ui/line-pattern'
+import { ProjectLine } from './ui/project'
+import { Icons } from './icons'
 
 interface ProjectsProps {
   setOptionState: Dispatch<SetStateAction<OptionStates>>
@@ -31,16 +33,11 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
           className="h-8 w-8 cursor-pointer"
           onClick={backToMenu}
         />
-        <h1 className="text-4xl font-semibold tracking-[0.2em] text-nier-700 [text-shadow:_6px_6px_0px_rgba(166,161,136,1)] md:text-5xl">
-          PROJECTS
-        </h1>
+        <OptionTitle onClick={backToMenu}>PROJECTS</OptionTitle>
       </div>
 
       <div className="mx-3 flex h-fit gap-1 md:mx-12">
-        <div className="hidden gap-2 md:flex ">
-          <div className="h-full w-[15px] bg-nier-400" />
-          <div className="h-full w-[5px] bg-nier-400" />
-        </div>
+        <ProjectLine />
 
         <ProjectOptions projectData={projectsDB} />
       </div>
