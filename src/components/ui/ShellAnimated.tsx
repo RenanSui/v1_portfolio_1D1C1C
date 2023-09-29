@@ -14,7 +14,7 @@ const ShellAnimated = forwardRef(
     ref,
   ) => {
     return (
-      <motion.div
+      <motion.section
         className={className}
         initial={initial || { opacity: 0 }}
         animate={
@@ -24,7 +24,7 @@ const ShellAnimated = forwardRef(
         {...props}
       >
         {children}
-      </motion.div>
+      </motion.section>
     )
   },
 )
