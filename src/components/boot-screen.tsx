@@ -35,10 +35,10 @@ const BootScreen = ({ setScreenState }: BootScreenProps) => {
   return (
     <ShellAnimated
       className="absolute bottom-0 left-0 right-0 top-0 flex cursor-default select-none items-center justify-center bg-nier-100 text-9xl font-bold text-nier-900"
+      style={{ filter: 'blur(1.2px)' }}
       animate={{ opacity: 1, transition: { duration: 1, delay: 0.3 } }}
       onClick={finishAnimation}
     >
-      <div className="absolute bottom-0 left-0 right-0 top-0 z-10 bg-[rgba(255,0,0,0)] backdrop-blur-[1.2px]" />
       <h1 className={`${Concielian.className}`}>R</h1>
       <Icons.stars />
     </ShellAnimated>
