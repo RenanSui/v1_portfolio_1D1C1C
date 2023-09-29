@@ -1,10 +1,11 @@
 'use client'
+
 import { ScreenStates } from '@/app/(lobby)/page'
+import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { Concielian } from '@/lib/fonts'
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 import { Icons } from './icons'
 import { ShellAnimated } from './ui/ShellAnimated'
-import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 
 interface BootScreenProps {
   setScreenState: Dispatch<SetStateAction<ScreenStates>>
@@ -13,16 +14,16 @@ interface BootScreenProps {
 const BootScreen = ({ setScreenState }: BootScreenProps) => {
   const [isChecked] = useLocalStorageBoolean('bootAnimation', true)
 
-  const stateTimeout = setTimeout(() => {
-    setScreenState('loading-screen')
-  }, 3000)
-
   const finishAnimation = useCallback(() => {
     setScreenState('loading-screen')
   }, [setScreenState])
 
+  const stateTimeout = setTimeout(() => {
+    finishAnimation()
+  }, 3000)
+
   useEffect(() => {
-    if (!isChecked) setScreenState('loading-screen')
+    if (!isChecked) finishAnimation()
 
     window.addEventListener('keydown', finishAnimation, true)
     return () => {
@@ -37,9 +38,7 @@ const BootScreen = ({ setScreenState }: BootScreenProps) => {
       animate={{ opacity: 1, transition: { duration: 1, delay: 0.3 } }}
       onClick={finishAnimation}
     >
-      <div // z-10
-        className="absolute bottom-0 left-0 right-0 top-0 z-10 bg-[rgba(255,0,0,0)] backdrop-blur-[1.2px]"
-      />
+      <div className="absolute bottom-0 left-0 right-0 top-0 z-10 bg-[rgba(255,0,0,0)] backdrop-blur-[1.2px]" />
       <h1 className={`${Concielian.className}`}>R</h1>
       <Icons.stars />
     </ShellAnimated>
