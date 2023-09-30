@@ -5,13 +5,13 @@ import {
   ReactNode,
   forwardRef,
 } from 'react'
-import { Icons } from '../icons'
+import { Icons } from './icons'
 
 interface ProjectShellProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
 }
 
-const ProjectShell = forwardRef<HTMLDivElement, ProjectShellProps>(
+export const ProjectShell = forwardRef<HTMLDivElement, ProjectShellProps>(
   ({ children }, ref) => {
     return (
       <section
@@ -25,7 +25,7 @@ const ProjectShell = forwardRef<HTMLDivElement, ProjectShellProps>(
 )
 ProjectShell.displayName = 'ProjectShell'
 
-const ProjectBox = ({ className }: HTMLAttributes<HTMLDivElement>) => {
+export const ProjectBox = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={`${cn(
@@ -36,7 +36,7 @@ const ProjectBox = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   )
 }
 
-const ProjectImage = ({
+export const ProjectImage = ({
   className,
   href,
 }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
@@ -53,7 +53,7 @@ const ProjectImage = ({
   )
 }
 
-const ProjectTitle = ({
+export const ProjectTitle = ({
   className,
   children,
   href,
@@ -76,7 +76,7 @@ const ProjectTitle = ({
   )
 }
 
-const ProjectHeader = ({ children }: HTMLAttributes<HTMLDivElement>) => {
+export const ProjectHeader = ({ children }: HTMLAttributes<HTMLDivElement>) => {
   return <div className="flex w-full flex-col justify-between">{children}</div>
 }
 
@@ -88,7 +88,7 @@ const ProjectSquare = () => {
   )
 }
 
-const ProjectDescription = ({
+export const ProjectDescription = ({
   className,
   children,
 }: HTMLAttributes<HTMLDivElement>) => {
@@ -104,7 +104,7 @@ const ProjectDescription = ({
   )
 }
 
-const ProjectButton = ({
+export const ProjectButton = ({
   children,
   className,
   href,
@@ -122,22 +122,4 @@ const ProjectButton = ({
       {children}
     </a>
   )
-}
-
-const ProjectLine = () => (
-  <div className="hidden gap-2 md:flex ">
-    <div className="h-full w-[15px] bg-nier-400" />
-    <div className="h-full w-[5px] bg-nier-400" />
-  </div>
-)
-export {
-  ProjectBox,
-  ProjectButton,
-  ProjectDescription,
-  ProjectHeader,
-  ProjectImage,
-  ProjectLine,
-  ProjectShell,
-  ProjectSquare,
-  ProjectTitle,
 }

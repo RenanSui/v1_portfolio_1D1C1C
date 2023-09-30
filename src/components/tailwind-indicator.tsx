@@ -2,7 +2,6 @@ import { env } from '@/env.mjs'
 
 export function TailwindIndicator() {
   if (env.NODE_ENV === 'production') return null
-  // console.log(env.NODE_ENV)
 
   return (
     <div className="fixed bottom-1 left-1 z-50 flex h-7 w-7 items-center justify-center rounded-full bg-gray-800 p-3 font-mono text-base text-white">

@@ -8,7 +8,7 @@ interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
   layout?: 'default' | 'full' | 'centered'
 }
 
-const MenuOptions = forwardRef<HTMLDivElement, MenuOptionsProps>(
+const Menu = forwardRef<HTMLDivElement, MenuOptionsProps>(
   ({ children, className, layout = 'default', ...props }, ref) => {
     const MenuRef = useRef<HTMLDivElement>(null)
 
@@ -32,6 +32,6 @@ const MenuOptions = forwardRef<HTMLDivElement, MenuOptionsProps>(
     )
   },
 )
-MenuOptions.displayName = 'MenuOptions'
+Menu.displayName = 'Menu'
 
-export { MenuOptions }
+export { Menu }

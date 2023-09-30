@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 import { VariantProps, cva } from 'class-variance-authority'
 import { FC, HTMLAttributes, JSX } from 'react'
 
-const LinePatternVariants = cva('transition-all duration-300 bg-nier-500', {
+const NierPatternVariants = cva('transition-all duration-300 bg-nier-500', {
   variants: {
     variant: {
       top: 'absolute left-0 top-4 w-full md:top-8',
@@ -14,13 +14,13 @@ const LinePatternVariants = cva('transition-all duration-300 bg-nier-500', {
   },
 })
 
-interface LinePatternProps
-  extends HTMLAttributes<HTMLDivElement>, // Change HTMLDivElement
-    VariantProps<typeof LinePatternVariants> {
+interface NierPatternProps
+  extends HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof NierPatternVariants> {
   children?: string | JSX.Element | JSX.Element[] | (string | JSX.Element)[]
 }
 
-const LinePattern: FC<LinePatternProps> = ({
+export const NierPattern: FC<NierPatternProps> = ({
   children,
   className,
   variant,
@@ -29,7 +29,7 @@ const LinePattern: FC<LinePatternProps> = ({
   return (
     <div // Change html tag
       {...props}
-      className={cn(LinePatternVariants({ variant, className }))}
+      className={cn(NierPatternVariants({ variant, className }))}
     >
       {children}
       <div className="h-[2px] w-full bg-nier-700 " />
@@ -37,5 +37,3 @@ const LinePattern: FC<LinePatternProps> = ({
     </div>
   )
 }
-
-export { LinePattern, LinePatternVariants }

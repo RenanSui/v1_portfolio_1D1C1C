@@ -10,10 +10,10 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { GlitchText } from './glitch'
-import { LoadingDots } from './loading-dots'
-import { LoadingSpinner } from './loading-spinner'
-import { ShellAnimated } from './ui/ShellAnimated'
+import { LoadingDots } from './loading/loading-dots'
+import { LoadingSpinner } from './loading/loading-spinner'
+import { ShellAnimated } from './shells/shell-animated'
+import { GlitchText } from './ui/glitch'
 
 const LoadingTextContainer: Variants = {
   animate: {

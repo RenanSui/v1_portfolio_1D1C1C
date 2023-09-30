@@ -8,11 +8,11 @@ import { AboutMe } from './about-me'
 import { ContactMe } from './contact-me'
 import { Projects } from './projects'
 import { SiteSettings } from './settings'
-import { StarsBackground } from './stars-background'
-import { StarsVideo } from './stars-video'
-import { ShellAnimated } from './ui/ShellAnimated'
-import { MenuOption } from './ui/menu-option'
-import { MenuOptions } from './ui/menu-options'
+import { ShellAnimated } from './shells/shell-animated'
+import { StarsBackground } from './stars/stars-background'
+import { StarsVideo } from './stars/stars-video'
+import { MenuOption } from './ui/menu'
+import { Menu } from './ui/menu-options'
 
 export type MenuStates = '' | 'start' | 'press-any' | 'menu'
 
@@ -64,11 +64,11 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
           {menuState === 'press-any' && (
             <div className="h-full w-full" onClick={exitPressAny}>
               <ShellAnimated className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
-                <MenuOptions className="flex flex-col gap-3">
+                <Menu className="flex flex-col gap-3">
                   <MenuOption textHidden={'Main Menu'} showLine>
                     Press Any Button
                   </MenuOption>
-                </MenuOptions>
+                </Menu>
               </ShellAnimated>
             </div>
           )}
@@ -77,7 +77,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         <AnimatePresence>
           {menuState === 'menu' && (
             <ShellAnimated className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
-              <MenuOptions className="flex flex-col gap-3">
+              <Menu className="flex flex-col gap-3">
                 <MenuOption
                   textHidden={'About Me'}
                   data-active="true"
@@ -109,7 +109,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                 >
                   Exit Game
                 </MenuOption>
-              </MenuOptions>
+              </Menu>
             </ShellAnimated>
           )}
         </AnimatePresence>

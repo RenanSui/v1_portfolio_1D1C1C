@@ -1,52 +1,50 @@
 import { projectsDB } from '@/db/projects'
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import { useProjectSelectByKeyboard } from '@/hooks/use-project-select-keyboard'
+import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react'
 import { OptionStates } from './main-menu'
-import { MenuSuggestions } from './menu-suggestions'
-import { OptionTitle } from './option-title'
+import { NierLine } from './nier/nier-line'
+import { NierPattern } from './nier/nier-pattern'
+import { NierSuggestions } from './nier/nier-suggestions'
 import { ProjectOptions } from './project-options'
-import { LinePattern } from './ui/line-pattern'
-import { ProjectLine } from './ui/project'
-import { Icons } from './icons'
+import { ShellContent } from './shells/shell-content'
+import { Header } from './ui/header'
 
 interface ProjectsProps {
   setOptionState: Dispatch<SetStateAction<OptionStates>>
 }
 
 const Projects = ({ setOptionState }: ProjectsProps) => {
-  const backToMenu = () => setOptionState('')
+  const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
+  const ProjectRef = useRef<HTMLDivElement>(null)
+
+  useProjectSelectByKeyboard(ProjectRef)
 
   useEffect(() => {
     const onKeyPressed = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOptionState('')
+      if (e.key === 'Escape') backToMenu()
     }
 
     window.addEventListener('keydown', onKeyPressed, true)
     return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [setOptionState])
+  }, [setOptionState, backToMenu])
 
   return (
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
-      <LinePattern variant={'top'} />
+      <NierPattern variant={'top'} />
 
-      <div className="mb-7 mt-14 flex cursor-default items-center gap-2 pl-7 md:mt-20">
-        <Icons.chevronLeft
-          className="h-8 w-8 cursor-pointer"
-          onClick={backToMenu}
-        />
-        <OptionTitle onClick={backToMenu}>PROJECTS</OptionTitle>
-      </div>
+      <Header onClick={backToMenu}>PROJECTS</Header>
 
-      <div className="mx-3 flex h-fit gap-1 md:mx-12">
-        <ProjectLine />
+      <ShellContent>
+        <NierLine />
 
-        <ProjectOptions projectData={projectsDB} />
-      </div>
+        <div className="flex flex-col gap-4">
+          <ProjectOptions projectData={projectsDB} />
+        </div>
+      </ShellContent>
 
-      <MenuSuggestions backToMenu={backToMenu}>
-        Preview a project
-      </MenuSuggestions>
+      <NierSuggestions onClick={backToMenu}>Preview a project</NierSuggestions>
 
-      <LinePattern variant={'bottom'} />
+      <NierPattern variant={'bottom'} />
     </section>
   )
 }

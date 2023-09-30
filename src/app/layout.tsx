@@ -1,6 +1,6 @@
+import { NierPattern2 } from '@/components/nier/nier-pattern2'
+import { NierVignette } from '@/components/nier/nier-vignette'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
-import { Pattern } from '@/components/ui/pattern'
-import { Vignette } from '@/components/ui/vignette'
 import { RodinPro } from '@/lib/fonts'
 import { ReactNode } from 'react'
 import '../styles/globals.css'
@@ -25,8 +25,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={`bg-black ${RodinPro.className}`} data-menu="0">
         {children}
-        <Pattern />
-        <Vignette />
+        <NierPattern2 />
+        <NierVignette />
         <TailwindIndicator />
       </body>
     </html>

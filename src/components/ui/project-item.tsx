@@ -1,7 +1,7 @@
 import { ProjectsDB } from '@/db/projects'
 import { useProjectSelectByMouse } from '@/hooks/use-project-select-mouse'
 import { FC, HTMLAttributes, JSX, useRef } from 'react'
-import { LoadingText } from './loading-text'
+import { LoadingText } from '../loading/loading-text'
 import {
   ProjectBox,
   ProjectButton,

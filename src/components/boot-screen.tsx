@@ -4,8 +4,8 @@ import { ScreenStates } from '@/app/(lobby)/page'
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { Concielian } from '@/lib/fonts'
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
-import { Icons } from './icons'
-import { ShellAnimated } from './ui/ShellAnimated'
+import { ShellAnimated } from './shells/shell-animated'
+import { Icons } from './ui/icons'
 
 interface BootScreenProps {
   setScreenState: Dispatch<SetStateAction<ScreenStates>>

@@ -3,7 +3,7 @@ import { useTextHackerEffect } from '@/hooks/use-text-hacker-effect'
 import { useTypingText } from '@/hooks/useTypingText'
 import { cn } from '@/lib/utils'
 import { FC, HTMLAttributes, ReactNode, memo, useRef } from 'react'
-import { GlitchText } from '../glitch'
+import { GlitchText } from './glitch'
 
 interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode

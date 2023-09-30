@@ -1,21 +1,16 @@
 import { HTMLAttributes } from 'react'
-import { Icons } from './icons'
+import { Icons } from '../ui/icons'
 
-interface MenuSuggestionsProps extends HTMLAttributes<HTMLDivElement> {
-  backToMenu: () => void
-}
-
-export const MenuSuggestions = ({
+export const NierSuggestions = ({
   children,
-  backToMenu,
-}: MenuSuggestionsProps) => {
+  onClick,
+}: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className="absolute bottom-24 left-12 right-12 mt-auto hidden h-[80px] cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
+    <div className="absolute bottom-24 left-12 right-12 mt-auto hidden h-[80px] w-auto cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
       <div className="flex gap-2">
         <div className="h-full w-[15px] bg-nier-700" />
         <div className="h-full w-[5px] bg-nier-700" />
       </div>
-
       <div className="mx-8 flex h-full w-full items-center justify-between">
         <p className="text-xl tracking-[0.2em]">{children}</p>
 
@@ -35,7 +30,7 @@ export const MenuSuggestions = ({
 
           <div
             className="flex cursor-pointer items-center gap-1"
-            onClick={backToMenu}
+            onClick={onClick}
           >
             <span className="flex items-center justify-center rounded-sm bg-nier-700 px-1 py-[2px] text-sm text-nier-500">
               Esc

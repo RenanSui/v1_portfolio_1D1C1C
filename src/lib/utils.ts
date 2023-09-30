@@ -11,20 +11,35 @@ export const arrayMaker = (quantity: number) => {
   return array
 }
 
+export const CapitalizeWords = (word: string) => {
+  const wordSplitted = word.trim().split(' ')
+  const joinWords = wordSplitted
+    .map((word) => {
+      return word[0]?.toLocaleUpperCase().concat(word.substring(1))
+    })
+    .join(' ')
+
+  return joinWords
+}
+
 export const getRefAttribute = (
   ref: HTMLElement,
   attribute: string,
   initialValue: string,
 ) => {
-  const dataNavAttr = ref?.getAttribute(attribute)
-  if (!dataNavAttr) {
+  const elementAttributeValue = ref?.getAttribute(attribute)
+
+  if (!elementAttributeValue) {
     setRefAttribute(ref, attribute, initialValue)
-    const dataNavAttr = ref?.getAttribute(attribute)
-    const MenuItem = dataNavAttr || initialValue
-    return MenuItem
+
+    const elAttributeValue = ref?.getAttribute(attribute)
+    const Value = elAttributeValue || initialValue
+
+    return Value
   }
-  const MenuItem = dataNavAttr || initialValue
-  return MenuItem
+
+  const Value = elementAttributeValue || initialValue
+  return Value
 }
 
 export const setRefAttribute = (
@@ -35,13 +50,9 @@ export const setRefAttribute = (
   ref?.setAttribute(attribute, String(value))
 }
 
-export const CapitalizeWords = (word: string) => {
-  const wordSplitted = word.trim().split(' ')
-  const joinWords = wordSplitted
-    .map((word) => {
-      return word[0]?.toLocaleUpperCase().concat(word.substring(1))
-    })
-    .join(' ')
-
-  return joinWords
+export const getCurrentDimension = () => {
+  return {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  }
 }

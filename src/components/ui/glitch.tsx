@@ -42,6 +42,7 @@ GlitchText.displayName = 'GlitchText'
 
 const GlitchTop = ({ children }: HTMLAttributes<HTMLSpanElement>) => (
   <motion.span
+    className="absolute left-0 top-0 text-nier-100 "
     initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}
     animate={{
       x: [-4, 0],
@@ -51,7 +52,6 @@ const GlitchTop = ({ children }: HTMLAttributes<HTMLSpanElement>) => (
         repeatDelay: ((2 * Math.floor(Math.random() * 35)) / 40) * 10,
       },
     }}
-    className="absolute left-0 top-0 text-nier-100 "
   >
     {children}
   </motion.span>
@@ -59,6 +59,7 @@ const GlitchTop = ({ children }: HTMLAttributes<HTMLSpanElement>) => (
 
 const GlitchBottom = ({ children }: HTMLAttributes<HTMLSpanElement>) => (
   <motion.span
+    className="absolute left-0 top-0 text-nier-100 "
     initial={{ clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)' }}
     animate={{
       x: [-4, 0],
@@ -68,7 +69,6 @@ const GlitchBottom = ({ children }: HTMLAttributes<HTMLSpanElement>) => (
         repeatDelay: ((2 * Math.floor(Math.random() * 35)) / 40) * 10,
       },
     }}
-    className="absolute left-0 top-0 text-nier-100 "
   >
     {children}
   </motion.span>
