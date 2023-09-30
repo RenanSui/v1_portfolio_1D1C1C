@@ -25,11 +25,11 @@ export const SettingItem = ({
   return (
     <div
       ref={SettingsRef}
-      className="group relative z-50 w-full max-w-[400px]"
+      className="group relative z-50 w-full md:max-w-[400px]"
       onClick={() => setIsChecked(!isChecked)}
       {...props}
     >
-      <NierSelector className="-left-12 top-1/2 z-50 -translate-y-1/2" />
+      <NierSelector className="-left-12 top-1/2 z-50 hidden -translate-y-1/2 md:block" />
 
       <TopLine isChecked={isChecked} />
 

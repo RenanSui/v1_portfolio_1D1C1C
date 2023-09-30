@@ -31,7 +31,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
         <NierLine />
 
         <section
-          className="flex flex-col gap-4"
+          className="flex w-full flex-col items-center gap-4 xs:items-start"
           ref={settingContainerRef}
           data-elementType="settings"
         >

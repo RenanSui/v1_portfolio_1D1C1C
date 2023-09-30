@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '360px',
+      },
       colors: {
         nier: {
           50: '#F2F2F2',
