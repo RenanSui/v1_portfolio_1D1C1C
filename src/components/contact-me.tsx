@@ -1,9 +1,10 @@
+import { useBackToMenu } from '@/hooks/use-back-menu'
 import { CapitalizeWords } from '@/lib/utils'
-import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
+import { Dispatch, SetStateAction, useCallback } from 'react'
 import { z } from 'zod'
 import { OptionStates } from './main-menu'
-import { NierPattern } from './nier/nier-pattern'
 import { NierLine } from './nier/nier-line'
+import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { ShellContent } from './shells/shell-content'
 import { Header } from './ui/header'
@@ -28,14 +29,7 @@ interface ContactMeProps {
 const ContactMe = ({ setOptionState }: ContactMeProps) => {
   const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
 
-  useEffect(() => {
-    const onKeyPressed = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') backToMenu()
-    }
-
-    window.addEventListener('keydown', onKeyPressed, true)
-    return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [setOptionState, backToMenu])
+  useBackToMenu(backToMenu)
 
   return (
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">

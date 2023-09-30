@@ -1,5 +1,6 @@
+import { useBackToMenu } from '@/hooks/use-back-menu'
 import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
-import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react'
+import { Dispatch, SetStateAction, useCallback, useRef } from 'react'
 import { OptionStates } from './main-menu'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
@@ -18,14 +19,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
 
   useSelectKeyboard(settingContainerRef)
 
-  useEffect(() => {
-    const onKeyPressed = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') backToMenu()
-    }
-
-    window.addEventListener('keydown', onKeyPressed, true)
-    return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [setOptionState, backToMenu])
+  useBackToMenu(backToMenu)
 
   return (
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
@@ -44,9 +38,11 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
           <SettingItem keyValue="starAnimation" data-active="true">
             Star Animation
           </SettingItem>
+
           <SettingItem keyValue="loadingAnimation">
             Loading Animation
           </SettingItem>
+
           <SettingItem keyValue="bootAnimation">Boot Animationn</SettingItem>
         </section>
       </ShellContent>

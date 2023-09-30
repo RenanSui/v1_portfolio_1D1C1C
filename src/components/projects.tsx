@@ -1,6 +1,7 @@
 import { projectsDB } from '@/db/projects'
+import { useBackToMenu } from '@/hooks/use-back-menu'
 import { useProjectSelectByKeyboard } from '@/hooks/use-project-select-keyboard'
-import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react'
+import { Dispatch, SetStateAction, useCallback, useRef } from 'react'
 import { OptionStates } from './main-menu'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
@@ -19,14 +20,7 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
 
   useProjectSelectByKeyboard(ProjectRef)
 
-  useEffect(() => {
-    const onKeyPressed = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') backToMenu()
-    }
-
-    window.addEventListener('keydown', onKeyPressed, true)
-    return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [setOptionState, backToMenu])
+  useBackToMenu(backToMenu)
 
   return (
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
