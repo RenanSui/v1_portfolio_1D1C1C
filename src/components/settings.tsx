@@ -27,7 +27,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
 
       <Header onClick={backToMenu}>SETTINGS</Header>
 
-      <ShellContent>
+      <ShellContent className="flex gap-6">
         <NierLine />
 
         <section
