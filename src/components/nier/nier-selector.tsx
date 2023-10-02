@@ -5,7 +5,7 @@ export const NierSelector = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={`${cn(
-        'absolute w-fit -rotate-90 opacity-0 group-hover:opacity-100 group-data-[active=true]:opacity-100',
+        'absolute w-fit -rotate-90 opacity-0 group-data-[active=true]:opacity-100',
         className,
       )}`}
     >

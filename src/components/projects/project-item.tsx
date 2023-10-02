@@ -15,13 +15,13 @@ export const ProjectItem = ({ children }: ProjectItemProps) => {
 
   return (
     <div
-      className="group relative flex h-[45px] w-full max-w-[770px] transition-all duration-300 hover:bg-nier-700 data-[active=true]:bg-nier-700"
+      className="group relative flex h-[45px] w-full max-w-[770px] transition-all duration-300 data-[active=true]:bg-nier-700"
       ref={ProjectRef}
     >
       <NierSelector className="-left-12 top-1/2 z-50 hidden -translate-y-1/2 md:block" />
 
-      <h1 className="mx-3 flex items-center gap-3 group-hover:text-nier-600 group-data-[active=true]:text-nier-600 md:text-xl">
-        <NierSquare className="h-[23px] w-[23px] group-hover:bg-nier-600" />
+      <h1 className="mx-3 flex items-center gap-3 group-data-[active=true]:text-nier-600 md:text-xl">
+        <NierSquare className="h-[23px] w-[23px]" />
         <LoadingText>{children}</LoadingText>
       </h1>
     </div>
