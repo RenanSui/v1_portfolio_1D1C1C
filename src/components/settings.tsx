@@ -33,7 +33,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
         <section
           className="flex w-full flex-col items-center gap-4 xs:items-start"
           ref={settingContainerRef}
-          data-elementType="settings"
+          data-elementtype="settings"
         >
           <SettingItem keyValue="starAnimation" data-active="true">
             Star Animation

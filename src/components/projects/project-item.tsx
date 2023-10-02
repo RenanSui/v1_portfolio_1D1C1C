@@ -27,7 +27,7 @@ export const ProjectItem = ({
       )}
       ref={ProjectRef}
       onClick={onClick}
-      data-elementType="projectItem"
+      data-elementtype="projectItem"
       {...props}
     >
       <NierSelector className="-left-12 top-1/2 z-50 hidden -translate-y-1/2 md:block" />

@@ -24,7 +24,7 @@ export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
       // PROJECT STUFF
       const elementDataIdValue = getRefAttribute(
         elementRef.current,
-        'data-elementType',
+        'data-elementtype',
         'about-me',
       )
 

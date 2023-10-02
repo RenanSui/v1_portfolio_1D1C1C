@@ -34,7 +34,7 @@ const handleElementClickEvent = (elementRef: RefObject<HTMLElement>) => {
 
   const elementDataIdValue = getRefAttribute(
     elementRef.current,
-    'data-elementType',
+    'data-elementtype',
     'about-me',
   )
 
@@ -63,6 +63,30 @@ const handleElementClickEvent = (elementRef: RefObject<HTMLElement>) => {
   }
 }
 
+const handleChangeProjects = (elementRef: RefObject<HTMLElement>) => {
+  if (!(elementRef.current && localStorage)) return null
+
+  const elementDataIdValue = getRefAttribute(
+    elementRef.current,
+    'data-elementtype',
+    'about-me',
+  )
+
+  if (!(elementDataIdValue === 'projectShell')) return null
+
+  const projectDataIdValue = Number(
+    getRefAttribute(elementRef.current, 'data-element-id', '0'),
+  )
+
+  const projectItem = elementRef.current.children[
+    projectDataIdValue
+  ] as HTMLDivElement
+
+  localStorage.setItem('projectId', projectItem.id)
+
+  projectItem.click()
+}
+
 const handleArrowUp = (elementRef: RefObject<HTMLElement>) => {
   if (!elementRef.current) return null
 
@@ -77,6 +101,8 @@ const handleArrowUp = (elementRef: RefObject<HTMLElement>) => {
   const newDataValue = dataIdValue < 0 ? childrenLength : dataIdValue
 
   setRefAttribute(element, 'data-element-id', newDataValue)
+
+  handleChangeProjects(elementRef)
 }
 
 const handleArrowDown = (elementRef: RefObject<HTMLElement>) => {
@@ -93,6 +119,8 @@ const handleArrowDown = (elementRef: RefObject<HTMLElement>) => {
   const newDataValue = dataIdValue > childrenLength ? 0 : dataIdValue
 
   setRefAttribute(element, 'data-element-id', newDataValue)
+
+  handleChangeProjects(elementRef)
 }
 
 const handleKeyboard = (

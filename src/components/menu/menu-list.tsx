@@ -13,7 +13,7 @@ interface MenuListProps {
 export const MenuList = ({ setOptionState, setScreenState }: MenuListProps) => {
   return (
     <AnimatedShell className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
-      <MenuShell data-elementType="menu" className="flex flex-col gap-3">
+      <MenuShell data-elementtype="menu" className="flex flex-col gap-3">
         <MenuItem
           textHidden={'About Me'}
           data-active="true"
