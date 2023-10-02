@@ -9,7 +9,12 @@ interface ProjectItemProps extends HTMLAttributes<HTMLDivElement> {
   children: string
 }
 
-export const ProjectItem = ({ children, className }: ProjectItemProps) => {
+export const ProjectItem = ({
+  children,
+  className,
+  onClick,
+  ...props
+}: ProjectItemProps) => {
   const ProjectRef = useRef<HTMLDivElement>(null)
 
   useSelectMouse(ProjectRef)
@@ -21,6 +26,9 @@ export const ProjectItem = ({ children, className }: ProjectItemProps) => {
         className,
       )}
       ref={ProjectRef}
+      onClick={onClick}
+      data-elementType="projectItem"
+      {...props}
     >
       <NierSelector className="-left-12 top-1/2 z-50 hidden -translate-y-1/2 md:block" />
 

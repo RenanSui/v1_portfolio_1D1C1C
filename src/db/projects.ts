@@ -1,6 +1,6 @@
 export const projectItems = [
   {
-    id: 1,
+    id: 0,
     name: 'Salvage',
     description: 'Simple Backup Automator',
     githubLink: 'https://github.com/RenanSui/salvage',
@@ -8,7 +8,7 @@ export const projectItems = [
     imagePreview: 'bg-[url(/images/salvage.png)]',
   },
   {
-    id: 2,
+    id: 1,
     name: 'Poképedia',
     description: 'Detailed stats for every creature from the Pokémon games',
     githubLink: 'https://github.com/RenanSui/pokedex',
@@ -16,7 +16,7 @@ export const projectItems = [
     imagePreview: 'bg-[url(/images/pokedex.png)]',
   },
   {
-    id: 3,
+    id: 2,
     name: 'Expense Tracker',
     description: 'Tracking where your money is going',
     githubLink: 'https://github.com/RenanSui/expense-tracker',
@@ -24,7 +24,7 @@ export const projectItems = [
     imagePreview: 'bg-[url(/images/tracker.png)]',
   },
   {
-    id: 4,
+    id: 3,
     name: 'Weatherium',
     description: 'Accurate source of weather forecasts',
     githubLink: 'https://github.com/RenanSui/weather-app',

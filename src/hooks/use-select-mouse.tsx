@@ -1,3 +1,4 @@
+import { getRefAttribute } from '@/lib/utils'
 import { RefObject, useEffect } from 'react'
 
 // Use in each individual item
@@ -19,6 +20,19 @@ export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
       }
 
       currentElement.setAttribute('data-active', 'true')
+
+      // PROJECT STUFF
+      const elementDataIdValue = getRefAttribute(
+        elementRef.current,
+        'data-elementType',
+        'about-me',
+      )
+
+      if (elementDataIdValue === 'projectItem' && localStorage) {
+        localStorage.setItem('projectId', currentElement.id)
+
+        currentElement.click()
+      }
     }
 
     const HTMLElement = currentElement || document
@@ -29,5 +43,5 @@ export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
     }
   }, [elementRef])
 
-  return {}
+  return { elementId: elementRef.current?.id || String(0) }
 }

@@ -1,7 +1,8 @@
 import { projectItems } from '@/db/projects'
 import { useBackToMenu } from '@/hooks/use-back-menu'
+import { useLocalStorage } from '@/hooks/use-local-storage'
 import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
-import { Dispatch, SetStateAction, useCallback, useRef } from 'react'
+import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react'
 import { OptionStates } from './main-menu'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
@@ -16,12 +17,23 @@ interface ProjectsProps {
 }
 
 const Projects = ({ setOptionState }: ProjectsProps) => {
+  const [projectId, setProjectId] = useLocalStorage('projectId', '0')
   const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
   const ProjectsRef = useRef<HTMLDivElement>(null)
+
+  const changeProject = () => {
+    const localStorageValue = localStorage.getItem('projectId')
+
+    setProjectId(
+      localStorageValue ? (JSON.parse(localStorageValue) as string) : '0',
+    )
+  }
 
   useSelectKeyboard(ProjectsRef)
 
   useBackToMenu(backToMenu)
+
+  useEffect(() => {}, [projectId])
 
   return (
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
@@ -41,7 +53,13 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
             <div className="mx-3 mt-2 h-[1px] bg-nier-700 opacity-70" />
 
             {projectItems.map((item) => (
-              <ProjectItem key={item.id}>{item.name}</ProjectItem>
+              <ProjectItem
+                key={item.id}
+                id={String(item.id)}
+                onClick={changeProject}
+              >
+                {item.name}
+              </ProjectItem>
             ))}
           </section>
 
@@ -51,8 +69,8 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
         {/* table and above project card */}
         <ProjectCard
           className="hidden flex-1 md:flex"
-          key={projectItems[0]!.id}
-          projectItems={projectItems[0]!}
+          key={projectItems[Number(projectId)]!.id} // change Card
+          projectItems={projectItems[Number(projectId)]!}
         />
 
         {/* mobile only project card */}
