@@ -12,109 +12,105 @@ export const useSelectKeyboard = (elementRef: RefObject<HTMLElement>) => {
 }
 
 const handleActivateOption = (elementRef: RefObject<HTMLElement>) => {
-  if (elementRef.current) {
-    const currentElement = elementRef.current
-    const elementDataIdValue = Number(
-      getRefAttribute(currentElement, 'data-element-id', '0'),
-    )
+  if (!elementRef.current) return null
 
-    for (let i = 0; i < currentElement.childElementCount; i++) {
-      currentElement.children[i]?.setAttribute('data-active', 'false')
-    }
+  const currentElement = elementRef.current
+  const elementDataIdValue = Number(
+    getRefAttribute(currentElement, 'data-element-id', '0'),
+  )
 
-    currentElement?.children[elementDataIdValue]?.setAttribute(
-      'data-active',
-      'true',
-    )
+  for (let i = 0; i < currentElement.childElementCount; i++) {
+    currentElement.children[i]?.setAttribute('data-active', 'false')
   }
+
+  currentElement?.children[elementDataIdValue]?.setAttribute(
+    'data-active',
+    'true',
+  )
 }
 
 const handleElementClickEvent = (elementRef: RefObject<HTMLElement>) => {
-  if (elementRef.current) {
-    const elementDataIdValue = getRefAttribute(
-      elementRef.current,
-      'data-elementType',
-      'about-me',
+  if (!elementRef.current) return null
+
+  const elementDataIdValue = getRefAttribute(
+    elementRef.current,
+    'data-elementType',
+    'about-me',
+  )
+
+  if (elementDataIdValue === 'menu') {
+    const menuDataIdValue = Number(
+      getRefAttribute(elementRef.current, 'data-element-id', '0'),
     )
 
-    if (elementDataIdValue === 'menu') {
-      const menuDataIdValue = Number(
-        getRefAttribute(elementRef.current, 'data-element-id', '0'),
-      )
+    const MenuOption = elementRef.current.children[
+      menuDataIdValue
+    ] as HTMLDivElement
 
-      const MenuOption = elementRef.current.children[
-        menuDataIdValue
-      ] as HTMLDivElement
+    MenuOption.click()
+  }
 
-      MenuOption.click()
-    }
+  if (elementDataIdValue === 'settings') {
+    const settingDataIdValue = Number(
+      getRefAttribute(elementRef.current, 'data-element-id', '0'),
+    )
 
-    if (elementDataIdValue === 'settings') {
-      const settingDataIdValue = Number(
-        getRefAttribute(elementRef.current, 'data-element-id', '0'),
-      )
+    const settingOption = elementRef.current.children[
+      settingDataIdValue
+    ] as HTMLDivElement
 
-      const settingOption = elementRef.current.children[
-        settingDataIdValue
-      ] as HTMLDivElement
-
-      settingOption.click()
-    }
+    settingOption.click()
   }
 }
 
 const handleArrowUp = (elementRef: RefObject<HTMLElement>) => {
-  if (elementRef.current) {
-    const currentElement = elementRef.current
+  if (!elementRef.current) return null
 
-    const elementChildrenLength = currentElement
-      ? currentElement.childElementCount - 1
-      : 0
+  const currentElement = elementRef.current
 
-    const elementDataIdValueValue =
-      Number(getRefAttribute(currentElement, 'data-element-id', '0')) - 1
+  const elementChildrenLength = currentElement
+    ? currentElement.childElementCount - 1
+    : 0
 
-    // if less than 0 return Length
-    const elementNewDataValue =
-      elementDataIdValueValue < 0
-        ? elementChildrenLength
-        : elementDataIdValueValue
+  const elementDataIdValue =
+    Number(getRefAttribute(currentElement, 'data-element-id', '0')) - 1
 
-    setRefAttribute(currentElement, 'data-element-id', elementNewDataValue)
-  }
+  // if less than 0 return Length
+  const elementNewDataValue =
+    elementDataIdValue < 0 ? elementChildrenLength : elementDataIdValue
+
+  setRefAttribute(currentElement, 'data-element-id', elementNewDataValue)
 }
 
 const handleArrowDown = (elementRef: RefObject<HTMLElement>) => {
-  if (elementRef.current) {
-    const currentElement = elementRef.current
+  if (!elementRef.current) return null
 
-    const elementChildrenLength = currentElement
-      ? currentElement.childElementCount - 1
-      : 0
+  const currentElement = elementRef.current
 
-    const elementDataIdValue =
-      Number(getRefAttribute(currentElement, 'data-element-id', '0')) + 1
+  const elementChildrenLength = currentElement
+    ? currentElement.childElementCount - 1
+    : 0
 
-    // if greater than length return 0
-    const elementNewDataValue =
-      elementDataIdValue > elementChildrenLength ? 0 : elementDataIdValue
+  const elementDataIdValue =
+    Number(getRefAttribute(currentElement, 'data-element-id', '0')) + 1
 
-    setRefAttribute(currentElement, 'data-element-id', elementNewDataValue)
-  }
+  // if greater than length return 0
+  const elementNewDataValue =
+    elementDataIdValue > elementChildrenLength ? 0 : elementDataIdValue
+
+  setRefAttribute(currentElement, 'data-element-id', elementNewDataValue)
 }
 
 const handleKeyboard = (
   e: KeyboardEvent,
   elementRef: RefObject<HTMLElement>,
 ) => {
-  if (elementRef.current) {
-    if (e.key === 'Enter' || e.key === 'e' || e.key === 'f') {
-      handleElementClickEvent(elementRef)
-    }
-
-    if (e.key === 'ArrowUp') handleArrowUp(elementRef)
-    if (e.key === 'ArrowDown') handleArrowDown(elementRef)
+  if (e.key === 'Enter' || e.key === 'e' || e.key === 'f') {
+    handleElementClickEvent(elementRef)
   }
+
+  if (e.key === 'ArrowUp') handleArrowUp(elementRef)
+  if (e.key === 'ArrowDown') handleArrowDown(elementRef)
 
   handleActivateOption(elementRef)
 }

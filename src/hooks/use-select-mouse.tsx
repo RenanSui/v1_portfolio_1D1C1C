@@ -7,27 +7,25 @@ export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
     const parentElement = elementRef.current?.parentElement
 
     const handleMouseOver = (e: Event) => {
-      if (parentElement) {
-        // iterate over all childs
-        for (let i = 0; i < parentElement.childElementCount; i++) {
-          // Set all Children data-active=false
-          parentElement.children[i]?.setAttribute('data-active', 'false')
+      if (!(parentElement && currentElement)) return null
 
-          // Add Id to all Children
-          // parentElement.children[i]?.setAttribute('data-option-id', `${i}`)
-        }
+      // iterate over all childs
+      for (let i = 0; i < parentElement.childElementCount; i++) {
+        // Set all Children data-active=false
+        parentElement.children[i]?.setAttribute('data-active', 'false')
+
+        // Add Id to all Children
+        // parentElement.children[i]?.setAttribute('data-option-id', `${i}`)
       }
 
-      if (currentElement) currentElement.setAttribute('data-active', 'true')
+      currentElement.setAttribute('data-active', 'true')
     }
 
     const HTMLElement = currentElement || document
 
     HTMLElement.addEventListener('mouseover', handleMouseOver, true)
-    // HTMLElement.addEventListener('mouseleave', handleMouseLeave, true)
     return () => {
       HTMLElement.removeEventListener('mouseover', handleMouseOver, true)
-      // HTMLElement.removeEventListener('mouseleave', handleMouseLeave, true)
     }
   }, [elementRef])
 

@@ -28,9 +28,6 @@ export const TextGlitched = ({
       className={cn(
         'relative select-none text-transparent [text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45]',
       )}
-      // className={cn(
-      //   'relative text-transparent [text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45,_0_0_5px_#FAF8EF]',
-      // )}
     >
       <GlitchTop className={className}>
         <LoadingText index={index}>{children}</LoadingText>
