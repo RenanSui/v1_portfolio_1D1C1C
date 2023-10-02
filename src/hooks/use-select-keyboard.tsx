@@ -37,27 +37,29 @@ const handleElementClickEvent = (elementRef: RefObject<HTMLElement>) => {
       'about-me',
     )
 
-    if (elementDataIdValue === 'settings') {
-      const settingsDataIdValue = Number(
+    if (elementDataIdValue === 'menu') {
+      const menuDataIdValue = Number(
         getRefAttribute(elementRef.current, 'data-element-id', '0'),
       )
 
-      const elementOption = elementRef.current.children[
-        settingsDataIdValue
+      const MenuOption = elementRef.current.children[
+        menuDataIdValue
       ] as HTMLDivElement
 
-      elementOption.click()
+      MenuOption.click()
     }
 
-    // const elementDataIdValue = Number(
-    //   getRefAttribute(elementRef.current, 'data-element-id', '0'),
-    // )
+    if (elementDataIdValue === 'settings') {
+      const settingDataIdValue = Number(
+        getRefAttribute(elementRef.current, 'data-element-id', '0'),
+      )
 
-    // const elementOption = elementRef.current.children[
-    //   elementDataIdValue
-    // ] as HTMLDivElement
+      const settingOption = elementRef.current.children[
+        settingDataIdValue
+      ] as HTMLDivElement
 
-    // if (elementOption) elementOption.click()
+      settingOption.click()
+    }
   }
 }
 
