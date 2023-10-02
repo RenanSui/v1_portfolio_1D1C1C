@@ -6,6 +6,7 @@ import { NierSelector } from '../nier/nier-selector'
 import { NierSquare } from '../nier/nier-square'
 import { Icons } from '../ui/icons'
 import { BottomLine, TopLine } from './settings-line'
+import { LoadingText } from '../loading/loading-text'
 
 interface SettingItemProps {
   children: string
@@ -49,7 +50,8 @@ export const SettingItem = ({
               }
             />
           </NierSquare>
-          {!isChecked ? `Disabled: ${children}` : `Enabled: ${children}`}
+          {isChecked && <LoadingText>{`Enabled ${children}`}</LoadingText>}
+          {!isChecked && <LoadingText>{`Disabled ${children}`}</LoadingText>}
         </h1>
       </div>
 
