@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import { HTMLAttributes } from 'react'
 import { LoadingText } from '../loading/loading-text'
 import { NierSquare } from '../nier/nier-square'
-import { ProjectButton } from '../ui/project'
+import { ProjectButton } from './project-button'
 
 interface ProjectCardProps extends HTMLAttributes<HTMLDivElement> {
   projectItems: ProjectItems
