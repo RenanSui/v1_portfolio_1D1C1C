@@ -13,7 +13,7 @@ import {
 import { LoadingDots } from './loading/loading-dots'
 import { LoadingSpinner } from './loading/loading-spinner'
 import { AnimatedShell } from './shells/animated-shell'
-import { GlitchText } from './ui/glitch'
+import { TextGlitched } from './ui/text-glitched'
 
 const LoadingTextContainer: Variants = {
   animate: {
@@ -72,12 +72,9 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
 
       <div className="p-8 sm:p-12 md:p-20 lg:px-24 lg:pt-24">
         <div className="relative flex cursor-default select-none flex-wrap items-center gap-1 text-nier-100">
-          <GlitchText
-            className={`text-3xl font-medium tracking-[0.3em] sm:text-4xl lg:text-5xl`}
-            index={0}
-          >
-            LOADING
-          </GlitchText>
+          <span className="text-3xl font-medium tracking-[0.3em] sm:text-4xl lg:text-5xl">
+            <TextGlitched className={`text-nier-100`}>LOADING</TextGlitched>
+          </span>
           <span className="mr-1 mt-3">—</span>
           <span className={`self-end text-base font-semibold sm:text-lg`}>
             BOOTING SYSTEM
@@ -96,13 +93,20 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
           >
             {LoadingState.map((text, index) => {
               return (
-                <GlitchText
-                  className="[text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45] sm:text-sm lg:text-lg"
+                // <GlitchText
+                //   className="[text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45] sm:text-sm lg:text-lg"
+                //   key={index}
+                //   index={index}
+                // >
+                //   {text}
+                // </GlitchText>
+                <TextGlitched
+                  className="text-nier-100"
                   key={index}
                   index={index}
                 >
                   {text}
-                </GlitchText>
+                </TextGlitched>
               )
             })}
           </AnimatedShell>

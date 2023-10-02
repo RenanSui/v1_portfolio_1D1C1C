@@ -1,11 +1,32 @@
+import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { useTypingText } from '@/hooks/useTypingText'
+import { useEffect, useState } from 'react'
 
-export const LoadingText = ({ children }: { children: string }) => {
+interface LoadingTextProps {
+  children: string
+  index?: number
+}
+
+export const LoadingText = ({ children, index = 0 }: LoadingTextProps) => {
+  const [isShowing, setIsShowing] = useState(false)
   const { word, start } = useTypingText(children, 30)
 
-  setTimeout(() => {
-    start()
-  }, 50)
+  const [isChecked] = useLocalStorageBoolean('textAnimation', true)
+
+  const Time = index ? 1250 * (index / 1.5) : 50
+
+  const loadingTextTimeout = setTimeout(() => start(), Time)
+
+  const showingTextTimeout = setTimeout(() => setIsShowing(true), Time)
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(loadingTextTimeout)
+      clearTimeout(showingTextTimeout)
+    }
+  })
+
+  if (!isChecked) return <>{isShowing ? children : ''}</>
 
   return (
     <>
