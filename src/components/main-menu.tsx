@@ -37,7 +37,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
 
         {/* Menu List */}
         <AnimatePresence>
-          {menuState === 'menu' && (
+          {menuState === 'menu' && optionState === '' && (
             <MenuList {...{ setOptionState, setScreenState }} />
           )}
         </AnimatePresence>
