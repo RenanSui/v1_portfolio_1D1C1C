@@ -38,10 +38,14 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
             className="projects flex cursor-default flex-col gap-2"
             ref={ProjectsRef}
           >
+            <div className="mx-3 mt-2 h-[1px] bg-nier-700 opacity-70" />
+
             {projectItems.map((item) => (
               <ProjectItem key={item.id}>{item.name}</ProjectItem>
             ))}
           </section>
+
+          <div className="mx-3 mb-2 mt-auto h-[1px] bg-nier-700 opacity-70" />
         </div>
 
         {/* table and above project card */}

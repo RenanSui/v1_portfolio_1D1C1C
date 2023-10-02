@@ -1,4 +1,5 @@
 import { useSelectMouse } from '@/hooks/use-select-mouse'
+import { cn } from '@/lib/utils'
 import { HTMLAttributes, useRef } from 'react'
 import { LoadingText } from '../loading/loading-text'
 import { NierSelector } from '../nier/nier-selector'
@@ -8,14 +9,17 @@ interface ProjectItemProps extends HTMLAttributes<HTMLDivElement> {
   children: string
 }
 
-export const ProjectItem = ({ children }: ProjectItemProps) => {
+export const ProjectItem = ({ children, className }: ProjectItemProps) => {
   const ProjectRef = useRef<HTMLDivElement>(null)
 
   useSelectMouse(ProjectRef)
 
   return (
     <div
-      className="group relative flex h-[45px] w-full max-w-[770px] transition-all duration-300 data-[active=true]:bg-nier-700"
+      className={cn(
+        'group relative flex h-[45px] w-full transition-all duration-300 data-[active=true]:bg-nier-700',
+        className,
+      )}
       ref={ProjectRef}
     >
       <NierSelector className="-left-12 top-1/2 z-50 hidden -translate-y-1/2 md:block" />
