@@ -50,8 +50,8 @@ export const SettingItem = ({
               }
             />
           </NierSquare>
-          {isChecked && <LoadingText>{`Enabled ${children}`}</LoadingText>}
-          {!isChecked && <LoadingText>{`Disabled ${children}`}</LoadingText>}
+          {isChecked && <LoadingText>{`Enabled: ${children}`}</LoadingText>}
+          {!isChecked && <LoadingText>{`Disabled: ${children}`}</LoadingText>}
         </h1>
       </div>
 
