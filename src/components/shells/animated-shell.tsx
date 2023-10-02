@@ -1,7 +1,7 @@
 import { HTMLMotionProps, motion } from 'framer-motion'
 import { forwardRef } from 'react'
 
-const ShellAnimated = forwardRef(
+const AnimatedShell = forwardRef(
   (
     {
       children,
@@ -28,6 +28,6 @@ const ShellAnimated = forwardRef(
     )
   },
 )
-ShellAnimated.displayName = 'ShellAnimated'
+AnimatedShell.displayName = 'AnimatedShell'
 
-export { ShellAnimated }
+export { AnimatedShell }

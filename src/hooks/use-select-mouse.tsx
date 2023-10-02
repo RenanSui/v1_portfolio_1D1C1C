@@ -1,10 +1,10 @@
 import { RefObject, useEffect } from 'react'
 
 // Use in each individual item
-export const useSelectMouse = (MenuOptionRef: RefObject<HTMLElement>) => {
+export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
   useEffect(() => {
-    const currentElement = MenuOptionRef.current
-    const parentElement = MenuOptionRef.current?.parentElement
+    const currentElement = elementRef.current
+    const parentElement = elementRef.current?.parentElement
 
     const handleMouseOver = (e: Event) => {
       if (parentElement) {
@@ -14,7 +14,7 @@ export const useSelectMouse = (MenuOptionRef: RefObject<HTMLElement>) => {
           parentElement.children[i]?.setAttribute('data-active', 'false')
 
           // Add Id to all Children
-          parentElement.children[i]?.setAttribute('data-option-id', `${i}`)
+          // parentElement.children[i]?.setAttribute('data-option-id', `${i}`)
         }
       }
 
@@ -29,7 +29,7 @@ export const useSelectMouse = (MenuOptionRef: RefObject<HTMLElement>) => {
       HTMLElement.removeEventListener('mouseover', handleMouseOver, true)
       // HTMLElement.removeEventListener('mouseleave', handleMouseLeave, true)
     }
-  }, [MenuOptionRef])
+  }, [elementRef])
 
   return {}
 }

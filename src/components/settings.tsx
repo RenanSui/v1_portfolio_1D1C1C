@@ -6,7 +6,7 @@ import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { SettingItem } from './settings/settings-item'
-import { ShellContent } from './shells/shell-content'
+import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
 
 interface SettingsProps {
@@ -27,7 +27,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
 
       <Header onClick={backToMenu}>SETTINGS</Header>
 
-      <ShellContent className="flex gap-6">
+      <ContentShell className="flex gap-6">
         <NierLine />
 
         <section
@@ -45,7 +45,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
 
           <SettingItem keyValue="bootAnimation">Boot Animationn</SettingItem>
         </section>
-      </ShellContent>
+      </ContentShell>
 
       <NierSuggestions onClick={backToMenu}>
         Adjust Website Settings

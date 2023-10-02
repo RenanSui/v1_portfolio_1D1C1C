@@ -4,7 +4,7 @@ import { OptionStates } from './main-menu'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
-import { ShellContent } from './shells/shell-content'
+import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
 
 interface AboutMeProps {
@@ -22,9 +22,9 @@ const AboutMe = ({ setOptionState }: AboutMeProps) => {
 
       <Header onClick={backToMenu}>ABOUT ME</Header>
 
-      <ShellContent>
+      <ContentShell>
         <NierLine />
-      </ShellContent>
+      </ContentShell>
 
       <NierSuggestions onClick={backToMenu}>Preview a project</NierSuggestions>
 

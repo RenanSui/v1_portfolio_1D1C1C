@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import { HTMLAttributes } from 'react'
 
-export const ShellContent = ({
+export const ContentShell = ({
   children,
   className,
 }: HTMLAttributes<HTMLDivElement>) => {

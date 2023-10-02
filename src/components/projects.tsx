@@ -8,7 +8,7 @@ import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { ProjectCard } from './projects/project-card'
 import { ProjectItem } from './projects/project-item'
-import { ShellContent } from './shells/shell-content'
+import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
 
 interface ProjectsProps {
@@ -29,7 +29,7 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
 
       <Header onClick={backToMenu}>PROJECTS</Header>
 
-      <ShellContent className="gap-6 md:flex md:h-full">
+      <ContentShell className="gap-6 md:flex md:h-full">
         <NierLine />
 
         {/* tablet and above */}
@@ -54,7 +54,7 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
             <ProjectCard key={item.id} projectItems={item} />
           ))}
         </div>
-      </ShellContent>
+      </ContentShell>
 
       <NierSuggestions onClick={backToMenu}>Preview a project</NierSuggestions>
 

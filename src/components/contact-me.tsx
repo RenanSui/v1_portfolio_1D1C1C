@@ -6,7 +6,7 @@ import { OptionStates } from './main-menu'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
-import { ShellContent } from './shells/shell-content'
+import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
 
 const messageSchema = z.object({
@@ -37,9 +37,9 @@ const ContactMe = ({ setOptionState }: ContactMeProps) => {
 
       <Header onClick={backToMenu}>CONTACT ME</Header>
 
-      <ShellContent>
+      <ContentShell>
         <NierLine />
-      </ShellContent>
+      </ContentShell>
 
       <NierSuggestions onClick={backToMenu}>Send me a message</NierSuggestions>
 

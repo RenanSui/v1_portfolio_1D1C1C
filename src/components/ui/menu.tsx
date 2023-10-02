@@ -1,9 +1,9 @@
-import { useMenuSelectByMouse } from '@/hooks/use-menu-select-mouse'
 import { useTextHackerEffect } from '@/hooks/use-text-hacker-effect'
 import { useTypingText } from '@/hooks/useTypingText'
 import { cn } from '@/lib/utils'
 import { FC, HTMLAttributes, ReactNode, memo, useRef } from 'react'
 import { GlitchText } from './glitch'
+import { useSelectMouse } from '@/hooks/use-select-mouse'
 
 interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
@@ -23,7 +23,7 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
   const MenuOptionRef = useRef<HTMLDivElement>(null)
 
   useTextHackerEffect(MenuOptionRef)
-  useMenuSelectByMouse(MenuOptionRef)
+  useSelectMouse(MenuOptionRef)
 
   setTimeout(() => start(), 625)
 
