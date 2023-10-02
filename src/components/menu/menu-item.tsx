@@ -1,5 +1,4 @@
 import { useSelectMouse } from '@/hooks/use-select-mouse'
-import { useTextHackerEffect } from '@/hooks/use-text-hacker-effect'
 import { cn } from '@/lib/utils'
 import { FC, HTMLAttributes, memo, useRef } from 'react'
 import { TextGlitched } from '../ui/text-glitched'
@@ -22,7 +21,7 @@ const MenuItemComponent: FC<MenuItemProps> = ({
 }) => {
   const MenuOptionRef = useRef<HTMLDivElement>(null)
 
-  useTextHackerEffect(MenuOptionRef)
+  // useTextHackerEffect(MenuOptionRef)
   useSelectMouse(MenuOptionRef)
 
   return (

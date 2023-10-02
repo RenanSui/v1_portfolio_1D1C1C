@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
+import { AnimatedShell } from '../shells/animated-shell'
 
 const StarsVideo = () => {
   return (
-    <>
+    <AnimatedShell>
       <motion.video
         loop
         autoPlay
@@ -29,7 +30,7 @@ const StarsVideo = () => {
       >
         <source src="videos/stars-2.mp4" type="video/mp4" />
       </motion.video>
-    </>
+    </AnimatedShell>
   )
 }
 
