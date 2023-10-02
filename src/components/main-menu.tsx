@@ -9,9 +9,15 @@ import { AnimatedShell } from './shells/animated-shell'
 import { StarsBackground } from './stars/stars-background'
 import { StarsVideo } from './stars/stars-video'
 
-export type MenuStates = '' | 'start' | 'press-any' | 'menu'
+export type MenuStates = '' | 'press-any' | 'menu'
 
-export type OptionStates = '' | 'about-me' | 'projects' | 'settings' | 'contact'
+export type OptionStates =
+  | ''
+  | 'about-me'
+  | 'projects'
+  | 'settings'
+  | 'contact'
+  | 'exit-game'
 
 interface MainMenuProps {
   setScreenState: Dispatch<SetStateAction<ScreenStates>>
@@ -45,7 +51,9 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
         {/* Menu Sections */}
         <AnimatePresence>
           {optionState !== '' && (
-            <MenuSections {...{ optionState, setOptionState }} />
+            <MenuSections
+              {...{ optionState, setOptionState, setScreenState }}
+            />
           )}
         </AnimatePresence>
 

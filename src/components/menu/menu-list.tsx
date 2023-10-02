@@ -45,7 +45,8 @@ export const MenuList = ({ setOptionState, setScreenState }: MenuListProps) => {
 
         <MenuItem
           textHidden={'Exit Game'}
-          onClick={() => setScreenState('devices')}
+          // onClick={() => setScreenState('devices')}
+          onClick={() => setOptionState('exit-game')}
         >
           Exit Game
         </MenuItem>
