@@ -1,6 +1,6 @@
 import { projectItems } from '@/db/projects'
 import { useBackToMenu } from '@/hooks/use-back-menu'
-import { useProjectSelectByKeyboard } from '@/hooks/use-project-select-keyboard'
+import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
 import { Dispatch, SetStateAction, useCallback, useRef } from 'react'
 import { OptionStates } from './main-menu'
 import { NierLine } from './nier/nier-line'
@@ -17,9 +17,9 @@ interface ProjectsProps {
 
 const Projects = ({ setOptionState }: ProjectsProps) => {
   const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
-  const ProjectRef = useRef<HTMLDivElement>(null)
+  const ProjectsRef = useRef<HTMLDivElement>(null)
 
-  useProjectSelectByKeyboard(ProjectRef)
+  useSelectKeyboard(ProjectsRef)
 
   useBackToMenu(backToMenu)
 
@@ -34,7 +34,10 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
 
         {/* tablet and above */}
         <div className="hidden flex-1 flex-col gap-4 bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
-          <section className="projects flex max-h-[70vh] cursor-default flex-col gap-2 overflow-y-scroll md:max-h-[55vh] xl:max-h-[70vh]">
+          <section
+            className="projects flex cursor-default flex-col gap-2"
+            ref={ProjectsRef}
+          >
             {projectItems.map((item) => (
               <ProjectItem key={item.id}>{item.name}</ProjectItem>
             ))}
