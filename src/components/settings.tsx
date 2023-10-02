@@ -44,6 +44,10 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
           </SettingItem>
 
           <SettingItem keyValue="bootAnimation">Boot Animationn</SettingItem>
+
+          <SettingItem keyValue="textAnimation">Text Animation</SettingItem>
+
+          <SettingItem keyValue="glitchAnimation">Glitch Animation</SettingItem>
         </section>
       </ContentShell>
 
