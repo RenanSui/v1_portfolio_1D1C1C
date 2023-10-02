@@ -66,39 +66,33 @@ const handleElementClickEvent = (elementRef: RefObject<HTMLElement>) => {
 const handleArrowUp = (elementRef: RefObject<HTMLElement>) => {
   if (!elementRef.current) return null
 
-  const currentElement = elementRef.current
+  const element = elementRef.current
 
-  const elementChildrenLength = currentElement
-    ? currentElement.childElementCount - 1
-    : 0
+  const childrenLength = element ? element.childElementCount - 1 : 0
 
-  const elementDataIdValue =
-    Number(getRefAttribute(currentElement, 'data-element-id', '0')) - 1
+  const dataIdValue =
+    Number(getRefAttribute(element, 'data-element-id', '0')) - 1
 
   // if less than 0 return Length
-  const elementNewDataValue =
-    elementDataIdValue < 0 ? elementChildrenLength : elementDataIdValue
+  const newDataValue = dataIdValue < 0 ? childrenLength : dataIdValue
 
-  setRefAttribute(currentElement, 'data-element-id', elementNewDataValue)
+  setRefAttribute(element, 'data-element-id', newDataValue)
 }
 
 const handleArrowDown = (elementRef: RefObject<HTMLElement>) => {
   if (!elementRef.current) return null
 
-  const currentElement = elementRef.current
+  const element = elementRef.current
 
-  const elementChildrenLength = currentElement
-    ? currentElement.childElementCount - 1
-    : 0
+  const childrenLength = element ? element.childElementCount - 1 : 0
 
-  const elementDataIdValue =
-    Number(getRefAttribute(currentElement, 'data-element-id', '0')) + 1
+  const dataIdValue =
+    Number(getRefAttribute(element, 'data-element-id', '0')) + 1
 
   // if greater than length return 0
-  const elementNewDataValue =
-    elementDataIdValue > elementChildrenLength ? 0 : elementDataIdValue
+  const newDataValue = dataIdValue > childrenLength ? 0 : dataIdValue
 
-  setRefAttribute(currentElement, 'data-element-id', elementNewDataValue)
+  setRefAttribute(element, 'data-element-id', newDataValue)
 }
 
 const handleKeyboard = (
