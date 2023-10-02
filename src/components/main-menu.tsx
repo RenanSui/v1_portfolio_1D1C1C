@@ -6,13 +6,13 @@ import { AnimatePresence } from 'framer-motion'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { AboutMe } from './about-me'
 import { ContactMe } from './contact-me'
+import { MenuItem } from './menu/menu-item'
 import { Projects } from './projects'
 import { SiteSettings } from './settings'
 import { AnimatedShell } from './shells/animated-shell'
 import { MenuShell } from './shells/menu-shell'
 import { StarsBackground } from './stars/stars-background'
 import { StarsVideo } from './stars/stars-video'
-import { MenuOption } from './ui/menu'
 
 export type MenuStates = '' | 'start' | 'press-any' | 'menu'
 
@@ -65,9 +65,9 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
             <div className="h-full w-full" onClick={exitPressAny}>
               <AnimatedShell className="absolute bottom-48 left-1/2 -translate-x-1/2 sm:bottom-60">
                 <MenuShell className="flex flex-col gap-3">
-                  <MenuOption textHidden={'Main Menu'} showLine>
+                  <MenuItem textHidden={'Main Menu'} showLine>
                     Press Any Button
-                  </MenuOption>
+                  </MenuItem>
                 </MenuShell>
               </AnimatedShell>
             </div>
@@ -81,37 +81,37 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
                 data-elementType="menu"
                 className="flex flex-col gap-3"
               >
-                <MenuOption
+                <MenuItem
                   textHidden={'About Me'}
                   data-active="true"
                   onClick={() => Validate(() => setOptionState('about-me'))}
                 >
                   About Me
-                </MenuOption>
-                <MenuOption
+                </MenuItem>
+                <MenuItem
                   textHidden={'Projects'}
                   onClick={() => Validate(() => setOptionState('projects'))}
                 >
                   Projects
-                </MenuOption>
-                <MenuOption
+                </MenuItem>
+                <MenuItem
                   textHidden={'Settings'}
                   onClick={() => Validate(() => setOptionState('settings'))}
                 >
                   Settings
-                </MenuOption>
-                <MenuOption
+                </MenuItem>
+                <MenuItem
                   textHidden={'Contact'}
                   onClick={() => Validate(() => setOptionState('contact'))}
                 >
                   Contact
-                </MenuOption>
-                <MenuOption
+                </MenuItem>
+                <MenuItem
                   textHidden={'Exit Game'}
                   onClick={() => Validate(exitMainMenu)}
                 >
                   Exit Game
-                </MenuOption>
+                </MenuItem>
               </MenuShell>
             </AnimatedShell>
           )}

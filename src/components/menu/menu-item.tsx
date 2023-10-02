@@ -1,17 +1,19 @@
+import { useSelectMouse } from '@/hooks/use-select-mouse'
 import { useTextHackerEffect } from '@/hooks/use-text-hacker-effect'
 import { useTypingText } from '@/hooks/useTypingText'
 import { cn } from '@/lib/utils'
 import { FC, HTMLAttributes, ReactNode, memo, useRef } from 'react'
-import { GlitchText } from './glitch'
-import { useSelectMouse } from '@/hooks/use-select-mouse'
+import { GlitchText } from '../ui/glitch'
+import { MenuDot } from './menu-dot'
+import { MenuLine } from './menu-line'
 
-interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
+interface MenuItemProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
   textHidden: string
   showLine?: boolean
 }
 
-const MenuOptionComponent: FC<MenuOptionsProps> = ({
+const MenuItemComponent: FC<MenuItemProps> = ({
   children,
   textHidden,
   className,
@@ -54,26 +56,4 @@ const MenuOptionComponent: FC<MenuOptionsProps> = ({
   )
 }
 
-const MenuDot = ({ showLine }: { showLine: boolean | undefined }) => (
-  <span
-    className={`dot h-[6px] w-[6px] rounded-full bg-nier-100 
-      ${
-        showLine
-          ? 'opacity-100'
-          : 'opacity-0 group-data-[active=true]:opacity-100'
-      }`}
-  />
-)
-
-const MenuLine = ({ showLine }: { showLine: boolean | undefined }) => (
-  <span
-    className={`line h-[2px] bg-nier-100 transition-all duration-[30ms] 
-${
-  showLine
-    ? 'w-48 opacity-100 md:w-72'
-    : 'w-0 opacity-0 group-data-[active=true]:w-48 group-data-[active=true]:opacity-100 group-data-[active=true]:md:w-[350px]'
-}`}
-  />
-)
-
-export const MenuOption = memo(MenuOptionComponent)
+export const MenuItem = memo(MenuItemComponent)

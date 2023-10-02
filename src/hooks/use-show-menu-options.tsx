@@ -2,7 +2,7 @@ import { ScreenStates } from '@/app/(lobby)/page'
 import { MenuStates, OptionStates } from '@/components/main-menu'
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 
-const useShowMenuOptions = (
+export const useShowMenuOptions = (
   menuState: MenuStates,
   optionState: OptionStates,
   setScreenState: Dispatch<SetStateAction<ScreenStates>>,
@@ -27,5 +27,3 @@ const useShowMenuOptions = (
     exitMainMenu,
   }
 }
-
-export { useShowMenuOptions }
