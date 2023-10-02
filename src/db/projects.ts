@@ -1,4 +1,4 @@
-export const projectsDB = [
+export const projectItems = [
   {
     id: 1,
     name: 'Salvage',
@@ -33,4 +33,4 @@ export const projectsDB = [
   },
 ]
 
-export type ProjectsDB = typeof projectsDB
+export type ProjectItems = (typeof projectItems)[0]
