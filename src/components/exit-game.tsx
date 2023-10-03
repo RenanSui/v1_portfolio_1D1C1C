@@ -12,18 +12,24 @@ interface ExitGameProps {
 
 export const ExitGame = ({ setOptionState, setScreenState }: ExitGameProps) => {
   return (
-    <section className="absolute left-1/2 top-1/2 w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 cursor-default bg-nier-500 text-nier-700">
-      <h1 className="flex items-center gap-3 bg-nier-700 p-3 py-2 tracking-[0.4em] text-nier-600 md:text-xl">
-        <NierSquare className="h-[20px] w-[20px] cursor-default bg-nier-600" />
-        <LoadingText>SYSTEM MESSAGE</LoadingText>
-      </h1>
-      <p className="mx-8 mt-4 text-lg text-black">Exit the game?</p>
-      <div className="mx-3 mt-40 h-[1px] bg-nier-700 opacity-70" />
-      <div className="my-6 flex justify-around">
-        <ExitButton onClick={() => setScreenState('devices')}>Yes</ExitButton>
-        <ExitButton onClick={() => setOptionState('')}>No</ExitButton>
-      </div>
-    </section>
+    <>
+      <section className="absolute left-1/2 top-1/2 z-20 w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 cursor-default bg-nier-500 text-nier-700">
+        <h1 className="flex items-center gap-3 bg-nier-700 p-3 py-2 tracking-[0.4em] text-nier-600 md:text-xl">
+          <NierSquare className="h-[20px] w-[20px] cursor-default bg-nier-600" />
+          <LoadingText>SYSTEM MESSAGE</LoadingText>
+        </h1>
+        <p className="mx-8 mt-4 text-lg text-black">Exit the game?</p>
+        <div className="mx-3 mt-40 h-[1px] bg-nier-700 opacity-70" />
+        <div className="my-6 flex justify-around">
+          <ExitButton onClick={() => setScreenState('devices')}>Yes</ExitButton>
+          <ExitButton onClick={() => setOptionState('')}>No</ExitButton>
+        </div>
+      </section>
+      <div
+        className="absolute z-10 h-full w-full bg-black opacity-50"
+        onClick={() => setOptionState('')}
+      />
+    </>
   )
 }
 
