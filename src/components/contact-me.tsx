@@ -9,6 +9,7 @@ import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
+import { LoadingText } from './loading/loading-text'
 
 type ContactStates = 'socials' | 'send-email'
 
@@ -32,10 +33,10 @@ const ContactMe = ({ setOptionState }: ContactMeProps) => {
 
       <div className="mx-1 mb-6 flex justify-around gap-4 md:mx-12 md:justify-between">
         <ContactButton onClick={() => setContactState('socials')}>
-          Socials
+          <LoadingText>Socials</LoadingText>
         </ContactButton>
         <ContactButton onClick={() => setContactState('send-email')}>
-          Send Email
+          <LoadingText>Send Email</LoadingText>
         </ContactButton>
       </div>
 
