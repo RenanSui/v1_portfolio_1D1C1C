@@ -46,10 +46,10 @@ export const ContactForm = () => {
 
   return (
     <form
-      className="projects flex w-full flex-col gap-12 overflow-y-scroll pb-4"
+      className="projects flex w-full flex-col gap-4 overflow-y-scroll pb-4"
       onSubmit={handleSubmit(handleSendEmail)}
     >
-      <FormField className="flex flex-col gap-2">
+      <FormField className="flex flex-col">
         <FormLabel htmlFor="fullName" fieldWatched={watchFullName}>
           User Name
         </FormLabel>
@@ -67,7 +67,7 @@ export const ContactForm = () => {
 
       <FormField>
         <FormLabel htmlFor="email" fieldWatched={watchEmail}>
-          Email
+          User Email
         </FormLabel>
 
         <FormInput
