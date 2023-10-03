@@ -37,9 +37,12 @@ const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
   }, [setScreenState])
 
   // exit Loading Screen
-  const stateTimeout = setTimeout(() => {
-    finishAnimation()
-  }, 1000 * (LoadingState.length * 1.15))
+  const stateTimeout = setTimeout(
+    () => {
+      finishAnimation()
+    },
+    1000 * (LoadingState.length * 1.15),
+  )
 
   // Show Loading States after X seconds
   const loadingState = setTimeout(() => {

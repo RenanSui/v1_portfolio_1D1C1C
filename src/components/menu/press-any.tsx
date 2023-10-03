@@ -13,7 +13,7 @@ export const PressAny = ({ menuState, setMenuState }: PressAnyProps) => {
   const exitPressAny = useCallback(() => setMenuState('menu'), [setMenuState])
 
   useEffect(() => {
-    const onKeyPressed = (e: KeyboardEvent) => {
+    const onKeyPressed = () => {
       if (menuState === 'press-any') exitPressAny()
     }
 

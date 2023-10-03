@@ -7,7 +7,7 @@ export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
     const currentElement = elementRef.current
     const parentElement = elementRef.current?.parentElement
 
-    const handleMouseOver = (e: Event) => {
+    const handleMouseOver = () => {
       if (!(parentElement && currentElement)) return null
 
       // iterate over all childs

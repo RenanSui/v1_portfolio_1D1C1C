@@ -7,7 +7,7 @@ const useTextHackerEffect = (MenuOptionRef: RefObject<HTMLHeadingElement>) => {
   const textContainer = currentElement?.children[0] as HTMLHeadingElement
 
   useEffect(() => {
-    const handleMouseOver = (e: Event) => {
+    const handleMouseOver = () => {
       let iterations = 0
       const maxIteration = textContainer.dataset.hidden?.length || 10
 
@@ -35,7 +35,7 @@ const useTextHackerEffect = (MenuOptionRef: RefObject<HTMLHeadingElement>) => {
       }, 30)
     }
 
-    const handleMouseLeave = (e: Event) => {
+    const handleMouseLeave = () => {
       let iterations = 0
       const maxIteration = textContainer.dataset.value?.length || 10
 

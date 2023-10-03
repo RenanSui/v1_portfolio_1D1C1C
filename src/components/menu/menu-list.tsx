@@ -10,7 +10,7 @@ interface MenuListProps {
   setScreenState: Dispatch<SetStateAction<ScreenStates>>
 }
 
-export const MenuList = ({ setOptionState, setScreenState }: MenuListProps) => {
+export const MenuList = ({ setOptionState }: MenuListProps) => {
   return (
     <AnimatedShell className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
       <MenuShell data-elementtype="menu" className="flex flex-col gap-3">

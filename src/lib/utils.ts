@@ -45,7 +45,7 @@ export const getRefAttribute = (
 export const setRefAttribute = (
   ref: HTMLElement,
   attribute: string,
-  value: any,
+  value: unknown,
 ) => {
   ref?.setAttribute(attribute, String(value))
 }

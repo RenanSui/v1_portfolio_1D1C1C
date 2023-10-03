@@ -31,7 +31,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
         <NierLine />
 
         <section
-          className="flex w-full flex-col items-center gap-4 xs:items-start"
+          className="projects flex w-full flex-col items-center gap-4 overflow-y-scroll xs:items-start"
           ref={settingContainerRef}
           data-elementtype="settings"
         >

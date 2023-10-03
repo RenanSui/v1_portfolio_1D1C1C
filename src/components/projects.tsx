@@ -33,7 +33,11 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
 
   useBackToMenu(backToMenu)
 
-  useEffect(() => {}, [projectId])
+  const projectItem = projectItems[Number(projectId)]
+
+  useEffect(() => {
+    setTimeout(() => null)
+  }, [projectId])
 
   return (
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
@@ -48,7 +52,7 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
         <div className="hidden flex-1 flex-col gap-4 bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
           <div className="mx-3 mt-2 h-[1px] bg-nier-700 opacity-70" />
           <section
-            className="projects flex cursor-default flex-col gap-2"
+            className="projects flex cursor-default flex-col gap-2 overflow-y-scroll"
             ref={ProjectsRef}
             data-elementtype="projectShell"
           >
@@ -66,11 +70,13 @@ const Projects = ({ setOptionState }: ProjectsProps) => {
         {/* <div className="mx-3 mb-2 mt-auto h-[1px] bg-nier-700 opacity-70" /> */}
 
         {/* table and above project card */}
-        <ProjectCard
-          className="hidden flex-1 md:flex"
-          key={projectItems[Number(projectId)]!.id} // change Card
-          projectItems={projectItems[Number(projectId)]!}
-        />
+        {projectItem && (
+          <ProjectCard
+            className="hidden flex-1 md:flex"
+            key={projectItem.id} // change Card
+            projectItems={projectItem}
+          />
+        )}
 
         {/* mobile only project card */}
         <div className="flex flex-col gap-8 md:hidden">
