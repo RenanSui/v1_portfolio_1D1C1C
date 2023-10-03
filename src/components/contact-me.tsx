@@ -131,7 +131,7 @@ const ContactMe = ({ setOptionState }: ContactMeProps) => {
             className="mr-auto bg-nier-400 px-6 py-2 text-lg text-black shadow-[_5px_5px_0px_0px_rgba(132,129,114,1)]"
             type="submit"
           >
-            Submit
+            Send Message
           </button>
         </form>
       </ContentShell>
