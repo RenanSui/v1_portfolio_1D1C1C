@@ -14,7 +14,8 @@ export const PressAny = ({ menuState, setMenuState }: PressAnyProps) => {
 
   useEffect(() => {
     const onKeyPressed = () => {
-      if (menuState === 'press-any') exitPressAny()
+      if (menuState !== 'press-any') return null
+      setTimeout(() => exitPressAny(), 50)
     }
 
     window.addEventListener('keydown', onKeyPressed, true)
