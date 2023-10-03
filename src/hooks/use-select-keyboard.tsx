@@ -63,28 +63,42 @@ const handleElementClickEvent = (elementRef: RefObject<HTMLElement>) => {
   }
 }
 
-const handleChangeProjects = (elementRef: RefObject<HTMLElement>) => {
+const handleChangeItem = (elementRef: RefObject<HTMLElement>) => {
   if (!(elementRef.current && localStorage)) return null
 
   const elementDataIdValue = getRefAttribute(
     elementRef.current,
     'data-elementtype',
     'about-me',
-  )
+  ) as 'projectShell' | 'contactShell'
 
-  if (!(elementDataIdValue === 'projectShell')) return null
+  if (elementDataIdValue === 'projectShell') {
+    const projectDataIdValue = Number(
+      getRefAttribute(elementRef.current, 'data-element-id', '0'),
+    )
 
-  const projectDataIdValue = Number(
-    getRefAttribute(elementRef.current, 'data-element-id', '0'),
-  )
+    const projectItem = elementRef.current.children[
+      projectDataIdValue
+    ] as HTMLDivElement
 
-  const projectItem = elementRef.current.children[
-    projectDataIdValue
-  ] as HTMLDivElement
+    localStorage.setItem('projectId', projectItem.id)
 
-  localStorage.setItem('projectId', projectItem.id)
+    projectItem.click()
+  }
 
-  projectItem.click()
+  if (elementDataIdValue === 'contactShell') {
+    const contactDataIdValue = Number(
+      getRefAttribute(elementRef.current, 'data-element-id', '0'),
+    )
+
+    const contactItem = elementRef.current.children[
+      contactDataIdValue
+    ] as HTMLDivElement
+
+    localStorage.setItem('contactId', contactItem.id)
+
+    contactItem.click()
+  }
 }
 
 const handleArrowUp = (elementRef: RefObject<HTMLElement>) => {
@@ -102,7 +116,7 @@ const handleArrowUp = (elementRef: RefObject<HTMLElement>) => {
 
   setRefAttribute(element, 'data-element-id', newDataValue)
 
-  handleChangeProjects(elementRef)
+  handleChangeItem(elementRef)
 }
 
 const handleArrowDown = (elementRef: RefObject<HTMLElement>) => {
@@ -120,7 +134,7 @@ const handleArrowDown = (elementRef: RefObject<HTMLElement>) => {
 
   setRefAttribute(element, 'data-element-id', newDataValue)
 
-  handleChangeProjects(elementRef)
+  handleChangeItem(elementRef)
 }
 
 const handleKeyboard = (

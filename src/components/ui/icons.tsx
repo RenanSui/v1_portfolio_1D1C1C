@@ -5,6 +5,7 @@ import {
   ChevronUp,
   Diamond,
   Github,
+  Linkedin,
   X,
 } from 'lucide-react'
 
@@ -16,6 +17,7 @@ export const Icons = {
   diamond: Diamond,
   checkSquare: CheckSquare,
   x: X,
+  linkedin: Linkedin,
   stars: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
