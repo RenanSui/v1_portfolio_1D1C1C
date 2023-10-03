@@ -54,7 +54,9 @@ export const ContactCard = ({ socialItem, className }: ContactCardProps) => {
       </p>
       <div className="mx-4 h-[1px] bg-nier-700 opacity-70" />
       <div className="mx-4 mt-3 flex gap-4">
-        <ProjectButton href={contactLink}>Contact Me</ProjectButton>
+        <ProjectButton href={contactLink}>
+          <LoadingText>Contact Me</LoadingText>
+        </ProjectButton>
       </div>
     </section>
   )
