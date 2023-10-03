@@ -3,6 +3,7 @@ import { NierVignette } from '@/components/nier/nier-vignette'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { RodinPro } from '@/lib/fonts'
 import { ReactNode } from 'react'
+import { Toaster } from 'sonner'
 import '../styles/globals.css'
 
 export const metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={`bg-black ${RodinPro.className}`} data-menu="0">
         {children}
+        <Toaster position="top-center" expand={false} />
         <NierPattern2 />
         <NierVignette />
         <TailwindIndicator />

@@ -4,6 +4,7 @@ import { CapitalizeWords } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Dispatch, SetStateAction, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 import { FormError } from './contact/form-error'
 import { FormField } from './contact/form-field'
@@ -14,6 +15,7 @@ import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { ContentShell } from './shells/content-shell'
+import { CustomToaster } from './ui/custom-toaster'
 import { Header } from './ui/header'
 
 const messageSchema = z.object({
@@ -41,13 +43,15 @@ const ContactMe = ({ setOptionState }: ContactMeProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
     watch,
     reset,
   } = useForm<MessageData>({ resolver: zodResolver(messageSchema) })
 
   const handleSendEmail = (data: MessageData) => {
     SendEmail(data)
+
+    toast.custom(() => <CustomToaster />)
 
     reset({ fullName: '', email: '', message: '' })
   }
@@ -68,7 +72,7 @@ const ContactMe = ({ setOptionState }: ContactMeProps) => {
         <NierLine className="ml-auto" />
 
         <form
-          className="projects flex w-full flex-col gap-12 overflow-y-scroll"
+          className="projects flex w-full flex-col gap-12 overflow-y-scroll pb-4"
           onSubmit={handleSubmit(handleSendEmail)}
         >
           <FormField className="flex flex-col gap-2">
