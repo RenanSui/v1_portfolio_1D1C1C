@@ -24,7 +24,6 @@ export const ProjectCard = ({ projectItems, className }: ProjectCardProps) => {
       <h1 className="flex items-center gap-3 bg-nier-700 px-3 py-2 text-nier-600 group-hover:text-nier-600 md:text-xl">
         <NierSquare className="h-[23px] w-[23px] cursor-default bg-nier-600" />
         <LoadingText>{name}</LoadingText>
-        <span className="pointer-events-none cursor-default opacity-0">S</span>
       </h1>
       <motion.a
         className={cn(
@@ -40,7 +39,6 @@ export const ProjectCard = ({ projectItems, className }: ProjectCardProps) => {
       <div className="mx-5 h-[1px] bg-nier-700 opacity-70" />
       <p className="mx-4 my-2">
         <LoadingText>{description}</LoadingText>
-        <span className="pointer-events-none cursor-default opacity-0">S</span>
       </p>
       <div className="mx-4 h-[1px] bg-nier-700 opacity-70" />
       <div className="mx-4 mt-3 flex gap-4">

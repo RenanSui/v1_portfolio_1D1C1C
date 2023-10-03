@@ -9,7 +9,6 @@ import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
-import { LoadingText } from './loading/loading-text'
 
 type ContactStates = 'socials' | 'send-email'
 
@@ -31,13 +30,18 @@ const ContactMe = ({ setOptionState }: ContactMeProps) => {
         CONTACT ME
       </Header>
 
-      <div className="mx-1 mb-6 flex justify-around gap-4 md:mx-12 md:justify-between">
-        <ContactButton onClick={() => setContactState('socials')}>
-          <LoadingText>Socials</LoadingText>
-        </ContactButton>
-        <ContactButton onClick={() => setContactState('send-email')}>
-          <LoadingText>Send Email</LoadingText>
-        </ContactButton>
+      <div className="mx-3 mb-6 flex gap-4 md:mx-12">
+        {contatState === 'send-email' && (
+          <ContactButton onClick={() => setContactState('socials')}>
+            Socials
+          </ContactButton>
+        )}
+
+        {contatState === 'socials' && (
+          <ContactButton onClick={() => setContactState('send-email')}>
+            Send Email
+          </ContactButton>
+        )}
       </div>
 
       {contatState === 'send-email' && (

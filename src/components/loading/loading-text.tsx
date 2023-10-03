@@ -31,8 +31,23 @@ export const LoadingText = ({ children, index = 0 }: LoadingTextProps) => {
   return (
     <>
       {word}
+
       {/* keep first letter showing then hide */}
       {word.length === children.length ? '' : word[0]}
+
+      {/* Fix glitch size and hide */}
+      {word.length === children.length ? (
+        ''
+      ) : (
+        <span
+          className="pointer-events-none cursor-default opacity-0"
+          aria-hidden={true}
+          aria-disabled={true}
+          hidden={word.length === children.length}
+        >
+          R
+        </span>
+      )}
     </>
   )
 }

@@ -25,7 +25,6 @@ export const ContactCard = ({ socialItem, className }: ContactCardProps) => {
       <h1 className="flex items-center gap-3 bg-nier-700 px-3 py-2 text-nier-600 group-hover:text-nier-600 md:text-xl">
         <NierSquare className="h-[23px] w-[23px] cursor-default bg-nier-600" />
         <LoadingText>{social}</LoadingText>
-        <span className="pointer-events-none cursor-default opacity-0">S</span>
       </h1>
       <motion.a
         className={cn(
