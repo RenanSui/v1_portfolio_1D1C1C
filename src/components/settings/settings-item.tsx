@@ -26,7 +26,7 @@ export const SettingItem = ({
   return (
     <div
       ref={SettingsRef}
-      className="group relative z-50 w-full md:max-w-[400px]"
+      className="group relative z-50 w-full md:max-w-[450px]"
       onClick={() => setIsChecked(!isChecked)}
       {...props}
     >
