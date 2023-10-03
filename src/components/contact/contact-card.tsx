@@ -45,7 +45,11 @@ export const ContactCard = ({ socialItem, className }: ContactCardProps) => {
         </div>
       </motion.a>
       <div className="mx-5 h-[1px] bg-nier-700 opacity-70" />
-      <p className="mx-4 my-2">
+      <p
+        className="mx-4 my-2 flex cursor-pointer items-center gap-2"
+        onClick={() => navigator.clipboard.writeText(contact)}
+      >
+        <Icons.copy className="h-6 w-6 opacity-50" />
         <LoadingText>{contact}</LoadingText>
       </p>
       <div className="mx-4 h-[1px] bg-nier-700 opacity-70" />
