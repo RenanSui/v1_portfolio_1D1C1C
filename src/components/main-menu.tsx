@@ -66,7 +66,7 @@ const MainMenu = ({ setScreenState }: MainMenuProps) => {
 
         {/* Star Video */}
         <AnimatePresence>
-          {menuState !== 'press-any' && <StarsVideo />}
+          {menuState !== 'press-any' && optionState === '' && <StarsVideo />}
         </AnimatePresence>
 
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-50 bg-[rgba(255,0,0,0)] backdrop-blur-[1px]" />
