@@ -9,6 +9,7 @@ interface MenuItemProps extends HTMLAttributes<HTMLDivElement> {
   children: string
   textHidden: string
   showLine?: boolean
+  index?: number
 }
 
 const MenuItemComponent: FC<MenuItemProps> = ({
@@ -16,6 +17,7 @@ const MenuItemComponent: FC<MenuItemProps> = ({
   textHidden,
   className,
   showLine,
+  index = 1,
   onClick,
   ...props
 }) => {
@@ -36,7 +38,7 @@ const MenuItemComponent: FC<MenuItemProps> = ({
     >
       <TextGlitched
         className="pointer-events-none select-none text-nier-100 [text-shadow:_2px_2px_1px_rgba(48,42,36,0.5)]"
-        index={1}
+        index={index}
         data-value={children as string}
         data-hidden={textHidden}
       >
