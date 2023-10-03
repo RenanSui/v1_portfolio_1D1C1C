@@ -45,7 +45,7 @@ export const LoadingText = ({ children, index = 0 }: LoadingTextProps) => {
           aria-disabled={true}
           hidden={word.length === children.length}
         >
-          R
+          .
         </span>
       )}
     </>
