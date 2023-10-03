@@ -12,7 +12,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
         <Shell
           className="h-[50px] w-full max-w-[590px] bg-nier-400 px-4 text-xl text-black shadow-[_5px_5px_0px_0px_rgba(132,129,114,1)] outline-none md:text-3xl"
           type="tel"
-          autoComplete="new-password"
+          autocomplete="off"
           maxLength={maxLength}
           ref={ref}
           {...props}
