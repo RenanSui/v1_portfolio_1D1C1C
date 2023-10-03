@@ -1,8 +1,10 @@
 import { LabelHTMLAttributes } from 'react'
+import { LoadingText } from '../loading/loading-text'
 
 interface FormLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   fieldWatched: string
   maxLength?: number
+  children: string
 }
 
 export const FormLabel = ({
@@ -13,16 +15,10 @@ export const FormLabel = ({
 }: FormLabelProps) => {
   return (
     <label className="text-black" htmlFor={htmlFor}>
-      {children}
+      <LoadingText>{children}</LoadingText>
       <span className="inline-block max-w-[590px] px-3 text-black md:hidden">
         — {fieldWatched ? fieldWatched.length : 0}/{maxLength}
       </span>
     </label>
-    // <label className="absolute -top-8 text-black" htmlFor={htmlFor}>
-    //   {children}
-    //   <span className="inline-block max-w-[590px] px-3 text-black md:hidden">
-    //     — {fieldWatched ? fieldWatched.length : 0}/{maxLength}
-    //   </span>
-    // </label>
   )
 }

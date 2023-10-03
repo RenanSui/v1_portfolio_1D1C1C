@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
+import { LoadingText } from '../loading/loading-text'
 import { CustomToaster } from '../ui/custom-toaster'
 import { FormError } from './form-error'
 import { FormField } from './form-field'
@@ -105,7 +106,7 @@ export const ContactForm = () => {
         className="mr-auto bg-nier-400 px-6 py-2 text-lg text-black shadow-[_5px_5px_0px_0px_rgba(132,129,114,1)]"
         type="submit"
       >
-        Send Message
+        <LoadingText>Send Message</LoadingText>
       </button>
     </form>
   )
