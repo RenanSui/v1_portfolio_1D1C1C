@@ -24,7 +24,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={cn('bg-black', RodinPro.className)} data-menu="0">
         {children}
         <Toaster position="top-center" expand={false} />
