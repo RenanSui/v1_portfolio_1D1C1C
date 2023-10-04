@@ -5,6 +5,7 @@ export const ProjectButton = ({
   children,
   className,
   href,
+  ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
     <a
@@ -15,6 +16,7 @@ export const ProjectButton = ({
         className,
       )}`}
       rel="noreferrer"
+      {...props}
     >
       {children}
     </a>
