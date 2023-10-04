@@ -103,7 +103,7 @@ export const ContactForm = () => {
       </FormField>
 
       <button
-        className="mr-auto bg-nier-400 px-6 py-2 text-lg text-black shadow-[_5px_5px_0px_0px_rgba(132,129,114,1)]"
+        className="mr-auto bg-nier-400 px-6 py-2 text-lg text-black hover:bg-nier-700 hover:text-nier-600 hover:shadow-[_5px_5px_0px_0px_rgba(132,129,114,1)]"
         type="submit"
       >
         <LoadingText>Send Message</LoadingText>
