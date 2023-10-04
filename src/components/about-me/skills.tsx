@@ -8,7 +8,7 @@ export const Skills = () => {
       animate={{ opacity: 1, transition: { duration: 1 } }}
     >
       <p className="text-3xl text-nier-900 md:text-5xl">Web Development</p>
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6 text-black">
         <ProjectButton>HTML & CSS</ProjectButton>
         <ProjectButton>Git</ProjectButton>
         <ProjectButton>JavaScript</ProjectButton>

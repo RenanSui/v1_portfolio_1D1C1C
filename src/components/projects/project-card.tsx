@@ -37,11 +37,11 @@ export const ProjectCard = ({ projectItems, className }: ProjectCardProps) => {
         rel="noreferrer"
       />
       <div className="mx-5 h-[1px] bg-nier-700 opacity-70" />
-      <p className="mx-4 my-2">
+      <p className="mx-4 my-2 text-black">
         <LoadingText>{description}</LoadingText>
       </p>
       <div className="mx-4 h-[1px] bg-nier-700 opacity-70" />
-      <div className="mx-4 mt-3 flex gap-4">
+      <div className="mx-4 mt-3 flex gap-4 text-black">
         <ProjectButton href={liveDemoLink}>Live Demo</ProjectButton>
         <ProjectButton href={githubLink}>Github</ProjectButton>
       </div>
