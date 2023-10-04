@@ -2,6 +2,7 @@ import { NierPattern2 } from '@/components/nier/nier-pattern2'
 import { NierVignette } from '@/components/nier/nier-vignette'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { RodinPro } from '@/lib/fonts'
+import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
 import { Toaster } from 'sonner'
 import '../styles/globals.css'
@@ -24,7 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`bg-black ${RodinPro.className}`} data-menu="0">
+      <body className={cn('bg-black', RodinPro.className)} data-menu="0">
         {children}
         <Toaster position="top-center" expand={false} />
         <NierPattern2 />
