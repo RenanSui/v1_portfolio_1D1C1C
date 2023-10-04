@@ -17,7 +17,7 @@ export const MenuList = ({ setOptionState }: MenuListProps) => {
         <MenuItem
           textHidden={'About Me'}
           data-active="true"
-          index={1}
+          index={0.5}
           onClick={() => setOptionState('about-me')}
         >
           About Me
@@ -25,7 +25,7 @@ export const MenuList = ({ setOptionState }: MenuListProps) => {
 
         <MenuItem
           textHidden={'Projects'}
-          index={1.1}
+          index={0.6}
           onClick={() => setOptionState('projects')}
         >
           Projects
@@ -33,7 +33,7 @@ export const MenuList = ({ setOptionState }: MenuListProps) => {
 
         <MenuItem
           textHidden={'Settings'}
-          index={1.2}
+          index={0.7}
           onClick={() => setOptionState('settings')}
         >
           Settings
@@ -41,7 +41,7 @@ export const MenuList = ({ setOptionState }: MenuListProps) => {
 
         <MenuItem
           textHidden={'Contact'}
-          index={1.3}
+          index={0.8}
           onClick={() => setOptionState('contact')}
         >
           Contact
@@ -49,7 +49,7 @@ export const MenuList = ({ setOptionState }: MenuListProps) => {
 
         <MenuItem
           textHidden={'Exit Game'}
-          index={1.4}
+          index={0.9}
           onClick={() => setOptionState('exit-game')}
         >
           Exit Game
