@@ -16,18 +16,6 @@ export type ScreenStates =
 export default function Home() {
   const [screenState, setScreenState] = useState<ScreenStates>('boot-screen')
 
-  // const BootScreen = dynamic(() =>
-  //   import('../../components/boot-screen').then((mod) => mod.BootScreen),
-  // )
-
-  // const LoadingScreen = dynamic(() =>
-  //   import('../../components/loading-screen').then((mod) => mod.LoadingScreen),
-  // )
-
-  // const MainMenu = dynamic(() =>
-  //   import('../../components/main-menu').then((mod) => mod.MainMenu),
-  // )
-
   return (
     <main className="relative h-screen w-screen text-zinc-100">
       <AnimatePresence>
