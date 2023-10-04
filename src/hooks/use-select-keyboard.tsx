@@ -70,7 +70,7 @@ const handleChangeItem = (elementRef: RefObject<HTMLElement>) => {
     elementRef.current,
     'data-elementtype',
     'about-me',
-  ) as 'projectShell' | 'contactShell'
+  ) as 'projectShell' | 'contactShell' | 'sectionShell'
 
   if (elementDataIdValue === 'projectShell') {
     const projectDataIdValue = Number(
@@ -98,6 +98,20 @@ const handleChangeItem = (elementRef: RefObject<HTMLElement>) => {
     localStorage.setItem('contactId', contactItem.id)
 
     contactItem.click()
+  }
+
+  if (elementDataIdValue === 'sectionShell') {
+    const sectionDataIdValue = Number(
+      getRefAttribute(elementRef.current, 'data-element-id', '0'),
+    )
+
+    const sectionItem = elementRef.current.children[
+      sectionDataIdValue
+    ] as HTMLDivElement
+
+    localStorage.setItem('sectionId', sectionItem.id)
+
+    sectionItem.click()
   }
 }
 

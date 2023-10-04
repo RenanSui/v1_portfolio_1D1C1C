@@ -39,6 +39,12 @@ export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
 
         currentElement.click()
       }
+
+      if (elementDataIdValue === 'sectionItem' && localStorage) {
+        localStorage.setItem('sectionId', currentElement.id)
+
+        currentElement.click()
+      }
     }
 
     const HTMLElement = currentElement || document
