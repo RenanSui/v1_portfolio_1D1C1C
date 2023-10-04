@@ -7,7 +7,6 @@ export const Skills = () => {
       className="flex flex-col items-center justify-center gap-4"
       animate={{ opacity: 1, transition: { duration: 1 } }}
     >
-      {/* <p className="text-7xl text-black">Skills</p> */}
       <p className="text-3xl text-nier-900 md:text-5xl">Web Development</p>
       <div className="flex flex-wrap justify-center gap-6">
         <ProjectButton>HTML & CSS</ProjectButton>
