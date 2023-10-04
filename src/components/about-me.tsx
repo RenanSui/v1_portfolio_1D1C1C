@@ -17,7 +17,6 @@ interface AboutMeProps {
 
 const AboutMe = ({ setOptionState }: AboutMeProps) => {
   const [aboutState, setAboutState] = useState(0)
-  const [dialogueState, setDialogueState] = useState(0)
   const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
 
   useBackToMenu(backToMenu)
@@ -27,16 +26,13 @@ const AboutMe = ({ setOptionState }: AboutMeProps) => {
     setAboutState((state) => (state === stateLength ? 0 : state + 1))
   }
 
-  const handleDialogueState = () => {
-    const stateLength = 2
-    setDialogueState((state) => (state === stateLength ? 0 : state + 1))
-  }
-
   return (
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
       <NierPattern variant={'top'} />
 
-      <Header onClick={backToMenu}>ABOUT ME</Header>
+      {aboutState === 0 && <Header onClick={backToMenu}>ABOUT ME</Header>}
+      {aboutState === 1 && <Header onClick={backToMenu}>SKILLS</Header>}
+      {aboutState === 2 && <Header onClick={backToMenu}>SECTIONS</Header>}
 
       <div className="mx-3 mb-6 flex gap-4 md:mx-12">
         {aboutState === 0 && (
