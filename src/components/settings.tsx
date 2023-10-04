@@ -52,7 +52,7 @@ export const SiteSettings = ({ setOptionState }: SettingsProps) => {
       </ContentShell>
 
       <NierSuggestions onClick={backToMenu}>
-        Adjust Website Settings
+        Adjust website settings
       </NierSuggestions>
 
       <NierPattern variant={'bottom'} />
