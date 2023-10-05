@@ -57,9 +57,9 @@ export const MobileDevice = ({ setScreenState }: MobileDeviceProps) => {
 
       <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-8">
         <div className="mb-8 flex items-center justify-center gap-4">
-          <div className="flex w-4/5 items-center justify-between rounded-full bg-violet-500 px-4 py-2 md:py-4">
+          <div className="flex w-4/5 cursor-text items-center justify-between rounded-full bg-[#291E3C] px-4 py-2 md:py-4">
             <p>Search</p>
-            <Icons.search />
+            <Icons.search className="cursor-default" />
           </div>
         </div>
 
