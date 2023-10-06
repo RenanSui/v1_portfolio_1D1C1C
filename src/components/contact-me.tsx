@@ -26,9 +26,12 @@ const ContactMe = ({ setOptionState }: ContactMeProps) => {
     <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
       <NierPattern variant={'top'} />
 
-      <Header className="text-3xl" onClick={backToMenu}>
-        CONTACT ME
-      </Header>
+      {contatState === 'socials' && (
+        <Header onClick={backToMenu}>Socials</Header>
+      )}
+      {contatState === 'send-email' && (
+        <Header onClick={backToMenu}>Send Email</Header>
+      )}
 
       <div className="mx-3 mb-6 flex gap-4 md:mx-12">
         {contatState === 'send-email' && (
