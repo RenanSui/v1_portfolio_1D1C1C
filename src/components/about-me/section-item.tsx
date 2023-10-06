@@ -22,7 +22,7 @@ export const SectionItem = ({
   return (
     <div
       className={cn(
-        'group relative flex h-[45px] w-full transition-all duration-300 data-[active=true]:bg-nier-700',
+        'group relative flex h-[45px] w-full transition-all duration-300 hover:h-[90px] data-[active=true]:bg-nier-700',
         className,
       )}
       ref={SectionRef}
