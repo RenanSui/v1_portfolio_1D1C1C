@@ -16,7 +16,7 @@ export const ContactButton = ({
   return (
     <button
       className={cn(
-        'transitin-all group relative flex cursor-default items-center gap-4 bg-nier-400 p-2 pl-3 pr-16 text-black duration-300 hover:bg-nier-700 hover:text-nier-600 hover:shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:text-xl',
+        'transitin-all group relative flex cursor-default items-center gap-4 bg-nier-400 p-2 pl-3 pr-6 text-black duration-300 hover:bg-nier-700 hover:text-nier-600 hover:shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:pr-16 md:text-xl',
         className,
       )}
       {...props}
