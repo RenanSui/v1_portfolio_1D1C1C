@@ -4,56 +4,59 @@ import { RefObject, useEffect } from 'react'
 // Use in each individual item
 export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
   useEffect(() => {
-    const currentElement = elementRef.current
-    const parentElement = elementRef.current?.parentElement
+    const HTMLElement = elementRef.current || document
 
-    const handleMouseOver = () => {
-      if (!(parentElement && currentElement)) return null
+    HTMLElement.addEventListener(
+      'mouseover',
+      () => handleMouseOver(elementRef),
+      true,
+    )
 
-      // iterate over all childs
-      for (let i = 0; i < parentElement.childElementCount; i++) {
-        // Set all Children data-active=false
-        parentElement.children[i]?.setAttribute('data-active', 'false')
-
-        // Add Id to all Children
-        // parentElement.children[i]?.setAttribute('data-option-id', `${i}`)
-      }
-
-      currentElement.setAttribute('data-active', 'true')
-
-      // PROJECT STUFF
-      const elementDataIdValue = getRefAttribute(
-        elementRef.current,
-        'data-elementtype',
-        'about-me',
-      )
-
-      if (elementDataIdValue === 'projectItem' && localStorage) {
-        localStorage.setItem('projectId', currentElement.id)
-
-        currentElement.click()
-      }
-
-      if (elementDataIdValue === 'contactItem' && localStorage) {
-        localStorage.setItem('contactId', currentElement.id)
-
-        currentElement.click()
-      }
-
-      if (elementDataIdValue === 'sectionItem' && localStorage) {
-        localStorage.setItem('sectionId', currentElement.id)
-
-        currentElement.click()
-      }
-    }
-
-    const HTMLElement = currentElement || document
-
-    HTMLElement.addEventListener('mouseover', handleMouseOver, true)
     return () => {
-      HTMLElement.removeEventListener('mouseover', handleMouseOver, true)
+      HTMLElement.removeEventListener(
+        'mouseover',
+        () => handleMouseOver(elementRef),
+        true,
+      )
     }
   }, [elementRef])
+}
 
-  return { elementId: elementRef.current?.id || String(0) }
+const handleMouseOver = (elementRef: RefObject<HTMLElement>) => {
+  const element = elementRef.current
+  const parentElement = elementRef.current?.parentElement
+
+  if (!(parentElement && element)) return null
+  activateItem(element, parentElement)
+
+  if (!localStorage) return null
+  validateAndClick(element)
+}
+
+const activateItem = (element: HTMLElement, parentElement: HTMLElement) => {
+  // iterate over all childs
+  for (let i = 0; i < parentElement.childElementCount; i++) {
+    // Set all Children data-active=false
+    parentElement.children[i]?.setAttribute('data-active', 'false')
+  }
+
+  element.setAttribute('data-active', 'true')
+}
+
+const validateAndClick = (element: HTMLElement) => {
+  const elementIdValue = getRefAttribute(
+    element,
+    'data-elementtype',
+    'about-me',
+  )
+
+  if (elementIdValue === 'projectItem') elementClick(element, 'projectId')
+  if (elementIdValue === 'contactItem') elementClick(element, 'contactId')
+  if (elementIdValue === 'sectionItem') elementClick(element, 'sectionId')
+}
+
+const elementClick = (element: HTMLElement, storageKey: string) => {
+  localStorage.setItem(storageKey, element.id)
+
+  element.click()
 }

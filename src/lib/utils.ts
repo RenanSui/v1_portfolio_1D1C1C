@@ -56,3 +56,11 @@ export const getCurrentDimension = () => {
     height: window.innerHeight,
   }
 }
+
+export const getChildrenLength = (element: HTMLElement) => {
+  return element ? element.childElementCount - 1 : 0
+}
+
+export const getElementIdValue = (element: HTMLElement, attribute: string) => {
+  return Number(getRefAttribute(element, attribute, '0'))
+}
