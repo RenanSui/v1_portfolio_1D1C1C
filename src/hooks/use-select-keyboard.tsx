@@ -42,7 +42,7 @@ const handleArrowUp = (element: HTMLElement) => {
   const newDataValue = dataIdValue < 0 ? childrenLength : dataIdValue
 
   setRefAttribute(element, 'data-element-id', newDataValue)
-  validateAndClick(element)
+  // validateAndClick(element)
 }
 
 const handleArrowDown = (element: HTMLElement) => {
@@ -54,7 +54,7 @@ const handleArrowDown = (element: HTMLElement) => {
   const newDataValue = dataIdValue > childrenLength ? 0 : dataIdValue
 
   setRefAttribute(element, 'data-element-id', newDataValue)
-  validateAndClick(element)
+  // validateAndClick(element)
 }
 
 const activateItem = (element: HTMLElement) => {
