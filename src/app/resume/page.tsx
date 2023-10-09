@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   return (
-    <section className="absolute h-full w-full bg-nier-500 text-nier-900">
+    <section className="absolute h-full w-full bg-nier-500 text-nier-900 blur-[0.7px]">
       <NierPattern variant={'top'} />
 
       <Header onClick={backToPage}>RESUME</Header>
@@ -25,9 +25,9 @@ export default function Home() {
 
         <section className="projects flex w-full flex-col items-center gap-4 overflow-y-scroll xs:items-start">
           <object
-            data="/pdf/profile.pdf"
+            data="pdf/Profile.pdf"
             type="application/pdf"
-            className="h-screen w-full"
+            className="relative z-[60] h-screen w-full"
           ></object>
         </section>
       </ContentShell>
