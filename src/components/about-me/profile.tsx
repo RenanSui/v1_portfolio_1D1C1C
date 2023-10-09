@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation'
 import { Dispatch, SetStateAction } from 'react'
 import { ContactButton } from '../contact/contact-button'
 import { OptionStates } from '../main-menu'
@@ -8,6 +9,12 @@ interface ProfileProps {
 }
 
 export const Profile = ({ setOptionState }: ProfileProps) => {
+  const router = useRouter()
+
+  const backToPage = () => {
+    router.push('/resume')
+  }
+
   return (
     <AnimatedShell
       className="flex flex-col items-center justify-center gap-4"
@@ -24,10 +31,13 @@ export const Profile = ({ setOptionState }: ProfileProps) => {
         Focused on design and front-end web development. Now I am looking for
         more experience in my field.
       </p>
-      <div className="flex gap-3 md:gap-16">
+      <div className="flex flex-wrap gap-3 md:gap-16">
         <ContactButton onClick={() => setOptionState('projects')}>
           Projects
         </ContactButton>
+
+        <ContactButton onClick={backToPage}>Resume</ContactButton>
+
         <ContactButton onClick={() => setOptionState('contact')}>
           Contact
         </ContactButton>

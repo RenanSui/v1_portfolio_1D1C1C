@@ -1,4 +1,5 @@
 import { ScreenStates } from '@/app/(lobby)/page'
+import { useRouter } from 'next/navigation'
 import { Dispatch, SetStateAction } from 'react'
 import { OptionStates } from '../main-menu'
 import { AnimatedShell } from '../shells/animated-shell'
@@ -11,6 +12,12 @@ interface MenuListProps {
 }
 
 export const MenuList = ({ setOptionState }: MenuListProps) => {
+  const router = useRouter()
+
+  const backToPage = () => {
+    router.push('/resume')
+  }
+
   return (
     <AnimatedShell className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
       <MenuShell data-elementtype="menu" className="flex flex-col gap-3">
@@ -37,6 +44,10 @@ export const MenuList = ({ setOptionState }: MenuListProps) => {
           onClick={() => setOptionState('settings')}
         >
           Settings
+        </MenuItem>
+
+        <MenuItem textHidden={'Resume'} index={0.6} onClick={backToPage}>
+          Resume
         </MenuItem>
 
         <MenuItem
