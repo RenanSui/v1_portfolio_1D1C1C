@@ -24,7 +24,7 @@ export default function Home() {
 
       <div className="mx-3 mb-6 flex gap-4 md:mx-12">
         <Link href={'/pdf/resume_renan_neves.pdf'} target="_blank">
-          <ContactButton>Go to Resume PDF</ContactButton>
+          <ContactButton>Download Resume PDF</ContactButton>
         </Link>
       </div>
 
