@@ -59,7 +59,7 @@ const AboutMe = ({ setOptionState }: AboutMeProps) => {
       )}
 
       {aboutState === 1 && (
-        <ContentShell>
+        <ContentShell className="gap-6 md:flex md:max-h-[45vh] xl:max-h-[55vh] 2xl:max-h-[60vh]">
           <NierLine />
 
           <Skills />

@@ -53,6 +53,7 @@ const validateAndClick = (element: HTMLElement) => {
   if (elementIdValue === 'projectItem') elementClick(element, 'projectId')
   if (elementIdValue === 'contactItem') elementClick(element, 'contactId')
   if (elementIdValue === 'sectionItem') elementClick(element, 'sectionId')
+  if (elementIdValue === 'skillItem') elementClick(element, 'skillId')
 }
 
 const elementClick = (element: HTMLElement, storageKey: string) => {
