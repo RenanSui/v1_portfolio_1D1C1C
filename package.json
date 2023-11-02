@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint-next": "set TIMING=1 && pnpx eslint --ext .js,.jsx,.ts,.tsx src/ --cache --cache-strategy metadata"
+    "lint-test": "set TIMING=1 && pnpx eslint --ext .js,.jsx,.ts,.tsx src/ --cache --cache-strategy metadata"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
