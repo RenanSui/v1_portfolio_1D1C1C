@@ -32,7 +32,7 @@ export const SectionCard = ({
       </h1>
       <motion.a
         className={cn(
-          'projectImage m-4 block aspect-video cursor-pointer bg-nier-700 bg-cover bg-center',
+          'projectImage m-4 block aspect-video cursor-pointer bg-nier-700 bg-cover',
           imagePreview,
         )}
         initial={{ opacity: 0 }}
