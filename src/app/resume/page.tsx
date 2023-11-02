@@ -23,7 +23,7 @@ export default function Home() {
       <Header onClick={backToPage}>RESUME</Header>
 
       <div className="mx-3 mb-6 flex gap-4 md:mx-12">
-        <Link href={'/pdf/resume_renan_neves.pdf'} target="_blank">
+        <Link href={'/pdf/resume_renan_neves_atualizado.pdf'} target="_blank">
           <ContactButton>Download Resume PDF</ContactButton>
         </Link>
       </div>
@@ -33,7 +33,7 @@ export default function Home() {
 
         <section className="projects flex w-full flex-col items-center gap-4 overflow-y-scroll xs:items-start">
           <object
-            data="pdf/resume_renan_neves.pdf"
+            data="pdf/resume_renan_neves_atualizado.pdf"
             type="application/pdf"
             className="relative z-[60] h-screen w-full"
           ></object>
