@@ -21,7 +21,7 @@ export default function Home() {
         <object
           data="pdf/resume_renan_neves_atualizado.pdf"
           type="application/pdf"
-          className="relative z-[60] h-full w-full p-2 pt-0"
+          className="h-full w-full p-2 pt-0"
         />
       </div>
     </div>
