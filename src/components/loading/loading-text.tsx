@@ -1,3 +1,5 @@
+'use client'
+
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { useTypingText } from '@/hooks/useTypingText'
 import { useEffect, useState } from 'react'
