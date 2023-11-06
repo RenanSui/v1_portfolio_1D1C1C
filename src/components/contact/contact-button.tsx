@@ -6,11 +6,13 @@ import { NierSquare } from '../nier/nier-square'
 
 interface ContactButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: string
+  reverse?: boolean
 }
 
 export const ContactButton = ({
   children,
   className,
+  reverse,
   ...props
 }: ContactButtonProps) => {
   return (
@@ -21,7 +23,12 @@ export const ContactButton = ({
       )}
       {...props}
     >
-      <NierSelector className="-left-12 hidden group-hover:opacity-100 md:block" />
+      <NierSelector
+        className={cn(
+          'hidden group-hover:opacity-100 md:block',
+          reverse ? '-right-12 rotate-90' : '-left-12',
+        )}
+      />
       <NierSquare className="h-[20px] w-[20px] cursor-default bg-nier-900 group-hover:bg-nier-600" />
       <LoadingText>{children}</LoadingText>
     </button>
