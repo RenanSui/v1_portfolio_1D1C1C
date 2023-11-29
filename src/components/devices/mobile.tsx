@@ -1,36 +1,15 @@
-import { ScreenStates } from '@/app/(lobby)/page'
-import { Months, WeekDays } from '@/db/date'
+import { useDate } from '@/hooks/use-date'
 import { Camera, Mail, Music, Phone, Settings } from 'lucide-react'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Icons } from '../ui/icons'
 import { AppIcon } from './app-icon'
 import { PortfolioIcon } from './portfolio-icon'
 
-interface MobileDeviceProps {
-  setScreenState: Dispatch<SetStateAction<ScreenStates>>
-}
-
-export const MobileDevice = ({ setScreenState }: MobileDeviceProps) => {
-  const [date, setDate] = useState(new Date())
-
-  // time
-  const minutes = String(date.getMinutes()).padStart(2, '0')
-  const hours = String(date.getHours()).padStart(2, '0')
-
-  // date
-  const day = String(date.getDate())
-  const weekDay = WeekDays[date.getDay()]
-  const month = Months[date.getMonth()]
-
-  const timeInterval = setInterval(() => {
-    setDate(new Date())
-  }, 1000)
-
-  useEffect(() => {
-    return () => {
-      clearInterval(timeInterval)
-    }
-  }, [timeInterval, date])
+export const MobileDevice = () => {
+  const {
+    date: { day },
+    time: { hours, minutes },
+    formatted: { fMonth, fWeekDay },
+  } = useDate()
 
   return (
     <>
@@ -51,7 +30,7 @@ export const MobileDevice = ({ setScreenState }: MobileDeviceProps) => {
           {hours}:{minutes}
         </p>
         <p>
-          {weekDay}, {day} {month}
+          {fWeekDay}, {day} {fMonth}
         </p>
       </div>
 
@@ -66,7 +45,7 @@ export const MobileDevice = ({ setScreenState }: MobileDeviceProps) => {
         <div className="flex items-center justify-center gap-4">
           <AppIcon icon={Settings} />
 
-          <PortfolioIcon {...{ setScreenState }} />
+          <PortfolioIcon />
         </div>
 
         <div className="flex justify-center gap-6">

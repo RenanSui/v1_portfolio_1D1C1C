@@ -1,9 +1,10 @@
+import { optionStateAtom } from '@/atoms/global'
 import { useBackToMenu } from '@/hooks/use-back-menu'
-import { Dispatch, SetStateAction, useCallback, useState } from 'react'
+import { useAtom } from 'jotai'
+import { useCallback, useState } from 'react'
 import { ContactButton } from './contact/contact-button'
 import { ContactForm } from './contact/contact-form'
 import { ContactSocials } from './contact/contact-socials'
-import { OptionStates } from './main-menu'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
@@ -12,11 +13,9 @@ import { Header } from './ui/header'
 
 type ContactStates = 'socials' | 'send-email'
 
-interface ContactMeProps {
-  setOptionState: Dispatch<SetStateAction<OptionStates>>
-}
+const ContactMe = () => {
+  const [, setOptionState] = useAtom(optionStateAtom)
 
-const ContactMe = ({ setOptionState }: ContactMeProps) => {
   const [contatState, setContactState] = useState<ContactStates>('socials')
   const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
 

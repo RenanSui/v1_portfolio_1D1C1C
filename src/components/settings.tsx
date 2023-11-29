@@ -1,7 +1,8 @@
+import { optionStateAtom } from '@/atoms/global'
 import { useBackToMenu } from '@/hooks/use-back-menu'
 import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
-import { Dispatch, SetStateAction, useCallback, useRef } from 'react'
-import { OptionStates } from './main-menu'
+import { useAtom } from 'jotai'
+import { useCallback, useRef } from 'react'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
@@ -9,12 +10,11 @@ import { SettingItem } from './settings/settings-item'
 import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
 
-interface SettingsProps {
-  setOptionState: Dispatch<SetStateAction<OptionStates>>
-}
+export const SiteSettings = () => {
+  const [, setOptionState] = useAtom(optionStateAtom)
 
-export const SiteSettings = ({ setOptionState }: SettingsProps) => {
   const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
+
   const settingContainerRef = useRef<HTMLDivElement>(null)
 
   useSelectKeyboard(settingContainerRef)

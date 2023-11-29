@@ -1,12 +1,4 @@
-import { OptionStates } from '@/components/main-menu'
-
-export type SectionItems = {
-  id: number
-  section: string
-  description: string
-  sectionLink: OptionStates
-  imagePreview: string
-}
+import { SectionItems } from '@/types'
 
 export const sectionItems: SectionItems[] = [
   {

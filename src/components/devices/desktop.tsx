@@ -1,39 +1,18 @@
-import { ScreenStates } from '@/app/(lobby)/page'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useDate } from '@/hooks/use-date'
 import { Icons } from '../ui/icons'
 import { PortfolioIcon } from './portfolio-icon'
 
-interface DesktopDeviceProps {
-  setScreenState: Dispatch<SetStateAction<ScreenStates>>
-}
-
-export const DesktopDevice = ({ setScreenState }: DesktopDeviceProps) => {
-  const [date, setDate] = useState(new Date())
-
-  // time
-  const minutes = String(date.getMinutes()).padStart(2, '0')
-  const hours = String(date.getHours()).padStart(2, '0')
-
-  // date
-  const day = String(date.getDate()).padStart(2, '0')
-  const month = String(date.getMonth() + 1).padStart(2, '0')
-  const year = date.getFullYear()
-
-  const timeInterval = setInterval(() => {
-    setDate(new Date())
-  }, 1000)
-
-  useEffect(() => {
-    return () => {
-      clearInterval(timeInterval)
-    }
-  }, [timeInterval, date])
+export const DesktopDevice = () => {
+  const {
+    date: { day, month, year },
+    time: { hours, minutes },
+  } = useDate()
 
   return (
     <>
       <div className="m-4 flex flex-col gap-4">
         <div className="group relative flex w-fit flex-col gap-1">
-          <PortfolioIcon className="hover:scale-100" {...{ setScreenState }} />
+          <PortfolioIcon className="hover:scale-100" />
           <p className="drop-shadow-2xl">Portfolio</p>
         </div>
       </div>

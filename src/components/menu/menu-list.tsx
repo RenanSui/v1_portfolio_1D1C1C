@@ -1,22 +1,15 @@
-import { ScreenStates } from '@/app/(lobby)/page'
+import { optionStateAtom } from '@/atoms/global'
+import { useAtom } from 'jotai'
 import { useRouter } from 'next/navigation'
-import { Dispatch, SetStateAction } from 'react'
-import { OptionStates } from '../main-menu'
 import { AnimatedShell } from '../shells/animated-shell'
 import { MenuShell } from '../shells/menu-shell'
 import { MenuItem } from './menu-item'
 
-interface MenuListProps {
-  setOptionState: Dispatch<SetStateAction<OptionStates>>
-  setScreenState: Dispatch<SetStateAction<ScreenStates>>
-}
+export const MenuList = () => {
+  const [, setOptionState] = useAtom(optionStateAtom)
 
-export const MenuList = ({ setOptionState }: MenuListProps) => {
   const router = useRouter()
-
-  const backToPage = () => {
-    router.push('/resume')
-  }
+  const goToResumePage = () => router.push('/resume')
 
   return (
     <AnimatedShell className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
@@ -46,7 +39,7 @@ export const MenuList = ({ setOptionState }: MenuListProps) => {
           Settings
         </MenuItem>
 
-        <MenuItem textHidden={'Resume'} index={0.6} onClick={backToPage}>
+        <MenuItem textHidden={'Resume'} index={0.6} onClick={goToResumePage}>
           Resume
         </MenuItem>
 

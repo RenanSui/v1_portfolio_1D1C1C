@@ -1,5 +1,6 @@
 import { NierPattern2 } from '@/components/nier/nier-pattern2'
 import { NierVignette } from '@/components/nier/nier-vignette'
+import { JotaiProvider } from '@/components/providers'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { RodinPro } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn('bg-black', RodinPro.className)} data-menu="0">
-        {children}
+        <JotaiProvider>{children}</JotaiProvider>
         <Toaster position="top-center" expand={false} />
         <NierPattern2 />
         <NierVignette />

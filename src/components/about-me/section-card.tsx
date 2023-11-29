@@ -1,9 +1,8 @@
-import { SectionItems } from '@/db/sections'
 import { cn } from '@/lib/utils'
+import { OptionStates, SectionItems } from '@/types'
 import { motion } from 'framer-motion'
 import { Dispatch, HTMLAttributes, SetStateAction } from 'react'
 import { LoadingText } from '../loading/loading-text'
-import { OptionStates } from '../main-menu'
 import { NierSquare } from '../nier/nier-square'
 import { ProjectButton } from '../projects/project-button'
 

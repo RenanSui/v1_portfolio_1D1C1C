@@ -1,15 +1,10 @@
 'use client'
-import { ScreenStates } from '@/app/(lobby)/page'
+import { screenStateAtom } from '@/atoms/global'
 import { LoadingState } from '@/db/loading'
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { Variants } from 'framer-motion'
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { useAtom } from 'jotai'
+import { useCallback, useEffect, useState } from 'react'
 import { LoadingDots } from './loading/loading-dots'
 import { LoadingSpinner } from './loading/loading-spinner'
 import { AnimatedShell } from './shells/animated-shell'
@@ -24,41 +19,28 @@ const LoadingTextContainer: Variants = {
   },
 }
 
-interface LoadingScreenProps {
-  setScreenState: Dispatch<SetStateAction<ScreenStates>>
-}
-
-const LoadingScreen = ({ setScreenState }: LoadingScreenProps) => {
-  const [showLoadingState, setShowLoadingState] = useState(false)
+const LoadingScreen = () => {
   const [isChecked] = useLocalStorageBoolean('loadingAnimation', true)
+  const [showLoadingState, setShowLoadingState] = useState(false)
+  const [, setScreen] = useAtom(screenStateAtom)
 
-  const finishAnimation = useCallback(() => {
-    setScreenState('menu-screen')
-  }, [setScreenState])
-
-  // exit Loading Screen
-  const stateTimeout = setTimeout(
-    () => {
-      finishAnimation()
-    },
-    1000 * (LoadingState.length * 1.15),
+  const finishAnimation = useCallback(
+    () => setScreen('menu-screen'),
+    [setScreen],
   )
-
-  // Show Loading States after X seconds
-  const loadingState = setTimeout(() => {
-    setShowLoadingState(true)
-  }, 1000 * 2)
 
   useEffect(() => {
     if (!isChecked) finishAnimation()
 
-    window.addEventListener('keydown', finishAnimation, true)
+    const delay = 1000 * (LoadingState.length * 1.2)
+    const timeout = setTimeout(() => setScreen('menu-screen'), delay)
+    const loadingState = setTimeout(() => setShowLoadingState(true), 1000 * 2)
+
     return () => {
-      window.removeEventListener('keydown', finishAnimation, true)
-      clearTimeout(stateTimeout)
+      clearTimeout(timeout)
       clearTimeout(loadingState)
     }
-  }, [finishAnimation, isChecked, loadingState, setScreenState, stateTimeout])
+  }, [finishAnimation, isChecked, setScreen])
 
   return (
     <AnimatedShell

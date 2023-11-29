@@ -1,14 +1,14 @@
+import { optionStateAtom } from '@/atoms/global'
 import { arrayMaker, getCurrentDimension } from '@/lib/utils'
+import { useAtom } from 'jotai'
 import { memo, useEffect, useState } from 'react'
-import { OptionStates } from '../main-menu'
 import { AnimatedShell } from '../shells/animated-shell'
 import { StarsBig } from './stars-big'
 import { StarsMedium } from './stars-medium'
 import { StarsSmall } from './stars-small'
 
-type StarsProps = { optionState: OptionStates }
-
-const Stars = ({ optionState }: StarsProps) => {
+const Stars = () => {
+  const [optionState] = useAtom(optionStateAtom)
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
 
   const { width } = screenSize

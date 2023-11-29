@@ -1,16 +1,21 @@
-import { ScreenStates } from '@/app/(lobby)/page'
-import { Dispatch, HTMLAttributes, SetStateAction } from 'react'
+import { menuStateAtom, optionStateAtom, screenStateAtom } from '@/atoms/global'
+import { useAtom } from 'jotai'
+import { HTMLAttributes } from 'react'
 import { LoadingText } from './loading/loading-text'
-import { OptionStates } from './main-menu'
 import { NierSelector } from './nier/nier-selector'
 import { NierSquare } from './nier/nier-square'
 
-interface ExitGameProps {
-  setOptionState: Dispatch<SetStateAction<OptionStates>>
-  setScreenState: Dispatch<SetStateAction<ScreenStates>>
-}
+export const ExitGame = () => {
+  const [, setScreen] = useAtom(screenStateAtom)
+  const [, setMenu] = useAtom(menuStateAtom)
+  const [, setOption] = useAtom(optionStateAtom)
 
-export const ExitGame = ({ setOptionState, setScreenState }: ExitGameProps) => {
+  const goToDevices = () => {
+    setScreen('devices')
+    setMenu('press-any')
+    setOption('')
+  }
+
   return (
     <>
       <section className="absolute left-1/2 top-1/2 z-20 w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 cursor-default bg-nier-500 text-nier-700">
@@ -21,13 +26,13 @@ export const ExitGame = ({ setOptionState, setScreenState }: ExitGameProps) => {
         <p className="mx-8 mt-4 text-lg text-black">Exit the game?</p>
         <div className="mx-3 mt-40 h-[1px] bg-nier-700 opacity-70" />
         <div className="my-6 flex justify-around">
-          <ExitButton onClick={() => setScreenState('devices')}>Yes</ExitButton>
-          <ExitButton onClick={() => setOptionState('')}>No</ExitButton>
+          <ExitButton onClick={goToDevices}>Yes</ExitButton>
+          <ExitButton onClick={() => setOption('')}>No</ExitButton>
         </div>
       </section>
       <div
         className="absolute z-10 h-full w-full bg-black opacity-50"
-        onClick={() => setOptionState('')}
+        onClick={() => setOption('')}
       />
     </>
   )

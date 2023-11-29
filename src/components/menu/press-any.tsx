@@ -1,26 +1,13 @@
-import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
-import { MenuStates } from '../main-menu'
+import { menuStateAtom } from '@/atoms/global'
+import { useAtom } from 'jotai'
 import { AnimatedShell } from '../shells/animated-shell'
 import { MenuShell } from '../shells/menu-shell'
 import { MenuItem } from './menu-item'
 
-interface PressAnyProps {
-  menuState: MenuStates
-  setMenuState: Dispatch<SetStateAction<MenuStates>>
-}
+export const PressAny = () => {
+  const [, setMenu] = useAtom(menuStateAtom)
 
-export const PressAny = ({ menuState, setMenuState }: PressAnyProps) => {
-  const exitPressAny = useCallback(() => setMenuState('menu'), [setMenuState])
-
-  useEffect(() => {
-    const onKeyPressed = () => {
-      if (menuState !== 'press-any') return null
-      setTimeout(() => exitPressAny(), 50)
-    }
-
-    window.addEventListener('keydown', onKeyPressed, true)
-    return () => window.removeEventListener('keydown', onKeyPressed, true)
-  }, [exitPressAny, menuState])
+  const exitPressAny = () => setMenu('menu')
 
   return (
     <div className="h-full w-full" onClick={exitPressAny}>

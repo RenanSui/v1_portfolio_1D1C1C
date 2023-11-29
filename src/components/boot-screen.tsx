@@ -1,36 +1,28 @@
 'use client'
 
-import { ScreenStates } from '@/app/(lobby)/page'
+import { screenStateAtom } from '@/atoms/global'
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { Concielian } from '@/lib/fonts'
-import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
+import { useAtom } from 'jotai'
+import { useCallback, useEffect } from 'react'
 import { AnimatedShell } from './shells/animated-shell'
 import { Icons } from './ui/icons'
 
-interface BootScreenProps {
-  setScreenState: Dispatch<SetStateAction<ScreenStates>>
-}
-
-const BootScreen = ({ setScreenState }: BootScreenProps) => {
+const BootScreen = () => {
   const [isChecked] = useLocalStorageBoolean('bootAnimation', true)
+  const [, setScreen] = useAtom(screenStateAtom)
 
-  const finishAnimation = useCallback(() => {
-    setScreenState('loading-screen')
-  }, [setScreenState])
-
-  const stateTimeout = setTimeout(() => {
-    finishAnimation()
-  }, 3000)
+  const finishAnimation = useCallback(
+    () => setScreen('loading-screen'),
+    [setScreen],
+  )
 
   useEffect(() => {
     if (!isChecked) finishAnimation()
 
-    window.addEventListener('keydown', finishAnimation, true)
-    return () => {
-      window.removeEventListener('keydown', finishAnimation, true)
-      clearTimeout(stateTimeout)
-    }
-  }, [finishAnimation, isChecked, setScreenState, stateTimeout])
+    const timeout = setTimeout(() => setScreen('loading-screen'), 3000)
+    return () => clearTimeout(timeout)
+  }, [finishAnimation, isChecked, setScreen])
 
   return (
     <AnimatedShell

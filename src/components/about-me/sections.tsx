@@ -1,16 +1,15 @@
+import { optionStateAtom } from '@/atoms/global'
 import { sectionItems } from '@/db/sections'
 import { useLocalStorage } from '@/hooks/use-local-storage'
 import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
-import { OptionStates } from '../main-menu'
+import { useAtom } from 'jotai'
+import { useEffect, useRef } from 'react'
 import { SectionCard } from './section-card'
 import { SectionItem } from './section-item'
 
-interface SectionsProps {
-  setOptionState: Dispatch<SetStateAction<OptionStates>>
-}
+export const Sections = () => {
+  const [, setOption] = useAtom(optionStateAtom)
 
-export const Sections = ({ setOptionState }: SectionsProps) => {
   const [sectionId, setSectionId] = useLocalStorage('sectionId', '0')
   const sectionsRef = useRef<HTMLDivElement>(null)
 
@@ -58,7 +57,7 @@ export const Sections = ({ setOptionState }: SectionsProps) => {
           className="hidden flex-1 md:flex"
           key={sectionItem.id} // change Card
           sectionItem={sectionItem}
-          setOptionState={setOptionState}
+          setOptionState={setOption}
         />
       )}
 
@@ -68,7 +67,7 @@ export const Sections = ({ setOptionState }: SectionsProps) => {
           <SectionCard
             key={section.id}
             sectionItem={section}
-            setOptionState={setOptionState}
+            setOptionState={setOption}
           />
         ))}
       </div>

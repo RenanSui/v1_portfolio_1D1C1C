@@ -1,9 +1,10 @@
+import { optionStateAtom } from '@/atoms/global'
 import { projectItems } from '@/db/projects'
 import { useBackToMenu } from '@/hooks/use-back-menu'
 import { useLocalStorage } from '@/hooks/use-local-storage'
 import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
-import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react'
-import { OptionStates } from './main-menu'
+import { useAtom } from 'jotai'
+import { useCallback, useEffect, useRef } from 'react'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
@@ -12,13 +13,12 @@ import { ProjectItem } from './projects/project-item'
 import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
 
-interface ProjectsProps {
-  setOptionState: Dispatch<SetStateAction<OptionStates>>
-}
-
-const Projects = ({ setOptionState }: ProjectsProps) => {
+const Projects = () => {
+  const [, setOptionState] = useAtom(optionStateAtom)
   const [projectId, setProjectId] = useLocalStorage('projectId', '0')
+
   const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
+
   const ProjectsRef = useRef<HTMLDivElement>(null)
 
   const changeProject = () => {

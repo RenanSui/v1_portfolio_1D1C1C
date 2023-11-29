@@ -1,19 +1,15 @@
+import { optionStateAtom } from '@/atoms/global'
+import { useAtom } from 'jotai'
 import { useRouter } from 'next/navigation'
-import { Dispatch, SetStateAction } from 'react'
 import { ContactButton } from '../contact/contact-button'
-import { OptionStates } from '../main-menu'
 import { AnimatedShell } from '../shells/animated-shell'
 
-interface ProfileProps {
-  setOptionState: Dispatch<SetStateAction<OptionStates>>
-}
+export const Profile = () => {
+  const [, setOption] = useAtom(optionStateAtom)
 
-export const Profile = ({ setOptionState }: ProfileProps) => {
   const router = useRouter()
 
-  const backToPage = () => {
-    router.push('/resume')
-  }
+  const backToPage = () => router.push('/resume')
 
   return (
     <AnimatedShell
@@ -32,13 +28,13 @@ export const Profile = ({ setOptionState }: ProfileProps) => {
         more experience in my field.
       </p>
       <div className="flex flex-wrap gap-3 md:gap-16">
-        <ContactButton onClick={() => setOptionState('projects')}>
+        <ContactButton onClick={() => setOption('projects')}>
           Projects
         </ContactButton>
 
         <ContactButton onClick={backToPage}>Resume</ContactButton>
 
-        <ContactButton onClick={() => setOptionState('contact')}>
+        <ContactButton onClick={() => setOption('contact')}>
           Contact
         </ContactButton>
       </div>

@@ -1,15 +1,13 @@
-import { ScreenStates } from '@/app/(lobby)/page'
+import { screenStateAtom } from '@/atoms/global'
 import { cn } from '@/lib/utils'
-import { Dispatch, HTMLAttributes, SetStateAction } from 'react'
-
-interface PortfolioIconProps extends HTMLAttributes<HTMLDivElement> {
-  setScreenState: Dispatch<SetStateAction<ScreenStates>>
-}
+import { useAtom } from 'jotai'
+import { HTMLAttributes } from 'react'
 
 export const PortfolioIcon = ({
-  setScreenState,
   className,
-}: PortfolioIconProps) => {
+}: HTMLAttributes<HTMLDivElement>) => {
+  const [, setScreen] = useAtom(screenStateAtom)
+
   return (
     <div
       className={cn(
@@ -17,7 +15,7 @@ export const PortfolioIcon = ({
         className,
       )}
       title="portfolio"
-      onClick={() => setScreenState('boot-screen')}
+      onClick={() => setScreen('boot-screen')}
     >
       <div className="relative flex h-[55px] w-[55px] items-center justify-center rounded-full border-[6px] border-nier-900 bg-transparent after:h-10 after:w-10  after:rounded-full after:border-4 after:border-transparent ">
         <div className="absolute h-6 w-6 rounded-full border-[6px] border-nier-900 bg-transparent" />
