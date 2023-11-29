@@ -9,7 +9,8 @@ interface HeaderProps extends HTMLAttributes<SVGSVGElement> {
 
 export const Header = ({ children, className, onClick }: HeaderProps) => {
   return (
-    <div className="mb-7 mt-14 flex cursor-default items-center gap-2 pl-7 md:mt-20">
+    // <div className="mb-7 mt-14 flex cursor-default items-center gap-2 pl-7 md:mt-20">
+    <div className="flex cursor-default items-center md:pl-6">
       <Icons.chevronLeft className="h-8 w-8 cursor-pointer" onClick={onClick} />
 
       <h1

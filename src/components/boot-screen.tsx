@@ -26,8 +26,7 @@ const BootScreen = () => {
 
   return (
     <AnimatedShell
-      className="absolute bottom-0 left-0 right-0 top-0 flex cursor-default select-none items-center justify-center bg-nier-100 text-9xl font-bold text-nier-900"
-      style={{ filter: 'blur(1.2px)' }}
+      className="absolute bottom-0 left-0 right-0 top-0 flex cursor-default select-none items-center justify-center bg-nier-100 text-9xl font-bold text-nier-900 blur-[1.2px]"
       animate={{ opacity: 1, transition: { duration: 1, delay: 0.3 } }}
       onClick={finishAnimation}
     >

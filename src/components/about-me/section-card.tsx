@@ -21,7 +21,7 @@ export const SectionCard = ({
   return (
     <section
       className={cn(
-        'relative flex flex-col overflow-x-hidden bg-nier-600 pb-3 shadow-lg',
+        'relative flex max-w-[700px] flex-col overflow-x-hidden bg-nier-600 pb-3 shadow-lg',
         className,
       )}
     >

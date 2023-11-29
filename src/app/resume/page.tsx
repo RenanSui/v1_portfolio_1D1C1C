@@ -1,29 +1,35 @@
 'use client'
 
 import { ContactButton } from '@/components/contact/contact-button'
+import { NierPattern } from '@/components/nier/nier-pattern'
 import { useRouter } from 'next/navigation'
 
 export default function Home() {
   const router = useRouter()
 
-  const backToPage = () => {
-    router.push('/')
-  }
+  const backToPage = () => router.push('/')
 
   return (
-    <div className="flex h-screen flex-col">
-      <div className="flex bg-nier-500 p-2">
-        <ContactButton reverse onClick={backToPage}>
+    <main className="relative flex min-h-screen flex-col bg-nier-500">
+      <NierPattern variant="block" />
+
+      <div className="flex flex-1 flex-col">
+        <ContactButton
+          className="mx-2 flex self-start"
+          onClick={backToPage}
+          reverse
+        >
           Back to Portfolio
         </ContactButton>
-      </div>
-      <div className="flex-1 bg-nier-500">
+
         <object
           data="pdf/resume_renan_neves_atualizado.pdf"
           type="application/pdf"
-          className="h-full w-full p-2 pt-0"
+          className="h-full w-full flex-1 p-2"
         />
       </div>
-    </div>
+
+      <NierPattern variant="block" />
+    </main>
   )
 }

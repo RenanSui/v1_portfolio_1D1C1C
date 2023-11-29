@@ -17,7 +17,7 @@ export const ProjectCard = ({ projectItems, className }: ProjectCardProps) => {
   return (
     <section
       className={cn(
-        'relative flex flex-col overflow-x-hidden bg-nier-600 pb-3 shadow-lg',
+        'relative flex max-w-[700px] flex-col bg-nier-600 pb-3 shadow-lg',
         className,
       )}
     >
@@ -37,7 +37,7 @@ export const ProjectCard = ({ projectItems, className }: ProjectCardProps) => {
         rel="noreferrer"
       />
       <div className="mx-5 h-[1px] bg-nier-700 opacity-70" />
-      <p className="mx-4 my-2 text-black">
+      <p className="mx-4 my-2 text-black md:text-lg lg:text-2xl">
         <LoadingText>{description}</LoadingText>
       </p>
       <div className="mx-4 h-[1px] bg-nier-700 opacity-70" />

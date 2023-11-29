@@ -17,8 +17,6 @@ export const Skills = () => {
     )
   }
 
-  useSelectKeyboard(skillsRef)
-
   const skillItem = skillItems[Number(skillId)]
 
   useEffect(() => {

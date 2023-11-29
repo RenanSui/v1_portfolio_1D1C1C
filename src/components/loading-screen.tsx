@@ -2,6 +2,7 @@
 import { screenStateAtom } from '@/atoms/global'
 import { LoadingState } from '@/db/loading'
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
+import { cn } from '@/lib/utils'
 import { Variants } from 'framer-motion'
 import { useAtom } from 'jotai'
 import { useCallback, useEffect, useState } from 'react'
@@ -44,8 +45,10 @@ const LoadingScreen = () => {
 
   return (
     <AnimatedShell
-      className="absolute z-20 h-full w-full tracking-widest transition-all duration-500"
-      style={{ filter: showLoadingState ? 'blur(1.2px)' : 'blur(5px)' }}
+      className={cn(
+        'absolute z-20 h-full w-full tracking-widest transition-all duration-500',
+        showLoadingState ? 'blur-[1.2px]' : 'blur-[5px]',
+      )}
       onClick={finishAnimation}
     >
       <LoadingSpinner />
@@ -76,24 +79,11 @@ const LoadingScreen = () => {
             initial="initial"
             animate="animate"
           >
-            {LoadingState.map((text, index) => {
-              return (
-                // <GlitchText
-                //   className="[text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45] sm:text-sm lg:text-lg"
-                //   key={index}
-                //   index={index}
-                // >
-                //   {text}
-                // </GlitchText>
-                <TextGlitched
-                  className="text-nier-100"
-                  key={index}
-                  index={index}
-                >
-                  {text}
-                </TextGlitched>
-              )
-            })}
+            {LoadingState.map((text, index) => (
+              <TextGlitched className="text-nier-100" key={index} index={index}>
+                {text}
+              </TextGlitched>
+            ))}
           </AnimatedShell>
         )}
       </div>

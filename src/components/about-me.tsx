@@ -16,9 +16,7 @@ const AboutMe = () => {
   const [aboutState, setAboutState] = useState(0)
   const [, setOption] = useAtom(optionStateAtom)
 
-  const backToMenu = useCallback(() => setOption(''), [setOption])
-
-  useBackToMenu(backToMenu)
+  const backToMenu = () => setOption('')
 
   const handleAboutState = () => {
     const stateLength = 2
@@ -26,60 +24,69 @@ const AboutMe = () => {
   }
 
   return (
-    <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
-      <NierPattern variant={'top'} />
+    <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500  text-nier-900">
+      <NierPattern variant={'block'} />
 
       {aboutState === 0 && (
-        <>
+        <div className="flex flex-1 flex-col">
           <Header onClick={backToMenu}>ABOUT ME</Header>
-          <div className="mx-3 mb-6 flex gap-4 md:mx-12">
-            <ContactButton onClick={handleAboutState}>
-              Go to Skills
-            </ContactButton>
-          </div>
-          <ContentShell className="md:max-h-[45vh] xl:max-h-[55vh] 2xl:max-h-[60vh]">
+
+          <ContactButton
+            className="mx-12 my-4 flex self-start"
+            onClick={handleAboutState}
+          >
+            Go to Skills
+          </ContactButton>
+
+          <ContentShell className="mx-3 flex h-full justify-center gap-6 pb-8 md:mx-12 ">
             <Profile />
           </ContentShell>
-        </>
+        </div>
       )}
 
       {aboutState === 1 && (
-        <>
+        <div className="flex flex-1 flex-col">
           <Header onClick={backToMenu}>SKILLS</Header>
-          <div className="mx-3 mb-6 flex gap-4 md:mx-12">
-            <ContactButton onClick={handleAboutState}>
-              Go to Sections
-            </ContactButton>
-          </div>
-          <ContentShell className="gap-6 md:flex md:max-h-[45vh] xl:max-h-[55vh] 2xl:max-h-[60vh]">
-            <NierLine />
 
+          <ContactButton
+            className="mx-12 my-4 flex self-start"
+            onClick={handleAboutState}
+          >
+            Go to Sections
+          </ContactButton>
+
+          <div className="mx-3 flex h-full flex-row-reverse gap-6 pb-8 md:mx-12 md:max-h-[800px]">
             <Skills />
-          </ContentShell>
-        </>
+
+            <NierLine />
+          </div>
+        </div>
       )}
 
       {aboutState === 2 && (
-        <>
+        <div className="flex flex-1 flex-col">
           <Header onClick={backToMenu}>SECTIONS</Header>
-          <div className="mx-3 mb-6 flex gap-4 md:mx-12">
-            <ContactButton onClick={handleAboutState}>
-              Go to About me
-            </ContactButton>
-          </div>
-          <ContentShell className="gap-6 md:flex md:h-full md:max-h-[45vh] xl:max-h-[55vh] 2xl:max-h-[60vh]">
-            <NierLine />
 
+          <ContactButton
+            className="mx-12 my-4 flex self-start"
+            onClick={handleAboutState}
+          >
+            Go to About me
+          </ContactButton>
+
+          <div className="mx-3 flex h-full flex-row-reverse gap-6 pb-8 md:mx-12 md:max-h-[800px]">
             <Sections />
-          </ContentShell>
-        </>
+
+            <NierLine />
+          </div>
+        </div>
       )}
 
       <NierSuggestions onClick={backToMenu}>
         Explore my portfolio
       </NierSuggestions>
 
-      <NierPattern variant={'bottom'} />
+      <NierPattern variant={'block'} />
     </section>
   )
 }

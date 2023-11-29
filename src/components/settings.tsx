@@ -7,7 +7,6 @@ import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { SettingItem } from './settings/settings-item'
-import { ContentShell } from './shells/content-shell'
 import { Header } from './ui/header'
 
 export const SiteSettings = () => {
@@ -22,40 +21,40 @@ export const SiteSettings = () => {
   useBackToMenu(backToMenu)
 
   return (
-    <section className="absolute z-[60] h-full w-full bg-nier-500 text-nier-900">
-      <NierPattern variant={'top'} />
+    <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500  text-nier-900">
+      <NierPattern variant="block" />
 
-      <Header onClick={backToMenu}>SETTINGS</Header>
+      <div className="flex flex-1 flex-col pb-2">
+        <Header onClick={backToMenu}>SETTINGS</Header>
 
-      <ContentShell className="flex gap-6">
-        <NierLine />
+        <div className="mx-3 flex h-full gap-6 py-8 md:mx-12">
+          <NierLine />
 
-        <section
-          className="projects flex w-full flex-col items-center gap-4 overflow-y-scroll xs:items-start"
-          ref={settingContainerRef}
-          data-elementtype="settings"
-        >
-          <SettingItem keyValue="starAnimation" data-active="true">
-            Star Animation
-          </SettingItem>
-
-          <SettingItem keyValue="loadingAnimation">
-            Loading Animation
-          </SettingItem>
-
-          <SettingItem keyValue="bootAnimation">Boot Animationn</SettingItem>
-
-          <SettingItem keyValue="textAnimation">Text Animation</SettingItem>
-
-          <SettingItem keyValue="glitchAnimation">Glitch Animation</SettingItem>
-        </section>
-      </ContentShell>
+          <section
+            className="projects flex w-full flex-col items-center gap-4 overflow-y-scroll xs:items-start"
+            ref={settingContainerRef}
+            data-elementtype="settings"
+          >
+            <SettingItem keyValue="starAnimation" data-active="true">
+              Star Animation
+            </SettingItem>
+            <SettingItem keyValue="loadingAnimation">
+              Loading Animation
+            </SettingItem>
+            <SettingItem keyValue="bootAnimation">Boot Animationn</SettingItem>
+            <SettingItem keyValue="textAnimation">Text Animation</SettingItem>
+            <SettingItem keyValue="glitchAnimation">
+              Glitch Animation
+            </SettingItem>
+          </section>
+        </div>
+      </div>
 
       <NierSuggestions onClick={backToMenu}>
         Adjust website settings
       </NierSuggestions>
 
-      <NierPattern variant={'bottom'} />
+      <NierPattern variant="block" />
     </section>
   )
 }

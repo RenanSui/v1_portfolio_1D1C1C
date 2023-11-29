@@ -19,7 +19,7 @@ export const MainMenu = () => {
 
   return (
     <AnimatedShell
-      className={`relative z-40 flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em]`}
+      className={`relative z-40 flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em] blur-[1px]`}
     >
       <AnimatePresence>
         {menu === 'press-any' && <PressAny key={'press-any'} />}
@@ -32,8 +32,6 @@ export const MainMenu = () => {
 
         {isChecked && menu === 'menu' && <StarsVideo key={'star-video'} />}
       </AnimatePresence>
-
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-50 bg-[rgba(255,0,0,0)] backdrop-blur-[1px]" />
     </AnimatedShell>
   )
 }

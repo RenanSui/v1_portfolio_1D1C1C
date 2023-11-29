@@ -7,10 +7,15 @@ export const NierSuggestions = ({
   onClick,
 }: HTMLAttributes<HTMLDivElement>) => {
   return (
+    // <motion.div
+    //   initial={{ opacity: 0, bottom: 72 }}
+    //   animate={{ bottom: 96, opacity: 1, transition: { duration: 0.3 } }}
+    //   className="absolute bottom-24 left-12 right-12 z-50 mt-auto hidden h-[80px] w-auto cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex"
+    // >
     <motion.div
       initial={{ opacity: 0, bottom: 72 }}
       animate={{ bottom: 96, opacity: 1, transition: { duration: 0.3 } }}
-      className="absolute bottom-24 left-12 right-12 z-50 mt-auto hidden h-[80px] w-auto cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex"
+      className="mx-12 mt-auto hidden h-[80px] w-auto cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex"
     >
       <div className="flex gap-2">
         <div className="h-full w-[15px] bg-nier-700" />
