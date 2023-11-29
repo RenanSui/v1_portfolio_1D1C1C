@@ -18,15 +18,15 @@ export const MenuSections = () => {
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
       <AnimatePresence>
-        {option === 'about-me' && <AboutMe key={0} />}
+        {option === 'about-me' && <AboutMe key={'about-me'} />}
 
-        {option === 'projects' && <Projects key={1} />}
+        {option === 'projects' && <Projects key={'projects'} />}
 
-        {option === 'settings' && <SiteSettings key={2} />}
+        {option === 'settings' && <SiteSettings key={'site-settings'} />}
 
-        {option === 'contact' && <ContactMe key={3} />}
+        {option === 'contact' && <ContactMe key={'contact-me'} />}
 
-        {option === 'exit-game' && <ExitGame key={4} />}
+        {option === 'exit-game' && <ExitGame key={'exit-game'} />}
       </AnimatePresence>
     </AnimatedShell>
   )
