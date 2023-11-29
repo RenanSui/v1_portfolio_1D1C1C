@@ -1,7 +1,6 @@
 import { optionStateAtom } from '@/atoms/global'
-import { useBackToMenu } from '@/hooks/use-back-menu'
 import { useAtom } from 'jotai'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { Profile } from './about-me/profile'
 import { Sections } from './about-me/sections'
 import { Skills } from './about-me/skills'

@@ -1,6 +1,5 @@
 import { skillItems } from '@/db/skills'
 import { useLocalStorage } from '@/hooks/use-local-storage'
-import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
 import { useEffect, useRef } from 'react'
 import { SkillCard } from './skill-card'
 import { SkillItem } from './skill-item'
