@@ -8,7 +8,7 @@ import { MenuList } from './menu/menu-list'
 import { MenuSections } from './menu/menu-sections'
 import { PressAny } from './menu/press-any'
 import { AnimatedShell } from './shells/animated-shell'
-import { StarsBackground } from './stars/stars-background'
+import { StarsOrbiting } from './stars/stars-background'
 import { StarsVideo } from './stars/stars-video'
 
 export const MainMenu = () => {
@@ -24,16 +24,13 @@ export const MainMenu = () => {
       <AnimatePresence>
         {menu === 'press-any' && <PressAny key={'press-any'} />}
 
-        {menu === 'menu' && option === '' && <MenuList key={'list'} />}
+        {menu === 'menu' && option === '' && <MenuList key={'menu-list'} />}
 
-        {option !== '' && <MenuSections key={2} />}
+        {option !== '' && <MenuSections key={'menu-sections'} />}
 
-        {isChecked && (
-          <>
-            {menu === 'press-any' && <StarsBackground key={3} />}
-            {menu === 'menu' && <StarsVideo key={4} />}
-          </>
-        )}
+        {isChecked && menu === 'press-any' && <StarsOrbiting key={'star-bg'} />}
+
+        {isChecked && menu === 'menu' && <StarsVideo key={'star-video'} />}
       </AnimatePresence>
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-50 bg-[rgba(255,0,0,0)] backdrop-blur-[1px]" />

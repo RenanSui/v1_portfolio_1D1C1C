@@ -4,10 +4,10 @@ import { motion } from 'framer-motion'
 
 interface StarsSmallProps {
   index: number
-  screenSize: { width: number; height: number }
+  size: { width: number; height: number }
 }
 
-export const StarsSmall = ({ index, screenSize }: StarsSmallProps) => {
+export const StarsSmall = ({ index, size: screenSize }: StarsSmallProps) => {
   const randomStar = Math.floor(Math.random() * StarsStyles.length)
   const AnimationDuration = Math.floor(Math.random() * 30)
 
