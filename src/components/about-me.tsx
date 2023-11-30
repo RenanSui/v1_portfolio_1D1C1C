@@ -31,13 +31,13 @@ const AboutMe = () => {
           <Header onClick={backToMenu}>ABOUT ME</Header>
 
           <ContactButton
-            className="mx-12 my-4 flex self-start"
+            className="mx-3 my-4 flex self-start md:mx-12"
             onClick={handleAboutState}
           >
             Go to Skills
           </ContactButton>
 
-          <ContentShell className="mx-3 flex h-full justify-center gap-6 pb-8 md:mx-12 ">
+          <ContentShell className="mx-3 flex h-full justify-center gap-6 pb-8 md:mx-12">
             <Profile />
           </ContentShell>
         </div>
@@ -48,16 +48,16 @@ const AboutMe = () => {
           <Header onClick={backToMenu}>SKILLS</Header>
 
           <ContactButton
-            className="mx-12 my-4 flex self-start"
+            className="mx-3 my-4 flex self-start md:mx-12"
             onClick={handleAboutState}
           >
             Go to Sections
           </ContactButton>
 
-          <div className="mx-3 flex h-full flex-row-reverse gap-6 pb-8 md:mx-12 md:max-h-[800px]">
+          <div className="mx-3 flex h-full flex-wrap gap-6 pb-8 md:mx-12 md:max-h-[800px] md:flex-row-reverse">
             <Skills />
 
-            <NierLine />
+            <NierLine className="hidden md:flex" />
           </div>
         </div>
       )}
@@ -67,7 +67,7 @@ const AboutMe = () => {
           <Header onClick={backToMenu}>SECTIONS</Header>
 
           <ContactButton
-            className="mx-12 my-4 flex self-start"
+            className="mx-3 my-4 flex self-start md:mx-12"
             onClick={handleAboutState}
           >
             Go to About me
@@ -76,7 +76,7 @@ const AboutMe = () => {
           <div className="mx-3 flex h-full flex-row-reverse gap-6 pb-8 md:mx-12 md:max-h-[800px]">
             <Sections />
 
-            <NierLine />
+            <NierLine className="hidden md:flex" />
           </div>
         </div>
       )}

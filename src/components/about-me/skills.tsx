@@ -2,8 +2,18 @@ import { skillItems } from '@/config/menu'
 import { useItemByMouse } from '@/hooks/use-item-by-mouse'
 import { SkillItem } from '@/types'
 import { CardMenuItemShell } from '../card-menu-item-shell'
+import {
+  Card,
+  CardButtonLink,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardHeading,
+  CardImageLink,
+  CardSeparator,
+} from '../ui/card'
 import { CardMenu } from '../ui/card-menu'
-import { SkillCard } from './skill-card'
 
 export const Skills = () => {
   const { item, changeItem } = useItemByMouse<SkillItem>('skill-id', skillItems)
@@ -11,10 +21,10 @@ export const Skills = () => {
   return (
     <>
       {/* tablet and above */}
-      <CardMenu className="flex-1">
+      <CardMenu className="hidden flex-1 md:block">
         {skillItems.map((item) => (
           <CardMenuItemShell
-            key={`skill-${item.id}`}
+            key={`card-menu-skill-${item.id}`}
             id={String(item.id)}
             onClick={changeItem}
             data-elementtype="skill-id"
@@ -26,18 +36,52 @@ export const Skills = () => {
 
       {/* table and above contact card */}
       {item && (
-        <SkillCard
-          className="hidden flex-1 md:flex"
-          key={item.id}
-          skillItem={item}
-        />
+        <Card key={`item-${item.id}`} className="hidden flex-1 md:flex">
+          <CardHeader>
+            <CardHeading>{item.organization}</CardHeading>
+          </CardHeader>
+          <CardContent>
+            <CardImageLink className={item.bgImage} href={item.pdfLink} />
+            <CardSeparator className="mt-4" />
+            <CardDescription>{item.name}</CardDescription>
+            <CardSeparator />
+          </CardContent>
+          <CardFooter className="flex gap-4">
+            {item.pdfLink && (
+              <CardButtonLink href={item.pdfLink}>PDF</CardButtonLink>
+            )}
+            {item.imageLink && (
+              <CardButtonLink href={item.imageLink}>Image</CardButtonLink>
+            )}
+          </CardFooter>
+        </Card>
       )}
 
       {/* Mobile only contact card */}
-      <div className="flex flex-col gap-8 md:hidden">
-        {skillItems.map((skill) => (
-          <SkillCard key={skill.id} skillItem={skill} />
-        ))}
+      <div className="flex w-full flex-col gap-8 md:hidden">
+        {skillItems.map((skill) => {
+          return (
+            <Card key={`card-skill-${skill.id}`} className="flex-1">
+              <CardHeader>
+                <CardHeading>{skill.organization}</CardHeading>
+              </CardHeader>
+              <CardContent>
+                <CardImageLink className={skill.bgImage} href={skill.pdfLink} />
+                <CardSeparator className="mt-4" />
+                <CardDescription>{skill.name}</CardDescription>
+                <CardSeparator />
+              </CardContent>
+              <CardFooter className="flex gap-4">
+                {skill.pdfLink && (
+                  <CardButtonLink href={skill.pdfLink}>PDF</CardButtonLink>
+                )}
+                {skill.imageLink && (
+                  <CardButtonLink href={skill.imageLink}>Image</CardButtonLink>
+                )}
+              </CardFooter>
+            </Card>
+          )
+        })}
       </div>
     </>
   )

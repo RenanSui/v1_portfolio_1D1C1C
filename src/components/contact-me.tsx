@@ -26,16 +26,16 @@ const ContactMe = () => {
           <Header onClick={backToMenu}>Socials</Header>
 
           <ContactButton
-            className="mx-12 my-4 flex self-start"
+            className="mx-3 my-4 flex self-start md:mx-12"
             onClick={() => setContactState('send-email')}
           >
             Send Email
           </ContactButton>
 
-          <div className="mx-3 flex h-full max-h-[600px] flex-row-reverse gap-6 py-8 md:mx-12">
+          <div className="mx-3 flex h-full flex-wrap gap-6 pb-8 md:mx-12 md:max-h-[800px] md:flex-row-reverse">
             <ContactSocials />
 
-            <NierLine />
+            <NierLine className="hidden md:flex" />
           </div>
         </div>
       ) : null}
@@ -45,7 +45,7 @@ const ContactMe = () => {
           <Header onClick={backToMenu}>Send Email</Header>
 
           <ContactButton
-            className="mx-12 my-4 flex self-start"
+            className="mx-3 my-4 flex self-start md:mx-12"
             onClick={() => setContactState('socials')}
           >
             Socials
