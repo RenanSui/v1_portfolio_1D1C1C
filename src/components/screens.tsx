@@ -1,11 +1,14 @@
 'use client'
 
 import { screenStateAtom } from '@/atoms/global'
+import {
+  BootScreen,
+  Devices,
+  LoadingScreen,
+  MainMenu,
+} from '@/features/screens'
 import { useAtom } from 'jotai'
-import { BootScreen } from './boot-screen'
-import { Devices } from './devices'
-import { LoadingScreen } from './loading-screen'
-import { MainMenu } from './main-menu'
+
 import { AnimatedPresenceShell } from './shells/animated-presence-shell'
 
 export const Screens = () => {

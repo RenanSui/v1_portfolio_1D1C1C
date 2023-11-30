@@ -1,4 +1,4 @@
-import { MessageData } from '@/components/contact/contact-form'
+import { MessageData } from '@/features/menu-sections/components/sections/contact/contact-form'
 import emailjs from '@emailjs/browser'
 
 export const SendEmail = (data: MessageData) => {

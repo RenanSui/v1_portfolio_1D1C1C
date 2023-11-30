@@ -1,7 +1,7 @@
 'use client'
 
 import { ContactButton } from '@/components/contact/contact-button'
-import { NierPattern } from '@/components/nier/nier-pattern'
+import { NierPattern } from '@/features/nier'
 import { useRouter } from 'next/navigation'
 
 export default function Home() {

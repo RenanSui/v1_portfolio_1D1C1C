@@ -1,8 +1,8 @@
+import { NierLoadingText } from '@/features/nier'
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { HTMLAttributes } from 'react'
-import { LoadingText } from '../loading/loading-text'
 
 interface LoadinTextProps extends HTMLAttributes<HTMLDivElement> {
   children: string
@@ -19,7 +19,7 @@ export const TextGlitched = ({
   if (!isChecked)
     return (
       <h1 className={cn('inline-block select-none', className)}>
-        <LoadingText index={index}>{children}</LoadingText>
+        <NierLoadingText index={index}>{children}</NierLoadingText>
       </h1>
     )
 
@@ -30,13 +30,13 @@ export const TextGlitched = ({
       )}
     >
       <GlitchTop className={className}>
-        <LoadingText index={index}>{children}</LoadingText>
+        <NierLoadingText index={index}>{children}</NierLoadingText>
       </GlitchTop>
       <h1 className="inline-block">
-        <LoadingText index={index}>{children}</LoadingText>
+        <NierLoadingText index={index}>{children}</NierLoadingText>
       </h1>
       <GlitchBottom className={className}>
-        <LoadingText index={index}>{children}</LoadingText>
+        <NierLoadingText index={index}>{children}</NierLoadingText>
       </GlitchBottom>
     </section>
   )

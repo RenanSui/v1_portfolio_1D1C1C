@@ -1,7 +1,6 @@
-import { NierPattern2 } from '@/components/nier/nier-pattern2'
-import { NierVignette } from '@/components/nier/nier-vignette'
 import { JotaiProvider } from '@/components/providers'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
+import { NierPattern2, NierVignette } from '@/features/nier'
 import { RodinPro } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
