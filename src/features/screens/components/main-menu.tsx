@@ -14,6 +14,9 @@ export const MainMenu = () => {
   const [menu] = useAtom(menuStateAtom)
   const [option] = useAtom(optionStateAtom)
 
+  console.log(menu)
+  console.log(option)
+
   return (
     <AnimatedShell
       className={`relative z-40 flex h-full w-full flex-col bg-[#01040F] bg-[linear-gradient(180deg,_hsla(227,_88%,_3%,_1)_30%,_hsla(222,_67%,_10%,_1)_67%,_hsla(100,_7%,_24%,_1)_100%)] font-medium tracking-[0.15em] blur-[1px]`}
@@ -23,7 +26,9 @@ export const MainMenu = () => {
 
         {menu === 'menu' && option === '' && <MenuList key={'menu-list'} />}
 
-        {option !== '' && <MenuSections key={'menu-sections'} />}
+        {menu === 'menu-sections' && option !== '' && (
+          <MenuSections key={'menu-sections'} />
+        )}
 
         {isChecked && menu === 'press-any' && <StarsOrbiting key={'star-bg'} />}
 

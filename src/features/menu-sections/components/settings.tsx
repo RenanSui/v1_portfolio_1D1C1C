@@ -1,4 +1,4 @@
-import { optionStateAtom } from '@/atoms/global'
+import { menuStateAtom, optionStateAtom } from '@/atoms/global'
 import { NierLine, NierPattern, NierSuggestions } from '@/features/nier'
 import { useAtom } from 'jotai'
 import { useRef } from 'react'
@@ -6,10 +6,14 @@ import { SettingItem } from './sections/settings/settings-item'
 import { SectionHeading } from './ui/section-heading'
 
 export const SiteSettings = () => {
-  const [, setOptionState] = useAtom(optionStateAtom)
   const settingContainerRef = useRef<HTMLDivElement>(null)
+  const [, setOption] = useAtom(optionStateAtom)
+  const [, setMenu] = useAtom(menuStateAtom)
 
-  const backToMenu = () => setOptionState('')
+  const backToMenu = () => {
+    setOption('')
+    setMenu('menu')
+  }
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500  text-nier-900">

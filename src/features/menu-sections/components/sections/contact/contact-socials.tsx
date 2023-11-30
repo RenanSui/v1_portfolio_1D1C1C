@@ -44,7 +44,9 @@ export const ContactSocials = () => {
             <CardHeading>{item.social}</CardHeading>
           </CardHeader>
           <CardContent>
-            <CardImageLink href={item.contactLink} Icon={item.icon} />
+            <CardImageLink className="relative" href={item.contactLink}>
+              <item.icon className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-nier-500 py-8" />
+            </CardImageLink>
             <CardSeparator className="mt-4" />
             <CardDescription>{item.contact}</CardDescription>
             <CardSeparator />
@@ -64,7 +66,9 @@ export const ContactSocials = () => {
                 <CardHeading>{social.social}</CardHeading>
               </CardHeader>
               <CardContent>
-                <CardImageLink href={social.contactLink} Icon={social.icon} />
+                <CardImageLink className="relative" href={social.contactLink}>
+                  <item.icon className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-nier-500 py-8" />
+                </CardImageLink>
                 <CardSeparator className="mt-4" />
                 <CardDescription>{social.contact}</CardDescription>
                 <CardSeparator />

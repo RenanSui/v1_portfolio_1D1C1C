@@ -14,6 +14,11 @@ export const ExitGame = () => {
     setOption('')
   }
 
+  const backToMenu = () => {
+    setOption('')
+    setMenu('menu')
+  }
+
   return (
     <>
       <section className="absolute left-1/2 top-1/2 z-20 w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 cursor-default bg-nier-500 text-nier-700">
@@ -25,12 +30,12 @@ export const ExitGame = () => {
         <div className="mx-3 mt-40 h-[1px] bg-nier-700 opacity-70" />
         <div className="my-6 flex justify-around">
           <ExitButton onClick={goToDevices}>Yes</ExitButton>
-          <ExitButton onClick={() => setOption('')}>No</ExitButton>
+          <ExitButton onClick={backToMenu}>No</ExitButton>
         </div>
       </section>
       <div
         className="absolute z-10 h-full w-full bg-black opacity-50"
-        onClick={() => setOption('')}
+        onClick={backToMenu}
       />
     </>
   )

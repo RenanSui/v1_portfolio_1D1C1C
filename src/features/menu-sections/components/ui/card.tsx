@@ -1,14 +1,12 @@
-import { Icons } from '@/components/ui/icons'
 import { NierLoadingText, NierSquare } from '@/features/nier'
 import { cn } from '@/lib/utils'
-import { LucideIcon } from 'lucide-react'
 import { AnchorHTMLAttributes, HTMLAttributes } from 'react'
 
 const Card = ({ className, children }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={cn(
-        'relative flex flex-col overflow-x-hidden bg-nier-600 pb-3 shadow-lg md:max-w-[700px]',
+        'relative flex flex-col bg-nier-600 pb-3 shadow-lg md:max-w-[700px]',
         className,
       )}
     >
@@ -69,8 +67,8 @@ const CardImage = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
 const CardImageLink = ({
   className,
   href,
-  Icon,
-}: AnchorHTMLAttributes<HTMLAnchorElement> & { Icon?: LucideIcon }) => {
+  children,
+}: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
     <a
       href={href}
@@ -80,12 +78,7 @@ const CardImageLink = ({
       )}
       target="_blank"
     >
-      <Icons.x className="absolute left-1/2 top-1/2 h-[200%] w-[2500%] -translate-x-1/2 -translate-y-1/2 stroke-[0.1px]" />
-      {Icon && (
-        <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-nier-200">
-          <Icon className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 stroke-1" />
-        </div>
-      )}
+      {children}
     </a>
   )
 }

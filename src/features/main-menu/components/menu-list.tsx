@@ -1,14 +1,17 @@
-import { optionStateAtom } from '@/atoms/global'
+import { menuStateAtom, optionStateAtom } from '@/atoms/global'
 import { AnimatedShell } from '@/components/shells/animated-shell'
 import { useAtom } from 'jotai'
 import { useRouter } from 'next/navigation'
 import { MenuItem } from './ui/menu-item'
 
 export const MenuList = () => {
-  const [, setOptionState] = useAtom(optionStateAtom)
+  const [, setOption] = useAtom(optionStateAtom)
+  const [, setMenu] = useAtom(menuStateAtom)
 
   const router = useRouter()
   const goToResumePage = () => router.push('/resume')
+
+  const handleMenuSections = () => setMenu('menu-sections')
 
   return (
     <AnimatedShell className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40">
@@ -17,7 +20,10 @@ export const MenuList = () => {
           textHidden={'About Me'}
           data-active="true"
           index={0.5}
-          onClick={() => setOptionState('about-me')}
+          onClick={() => {
+            handleMenuSections()
+            setOption('about-me')
+          }}
         >
           About Me
         </MenuItem>
@@ -25,7 +31,10 @@ export const MenuList = () => {
         <MenuItem
           textHidden={'Projects'}
           index={0.6}
-          onClick={() => setOptionState('projects')}
+          onClick={() => {
+            handleMenuSections()
+            setOption('projects')
+          }}
         >
           Projects
         </MenuItem>
@@ -33,7 +42,10 @@ export const MenuList = () => {
         <MenuItem
           textHidden={'Settings'}
           index={0.7}
-          onClick={() => setOptionState('settings')}
+          onClick={() => {
+            handleMenuSections()
+            setOption('settings')
+          }}
         >
           Settings
         </MenuItem>
@@ -45,7 +57,10 @@ export const MenuList = () => {
         <MenuItem
           textHidden={'Contact'}
           index={0.8}
-          onClick={() => setOptionState('contact')}
+          onClick={() => {
+            handleMenuSections()
+            setOption('contact')
+          }}
         >
           Contact
         </MenuItem>
@@ -53,7 +68,10 @@ export const MenuList = () => {
         <MenuItem
           textHidden={'Exit Game'}
           index={0.9}
-          onClick={() => setOptionState('exit-game')}
+          onClick={() => {
+            handleMenuSections()
+            setOption('exit-game')
+          }}
         >
           Exit Game
         </MenuItem>

@@ -14,6 +14,8 @@ import { AnimatedPresenceShell } from './shells/animated-presence-shell'
 export const Screens = () => {
   const [screen] = useAtom(screenStateAtom)
 
+  console.log(screen)
+
   return (
     <AnimatedPresenceShell>
       {screen === 'boot-screen' && <BootScreen key={'boot'} />}

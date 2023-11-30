@@ -1,4 +1,4 @@
-import { optionStateAtom } from '@/atoms/global'
+import { menuStateAtom, optionStateAtom } from '@/atoms/global'
 import { NierLine, NierPattern, NierSuggestions } from '@/features/nier'
 import { useItemByMouse } from '@/hooks/use-item-by-mouse'
 import { useAtom } from 'jotai'
@@ -20,8 +20,13 @@ import { CardMenu } from './ui/card-menu'
 import { SectionHeading } from './ui/section-heading'
 
 const Projects = () => {
-  const [, setOptionState] = useAtom(optionStateAtom)
-  const backToMenu = () => setOptionState('')
+  const [, setOption] = useAtom(optionStateAtom)
+  const [, setMenuState] = useAtom(menuStateAtom)
+
+  const backToMenu = () => {
+    setOption('')
+    setMenuState('menu')
+  }
 
   const { item, changeItem } = useItemByMouse<ProjectItem>(
     'project-id',

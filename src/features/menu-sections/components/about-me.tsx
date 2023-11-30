@@ -1,4 +1,4 @@
-import { optionStateAtom } from '@/atoms/global'
+import { menuStateAtom, optionStateAtom } from '@/atoms/global'
 import {
   NierButton,
   NierLine,
@@ -15,8 +15,12 @@ import { SectionHeading } from './ui/section-heading'
 const AboutMe = () => {
   const [aboutState, setAboutState] = useState(0)
   const [, setOption] = useAtom(optionStateAtom)
+  const [, setMenu] = useAtom(menuStateAtom)
 
-  const backToMenu = () => setOption('')
+  const backToMenu = () => {
+    setOption('')
+    setMenu('menu')
+  }
 
   const handleAboutState = () => {
     const stateLength = 2

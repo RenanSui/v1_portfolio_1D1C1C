@@ -1,4 +1,4 @@
-import { optionStateAtom } from '@/atoms/global'
+import { menuStateAtom, optionStateAtom } from '@/atoms/global'
 import {
   NierButton,
   NierLine,
@@ -14,10 +14,14 @@ import { SectionHeading } from './ui/section-heading'
 type ContactStates = 'socials' | 'send-email'
 
 const ContactMe = () => {
-  const [, setOptionState] = useAtom(optionStateAtom)
-
   const [contatState, setContactState] = useState<ContactStates>('socials')
-  const backToMenu = () => setOptionState('')
+  const [, setOption] = useAtom(optionStateAtom)
+  const [, setMenu] = useAtom(menuStateAtom)
+
+  const backToMenu = () => {
+    setOption('')
+    setMenu('menu')
+  }
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500 text-nier-900">
