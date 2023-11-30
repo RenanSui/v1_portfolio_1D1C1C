@@ -1,5 +1,5 @@
-import { SkillItems } from '@/db/skills'
 import { cn } from '@/lib/utils'
+import { SkillItem } from '@/types'
 import { motion } from 'framer-motion'
 import { HTMLAttributes } from 'react'
 import { LoadingText } from '../loading/loading-text'
@@ -7,7 +7,7 @@ import { NierSquare } from '../nier/nier-square'
 import { ProjectButton } from '../projects/project-button'
 
 interface SkillCardProps extends HTMLAttributes<HTMLDivElement> {
-  skillItem: SkillItems
+  skillItem: SkillItem
 }
 
 export const SkillCard = ({ skillItem, className }: SkillCardProps) => {

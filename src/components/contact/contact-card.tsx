@@ -1,5 +1,5 @@
-import { SocialItems } from '@/db/socials'
 import { cn } from '@/lib/utils'
+import { SocialItem } from '@/types'
 import { motion } from 'framer-motion'
 import { HTMLAttributes } from 'react'
 import { LoadingText } from '../loading/loading-text'
@@ -9,7 +9,7 @@ import { Icons } from '../ui/icons'
 import { RandomIcon } from '../ui/randomIcons'
 
 interface ContactCardProps extends HTMLAttributes<HTMLDivElement> {
-  socialItem: SocialItems
+  socialItem: SocialItem
 }
 
 export const ContactCard = ({ socialItem, className }: ContactCardProps) => {

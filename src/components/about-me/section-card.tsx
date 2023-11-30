@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { OptionStates, SectionItems } from '@/types'
+import { OptionStates, SectionItem } from '@/types'
 import { motion } from 'framer-motion'
 import { Dispatch, HTMLAttributes, SetStateAction } from 'react'
 import { LoadingText } from '../loading/loading-text'
@@ -7,7 +7,7 @@ import { NierSquare } from '../nier/nier-square'
 import { ProjectButton } from '../projects/project-button'
 
 interface SectionCardProps extends HTMLAttributes<HTMLDivElement> {
-  sectionItem: SectionItems
+  sectionItem: SectionItem
   setOptionState: Dispatch<SetStateAction<OptionStates>>
 }
 
