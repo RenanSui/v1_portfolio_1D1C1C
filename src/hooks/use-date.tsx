@@ -1,4 +1,4 @@
-import { Months, WeekDays } from '@/db/date'
+import { Months, WeekDays } from '@/config/site'
 import { useEffect, useState } from 'react'
 
 export const useDate = () => {

@@ -18,9 +18,7 @@ const Stars = () => {
     const updateDimension = () => setScreenSize(getCurrentDimension())
 
     window.addEventListener('resize', updateDimension)
-    return () => {
-      window.removeEventListener('resize', updateDimension)
-    }
+    return () => window.removeEventListener('resize', updateDimension)
   }, [])
 
   return (

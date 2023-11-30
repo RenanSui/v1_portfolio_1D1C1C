@@ -1,62 +1,42 @@
 import { optionStateAtom } from '@/atoms/global'
-import { sectionItems } from '@/db/sections'
-import { useLocalStorage } from '@/hooks/use-local-storage'
-import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
+import { sectionItems } from '@/config/menu'
+import { useItemByMouse } from '@/hooks/use-item-by-mouse'
+import { SectionItem } from '@/types'
 import { useAtom } from 'jotai'
-import { useEffect, useRef } from 'react'
+import { CardMenuItemShell } from '../card-menu-item-shell'
+import { CardMenu } from '../ui/card-menu'
 import { SectionCard } from './section-card'
-import { SectionItem } from './section-item'
 
 export const Sections = () => {
   const [, setOption] = useAtom(optionStateAtom)
 
-  const [sectionId, setSectionId] = useLocalStorage('sectionId', '0')
-  const sectionsRef = useRef<HTMLDivElement>(null)
-
-  const changeSection = () => {
-    const localStorageValue = localStorage.getItem('sectionId')
-
-    setSectionId(
-      localStorageValue ? (JSON.parse(localStorageValue) as string) : '0',
-    )
-  }
-
-  useSelectKeyboard(sectionsRef)
-
-  const sectionItem = sectionItems[Number(sectionId)]
-
-  useEffect(() => {
-    setTimeout(() => null)
-  }, [sectionId])
+  const { item, changeItem } = useItemByMouse<SectionItem>(
+    'section-id',
+    sectionItems,
+  )
 
   return (
     <>
       {/* tablet and above */}
-      <div className="hidden flex-1 flex-col gap-4 bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
-        <div className="mx-3 mt-2 h-[1px] bg-nier-700 opacity-70" />
-        <section
-          className="projects flex cursor-default flex-col gap-2 overflow-y-scroll"
-          ref={sectionsRef}
-          data-elementtype="sectionShell"
-        >
-          {sectionItems.map((item) => (
-            <SectionItem
-              key={item.id}
-              id={String(item.id)}
-              onClick={changeSection}
-            >
-              {item.section}
-            </SectionItem>
-          ))}
-        </section>
-      </div>
+      <CardMenu className="flex-1">
+        {sectionItems.map((item) => (
+          <CardMenuItemShell
+            key={`section-${item.id}`}
+            id={String(item.id)}
+            onClick={changeItem}
+            data-elementtype="section-id"
+          >
+            {item.section}
+          </CardMenuItemShell>
+        ))}
+      </CardMenu>
 
       {/* table and above contact card */}
-      {sectionItem && (
+      {item && (
         <SectionCard
           className="hidden flex-1 md:flex"
-          key={sectionItem.id} // change Card
-          sectionItem={sectionItem}
+          key={item.id} // change Card
+          sectionItem={item}
           setOptionState={setOption}
         />
       )}

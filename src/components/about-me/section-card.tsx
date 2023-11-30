@@ -41,7 +41,7 @@ export const SectionCard = ({
         rel="noreferrer"
       />
       <div className="mx-5 h-[1px] bg-nier-700 opacity-70" />
-      <p className="mx-4 my-2 text-black">
+      <p className="mx-4 my-2 text-black [text-wrap:balance] md:text-lg lg:text-2xl">
         <LoadingText>{description}</LoadingText>
       </p>
       <div className="mx-4 h-[1px] bg-nier-700 opacity-70" />

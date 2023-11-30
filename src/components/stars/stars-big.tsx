@@ -1,4 +1,4 @@
-import { BigStarsStyles } from '@/db/stars'
+import { BigStarsStyles } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 

@@ -1,7 +1,6 @@
 'use client'
-import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
 import { cn } from '@/lib/utils'
-import { HTMLAttributes, useRef } from 'react'
+import { HTMLAttributes } from 'react'
 
 interface MenuOptionsProps extends HTMLAttributes<HTMLDivElement> {
   layout?: 'default' | 'full' | 'centered'
@@ -13,13 +12,8 @@ export const MenuShell = ({
   layout = 'default',
   ...props
 }: MenuOptionsProps) => {
-  const MenuRef = useRef<HTMLDivElement>(null)
-
-  useSelectKeyboard(MenuRef)
-
   return (
     <div
-      ref={MenuRef}
       className={cn(
         '',
         layout === 'default' && '',

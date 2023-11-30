@@ -1,7 +1,6 @@
 import { optionStateAtom } from '@/atoms/global'
-import { useBackToMenu } from '@/hooks/use-back-menu'
 import { useAtom } from 'jotai'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { ContactButton } from './contact/contact-button'
 import { ContactForm } from './contact/contact-form'
 import { ContactSocials } from './contact/contact-socials'
@@ -16,9 +15,7 @@ const ContactMe = () => {
   const [, setOptionState] = useAtom(optionStateAtom)
 
   const [contatState, setContactState] = useState<ContactStates>('socials')
-  const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
-
-  useBackToMenu(backToMenu)
+  const backToMenu = () => setOptionState('')
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500 text-nier-900">

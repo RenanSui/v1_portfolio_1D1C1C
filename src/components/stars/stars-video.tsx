@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { AnimatedShell } from '../shells/animated-shell'
 
-const StarsVideo = () => {
+export const StarsVideo = () => {
   return (
     <AnimatedShell>
       <motion.video
@@ -33,5 +33,3 @@ const StarsVideo = () => {
     </AnimatedShell>
   )
 }
-
-export { StarsVideo }

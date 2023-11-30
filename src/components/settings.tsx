@@ -1,8 +1,6 @@
 import { optionStateAtom } from '@/atoms/global'
-import { useBackToMenu } from '@/hooks/use-back-menu'
-import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
 import { useAtom } from 'jotai'
-import { useCallback, useRef } from 'react'
+import { useRef } from 'react'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
@@ -11,14 +9,9 @@ import { Header } from './ui/header'
 
 export const SiteSettings = () => {
   const [, setOptionState] = useAtom(optionStateAtom)
-
-  const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
-
   const settingContainerRef = useRef<HTMLDivElement>(null)
 
-  useSelectKeyboard(settingContainerRef)
-
-  useBackToMenu(backToMenu)
+  const backToMenu = () => setOptionState('')
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500  text-nier-900">

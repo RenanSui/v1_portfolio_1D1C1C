@@ -1,11 +1,9 @@
 'use client'
-import { screenStateAtom } from '@/atoms/global'
-import { LoadingState } from '@/db/loading'
-import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
+import { LoadingState } from '@/config/site'
+import { useSkipScreen } from '@/hooks/use-skip-screen'
 import { cn } from '@/lib/utils'
 import { Variants } from 'framer-motion'
-import { useAtom } from 'jotai'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { LoadingDots } from './loading/loading-dots'
 import { LoadingSpinner } from './loading/loading-spinner'
 import { AnimatedShell } from './shells/animated-shell'
@@ -21,27 +19,18 @@ const LoadingTextContainer: Variants = {
 }
 
 const LoadingScreen = () => {
-  const [isChecked] = useLocalStorageBoolean('loadingAnimation', true)
   const [showLoadingState, setShowLoadingState] = useState(false)
-  const [, setScreen] = useAtom(screenStateAtom)
-
-  const finishAnimation = useCallback(
-    () => setScreen('menu-screen'),
-    [setScreen],
-  )
 
   useEffect(() => {
-    if (!isChecked) finishAnimation()
-
-    const delay = 1000 * (LoadingState.length * 1.2)
-    const timeout = setTimeout(() => setScreen('menu-screen'), delay)
     const loadingState = setTimeout(() => setShowLoadingState(true), 1000 * 2)
+    return () => clearTimeout(loadingState)
+  }, [])
 
-    return () => {
-      clearTimeout(timeout)
-      clearTimeout(loadingState)
-    }
-  }, [finishAnimation, isChecked, setScreen])
+  const { finishAnimation } = useSkipScreen(
+    'loadingAnimation',
+    'menu-screen',
+    1000 * (LoadingState.length * 1.2),
+  )
 
   return (
     <AnimatedShell

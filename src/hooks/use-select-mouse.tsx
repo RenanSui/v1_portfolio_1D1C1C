@@ -1,36 +1,43 @@
-import { getRefAttribute } from '@/lib/utils'
 import { RefObject, useEffect } from 'react'
 
-// Use in each individual item
-export const useSelectMouse = (elementRef: RefObject<HTMLElement>) => {
+export const useSelectMouse = (
+  elementRef: RefObject<HTMLElement>,
+  storageKey = '',
+  clickable = true,
+) => {
   useEffect(() => {
     const HTMLElement = elementRef.current || document
 
     HTMLElement.addEventListener(
       'mouseover',
-      () => handleMouseOver(elementRef),
+      () => handleMouseOver(elementRef, storageKey, clickable),
       true,
     )
 
     return () => {
       HTMLElement.removeEventListener(
         'mouseover',
-        () => handleMouseOver(elementRef),
+        () => handleMouseOver(elementRef, storageKey, clickable),
         true,
       )
     }
-  }, [elementRef])
+  }, [elementRef, storageKey, clickable])
 }
 
-const handleMouseOver = (elementRef: RefObject<HTMLElement>) => {
+const handleMouseOver = (
+  elementRef: RefObject<HTMLElement>,
+  storageKey: string,
+  clickable: boolean,
+) => {
   const element = elementRef.current
   const parentElement = elementRef.current?.parentElement
 
   if (!(parentElement && element)) return null
   activateItem(element, parentElement)
 
+  if (!clickable) return null
   if (!localStorage) return null
-  validateAndClick(element)
+  elementClick(element, storageKey)
 }
 
 const activateItem = (element: HTMLElement, parentElement: HTMLElement) => {
@@ -39,25 +46,11 @@ const activateItem = (element: HTMLElement, parentElement: HTMLElement) => {
     // Set all Children data-active=false
     parentElement.children[i]?.setAttribute('data-active', 'false')
   }
-
   element.setAttribute('data-active', 'true')
 }
 
-const validateAndClick = (element: HTMLElement) => {
-  const elementIdValue = getRefAttribute(
-    element,
-    'data-elementtype',
-    'about-me',
-  )
-
-  if (elementIdValue === 'projectItem') elementClick(element, 'projectId')
-  if (elementIdValue === 'contactItem') elementClick(element, 'contactId')
-  if (elementIdValue === 'sectionItem') elementClick(element, 'sectionId')
-  if (elementIdValue === 'skillItem') elementClick(element, 'skillId')
-}
-
 const elementClick = (element: HTMLElement, storageKey: string) => {
+  if (!storageKey) return null
   localStorage.setItem(storageKey, element.id)
-
   element.click()
 }

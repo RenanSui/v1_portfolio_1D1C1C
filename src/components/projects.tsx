@@ -1,42 +1,24 @@
 import { optionStateAtom } from '@/atoms/global'
-import { projectItems } from '@/db/projects'
-import { useBackToMenu } from '@/hooks/use-back-menu'
-import { useLocalStorage } from '@/hooks/use-local-storage'
-import { useSelectKeyboard } from '@/hooks/use-select-keyboard'
+import { projectItems } from '@/config/menu'
+import { useItemByMouse } from '@/hooks/use-item-by-mouse'
+import { ProjectItem } from '@/types'
 import { useAtom } from 'jotai'
-import { useCallback, useEffect, useRef } from 'react'
+import { CardMenuItemShell } from './card-menu-item-shell'
 import { NierLine } from './nier/nier-line'
 import { NierPattern } from './nier/nier-pattern'
 import { NierSuggestions } from './nier/nier-suggestions'
 import { ProjectCard } from './projects/project-card'
-import { ProjectItem } from './projects/project-item'
+import { CardMenu } from './ui/card-menu'
 import { Header } from './ui/header'
 
 const Projects = () => {
   const [, setOptionState] = useAtom(optionStateAtom)
-  const [projectId, setProjectId] = useLocalStorage('projectId', '0')
+  const backToMenu = () => setOptionState('')
 
-  const backToMenu = useCallback(() => setOptionState(''), [setOptionState])
-
-  const ProjectsRef = useRef<HTMLDivElement>(null)
-
-  const changeProject = () => {
-    const localStorageValue = localStorage.getItem('projectId')
-
-    setProjectId(
-      localStorageValue ? (JSON.parse(localStorageValue) as string) : '0',
-    )
-  }
-
-  useSelectKeyboard(ProjectsRef)
-
-  useBackToMenu(backToMenu)
-
-  const projectItem = projectItems[Number(projectId)]
-
-  useEffect(() => {
-    setTimeout(() => null)
-  }, [projectId])
+  const { item, changeItem } = useItemByMouse<ProjectItem>(
+    'project-id',
+    projectItems,
+  )
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500 text-nier-900">
@@ -47,32 +29,25 @@ const Projects = () => {
 
         <div className="mx-3 flex h-full flex-row-reverse gap-6 py-8 md:mx-12 md:max-h-[800px]">
           {/* tablet and above */}
-          <div className="hidden flex-1 flex-col gap-4 bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
-            <div className="mx-3 mt-2 h-[1px] bg-nier-700 opacity-70" />
-            <section
-              className="projects flex cursor-default flex-col gap-2"
-              ref={ProjectsRef}
-              data-elementtype="projectShell"
-            >
-              {projectItems.map((item) => (
-                <ProjectItem
-                  key={item.id}
-                  id={String(item.id)}
-                  onClick={changeProject}
-                >
-                  {item.name}
-                </ProjectItem>
-              ))}
-            </section>
-          </div>
-          {/* <div className="mx-3 mb-2 mt-auto h-[1px] bg-nier-700 opacity-70" /> */}
+          <CardMenu className="flex-1">
+            {projectItems.map((item) => (
+              <CardMenuItemShell
+                key={`project-${item.id}`}
+                id={String(item.id)}
+                onClick={changeItem}
+                data-elementtype="project-id"
+              >
+                {item.name}
+              </CardMenuItemShell>
+            ))}
+          </CardMenu>
 
           {/* table and above project card */}
-          {projectItem && (
+          {item && (
             <ProjectCard
               className="hidden flex-1 md:flex"
-              key={projectItem.id} // change Card
-              projectItems={projectItem}
+              key={item.id} // change Card
+              projectItems={item}
             />
           )}
 

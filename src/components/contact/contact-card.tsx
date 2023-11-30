@@ -46,7 +46,7 @@ export const ContactCard = ({ socialItem, className }: ContactCardProps) => {
       </motion.a>
       <div className="mx-5 h-[1px] bg-nier-700 opacity-70" />
       <p
-        className="mx-4 my-2 flex cursor-pointer items-center gap-2 text-black"
+        className="mx-4 my-2 cursor-pointer text-black md:text-lg lg:text-2xl"
         onClick={() => navigator.clipboard.writeText(contact)}
       >
         <Icons.copy className="h-6 w-6 opacity-50" />

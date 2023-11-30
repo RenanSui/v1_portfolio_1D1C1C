@@ -1,56 +1,35 @@
-import { skillItems } from '@/db/skills'
-import { useLocalStorage } from '@/hooks/use-local-storage'
-import { useEffect, useRef } from 'react'
+import { skillItems } from '@/config/menu'
+import { useItemByMouse } from '@/hooks/use-item-by-mouse'
+import { SkillItem } from '@/types'
+import { CardMenuItemShell } from '../card-menu-item-shell'
+import { CardMenu } from '../ui/card-menu'
 import { SkillCard } from './skill-card'
-import { SkillItem } from './skill-item'
 
 export const Skills = () => {
-  const [skillId, setSkillId] = useLocalStorage('skillId', '0')
-  const skillsRef = useRef<HTMLDivElement>(null)
-
-  const changeSkill = () => {
-    const localStorageValue = localStorage.getItem('skillId')
-
-    setSkillId(
-      localStorageValue ? (JSON.parse(localStorageValue) as string) : '0',
-    )
-  }
-
-  const skillItem = skillItems[Number(skillId)]
-
-  useEffect(() => {
-    setTimeout(() => null)
-  }, [skillId])
+  const { item, changeItem } = useItemByMouse<SkillItem>('skill-id', skillItems)
 
   return (
     <>
       {/* tablet and above */}
-      <div className="hidden flex-1 flex-col gap-4 bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex">
-        <div className="mx-3 mt-2 h-[1px] bg-nier-700 opacity-70" />
-
-        <section
-          className="projects flex cursor-default flex-col gap-2 overflow-y-scroll"
-          ref={skillsRef}
-          data-elementtype="skillShell"
-        >
-          {skillItems.map((skill) => (
-            <SkillItem
-              key={skill.id}
-              id={String(skill.id)}
-              onClick={changeSkill}
-            >
-              {skill.name}
-            </SkillItem>
-          ))}
-        </section>
-      </div>
+      <CardMenu className="flex-1">
+        {skillItems.map((item) => (
+          <CardMenuItemShell
+            key={`skill-${item.id}`}
+            id={String(item.id)}
+            onClick={changeItem}
+            data-elementtype="skill-id"
+          >
+            {item.name}
+          </CardMenuItemShell>
+        ))}
+      </CardMenu>
 
       {/* table and above contact card */}
-      {skillItem && (
+      {item && (
         <SkillCard
           className="hidden flex-1 md:flex"
-          key={skillItem.id} // change Card
-          skillItem={skillItem}
+          key={item.id}
+          skillItem={item}
         />
       )}
 

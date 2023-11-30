@@ -1,4 +1,4 @@
-import { StarsStyles } from '@/db/stars'
+import { StarsStyles } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 

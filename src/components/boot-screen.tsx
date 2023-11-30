@@ -1,28 +1,12 @@
 'use client'
 
-import { screenStateAtom } from '@/atoms/global'
-import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
+import { useSkipScreen } from '@/hooks/use-skip-screen'
 import { Concielian } from '@/lib/fonts'
-import { useAtom } from 'jotai'
-import { useCallback, useEffect } from 'react'
 import { AnimatedShell } from './shells/animated-shell'
 import { Icons } from './ui/icons'
 
 const BootScreen = () => {
-  const [isChecked] = useLocalStorageBoolean('bootAnimation', true)
-  const [, setScreen] = useAtom(screenStateAtom)
-
-  const finishAnimation = useCallback(
-    () => setScreen('loading-screen'),
-    [setScreen],
-  )
-
-  useEffect(() => {
-    if (!isChecked) finishAnimation()
-
-    const timeout = setTimeout(() => setScreen('loading-screen'), 3000)
-    return () => clearTimeout(timeout)
-  }, [finishAnimation, isChecked, setScreen])
+  const { finishAnimation } = useSkipScreen('bootAnimation', 'loading-screen')
 
   return (
     <AnimatedShell

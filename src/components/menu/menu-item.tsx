@@ -23,8 +23,7 @@ const MenuItemComponent: FC<MenuItemProps> = ({
 }) => {
   const MenuOptionRef = useRef<HTMLDivElement>(null)
 
-  // useTextHackerEffect(MenuOptionRef)
-  useSelectMouse(MenuOptionRef)
+  useSelectMouse(MenuOptionRef, '', false)
 
   return (
     <div
