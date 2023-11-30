@@ -1,7 +1,6 @@
 'use client'
 
-import { ContactButton } from '@/components/contact/contact-button'
-import { NierPattern } from '@/features/nier'
+import { NierButton, NierPattern } from '@/features/nier'
 import { useRouter } from 'next/navigation'
 
 export default function Home() {
@@ -14,13 +13,13 @@ export default function Home() {
       <NierPattern variant="block" />
 
       <div className="flex flex-1 flex-col">
-        <ContactButton
+        <NierButton
           className="mx-2 flex self-start"
           onClick={backToPage}
           reverse
         >
           Back to Portfolio
-        </ContactButton>
+        </NierButton>
 
         <object
           data="pdf/resume_renan_neves_atualizado.pdf"
