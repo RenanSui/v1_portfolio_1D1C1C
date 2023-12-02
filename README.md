@@ -17,11 +17,13 @@ Bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/can
 
 ## Features
 
+- Boot game.
 - Check my Resume.
 - Explore my projects.
 - Configure the site animations.
 - Inspect my contacts.
 - Send me an Email.
+- Exit game...
 
 ## Running Locally
 
