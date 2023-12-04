@@ -17,7 +17,7 @@ export const Profile = () => {
       animate={{ opacity: 1, transition: { duration: 1 } }}
     >
       <div
-        className="projectImage h-[300px] w-[300px] rounded-full bg-[url(/images/profile-pic.jpg)] bg-[length:900px] bg-center"
+        className="projectImage h-[300px] w-[300px] rounded-full bg-[url(/images/sections/about-me/profile-pic.jpg)] bg-[length:900px] bg-center"
         title="Photo by Ben Sweet on Unsplash"
       />
       <p className="text-5xl text-black md:text-7xl">Renan Sui</p>
