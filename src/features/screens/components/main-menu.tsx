@@ -1,6 +1,6 @@
 'use client'
 
-import { menuStateAtom, optionStateAtom } from '@/atoms/global'
+import { menuStateAtom } from '@/atoms/global'
 import { AnimatedShell } from '@/components/shells/animated-shell'
 import { MenuList, MenuSections, PressAny } from '@/features/main-menu'
 import { StarsOrbiting, StarsVideo } from '@/features/stars'
@@ -10,9 +10,7 @@ import { useAtom } from 'jotai'
 
 export const MainMenu = () => {
   const [isChecked] = useLocalStorageBoolean('starAnimation', true)
-
   const [menu] = useAtom(menuStateAtom)
-  const [option] = useAtom(optionStateAtom)
 
   return (
     <AnimatedShell
@@ -21,11 +19,9 @@ export const MainMenu = () => {
       <AnimatePresence>
         {menu === 'press-any' && <PressAny key={'press-any'} />}
 
-        {menu === 'menu' && option === '' && <MenuList key={'menu-list'} />}
+        {menu === 'menu' && <MenuList key={'menu-list'} />}
 
-        {menu === 'menu-sections' && option !== '' && (
-          <MenuSections key={'menu-sections'} />
-        )}
+        {menu === 'menu-sections' && <MenuSections key={'menu-sections'} />}
 
         {isChecked && menu === 'press-any' && <StarsOrbiting key={'star-bg'} />}
 
