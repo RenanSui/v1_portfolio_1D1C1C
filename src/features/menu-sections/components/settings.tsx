@@ -23,7 +23,7 @@ export const SiteSettings = () => {
         <SectionHeading onClick={backToMenu}>SETTINGS</SectionHeading>
 
         <div className="mx-3 flex h-full gap-6 py-8 md:mx-12">
-          <NierLine />
+          <NierLine className="hidden md:flex" />
 
           <section
             className="projects flex w-full flex-col items-center gap-4 overflow-y-scroll xs:items-start"
