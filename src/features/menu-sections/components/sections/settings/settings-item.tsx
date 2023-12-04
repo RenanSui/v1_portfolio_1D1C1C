@@ -1,9 +1,7 @@
 import { Icons } from '@/components/ui/icons'
 import { NierLoadingText, NierSelector, NierSquare } from '@/features/nier'
 import { useLocalStorageBoolean } from '@/hooks/use-local-storage-state'
-import { useSelectMouse } from '@/hooks/use-select-mouse'
-import { cn } from '@/lib/utils'
-import { useRef } from 'react'
+import { activateItem, cn } from '@/lib/utils'
 import { BottomLine, TopLine } from './settings-line'
 
 interface SettingItemProps {
@@ -17,15 +15,15 @@ export const SettingItem = ({
   ...props
 }: SettingItemProps) => {
   const [isChecked, setIsChecked] = useLocalStorageBoolean(keyValue, false)
-  const SettingsRef = useRef<HTMLDivElement>(null)
-
-  useSelectMouse(SettingsRef)
 
   return (
     <div
-      ref={SettingsRef}
       className="group relative z-50 w-full md:max-w-[450px]"
       onClick={() => setIsChecked(!isChecked)}
+      onMouseOver={(e) => {
+        const parentElement = e.currentTarget.parentElement || document.body
+        activateItem(e.currentTarget, parentElement)
+      }}
       {...props}
     >
       <NierSelector className="-left-12 top-1/2 z-50 hidden -translate-y-1/2 md:block" />

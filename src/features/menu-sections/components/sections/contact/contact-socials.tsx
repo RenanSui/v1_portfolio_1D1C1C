@@ -1,7 +1,7 @@
-import { CardMenuItemShell } from '@/features/menu-sections/components/shells/card-menu-item-shell'
 import { socialItems } from '@/features/menu-sections/config'
 import { SocialItem } from '@/features/menu-sections/types'
 import { useItemByMouse } from '@/hooks/use-item-by-mouse'
+import { activateAndClick } from '@/lib/utils'
 import {
   Card,
   CardButtonLink,
@@ -13,27 +13,23 @@ import {
   CardImageLink,
   CardSeparator,
 } from '../../ui/card'
-import { CardMenu } from '../../ui/card-menu'
+import { CardMenu, CardMenuHeading, CardMenuItem } from '../../ui/card-menu'
 
 export const ContactSocials = () => {
-  const { item, changeItem } = useItemByMouse<SocialItem>(
-    'contact-id',
-    socialItems,
-  )
+  const { item, changeItem } = useItemByMouse<SocialItem>(socialItems)
 
   return (
     <>
       {/* tablet and above */}
       <CardMenu className="hidden flex-1 md:block">
         {socialItems.map((item) => (
-          <CardMenuItemShell
+          <CardMenuItem
             key={`contact-${item.id}`}
-            id={String(item.id)}
-            onClick={changeItem}
-            data-elementtype="contact-id"
+            onClick={() => changeItem(item.id)}
+            onMouseOver={(e) => activateAndClick(e.currentTarget)}
           >
-            {item.social}
-          </CardMenuItemShell>
+            <CardMenuHeading>{item.social}</CardMenuHeading>
+          </CardMenuItem>
         ))}
       </CardMenu>
 

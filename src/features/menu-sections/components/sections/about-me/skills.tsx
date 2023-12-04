@@ -1,7 +1,7 @@
-import { CardMenuItemShell } from '@/features/menu-sections/components/shells/card-menu-item-shell'
 import { skillItems } from '@/features/menu-sections/config'
 import { SkillItem } from '@/features/menu-sections/types'
 import { useItemByMouse } from '@/hooks/use-item-by-mouse'
+import { activateAndClick } from '@/lib/utils'
 import {
   Card,
   CardButtonLink,
@@ -13,26 +13,27 @@ import {
   CardImageLink,
   CardSeparator,
 } from '../../ui/card'
-import { CardMenu } from '../../ui/card-menu'
+import { CardMenu, CardMenuHeading, CardMenuItem } from '../../ui/card-menu'
 
 export const Skills = () => {
-  const { item, changeItem } = useItemByMouse<SkillItem>('skill-id', skillItems)
+  const { item, changeItem } = useItemByMouse<SkillItem>(skillItems)
 
   return (
     <>
       {/* tablet and above */}
       <CardMenu className="hidden flex-1 md:block">
         {skillItems.map((item) => (
-          <CardMenuItemShell
+          <CardMenuItem
             key={`card-menu-skill-${item.id}`}
-            id={String(item.id)}
-            onClick={changeItem}
-            data-elementtype="skill-id"
+            onClick={() => changeItem(item.id)}
+            onMouseOver={(e) => activateAndClick(e.currentTarget)}
           >
-            {item.name}
-          </CardMenuItemShell>
+            <CardMenuHeading>{item.name}</CardMenuHeading>
+          </CardMenuItem>
         ))}
       </CardMenu>
+
+      <div></div>
 
       {/* table and above contact card */}
       {item && (

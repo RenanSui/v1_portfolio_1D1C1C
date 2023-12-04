@@ -1,16 +1,12 @@
-import { useEffect } from 'react'
-import { useLocalStorage } from './use-local-storage'
+import { useState } from 'react'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function useItemByMouse<Items>(storageKey: string, items: any) {
-  const [id, setId] = useLocalStorage(storageKey, '0')
-  const item = items[Number(id)] as Items
+export function useItemByMouse<Item>(items: any) {
+  const [id, setId] = useState(0)
 
-  const changeItem = () => setId(localStorage.getItem(storageKey) || '0')
+  const item = items[id] as Item
 
-  useEffect(() => {
-    setTimeout(() => null)
-  }, [id])
+  const changeItem = (id: number) => setId(id)
 
   return { item, changeItem }
 }

@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-const useTypingText = (words: string, keySpeed = 1000) => {
+export const useTypingText = (words: string, keySpeed = 1000) => {
   const [wordIndex, setWordIndex] = useState(0) // 0
   const [currentWord, setCurrentWord] = useState(['']) // I
   const [isStopped, setIsStopped] = useState(true)
@@ -40,5 +40,3 @@ const useTypingText = (words: string, keySpeed = 1000) => {
     stop,
   }
 }
-
-export { useTypingText }

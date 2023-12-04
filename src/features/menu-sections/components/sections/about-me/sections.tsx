@@ -1,8 +1,8 @@
 import { optionStateAtom } from '@/atoms/global'
-import { CardMenuItemShell } from '@/features/menu-sections/components/shells/card-menu-item-shell'
 import { sectionItems } from '@/features/menu-sections/config'
 import { SectionItem } from '@/features/menu-sections/types'
 import { useItemByMouse } from '@/hooks/use-item-by-mouse'
+import { activateAndClick } from '@/lib/utils'
 import { useAtom } from 'jotai'
 import {
   Card,
@@ -15,29 +15,25 @@ import {
   CardImage,
   CardSeparator,
 } from '../../ui/card'
-import { CardMenu } from '../../ui/card-menu'
+import { CardMenu, CardMenuHeading, CardMenuItem } from '../../ui/card-menu'
 
 export const Sections = () => {
   const [, setOption] = useAtom(optionStateAtom)
 
-  const { item, changeItem } = useItemByMouse<SectionItem>(
-    'section-id',
-    sectionItems,
-  )
+  const { item, changeItem } = useItemByMouse<SectionItem>(sectionItems)
 
   return (
     <>
       {/* tablet and above */}
       <CardMenu className="hidden flex-1 md:block">
         {sectionItems.map((item) => (
-          <CardMenuItemShell
+          <CardMenuItem
             key={`section-${item.id}`}
-            id={String(item.id)}
-            onClick={changeItem}
-            data-elementtype="section-id"
+            onClick={() => changeItem(item.id)}
+            onMouseOver={(e) => activateAndClick(e.currentTarget)}
           >
-            {item.section}
-          </CardMenuItemShell>
+            <CardMenuHeading>{item.section}</CardMenuHeading>
+          </CardMenuItem>
         ))}
       </CardMenu>
 

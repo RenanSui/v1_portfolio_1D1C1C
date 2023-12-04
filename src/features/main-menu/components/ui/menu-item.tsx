@@ -1,7 +1,6 @@
 import { TextGlitched } from '@/components/ui/text-glitched'
-import { useSelectMouse } from '@/hooks/use-select-mouse'
-import { cn } from '@/lib/utils'
-import { FC, HTMLAttributes, memo, useRef } from 'react'
+import { activateAndClick, cn } from '@/lib/utils'
+import { FC, HTMLAttributes, memo } from 'react'
 import { MenuDot } from './menu-dot'
 import { MenuLine } from './menu-line'
 
@@ -21,18 +20,14 @@ const MenuItemComponent: FC<MenuItemProps> = ({
   onClick,
   ...props
 }) => {
-  const MenuOptionRef = useRef<HTMLDivElement>(null)
-
-  useSelectMouse(MenuOptionRef, '', false)
-
   return (
     <div
       className={cn(
         'MenuOption group flex w-full max-w-[350px] flex-col items-center text-lg md:text-xl',
         className,
       )}
-      ref={MenuOptionRef}
       onClick={onClick}
+      onMouseOver={(e) => activateAndClick(e.currentTarget, false)}
       {...props}
     >
       <TextGlitched

@@ -1,10 +1,10 @@
 import { menuStateAtom, optionStateAtom } from '@/atoms/global'
 import { NierLine, NierPattern, NierSuggestions } from '@/features/nier'
 import { useItemByMouse } from '@/hooks/use-item-by-mouse'
+import { activateAndClick } from '@/lib/utils'
 import { useAtom } from 'jotai'
 import { projectItems } from '../config'
 import { ProjectItem } from '../types'
-import { CardMenuItemShell } from './shells/card-menu-item-shell'
 import {
   Card,
   CardButtonLink,
@@ -16,7 +16,7 @@ import {
   CardImageLink,
   CardSeparator,
 } from './ui/card'
-import { CardMenu } from './ui/card-menu'
+import { CardMenu, CardMenuHeading, CardMenuItem } from './ui/card-menu'
 import { SectionHeading } from './ui/section-heading'
 
 const Projects = () => {
@@ -28,10 +28,7 @@ const Projects = () => {
     setMenuState('menu')
   }
 
-  const { item, changeItem } = useItemByMouse<ProjectItem>(
-    'project-id',
-    projectItems,
-  )
+  const { item, changeItem } = useItemByMouse<ProjectItem>(projectItems)
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500 text-nier-900">
@@ -44,14 +41,13 @@ const Projects = () => {
           {/* tablet and above */}
           <CardMenu className="hidden flex-1 md:block">
             {projectItems.map((item) => (
-              <CardMenuItemShell
+              <CardMenuItem
                 key={`project-${item.id}`}
-                id={String(item.id)}
-                onClick={changeItem}
-                data-elementtype="project-id"
+                onClick={() => changeItem(item.id)}
+                onMouseOver={(e) => activateAndClick(e.currentTarget)}
               >
-                {item.name}
-              </CardMenuItemShell>
+                <CardMenuHeading>{item.name}</CardMenuHeading>
+              </CardMenuItem>
             ))}
           </CardMenu>
 

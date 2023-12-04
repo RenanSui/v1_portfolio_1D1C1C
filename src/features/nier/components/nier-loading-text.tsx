@@ -10,15 +10,12 @@ interface LoadingTextProps {
 }
 
 export const NierLoadingText = ({ children, index = 0 }: LoadingTextProps) => {
+  const [isChecked] = useLocalStorageBoolean('textAnimation', true)
   const [isShowing, setIsShowing] = useState(false)
   const { word, start } = useTypingText(children, 30)
 
-  const [isChecked] = useLocalStorageBoolean('textAnimation', true)
-
   const Time = index ? 1250 * (index / 1.5) : 50
-
   const loadingTextTimeout = setTimeout(() => start(), Time)
-
   const showingTextTimeout = setTimeout(() => setIsShowing(true), Time)
 
   useEffect(() => {

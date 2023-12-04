@@ -8,13 +8,10 @@ import {
   MainMenu,
 } from '@/features/screens'
 import { useAtom } from 'jotai'
-
 import { AnimatedPresenceShell } from './shells/animated-presence-shell'
 
 export const Screens = () => {
   const [screen] = useAtom(screenStateAtom)
-
-  console.log(screen)
 
   return (
     <AnimatedPresenceShell>
