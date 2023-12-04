@@ -1,3 +1,4 @@
+import { Icons } from '@/components/ui/icons'
 import { socialItems } from '@/features/menu-sections/config'
 import { SocialItem } from '@/features/menu-sections/types'
 import { useItemByMouse } from '@/hooks/use-item-by-mouse'
@@ -45,7 +46,13 @@ export const ContactSocials = () => {
               <item.icon className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-nier-500 py-8" />
             </CardImageLink>
             <CardSeparator className="mt-4" />
-            <CardDescription>{item.contact}</CardDescription>
+            <div
+              className="flex cursor-pointer items-center gap-2"
+              onClick={() => navigator.clipboard.writeText(item.contact)}
+            >
+              <Icons.copy className="h-6 w-6" />
+              <CardDescription>{item.contact}</CardDescription>
+            </div>
             <CardSeparator />
           </CardContent>
           <CardFooter className="flex gap-4">
