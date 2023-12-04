@@ -26,7 +26,7 @@ export const SiteSettings = () => {
           <NierLine className="hidden md:flex" />
 
           <section
-            className="projects flex w-full flex-col items-center gap-4 overflow-y-scroll xs:items-start"
+            className="projects ml-7 flex w-full flex-col items-center gap-4 xs:items-start"
             ref={settingContainerRef}
             data-elementtype="settings"
           >

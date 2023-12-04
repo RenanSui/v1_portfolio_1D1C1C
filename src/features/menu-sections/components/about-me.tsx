@@ -78,7 +78,7 @@ const AboutMe = () => {
             Go to About me
           </NierButton>
 
-          <div className="mx-3 flex h-full flex-row-reverse gap-6 pb-8 md:mx-12 md:max-h-[800px]">
+          <div className="mx-3 flex h-full flex-wrap gap-6 pb-8 md:mx-12 md:max-h-[800px] md:flex-row-reverse">
             <Sections />
 
             <NierLine className="hidden md:flex" />

@@ -39,7 +39,7 @@ const Projects = () => {
 
         <div className="mx-3 flex h-full flex-row-reverse gap-6 py-8 md:mx-12 md:max-h-[800px]">
           {/* tablet and above */}
-          <CardMenu className="hidden flex-1 md:block">
+          <CardMenu className="ml-6 hidden flex-1 md:block">
             {projectItems.map((item) => (
               <CardMenuItem
                 key={`project-${item.id}`}

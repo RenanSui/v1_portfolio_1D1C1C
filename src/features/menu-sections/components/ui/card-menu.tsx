@@ -1,4 +1,4 @@
-import { NierLoadingText } from '@/features/nier'
+import { NierLoadingText, NierSelector } from '@/features/nier'
 import { cn } from '@/lib/utils'
 import { forwardRef } from 'react'
 
@@ -22,12 +22,15 @@ const CardMenuItem = forwardRef<
   return (
     <div
       className={cn(
-        'group relative flex h-[45px] w-full transition-all duration-300 hover:h-[90px] data-[active=true]:bg-nier-700',
+        'group relative flex h-[60px] w-full transition-all duration-300  data-[active=true]:bg-nier-700',
         className,
       )}
       ref={ref}
       {...props}
     >
+      <NierSelector
+        className={cn('-left-11 hidden group-hover:opacity-100 md:block')}
+      />
       {children}
     </div>
   )

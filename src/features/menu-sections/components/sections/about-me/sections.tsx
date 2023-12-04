@@ -25,7 +25,7 @@ export const Sections = () => {
   return (
     <>
       {/* tablet and above */}
-      <CardMenu className="hidden flex-1 md:block">
+      <CardMenu className="ml-6 hidden flex-1 md:block">
         {sectionItems.map((item) => (
           <CardMenuItem
             key={`section-${item.id}`}

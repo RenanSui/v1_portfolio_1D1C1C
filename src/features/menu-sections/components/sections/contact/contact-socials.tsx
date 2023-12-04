@@ -21,7 +21,7 @@ export const ContactSocials = () => {
   return (
     <>
       {/* tablet and above */}
-      <CardMenu className="hidden flex-1 md:block">
+      <CardMenu className="-ml-6 hidden flex-1 md:block">
         {socialItems.map((item) => (
           <CardMenuItem
             key={`contact-${item.id}`}

@@ -21,7 +21,7 @@ export const Skills = () => {
   return (
     <>
       {/* tablet and above */}
-      <CardMenu className="hidden flex-1 md:block">
+      <CardMenu className="ml-6 hidden flex-1 md:block">
         {skillItems.map((item) => (
           <CardMenuItem
             key={`card-menu-skill-${item.id}`}
@@ -32,8 +32,6 @@ export const Skills = () => {
           </CardMenuItem>
         ))}
       </CardMenu>
-
-      <div></div>
 
       {/* table and above contact card */}
       {item && (
