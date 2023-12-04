@@ -7,17 +7,21 @@ import {
   Projects,
   SiteSettings,
 } from '@/features/menu-sections'
+import { cn } from '@/lib/utils'
 import { AnimatePresence } from 'framer-motion'
 import { useAtom } from 'jotai'
 
 export const MenuSections = () => {
-  const [option] = useAtom(optionStateAtom)
+  const [option, setOption] = useAtom(optionStateAtom)
 
   return (
     <AnimatedShell
-      className="z-10 h-full w-full"
+      className={cn(
+        option === '' ? 'sr-only -z-50 h-0 w-0' : 'z-10 h-full w-full',
+      )}
       animate={{ opacity: 1, transition: { delay: 0, duration: 0.3 } }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
+      onAnimationComplete={() => setOption(option === '' ? '' : option)}
     >
       <AnimatePresence>
         {option === 'about-me' && <AboutMe key={'about-me'} />}
