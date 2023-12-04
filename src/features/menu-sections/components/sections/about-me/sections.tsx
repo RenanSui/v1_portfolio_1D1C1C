@@ -31,6 +31,7 @@ export const Sections = () => {
             key={`section-${item.id}`}
             onClick={() => changeItem(item.id)}
             onMouseOver={(e) => activateAndClick(e.currentTarget)}
+            data-active={item.id === 0 ? 'true' : 'false'}
           >
             <CardMenuHeading>{item.section}</CardMenuHeading>
           </CardMenuItem>

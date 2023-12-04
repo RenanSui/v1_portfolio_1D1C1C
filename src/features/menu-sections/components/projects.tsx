@@ -45,6 +45,7 @@ const Projects = () => {
                 key={`project-${item.id}`}
                 onClick={() => changeItem(item.id)}
                 onMouseOver={(e) => activateAndClick(e.currentTarget)}
+                data-active={item.id === 0 ? 'true' : 'false'}
               >
                 <CardMenuHeading>{item.name}</CardMenuHeading>
               </CardMenuItem>

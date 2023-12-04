@@ -32,7 +32,7 @@ export const SettingItem = ({
 
       <div
         className={cn(
-          'flex h-[70px] cursor-default items-center gap-2 group-data-[active=true]:bg-nier-700 group-data-[active=true]:text-nier-600 md:h-[50px]',
+          'flex h-[70px] cursor-default items-center gap-2 group-data-[active=true]:bg-nier-700 group-data-[active=true]:text-nier-600 group-data-[active=true]:opacity-50 md:h-[50px]',
           isChecked ? 'bg-nier-700 text-nier-600' : 'bg-transparent',
         )}
       >
