@@ -3,7 +3,7 @@
 Personal portfolio and projects showcase.
 Bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-[![portfolio_1d1c1c62323](./public/images/landing-page.png)](https://renansui.vercel.app)
+[![portfolio_1d1c1c62323](./public/images/landing_page.png)](https://renansui.vercel.app)
 
 ## Tech Stack
 
