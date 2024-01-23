@@ -43,7 +43,7 @@ export const ContactSocials = () => {
           </CardHeader>
           <CardContent>
             <CardImageLink className="relative" href={item.contactLink}>
-              <item.icon className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-nier-500 py-8" />
+              <item.icon className="pointer-events-none absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-nier-500 py-8" />
             </CardImageLink>
             <CardSeparator className="mt-4" />
             <div

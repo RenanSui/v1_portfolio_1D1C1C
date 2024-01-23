@@ -39,14 +39,14 @@ export const NierSuggestions = ({
           </div>
 
           <div
-            className="flex cursor-pointer items-center gap-1"
+            className="clickable flex cursor-pointer items-center gap-1"
             onClick={onClick}
           >
-            <span className="flex items-center justify-center rounded-sm bg-nier-700 px-1 py-[2px] text-sm text-nier-500">
+            <span className="pointer-events-none flex items-center justify-center rounded-sm bg-nier-700 px-1 py-[2px] text-sm text-nier-500">
               Esc
             </span>
 
-            <p>Back</p>
+            <p className="pointer-events-none">Back</p>
           </div>
         </div>
       </div>

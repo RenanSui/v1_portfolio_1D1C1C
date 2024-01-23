@@ -26,7 +26,7 @@ export const TextGlitched = ({
   return (
     <section
       className={cn(
-        'relative select-none text-transparent [text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45]',
+        'pointer-events-none relative select-none text-transparent [text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45]',
       )}
     >
       <GlitchTop className={className}>

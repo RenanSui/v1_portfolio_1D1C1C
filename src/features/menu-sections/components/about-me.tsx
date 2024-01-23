@@ -32,34 +32,34 @@ const AboutMe = () => {
       <NierPattern variant={'block'} />
 
       {aboutState === 0 && (
-        <div className="flex flex-1 flex-col">
+        <div className="mx-3 flex flex-1 flex-col md:mx-12">
           <SectionHeading onClick={backToMenu}>ABOUT ME</SectionHeading>
 
           <NierButton
-            className="mx-3 my-4 flex self-start md:mx-12"
+            className="my-4 flex self-start"
             onClick={handleAboutState}
           >
             Go to Skills
           </NierButton>
 
-          <div className="mx-3 flex h-full justify-center gap-6 pb-8 md:mx-12">
+          <div className="flex h-full justify-center gap-6 pb-8">
             <Profile />
           </div>
         </div>
       )}
 
       {aboutState === 1 && (
-        <div className="flex flex-1 flex-col">
+        <div className="mx-3 flex flex-1 flex-col md:mx-12">
           <SectionHeading onClick={backToMenu}>SKILLS</SectionHeading>
 
           <NierButton
-            className="mx-3 my-4 flex self-start md:mx-12"
+            className="my-4 flex self-start"
             onClick={handleAboutState}
           >
             Go to Sections
           </NierButton>
 
-          <div className="mx-3 flex h-full flex-wrap gap-6 pb-8 md:mx-12 md:max-h-[800px] md:flex-row-reverse">
+          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse">
             <Skills />
 
             <NierLine className="hidden md:flex" />
@@ -68,17 +68,17 @@ const AboutMe = () => {
       )}
 
       {aboutState === 2 && (
-        <div className="flex flex-1 flex-col">
+        <div className="mx-3 flex flex-1 flex-col md:mx-12">
           <SectionHeading onClick={backToMenu}>SECTIONS</SectionHeading>
 
           <NierButton
-            className="mx-3 my-4 flex self-start md:mx-12"
+            className="my-4 flex self-start"
             onClick={handleAboutState}
           >
             Go to About me
           </NierButton>
 
-          <div className="mx-3 flex h-full flex-wrap gap-6 pb-8 md:mx-12 md:max-h-[800px] md:flex-row-reverse">
+          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse">
             <Sections />
 
             <NierLine className="hidden md:flex" />

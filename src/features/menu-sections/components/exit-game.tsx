@@ -49,8 +49,8 @@ const ExitButton = ({
     className="transitin-all group relative flex cursor-default items-center gap-4 bg-nier-400 p-2 pl-3 pr-16 text-xl text-black duration-300 hover:bg-nier-700 hover:text-nier-600 hover:shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)]"
     {...props}
   >
-    <NierSelector className="-left-12 group-hover:opacity-100" />
-    <NierSquare className="h-[20px] w-[20px] cursor-default bg-nier-900 group-hover:bg-nier-600" />
+    <NierSelector className="pointer-events-none -left-12 group-hover:opacity-100" />
+    <NierSquare className="pointer-events-none h-[20px] w-[20px] cursor-default bg-nier-900 group-hover:bg-nier-600" />
     {children}
   </button>
 )

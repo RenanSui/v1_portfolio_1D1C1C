@@ -1,0 +1,17 @@
+* {
+  cursor: url('https://renansui.vercel.app/assets/cursors/Hack_Normal_Select_v2.cur'), default !important;
+}
+
+a,
+button,
+[role='button'],
+.clickable {
+  cursor: url('https://renansui.vercel.app/assets/cursors/Hack_Link_Select_v2.cur'),
+    default !important;
+}
+
+input,
+textarea {
+  cursor: url('https://renansui.vercel.app/assets/cursors/Hack_Text_Select_v2.cur'),
+    default !important;
+}

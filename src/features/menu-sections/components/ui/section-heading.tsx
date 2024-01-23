@@ -3,7 +3,7 @@ import { NierLoadingText } from '@/features/nier'
 import { cn } from '@/lib/utils'
 import { HTMLAttributes } from 'react'
 
-interface HeaderProps extends HTMLAttributes<SVGSVGElement> {
+interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
   children: string
 }
 
@@ -14,8 +14,10 @@ export const SectionHeading = ({
 }: HeaderProps) => {
   return (
     // <div className="mb-7 mt-14 flex cursor-default items-center gap-2 pl-7 md:mt-20">
-    <div className="flex cursor-default items-center md:pl-6">
-      <Icons.chevronLeft className="h-8 w-8 cursor-pointer" onClick={onClick} />
+    <div className="flex cursor-default items-center gap-2">
+      <div className="clickable" onClick={onClick}>
+        <Icons.chevronLeft className="pointer-events-none h-8 w-8" />
+      </div>
 
       <h1
         className={cn(

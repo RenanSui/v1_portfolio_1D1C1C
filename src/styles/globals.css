@@ -2,14 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-body, .projects{
+@import url('./cursor.css');
+
+body,
+.projects {
   -webkit-font-smoothing: antialiased;
-	-ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-body::-webkit-scrollbar, .projects::-webkit-scrollbar{
-	display: none;
+body::-webkit-scrollbar,
+.projects::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {
@@ -17,6 +23,6 @@ body::-webkit-scrollbar, .projects::-webkit-scrollbar{
   background: rgb(166, 161, 136);
 }
 
-.projectImage{
+.projectImage {
   filter: sepia(100%) hue-rotate(10deg) grayscale(50%) brightness(120%);
 }

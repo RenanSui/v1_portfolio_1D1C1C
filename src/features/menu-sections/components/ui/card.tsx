@@ -52,11 +52,15 @@ const CardContent = ({
   return <div className={cn('m-4', className)}>{children}</div>
 }
 
-const CardImage = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
+const CardImage = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLButtonElement>) => {
   return (
-    <div
+    <button
+      // role="button"
       className={cn(
-        'projectImage relative block aspect-video cursor-pointer bg-nier-700 bg-cover',
+        'projectImage relative block aspect-video w-full bg-nier-700 bg-cover',
         className,
       )}
       {...props}

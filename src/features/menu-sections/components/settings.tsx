@@ -19,10 +19,10 @@ export const SiteSettings = () => {
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500  text-nier-900">
       <NierPattern variant="block" />
 
-      <div className="flex flex-1 flex-col pb-2">
+      <div className="mx-3 flex flex-1 flex-col pb-2 md:mx-12">
         <SectionHeading onClick={backToMenu}>SETTINGS</SectionHeading>
 
-        <div className="mx-3 flex h-full gap-6 py-8 md:mx-12">
+        <div className="flex h-full gap-6 py-8">
           <NierLine className="hidden md:flex" />
 
           <section

@@ -23,7 +23,7 @@ const MenuItemComponent: FC<MenuItemProps> = ({
   return (
     <div
       className={cn(
-        'MenuOption group flex w-full max-w-[350px] flex-col items-center text-lg md:text-xl',
+        'MenuOption clickable group flex w-full max-w-[350px] flex-col items-center text-lg md:text-xl',
         className,
       )}
       onClick={onClick}

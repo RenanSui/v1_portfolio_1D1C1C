@@ -22,14 +22,16 @@ const CardMenuItem = forwardRef<
   return (
     <div
       className={cn(
-        'group relative flex h-[60px] w-full transition-all duration-300  data-[active=true]:bg-nier-700',
+        'clickable group relative flex h-[60px] w-full transition-all duration-300  data-[active=true]:bg-nier-700',
         className,
       )}
       ref={ref}
       {...props}
     >
       <NierSelector
-        className={cn('-left-11 hidden group-hover:opacity-100 md:block')}
+        className={cn(
+          'pointer-events-none -left-11 hidden group-hover:opacity-100 md:block',
+        )}
       />
       {children}
     </div>
@@ -68,7 +70,7 @@ const CardMenuHeading = ({ children, className }: CardMenuHeadingProps) => {
   return (
     <h1
       className={cn(
-        'mx-3 flex cursor-default items-center gap-3 group-data-[active=true]:text-nier-600 md:text-xl',
+        'pointer-events-none mx-3 flex cursor-default items-center gap-3 group-data-[active=true]:text-nier-600 md:text-xl',
         className,
       )}
     >

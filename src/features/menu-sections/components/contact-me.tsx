@@ -28,17 +28,17 @@ const ContactMe = () => {
       <NierPattern variant="block" />
 
       {contatState === 'socials' ? (
-        <div className="flex flex-1 flex-col pb-2">
+        <div className="mx-3 flex flex-1 flex-col pb-2 md:mx-12">
           <SectionHeading onClick={backToMenu}>Socials</SectionHeading>
 
           <NierButton
-            className="mx-3 my-4 flex self-start md:mx-12"
+            className=" my-4 flex self-start "
             onClick={() => setContactState('send-email')}
           >
             Send Email
           </NierButton>
 
-          <div className="mx-3 flex h-full flex-wrap gap-6 pb-8 md:mx-12 md:max-h-[800px] md:flex-row-reverse">
+          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse">
             <ContactSocials />
 
             <NierLine className="hidden md:flex" />
@@ -47,17 +47,17 @@ const ContactMe = () => {
       ) : null}
 
       {contatState === 'send-email' ? (
-        <div className="flex flex-1 flex-col pb-2">
+        <div className="mx-3 flex flex-1 flex-col pb-2 md:mx-12">
           <SectionHeading onClick={backToMenu}>Send Email</SectionHeading>
 
           <NierButton
-            className="mx-3 my-4 flex self-start md:mx-12"
+            className="my-4 flex self-start"
             onClick={() => setContactState('socials')}
           >
             Socials
           </NierButton>
 
-          <div className="mx-3 flex h-full max-h-[600px] gap-6 py-8 md:mx-12">
+          <div className="flex h-full max-h-[600px] gap-6 py-8">
             <NierLine />
 
             <ContactForm />
