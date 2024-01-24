@@ -4,9 +4,9 @@ export { NierButton } from './components/ui/nier-button'
 
 export { NierVignette } from '@/features/nier/components/nier-vignette'
 
-export { NierPattern } from '@/features/nier/components/nier-pattern'
+export { NierLattice } from '@/features/nier/components/nier-lattice'
 
-export { NierPattern2 } from '@/features/nier/components/nier-pattern2'
+export { NierPattern } from '@/features/nier/components/nier-pattern'
 
 export { NierSquare } from '@/features/nier/components/nier-square'
 
