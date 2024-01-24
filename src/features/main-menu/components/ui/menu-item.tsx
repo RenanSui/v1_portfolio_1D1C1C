@@ -30,7 +30,7 @@ const MenuItemComponent: FC<MenuItemProps> = ({
       onMouseOver={(e) => activateAndClick(e.currentTarget, false)}
       {...props}
     >
-      <div className="absolute left-0 top-1/2 h-[100%] w-full -translate-y-1/2 bg-[url(/assets/wallpapers/static.gif)] bg-cover bg-top opacity-0 [clip-path:polygon(51%_25%,_100%_50%,_50%_75%,_0%_50%)] group-data-[active=true]:opacity-[0.5]" />
+      <div className="staticGif absolute left-0 top-1/2 h-[100%] w-full -translate-y-1/2 bg-[url(/assets/wallpapers/static.gif)] bg-cover bg-top opacity-0 [clip-path:polygon(51%_25%,_100%_50%,_50%_75%,_0%_50%)] group-data-[active=true]:opacity-[0.5]" />
 
       <TextGlitched
         className="pointer-events-none select-none text-nier-100 [text-shadow:_2px_2px_1px_rgba(48,42,36,0.5)]"

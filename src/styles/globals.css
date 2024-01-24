@@ -26,3 +26,7 @@ body::-webkit-scrollbar,
 .projectImage {
   filter: sepia(100%) hue-rotate(10deg) grayscale(50%) brightness(120%);
 }
+
+.staticGif {
+  filter: sepia(100%) hue-rotate(180deg) saturate(150%);
+}
