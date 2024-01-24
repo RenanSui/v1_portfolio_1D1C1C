@@ -19,8 +19,8 @@ body::-webkit-scrollbar,
 }
 
 ::selection {
-  color: rgb(49, 49, 47);
-  background: rgb(166, 161, 136);
+  color: rgb(218, 212, 187);
+  background: rgba(205,102,77);
 }
 
 .projectImage {
