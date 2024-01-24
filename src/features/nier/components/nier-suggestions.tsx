@@ -7,11 +7,6 @@ export const NierSuggestions = ({
   onClick,
 }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    // <motion.div
-    //   initial={{ opacity: 0, bottom: 72 }}
-    //   animate={{ bottom: 96, opacity: 1, transition: { duration: 0.3 } }}
-    //   className="absolute bottom-24 left-12 right-12 z-50 mt-auto hidden h-[80px] w-auto cursor-default bg-nier-600 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex"
-    // >
     <motion.div
       initial={{ opacity: 0, bottom: 72 }}
       animate={{ bottom: 96, opacity: 1, transition: { duration: 0.3 } }}
@@ -39,14 +34,16 @@ export const NierSuggestions = ({
           </div>
 
           <div
-            className="clickable flex cursor-pointer items-center gap-1"
+            className="clickable group flex cursor-pointer items-center gap-1 hover:bg-nier-700"
             onClick={onClick}
           >
             <span className="pointer-events-none flex items-center justify-center rounded-sm bg-nier-700 px-1 py-[2px] text-sm text-nier-500">
               Esc
             </span>
 
-            <p className="pointer-events-none">Back</p>
+            <p className="pointer-events-none group-hover:text-nier-500">
+              Back
+            </p>
           </div>
         </div>
       </div>
