@@ -16,11 +16,12 @@ body,
 body::-webkit-scrollbar,
 .projects::-webkit-scrollbar {
   display: none;
+  color: #cd664db3
 }
 
 ::selection {
   color: rgb(218, 212, 187);
-  background: rgba(205,102,77);
+  background: rgba(205, 102, 77);
 }
 
 .projectImage {
@@ -29,4 +30,14 @@ body::-webkit-scrollbar,
 
 .staticGif {
   filter: sepia(100%) hue-rotate(180deg) saturate(150%);
+}
+
+.vignette {
+  background: linear-gradient(to right,
+      rgba(78, 75, 66, 0.2),
+      transparent 30%,
+      transparent 80%,
+      rgba(78, 75, 66, 0.4)),
+    radial-gradient(transparent 50%, rgba(78, 75, 66, 0.4));
+
 }
