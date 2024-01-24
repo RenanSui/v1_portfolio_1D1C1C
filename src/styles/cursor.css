@@ -15,3 +15,7 @@ textarea {
   cursor: url('https://renansui.vercel.app/assets/cursors/Hack_Text_Select_v2.cur'),
     default !important;
 }
+
+.loading {
+  cursor: url('https://renansui.vercel.app/assets/cursors/Hack_Working_in_Background_v2.cur'), default !important;
+}

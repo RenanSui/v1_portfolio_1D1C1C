@@ -3,12 +3,12 @@
 import { AnimatedShell } from '@/components/shells/animated-shell'
 import { TextGlitched } from '@/components/ui/text-glitched'
 import { NierLoading } from '@/features/nier'
+import { NierLoadingDots } from '@/features/nier/components/nier-loading-dots'
 import { cn } from '@/lib/utils'
 import { Variants } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { LoadingState } from '../config'
 import { useSkipScreen } from '../hooks/use-skip-screen'
-import { NierLoadingDots } from '@/features/nier/components/nier-loading-dots'
 
 const LoadingTextContainer: Variants = {
   animate: {
@@ -47,6 +47,8 @@ export const LoadingScreen = () => {
         <p className="opacity-10 md:text-7xl">1D1C1C</p>
         <p className="text-center">[ エラー ]</p>
       </AnimatedShell>
+
+      <div className="loading fixed z-[60] h-full w-full" />
 
       <div className="p-8 sm:p-12 md:p-20 lg:px-24 lg:pt-24">
         <div className="relative flex cursor-default select-none flex-wrap items-center gap-1 text-nier-100">
