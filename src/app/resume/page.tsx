@@ -9,7 +9,7 @@ export default function Home() {
   const backToPage = () => router.push('/')
 
   return (
-    <main className="relative flex min-h-screen flex-col bg-nier-500">
+    <main className="relative flex min-h-screen flex-col bg-nier-light-100">
       <NierPattern variant="block" />
 
       <div className="flex flex-1 flex-col">
@@ -20,7 +20,6 @@ export default function Home() {
         >
           Back to Portfolio
         </NierButton>
-
         <object
           data="pdf/resume_renan_neves_atualizado.pdf"
           type="application/pdf"

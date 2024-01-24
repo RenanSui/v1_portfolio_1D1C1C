@@ -33,7 +33,7 @@ export const NierPattern: FC<NierPatternProps> = ({
       className={cn(NierPatternVariants({ variant, className }))}
     >
       {children}
-      <div className="h-[2px] w-full bg-nier-700 " />
+      <div className="h-[2px] w-full bg-nier-light-900 " />
       <div className="mx-auto h-[27px] w-[90%] bg-[url(/images/pattern.png)]" />
     </div>
   )

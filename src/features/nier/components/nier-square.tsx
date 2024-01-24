@@ -7,7 +7,7 @@ export const NierSquare = ({
 }: HTMLAttributes<HTMLDivElement>) => (
   <span
     className={`${cn(
-      'h-[25px] w-[25px] cursor-pointer bg-nier-700 transition-all group-data-[active=true]:bg-nier-500',
+      'h-[25px] w-[25px] cursor-pointer bg-nier-light-800 transition-all group-data-[active=true]:bg-nier-light-100',
       className,
     )}`}
   >

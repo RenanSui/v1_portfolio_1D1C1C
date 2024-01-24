@@ -16,7 +16,7 @@ export const NierButton = ({
   return (
     <button
       className={cn(
-        'transitin-all group relative flex cursor-default items-center gap-4 bg-nier-400 p-2 pl-3 pr-6 duration-300 hover:bg-nier-700 hover:text-nier-600 hover:shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:pr-16 md:text-xl',
+        'transitin-all group relative flex cursor-default items-center gap-4 bg-nier-light-trans-500 p-2 pl-3 pr-6 text-black duration-300 hover:bg-nier-light-800 hover:text-nier-light-100 hover:shadow-[_5px_5px_0px_0px_rgba(151,147,129,0.6)] md:pr-16 md:text-xl',
         className,
       )}
       {...props}
@@ -27,7 +27,7 @@ export const NierButton = ({
           reverse ? '-right-12 rotate-90' : '-left-12',
         )}
       />
-      <NierSquare className="pointer-events-none h-[20px] w-[20px] cursor-default bg-nier-900 group-hover:bg-nier-600" />
+      <NierSquare className="pointer-events-none h-[20px] w-[20px] cursor-default bg-nier-light-800 group-hover:bg-nier-light-100" />
       <NierLoadingText>{children}</NierLoadingText>
     </button>
   )

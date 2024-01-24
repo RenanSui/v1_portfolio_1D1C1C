@@ -18,7 +18,7 @@ export const StarsBig = ({ index, size: screenSize }: StarsBigProps) => {
       layout
       key={`B${index}`}
       className={cn(
-        'fixed bg-nier-50 will-change-auto',
+        'fixed bg-white will-change-auto',
         BigStarsStyles[randomStar],
       )}
       style={{

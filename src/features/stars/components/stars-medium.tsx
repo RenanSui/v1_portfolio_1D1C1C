@@ -21,7 +21,7 @@ export const StarsMedium = ({ index, size: screenSize }: StarsMediumProps) => {
       layout
       key={`B${index}`}
       className={cn(
-        'fixed bg-nier-50 shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto',
+        'fixed bg-white shadow-[0px_0px_10px_0px_rgba(255,255,255,1)] will-change-auto',
         BigStarsNoAnimation[randomStar],
       )}
       style={{

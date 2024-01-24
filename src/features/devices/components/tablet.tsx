@@ -14,7 +14,7 @@ export const TabletDevice = () => {
   return (
     <>
       <div className="absolute right-0 top-0">
-        <div className="m-4 flex w-[180px] flex-wrap items-center justify-center gap-4 rounded-xl bg-nier-900 p-4">
+        <div className="m-4 flex w-[180px] flex-wrap items-center justify-center gap-4 rounded-xl bg-nier-light-800 p-4">
           <PortfolioIcon />
           <AppIcon icon={Settings} />
           <AppIcon className="bg-red-500" icon={Music} />

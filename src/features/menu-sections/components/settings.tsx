@@ -1,5 +1,10 @@
 import { menuStateAtom, optionStateAtom } from '@/atoms/global'
-import { NierLine, NierPattern, NierSuggestions } from '@/features/nier'
+import {
+  NierLine,
+  NierPattern,
+  NierSuggestions,
+  NierVignette,
+} from '@/features/nier'
 import { useAtom } from 'jotai'
 import { useRef } from 'react'
 import { SettingItem } from './sections/settings/settings-item'
@@ -16,8 +21,10 @@ export const SiteSettings = () => {
   }
 
   return (
-    <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500  text-nier-900">
+    <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-light-100  text-nier-light-800">
       <NierPattern variant="block" />
+
+      <NierVignette variant={'light'} />
 
       <div className="mx-3 flex flex-1 flex-col pb-2 md:mx-12">
         <SectionHeading onClick={backToMenu}>SETTINGS</SectionHeading>

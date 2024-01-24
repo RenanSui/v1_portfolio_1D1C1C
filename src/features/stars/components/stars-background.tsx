@@ -1,9 +1,9 @@
+import { AnimatedShell } from '@/components/shells/animated-shell'
 import { arrayMaker, getCurrentDimension } from '@/lib/utils'
 import { memo, useEffect, useState } from 'react'
 import { StarsBig } from './stars-big'
 import { StarsMedium } from './stars-medium'
 import { StarsSmall } from './stars-small'
-import { AnimatedShell } from '@/components/shells/animated-shell'
 
 const Stars = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension())
@@ -23,7 +23,7 @@ const Stars = () => {
 
   return (
     <AnimatedShell exit={{ opacity: 0, transition: { duration: 2 } }}>
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 h-full w-full">
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 z-[10000] h-full w-full">
         <div className="fixed bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden">
           {Stars.small.map((_, index) => (
             <StarsSmall key={`B${index}`} index={index} size={screenSize} />

@@ -20,12 +20,14 @@ export const Profile = () => {
         className="projectImage h-[300px] w-[300px] rounded-full bg-[url(/images/sections/about-me/profile-pic.jpg)] bg-[length:900px] bg-center"
         title="Photo by Ben Sweet on Unsplash"
       />
-      <p className="text-5xl text-black md:text-7xl">Renan Sui</p>
-      <p className="text-2xl text-nier-900">Web Developer</p>
-      <p className="mx-1 text-center text-lg [text-wrap:balance] md:mx-8 md:w-[500px] lg:w-[700px]">
-        Enthusiastic and motivated self-learning about information technology.
-        Focused on design and front-end web development. Now I am looking for
-        more experience in my field.
+      <p className="text-5xl text-black md:text-5xl">Renan Sui</p>
+      <p className="text-xl text-nier-light-900">Web Developer</p>
+      <p className="mx-1 text-center text-base font-normal text-black [text-wrap:pretty] md:mx-8 md:w-[500px] lg:w-[800px]">
+        Profissional de TI com +4 anos de experiência especializado em
+        desenvolvimento web. Posso implementar tanto o Frontend quanto o Backend
+        e também estratégias de otimização dos mecanismos de busca (SEO).
+        Excelente capacidade de resolução de problemas, adaptável/gosta de
+        mudanças (depende do trabalho específico) e atenção aos detalhes.
       </p>
       <div className="flex flex-wrap gap-3 md:gap-16">
         <NierButton onClick={() => setOption('projects')}>Projects</NierButton>

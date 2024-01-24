@@ -6,7 +6,7 @@ const Card = ({ className, children }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={cn(
-        'relative flex flex-col bg-nier-600 pb-3 shadow-lg md:max-w-[700px]',
+        'relative z-[10000] flex flex-col bg-nier-light-100 pb-3 shadow-lg md:max-w-[700px]',
         className,
       )}
     >
@@ -21,9 +21,12 @@ const CardHeader = ({
 }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
-      className={cn('flex items-center gap-3 bg-nier-700 px-3 py-2', className)}
+      className={cn(
+        'flex items-center gap-3 bg-nier-light-800 px-3 py-2',
+        className,
+      )}
     >
-      <NierSquare className="h-[23px] w-[23px] cursor-default bg-nier-600" />
+      <NierSquare className="h-[23px] w-[23px] cursor-default bg-nier-light-100" />
       {children}
     </div>
   )
@@ -34,12 +37,7 @@ const CardHeading = ({
   children,
 }: HTMLAttributes<HTMLHeadingElement> & { children: string }) => {
   return (
-    <h1
-      className={cn(
-        '  text-nier-600 group-hover:text-nier-600 md:text-xl',
-        className,
-      )}
-    >
+    <h1 className={cn('text-nier-light-100 md:text-xl', className)}>
       <NierLoadingText>{children}</NierLoadingText>
     </h1>
   )
@@ -60,7 +58,7 @@ const CardImage = ({
     <button
       // role="button"
       className={cn(
-        'projectImage relative block aspect-video w-full bg-nier-700 bg-cover',
+        'projectImage relative block aspect-video w-full bg-nier-light-800 bg-cover',
         className,
       )}
       {...props}
@@ -77,7 +75,7 @@ const CardImageLink = ({
     <a
       href={href}
       className={cn(
-        'projectImage relative block aspect-video cursor-pointer bg-nier-700 bg-cover',
+        'projectImage relative block aspect-video cursor-pointer bg-nier-light-800 bg-cover',
         className,
       )}
       target="_blank"
@@ -88,7 +86,9 @@ const CardImageLink = ({
 }
 
 const CardSeparator = ({ className }: HTMLAttributes<HTMLDivElement>) => {
-  return <div className={cn(' h-[1px] bg-nier-700 opacity-70', className)} />
+  return (
+    <div className={cn(' h-[1px] bg-nier-light-800 opacity-70', className)} />
+  )
 }
 
 const CardDescription = ({
@@ -98,7 +98,7 @@ const CardDescription = ({
   return (
     <p
       className={cn(
-        'my-2 text-black [text-wrap:balance] md:text-lg lg:text-2xl',
+        'my-2 font-sans font-normal text-nier-light-900 [text-wrap:balance] md:text-lg lg:text-xl',
         className,
       )}
     >
@@ -122,7 +122,7 @@ const CardButton = ({
   return (
     <button
       className={cn(
-        'cursor-pointer rounded-sm bg-nier-400 px-6 py-2 text-lg transition-all hover:bg-nier-700 hover:text-nier-500',
+        'cursor-pointer rounded-sm bg-nier-light-trans-500 px-6 py-2 text-lg text-nier-light-900 transition-all hover:bg-nier-light-800 hover:text-nier-light-100',
         className,
       )}
       {...props}
@@ -140,7 +140,7 @@ const CardButtonLink = ({
   return (
     <a
       className={cn(
-        'cursor-pointer rounded-sm bg-nier-400 px-6 py-2 text-lg transition-all hover:bg-nier-700 hover:text-nier-500',
+        'cursor-pointer rounded-sm bg-nier-light-trans-500 px-6 py-2 text-lg text-nier-light-900 transition-all hover:bg-nier-light-800 hover:text-nier-light-100',
         className,
       )}
       target="_blank"

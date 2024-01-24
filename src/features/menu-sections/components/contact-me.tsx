@@ -4,6 +4,7 @@ import {
   NierLine,
   NierPattern,
   NierSuggestions,
+  NierVignette,
 } from '@/features/nier'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
@@ -24,8 +25,10 @@ const ContactMe = () => {
   }
 
   return (
-    <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500 text-nier-900">
+    <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-light-100 text-nier-light-800">
       <NierPattern variant="block" />
+
+      <NierVignette variant={'light'} />
 
       {contatState === 'socials' ? (
         <div className="mx-3 flex flex-1 flex-col pb-2 md:mx-12">

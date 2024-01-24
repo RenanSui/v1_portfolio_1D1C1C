@@ -1,6 +1,6 @@
 import { JotaiProvider } from '@/components/providers'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
-import { NierLattice, NierVignette } from '@/features/nier'
+import { NierLattice } from '@/features/nier'
 import { RodinPro } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
@@ -29,7 +29,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <JotaiProvider>{children}</JotaiProvider>
         <Toaster position="top-center" expand={false} />
         <NierLattice />
-        <NierVignette />
         <TailwindIndicator />
       </body>
     </html>

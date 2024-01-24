@@ -4,6 +4,7 @@ import {
   NierLine,
   NierPattern,
   NierSuggestions,
+  NierVignette,
 } from '@/features/nier'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
@@ -28,11 +29,13 @@ const AboutMe = () => {
   }
 
   return (
-    <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-500  text-nier-900">
+    <section className="relative flex min-h-screen w-full flex-col bg-nier-light-100  text-nier-light-800">
       <NierPattern variant={'block'} />
 
+      <NierVignette variant={'light'} />
+
       {aboutState === 0 && (
-        <div className="mx-3 flex flex-1 flex-col md:mx-12">
+        <div className=" mx-3 flex flex-1 flex-col md:mx-12">
           <SectionHeading onClick={backToMenu}>ABOUT ME</SectionHeading>
 
           <NierButton

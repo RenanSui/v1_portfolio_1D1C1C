@@ -32,17 +32,19 @@ export const SettingItem = ({
 
       <div
         className={cn(
-          'flex h-[70px] cursor-default items-center gap-2 group-data-[active=true]:bg-nier-700 group-data-[active=true]:text-nier-600 group-data-[active=true]:opacity-50 md:h-[50px]',
-          isChecked ? 'bg-nier-700 text-nier-600' : 'bg-transparent',
+          'flex h-[70px] cursor-default items-center gap-2 group-data-[active=true]:bg-nier-light-800 group-data-[active=true]:text-nier-light-100 group-data-[active=true]:opacity-50 md:h-[50px]',
+          isChecked
+            ? 'bg-nier-light-800 text-nier-light-100'
+            : 'bg-transparent',
         )}
       >
         <h1 className="mx-3 flex items-center gap-3 md:text-xl">
-          <NierSquare className={isChecked ? 'bg-nier-500' : ''}>
+          <NierSquare className={isChecked ? 'bg-nier-light-100' : ''}>
             <Icons.x
               className={
                 isChecked
                   ? 'hidden'
-                  : 'text-nier-50 group-data-[active=true]:text-nier-700'
+                  : 'text-nier-light-100 group-data-[active=true]:text-nier-light-800'
               }
             />
           </NierSquare>
