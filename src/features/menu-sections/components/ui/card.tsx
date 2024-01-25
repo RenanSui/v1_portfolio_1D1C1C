@@ -37,9 +37,9 @@ const CardHeading = ({
   children,
 }: HTMLAttributes<HTMLHeadingElement> & { children: string }) => {
   return (
-    <h1 className={cn('text-nier-light-100 md:text-xl', className)}>
+    <p className={cn('text-nier-light-100 md:text-xl', className)}>
       <NierLoadingText>{children}</NierLoadingText>
-    </h1>
+    </p>
   )
 }
 

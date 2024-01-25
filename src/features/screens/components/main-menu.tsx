@@ -19,6 +19,8 @@ export const MainMenu = () => {
     >
       <NierVignette variant={'darker'} className="z-10" />
 
+      <h1 className="sr-only">Main Menu</h1>
+
       <AnimatePresence>
         {menu === 'press-any' && <PressAny key={'press-any'} />}
 

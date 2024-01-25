@@ -27,7 +27,7 @@ const CardMenuItem = forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => {
   return (
-    <div
+    <h2
       className={cn(
         'clickable group relative flex h-[60px] w-full transition-all duration-300',
         className,
@@ -42,7 +42,7 @@ const CardMenuItem = forwardRef<
         )}
       />
       {children}
-    </div>
+    </h2>
   )
 })
 CardMenuItem.displayName = 'CardMenuItem'

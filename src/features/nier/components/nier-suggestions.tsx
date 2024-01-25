@@ -17,7 +17,7 @@ export const NierSuggestions = ({
         <div className="h-full w-[5px] bg-nier-light-800" />
       </div>
       <div className="mx-8 flex h-full w-full items-center justify-between">
-        <p className="text-xl tracking-[0.2em]">{children}</p>
+        <h1 className="text-xl tracking-[0.2em]">{children}</h1>
 
         <div className="hidden gap-8 text-xl tracking-[0.2em] lg:flex">
           <div className="flex items-center gap-1">
