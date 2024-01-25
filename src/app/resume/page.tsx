@@ -12,6 +12,8 @@ export default function Home() {
     <main className="relative flex min-h-screen flex-col bg-nier-light-100">
       <NierPattern variant="block" />
 
+      <h1 className="sr-only">Portfolio / CV</h1>
+
       <div className="flex flex-1 flex-col">
         <NierButton
           className="mx-2 flex self-start"
