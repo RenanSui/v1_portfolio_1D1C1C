@@ -32,13 +32,14 @@ export const SettingItem = ({
 
       <div
         className={cn(
-          'flex h-[70px] cursor-default items-center gap-2 group-data-[active=true]:bg-nier-light-800 group-data-[active=true]:text-nier-light-100 group-data-[active=true]:opacity-50 md:h-[50px]',
+          'relative flex h-[70px] cursor-default items-center gap-2  group-data-[active=true]:text-nier-light-100 group-data-[active=true]:opacity-50 md:h-[50px]',
           isChecked
             ? 'bg-nier-light-800 text-nier-light-100'
             : 'bg-transparent',
         )}
       >
-        <h1 className="mx-3 flex items-center gap-3 md:text-xl">
+        <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-0 bg-nier-light-800 transition-all duration-500 ease-in-out group-data-[active=true]:w-full" />
+        <h1 className="z-10 mx-3 flex items-center gap-3 md:text-xl">
           <NierSquare className={isChecked ? 'bg-nier-light-100' : ''}>
             <Icons.x
               className={
