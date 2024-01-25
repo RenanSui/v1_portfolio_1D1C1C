@@ -11,7 +11,7 @@ export const AnimatedShell = ({
   ...props
 }: HTMLMotionProps<'div'>) => {
   return (
-    <motion.section
+    <motion.div
       className={className}
       initial={initial || { opacity: 0 }}
       animate={
@@ -21,6 +21,6 @@ export const AnimatedShell = ({
       {...props}
     >
       {children}
-    </motion.section>
+    </motion.div>
   )
 }
