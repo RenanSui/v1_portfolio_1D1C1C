@@ -54,6 +54,7 @@ export const LoadingScreen = () => {
 
       <div className="p-8 sm:p-12 md:p-20 lg:px-24 lg:pt-24">
         <div className="relative flex cursor-default select-none flex-wrap items-center gap-1 text-nier-light-100">
+          <h1 className="sr-only">LOADING</h1>
           <span className="text-3xl font-medium tracking-[0.3em] sm:text-4xl lg:text-5xl">
             <TextGlitched className={`text-nier-light-100`}>
               LOADING
@@ -76,13 +77,16 @@ export const LoadingScreen = () => {
             animate="animate"
           >
             {LoadingState.map((text, index) => (
-              <TextGlitched
-                className="text-nier-light-trans-100"
-                key={index}
-                index={index}
-              >
-                {text}
-              </TextGlitched>
+              <>
+                <h2 className="sr-only">{text}</h2>
+                <TextGlitched
+                  className="text-nier-light-trans-100"
+                  key={index}
+                  index={index}
+                >
+                  {text}
+                </TextGlitched>
+              </>
             ))}
           </AnimatedShell>
         )}

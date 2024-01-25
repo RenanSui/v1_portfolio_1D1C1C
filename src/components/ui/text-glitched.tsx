@@ -18,13 +18,13 @@ export const TextGlitched = ({
 
   if (!isChecked)
     return (
-      <h1 className={cn('inline-block select-none', className)}>
+      <p className={cn('inline-block select-none', className)}>
         <NierLoadingText index={index}>{children}</NierLoadingText>
-      </h1>
+      </p>
     )
 
   return (
-    <section
+    <div
       className={cn(
         'pointer-events-none relative select-none text-transparent [text-shadow:_0.03em_0.03em_0.05em_#91433B,_-0.03em_-0.03em_0.05em_#314E45]',
       )}
@@ -32,13 +32,13 @@ export const TextGlitched = ({
       <GlitchTop className={className}>
         <NierLoadingText index={index}>{children}</NierLoadingText>
       </GlitchTop>
-      <h1 className="inline-block">
+      <p className="inline-block">
         <NierLoadingText index={index}>{children}</NierLoadingText>
-      </h1>
+      </p>
       <GlitchBottom className={className}>
         <NierLoadingText index={index}>{children}</NierLoadingText>
       </GlitchBottom>
-    </section>
+    </div>
   )
 }
 
