@@ -13,6 +13,8 @@ export const MobileDevice = () => {
 
   return (
     <>
+      <h1 className="sr-only">Mobile Devices</h1>
+
       <div className="flex justify-between px-4 py-1">
         <p>
           {hours}:{minutes}

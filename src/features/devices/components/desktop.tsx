@@ -10,6 +10,8 @@ export const DesktopDevice = () => {
 
   return (
     <>
+      <h1 className="sr-only">Desktop Devices</h1>
+
       <div className="m-4 flex flex-col gap-4">
         <div className="group relative flex w-fit flex-col gap-1">
           <PortfolioIcon className="hover:scale-100" />

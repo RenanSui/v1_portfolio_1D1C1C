@@ -13,6 +13,8 @@ export const TabletDevice = () => {
 
   return (
     <>
+      <h1 className="sr-only">Tablet Devices</h1>
+
       <div className="absolute right-0 top-0">
         <div className="m-4 flex w-[180px] flex-wrap items-center justify-center gap-4 rounded-xl bg-nier-light-800 p-4">
           <PortfolioIcon />
