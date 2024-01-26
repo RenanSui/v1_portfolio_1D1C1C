@@ -13,14 +13,16 @@ import { Sections } from './sections/about-me/sections'
 import { Skills } from './sections/about-me/skills'
 import { SectionHeading } from './ui/section-heading'
 
-const menus = ['profile', 'skills', 'sections']
+type Menus = 'profile' | 'skills' | 'sections'
+
+const menus: Menus[] = ['profile', 'skills', 'sections']
 
 const AboutMe = () => {
   const [, setOption] = useAtom(optionStateAtom)
   const [, setMenu] = useAtom(menuStateAtom)
-  const [sectionView, setSectionView] = useState('profile')
+  const [sectionView, setSectionView] = useState<Menus>('profile')
 
-  const changeSectionView = (section: string) => {
+  const changeSectionView = (section: Menus) => {
     if (menus.includes(section)) setSectionView(section)
   }
 
