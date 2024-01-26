@@ -5,7 +5,6 @@ import { forwardRef } from 'react'
 type CardMenuProps = React.HTMLAttributes<HTMLDivElement>
 
 const CardMenu = ({ children, className }: CardMenuProps) => {
-  // const CardShadow = 'shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)]'
   const CardShadow = 'shadow-lg'
 
   return (
@@ -27,22 +26,23 @@ const CardMenuItem = forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => {
   return (
-    <h2
-      className={cn(
-        'clickable group relative flex h-[60px] w-full transition-all duration-300 data-[active=true]:animate-pulse',
-        className,
-      )}
+    <div
+      className="clickable group data-[active=true]:animate-pulse"
       ref={ref}
       {...props}
     >
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 h-full w-0 bg-nier-light-800 transition-all duration-500 ease-in-out group-data-[active=true]:w-full" />
-      <NierSelector
-        className={cn(
-          'pointer-events-none -left-11 hidden group-hover:opacity-100 md:block',
-        )}
-      />
-      {children}
-    </h2>
+      <div className="my-1 h-[2px] w-full bg-nier-light-800 opacity-0 group-data-[active=true]:opacity-100" />
+      <h2 className="relative flex h-[50px] flex-col justify-center transition-all duration-300">
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 h-full w-0 bg-nier-light-800 transition-all duration-500 ease-in-out group-data-[active=true]:w-full" />
+        <NierSelector
+          className={cn(
+            'pointer-events-none -left-11 hidden group-hover:opacity-100 md:block',
+          )}
+        />
+        {children}
+      </h2>
+      <div className="my-1 h-[2px] w-full bg-nier-light-800 opacity-0 group-data-[active=true]:opacity-100" />
+    </div>
   )
 })
 CardMenuItem.displayName = 'CardMenuItem'
