@@ -27,6 +27,7 @@ module.exports = {
       },
       animation: {
         loading: 'loading 0.75s linear infinite',
+        pulse: 'pulse 1.125s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         loading: {
