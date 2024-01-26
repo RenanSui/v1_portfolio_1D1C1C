@@ -122,7 +122,7 @@ const CardButton = ({
   return (
     <button
       className={cn(
-        'cursor-pointer rounded-sm bg-nier-light-trans-500 px-6 py-2 text-lg text-nier-light-900 transition-all hover:bg-nier-light-800 hover:text-nier-light-100',
+        'cursor-pointer rounded-sm bg-nier-light-trans-500 px-6 py-2 text-lg text-nier-light-900 transition-all duration-150 hover:bg-nier-light-800 hover:text-nier-light-100',
         className,
       )}
       {...props}
@@ -140,7 +140,7 @@ const CardButtonLink = ({
   return (
     <a
       className={cn(
-        'cursor-pointer rounded-sm bg-nier-light-trans-500 px-6 py-2 text-lg text-nier-light-900 transition-all hover:bg-nier-light-800 hover:text-nier-light-100',
+        'cursor-pointer rounded-sm bg-nier-light-trans-500 px-6 py-2 text-lg text-nier-light-900 transition-all duration-150 hover:bg-nier-light-800 hover:text-nier-light-100',
         className,
       )}
       target="_blank"
