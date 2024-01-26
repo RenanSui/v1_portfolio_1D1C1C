@@ -71,7 +71,7 @@ const CardMenuSquare = ({ className }: CardMenuSquareProps) => {
   return (
     <span
       className={cn(
-        'h-[25px] w-[25px] bg-nier-light-800 transition-all duration-500 group-data-[active=true]:bg-nier-light-100',
+        'h-[20px] w-[20px] group-data-[active=false]:border-2 group-data-[active=false]:border-nier-light-800 group-data-[active=true]:bg-nier-light-100',
         className,
       )}
     ></span>
