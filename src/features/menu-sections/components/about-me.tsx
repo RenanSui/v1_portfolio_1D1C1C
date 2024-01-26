@@ -64,8 +64,10 @@ const AboutMe = () => {
             Go to Skills
           </NierButton>
 
-          <div className="flex h-full justify-center gap-6 pb-8 lg:my-4">
+          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse lg:my-4">
             <Profile />
+
+            <NierLine className="hidden md:flex" />
           </div>
         </div>
       )}
