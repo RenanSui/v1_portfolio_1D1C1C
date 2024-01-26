@@ -35,7 +35,7 @@ const AboutMe = () => {
     <section className="relative flex min-h-screen w-full flex-col bg-nier-light-100  text-nier-light-800">
       <div className="mx-3 my-4 hidden h-full max-h-[40px] gap-6 md:mx-12 lg:flex">
         <NierLine className="absolute h-[40px]" />
-        <div className="flex h-[40px] w-full max-w-full gap-[56px] overflow-hidden pl-16">
+        <div className="flex h-[40px] w-full max-w-full gap-9 overflow-hidden pl-16">
           {menus.map((item) => (
             <NierButton
               key={item}
