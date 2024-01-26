@@ -29,7 +29,7 @@ const CardMenuItem = forwardRef<
   return (
     <h2
       className={cn(
-        'clickable group relative flex h-[60px] w-full transition-all duration-300',
+        'clickable group relative flex h-[60px] w-full transition-all duration-300 data-[active=true]:animate-pulse',
         className,
       )}
       ref={ref}
@@ -71,7 +71,7 @@ const CardMenuSquare = ({ className }: CardMenuSquareProps) => {
   return (
     <span
       className={cn(
-        'h-[25px] w-[25px] bg-nier-light-800 transition-all group-data-[active=true]:bg-nier-light-100',
+        'h-[25px] w-[25px] bg-nier-light-800 transition-all duration-500 group-data-[active=true]:bg-nier-light-100',
         className,
       )}
     ></span>
