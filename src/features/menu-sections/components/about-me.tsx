@@ -13,56 +13,72 @@ import { Sections } from './sections/about-me/sections'
 import { Skills } from './sections/about-me/skills'
 import { SectionHeading } from './ui/section-heading'
 
+const menus = ['profile', 'skills', 'sections']
+
 const AboutMe = () => {
-  const [aboutState, setAboutState] = useState(0)
   const [, setOption] = useAtom(optionStateAtom)
   const [, setMenu] = useAtom(menuStateAtom)
+  const [sectionView, setSectionView] = useState('profile')
+
+  const changeSectionView = (section: string) => {
+    if (menus.includes(section)) setSectionView(section)
+  }
 
   const backToMenu = () => {
     setOption('')
     setMenu('menu')
   }
 
-  const handleAboutState = () => {
-    const stateLength = 2
-    setAboutState((state) => (state === stateLength ? 0 : state + 1))
-  }
-
   return (
     <section className="relative flex min-h-screen w-full flex-col bg-nier-light-100  text-nier-light-800">
-      <NierPattern variant={'block'} />
+      <div className="mx-3 my-4 hidden h-full max-h-[40px] gap-6 md:mx-12 lg:flex">
+        <NierLine className="absolute h-[40px]" />
+        <div className="flex h-[40px] w-full max-w-full gap-[56px] overflow-hidden pl-16">
+          {menus.map((item) => (
+            <NierButton
+              key={item}
+              className="tracking-widest"
+              onClick={() => changeSectionView(item)}
+            >
+              {item.toLocaleUpperCase()}
+            </NierButton>
+          ))}
+        </div>
+      </div>
 
       <NierVignette variant={'light'} />
 
-      {aboutState === 0 && (
-        <div className=" mx-3 flex flex-1 flex-col md:mx-12">
-          <SectionHeading onClick={backToMenu}>ABOUT ME</SectionHeading>
+      <NierPattern variant={'block'} className="lg:py-0" />
+
+      {sectionView === 'profile' && (
+        <div className="mx-3 flex flex-1 flex-col md:mx-12 ">
+          <SectionHeading onClick={backToMenu}>PROFILE</SectionHeading>
 
           <NierButton
-            className="my-4 flex self-start"
-            onClick={handleAboutState}
+            className="my-4 flex self-start lg:hidden"
+            onClick={() => changeSectionView('skills')}
           >
             Go to Skills
           </NierButton>
 
-          <div className="flex h-full justify-center gap-6 pb-8">
+          <div className="flex h-full justify-center gap-6 pb-8 lg:my-4">
             <Profile />
           </div>
         </div>
       )}
 
-      {aboutState === 1 && (
+      {sectionView === 'skills' && (
         <div className="mx-3 flex flex-1 flex-col md:mx-12">
           <SectionHeading onClick={backToMenu}>SKILLS</SectionHeading>
 
           <NierButton
-            className="my-4 flex self-start"
-            onClick={handleAboutState}
+            className="my-4 flex self-start lg:hidden"
+            onClick={() => changeSectionView('sections')}
           >
             Go to Sections
           </NierButton>
 
-          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse">
+          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse lg:my-4">
             <Skills />
 
             <NierLine className="hidden md:flex" />
@@ -70,18 +86,18 @@ const AboutMe = () => {
         </div>
       )}
 
-      {aboutState === 2 && (
+      {sectionView === 'sections' && (
         <div className="mx-3 flex flex-1 flex-col md:mx-12">
           <SectionHeading onClick={backToMenu}>SECTIONS</SectionHeading>
 
           <NierButton
-            className="my-4 flex self-start"
-            onClick={handleAboutState}
+            className="my-4 flex self-start lg:hidden"
+            onClick={() => changeSectionView('profile')}
           >
-            Go to About me
+            Go to Profile
           </NierButton>
 
-          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse">
+          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse lg:my-4">
             <Sections />
 
             <NierLine className="hidden md:flex" />
