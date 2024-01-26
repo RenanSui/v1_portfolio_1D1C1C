@@ -19,7 +19,7 @@ export const DesktopDevice = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 flex justify-between bg-[#291E3C] backdrop-blur-lg">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-between bg-[#291E3C]">
         <div className="flex items-center">
           <div className="px-5 py-3 hover:bg-[#57425F]">
             <Icons.scan className="h-5 w-5" />

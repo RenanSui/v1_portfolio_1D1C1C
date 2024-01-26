@@ -37,7 +37,7 @@ export const LoadingScreen = () => {
     <AnimatedShell
       className={cn(
         'absolute z-20 h-full w-full tracking-widest transition-all duration-500',
-        showLoadingState ? 'blur-[1.2px]' : 'blur-[5px]',
+        showLoadingState ? 'blur-[0.5px]' : 'blur-[5px]',
       )}
       onClick={finishAnimation}
     >
