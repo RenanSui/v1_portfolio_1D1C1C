@@ -38,7 +38,8 @@ const AboutMe = () => {
             <NierButton
               key={item}
               className="tracking-widest"
-              onClick={() => changeSectionView(item)}
+              active={item === sectionView}
+              onMouseOver={() => changeSectionView(item)}
             >
               {item.toLocaleUpperCase()}
             </NierButton>
