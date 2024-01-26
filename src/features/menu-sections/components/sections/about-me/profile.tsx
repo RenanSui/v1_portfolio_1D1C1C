@@ -22,7 +22,7 @@ export const Profile = () => {
       />
       <h2 className="text-5xl text-black md:text-5xl">Renan Sui</h2>
       <h2 className="text-xl text-nier-light-900">Web Developer</h2>
-      <p className="mx-1 text-center text-base font-normal text-black [text-wrap:pretty] md:mx-8 md:w-[500px] lg:w-[800px]">
+      <p className="mx-1 w-full max-w-[1024px] text-center text-lg font-normal leading-9 tracking-widest text-black [text-wrap:balance]">
         Profissional de TI com +4 anos de experiência especializado em
         desenvolvimento web. Posso implementar tanto o Frontend quanto o Backend
         e também estratégias de otimização dos mecanismos de busca (SEO).
