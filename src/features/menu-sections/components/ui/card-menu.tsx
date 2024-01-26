@@ -27,7 +27,10 @@ const CardMenuItem = forwardRef<
 >(({ className, children, ...props }, ref) => {
   return (
     <div
-      className="clickable group data-[active=true]:animate-pulse"
+      className={cn(
+        'clickable group data-[active=true]:animate-pulse',
+        className,
+      )}
       ref={ref}
       {...props}
     >
