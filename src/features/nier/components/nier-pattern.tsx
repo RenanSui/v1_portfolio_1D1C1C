@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 import { VariantProps, cva } from 'class-variance-authority'
 import { FC, HTMLAttributes, JSX } from 'react'
 
-const NierPatternVariants = cva('transition-all duration-300', {
+const NierPatternVariants = cva('transition-all duration-300 z-10', {
   variants: {
     variant: {
       block: 'py-4 md:py-6',

@@ -13,7 +13,7 @@ export const SectionHeading = ({
   onClick,
 }: HeaderProps) => {
   return (
-    <div className="flex cursor-default items-center gap-2">
+    <div className="z-10 flex cursor-default items-center gap-2">
       <div
         className="clickable group transition-colors duration-150 hover:bg-nier-light-800"
         onClick={onClick}

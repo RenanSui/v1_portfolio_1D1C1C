@@ -33,6 +33,10 @@ export const MenuSections = () => {
         {option === 'contact' && <ContactMe key={'contact-me'} />}
 
         {option === 'exit-game' && <ExitGame key={'exit-game'} />}
+
+        {option !== '' && option !== 'exit-game' && (
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-full bg-[url(/assets/wallpapers/light-theme-1440.png)] bg-cover" />
+        )}
       </AnimatePresence>
     </AnimatedShell>
   )

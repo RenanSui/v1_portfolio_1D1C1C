@@ -18,7 +18,7 @@ export const NierButton = ({
   return (
     <button
       className={cn(
-        'transitin-all group relative flex cursor-default items-center gap-4 bg-nier-light-trans-500 p-2 pl-3 pr-6 tracking-wider text-black duration-150 hover:bg-nier-light-800 hover:text-nier-light-100 hover:shadow-[_5px_5px_0px_0px_rgba(151,147,129,0.6)] md:pr-16 md:text-xl',
+        'transitin-all group relative z-10 flex cursor-default items-center gap-4 bg-nier-light-trans-500 p-2 pl-3 pr-6 tracking-wider text-black duration-150 hover:bg-nier-light-800 hover:text-nier-light-100 hover:shadow-[_5px_5px_0px_0px_rgba(151,147,129,0.6)] md:pr-16 md:text-xl',
         className,
         active ? 'animate-pulse bg-nier-light-800 text-nier-light-100' : '',
       )}
