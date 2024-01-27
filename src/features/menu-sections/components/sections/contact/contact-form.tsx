@@ -43,7 +43,7 @@ export const ContactForm = () => {
     SendEmail(data)
 
     toast.custom(() => (
-      <Card>
+      <Card className="z-10">
         <CardHeader>
           <CardHeading className="tracking-[0.4em]">SYSTEM MESSAGE</CardHeading>
         </CardHeader>
@@ -64,7 +64,7 @@ export const ContactForm = () => {
 
   return (
     <form
-      className="projects flex w-full flex-col gap-4 overflow-y-scroll pb-4"
+      className="projects z-10 flex w-full flex-col gap-4 overflow-y-scroll pb-4"
       onSubmit={handleSubmit(handleSendEmail)}
     >
       <FormField className="flex flex-col">
