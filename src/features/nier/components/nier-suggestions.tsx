@@ -1,5 +1,5 @@
+import { AnimatedShell } from '@/components/shells/animated-shell'
 import { Icons } from '@/components/ui/icons'
-import { motion } from 'framer-motion'
 import { HTMLAttributes } from 'react'
 
 export const NierSuggestions = ({
@@ -7,7 +7,7 @@ export const NierSuggestions = ({
   onClick,
 }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <motion.div
+    <AnimatedShell
       initial={{ opacity: 0, bottom: 72 }}
       animate={{ bottom: 96, opacity: 1, transition: { duration: 0.3 } }}
       className="z-[10000] mx-12 mt-auto hidden h-[80px] w-auto cursor-default bg-nier-light-100 shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)] md:flex"
@@ -47,6 +47,6 @@ export const NierSuggestions = ({
           </div>
         </div>
       </div>
-    </motion.div>
+    </AnimatedShell>
   )
 }

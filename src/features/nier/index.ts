@@ -1,5 +1,3 @@
-'use client'
-
 export { NierButton } from './components/ui/nier-button'
 
 export { NierVignette } from '@/features/nier/components/nier-vignette'
