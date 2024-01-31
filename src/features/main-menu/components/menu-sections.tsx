@@ -17,6 +17,7 @@ export const MenuSections = () => {
   return (
     <AnimatedShell
       className={cn(
+        'overflow-auto',
         option === '' ? 'sr-only -z-50 h-0 w-0' : 'z-10 h-full w-full',
       )}
       animate={{ opacity: 1, transition: { delay: 0, duration: 0.3 } }}
