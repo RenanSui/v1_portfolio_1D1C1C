@@ -23,13 +23,9 @@ export const MainMenu = () => {
 
       <AnimatePresence>
         {menu === 'press-any' && <PressAny key={'press-any'} />}
-
         {menu === 'menu' && <MenuList key={'menu-list'} />}
-
         {menu === 'menu-sections' && <MenuSections key={'menu-sections'} />}
-
         {isChecked && menu === 'press-any' && <StarsOrbiting key={'star-bg'} />}
-
         {isChecked && menu === 'menu' && <StarsVideo key={'star-video'} />}
       </AnimatePresence>
     </AnimatedShell>
