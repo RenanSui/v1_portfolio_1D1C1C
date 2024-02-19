@@ -9,13 +9,12 @@ import {
 import { useAtom } from 'jotai'
 import { useState } from 'react'
 import { Profile } from './sections/about-me/profile'
-import { Sections } from './sections/about-me/sections'
 import { Skills } from './sections/about-me/skills'
 import { SectionHeading } from './ui/section-heading'
 
-type Menus = 'profile' | 'skills' | 'sections'
+type Menus = 'profile' | 'skills'
 
-const menus: Menus[] = ['profile', 'skills', 'sections']
+const menus: Menus[] = ['profile', 'skills']
 
 const AboutMe = () => {
   const [, setOption] = useAtom(optionStateAtom)
@@ -78,32 +77,13 @@ const AboutMe = () => {
 
           <NierButton
             className="my-4 flex self-start lg:hidden"
-            onClick={() => changeSectionView('sections')}
-          >
-            Go to Sections
-          </NierButton>
-
-          <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse lg:my-4">
-            <Skills />
-
-            <NierLine className="hidden md:flex" />
-          </div>
-        </div>
-      )}
-
-      {sectionView === 'sections' && (
-        <div className="mx-3 flex flex-1 flex-col md:mx-12">
-          <SectionHeading onClick={backToMenu}>SECTIONS</SectionHeading>
-
-          <NierButton
-            className="my-4 flex self-start lg:hidden"
             onClick={() => changeSectionView('profile')}
           >
             Go to Profile
           </NierButton>
 
           <div className="flex h-full flex-wrap gap-6 pb-8 md:max-h-[800px] md:flex-row-reverse lg:my-4">
-            <Sections />
+            <Skills />
 
             <NierLine className="hidden md:flex" />
           </div>
