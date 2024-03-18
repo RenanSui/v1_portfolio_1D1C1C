@@ -5,10 +5,10 @@ import {
   NierSuggestions,
   NierVignette,
 } from '@/features/nier'
-import { useItemByMouse } from '@/hooks/use-item-by-mouse'
 import { activateAndClick } from '@/lib/utils'
 import { useAtom } from 'jotai'
-import { projectItems } from '../config'
+import { useState } from 'react'
+import { urlForImage } from '../../../../sanity/lib/image'
 import { ProjectItem } from '../types'
 import {
   Card,
@@ -24,7 +24,20 @@ import {
 import { CardMenu, CardMenuHeading, CardMenuItem } from './ui/card-menu'
 import { SectionHeading } from './ui/section-heading'
 
-const Projects = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useItemByMouse<Item>(items: any) {
+  const [id, setId] = useState('')
+
+  const item = items.filter((item: { id: string }) => item.id === id) as Item[]
+
+  const changeItem = (id: string) => setId(id)
+
+  const itemCallback: Item = item[0] ?? items[0]
+
+  return { item: itemCallback, changeItem }
+}
+
+const Projects = ({ projects }: { projects: ProjectItem[] }) => {
   const [, setOption] = useAtom(optionStateAtom)
   const [, setMenuState] = useAtom(menuStateAtom)
 
@@ -33,7 +46,12 @@ const Projects = () => {
     setMenuState('menu')
   }
 
-  const { item, changeItem } = useItemByMouse<ProjectItem>(projectItems)
+  const { item, changeItem } = useItemByMouse<ProjectItem>(projects)
+
+  // const loadFirstProject = changeItem(projects[0]?.id || '')
+  // useEffect(() => {
+  //   loadFirstProject()
+  // }, [])
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-light-100 text-nier-light-800">
@@ -47,27 +65,29 @@ const Projects = () => {
         <div className="flex h-full flex-row-reverse gap-6 py-8 md:max-h-[800px]">
           {/* tablet and above */}
           <CardMenu className="ml-6 hidden flex-1 md:block">
-            {projectItems.map((item) => (
+            {projects?.map((item, index) => (
               <CardMenuItem
                 key={`project-${item.id}`}
                 onClick={() => changeItem(item.id)}
                 onMouseOver={(e) => activateAndClick(e.currentTarget)}
-                data-active={item.id === 0 ? 'true' : 'false'}
+                data-active={index === 0 ? 'true' : 'false'}
               >
-                <CardMenuHeading>{item.name}</CardMenuHeading>
+                <CardMenuHeading>{item.title}</CardMenuHeading>
               </CardMenuItem>
             ))}
           </CardMenu>
 
           {/* table and above project card */}
-          {item && (
+          {item && projects && (
             <Card key={`item-${item.id}`} className="hidden flex-1 md:flex">
               <CardHeader>
-                <CardHeading>{item.name}</CardHeading>
+                <CardHeading>{item.title}</CardHeading>
               </CardHeader>
               <CardContent>
                 <CardImageLink
-                  className={item.imagePreview}
+                  style={{
+                    backgroundImage: `url(${urlForImage(item.titleImage)})`,
+                  }}
                   href={item.liveDemoLink}
                 />
                 <CardSeparator className="mt-4" />
@@ -85,32 +105,35 @@ const Projects = () => {
 
           {/* mobile only project card */}
           <div className="flex w-full flex-col gap-8 md:hidden">
-            {projectItems.map((project) => {
-              return (
-                <Card key={`item-${project.id}`} className="flex-1">
-                  <CardHeader>
-                    <CardHeading>{project.name}</CardHeading>
-                  </CardHeader>
-                  <CardContent>
-                    <CardImageLink
-                      className={project.imagePreview}
-                      href={project.liveDemoLink}
-                    />
-                    <CardSeparator className="mt-4" />
-                    <CardDescription>{project.description}</CardDescription>
-                    <CardSeparator />
-                  </CardContent>
-                  <CardFooter className="flex gap-4">
-                    <CardButtonLink href={project.liveDemoLink}>
-                      Live demo
-                    </CardButtonLink>
-                    <CardButtonLink href={project.githubLink}>
-                      Github
-                    </CardButtonLink>
-                  </CardFooter>
-                </Card>
-              )
-            })}
+            {projects &&
+              projects.map((project) => {
+                return (
+                  <Card key={`item-${project.id}`} className="flex-1">
+                    <CardHeader>
+                      <CardHeading>{project.title}</CardHeading>
+                    </CardHeader>
+                    <CardContent>
+                      <CardImageLink
+                        style={{
+                          backgroundImage: `url(${urlForImage(project.titleImage)})`,
+                        }}
+                        href={project.liveDemoLink}
+                      />
+                      <CardSeparator className="mt-4" />
+                      <CardDescription>{project.description}</CardDescription>
+                      <CardSeparator />
+                    </CardContent>
+                    <CardFooter className="flex gap-4">
+                      <CardButtonLink href={project.liveDemoLink}>
+                        Live demo
+                      </CardButtonLink>
+                      <CardButtonLink href={project.githubLink}>
+                        Github
+                      </CardButtonLink>
+                    </CardFooter>
+                  </Card>
+                )
+              })}
           </div>
 
           <NierLine className="hidden md:flex" />

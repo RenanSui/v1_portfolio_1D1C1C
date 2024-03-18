@@ -1,5 +1,6 @@
 import { OptionStates } from '@/types'
 import { LucideIcon } from 'lucide-react'
+import type { Image } from 'sanity'
 
 export type SectionItem = {
   id: number
@@ -18,13 +19,24 @@ export type SkillItem = {
   bgImage: string
 }
 
+// export type ProjectItem = {
+//   id: number
+//   name: string
+//   description: string
+//   githubLink: string
+//   liveDemoLink: string
+//   imagePreview: string
+// }
+
 export type ProjectItem = {
-  id: number
-  name: string
+  id: string
+  title: string
+  slug: string | null
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  titleImage: any
   description: string
-  githubLink: string
   liveDemoLink: string
-  imagePreview: string
+  githubLink: string
 }
 
 export type SocialItem = {

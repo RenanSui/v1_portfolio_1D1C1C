@@ -70,9 +70,11 @@ const CardImageLink = ({
   className,
   href,
   children,
+  ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
     <a
+      {...props}
       href={href}
       className={cn(
         'projectImage relative block aspect-video cursor-pointer bg-nier-light-800 bg-cover',
@@ -98,11 +100,14 @@ const CardDescription = ({
   return (
     <p
       className={cn(
-        'my-2 font-sans font-normal text-nier-light-900 [text-wrap:balance] md:text-lg lg:text-xl',
+        'relative my-2 line-clamp-2 font-sans font-normal text-nier-light-900 md:text-lg lg:text-xl',
         className,
       )}
     >
-      <NierLoadingText>{children}</NierLoadingText>
+      <span className="opacity-0">{children}</span>
+      <span className="absolute left-0 top-0">
+        <NierLoadingText>{children}</NierLoadingText>
+      </span>
     </p>
   )
 }
