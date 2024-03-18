@@ -77,16 +77,15 @@ export const LoadingScreen = () => {
             animate="animate"
           >
             {LoadingState.map((text, index) => (
-              <>
+              <div key={index}>
                 <h2 className="sr-only">{text}</h2>
                 <TextGlitched
                   className="text-nier-light-trans-100"
-                  key={index}
                   index={index}
                 >
                   {text}
                 </TextGlitched>
-              </>
+              </div>
             ))}
           </AnimatedShell>
         )}
