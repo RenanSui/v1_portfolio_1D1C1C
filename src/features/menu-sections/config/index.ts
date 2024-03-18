@@ -1,40 +1,5 @@
 import { Linkedin, Mail, Users2 } from 'lucide-react'
-import { ProjectItem, SectionItem, SkillItem, SocialItem } from '../types'
-
-export const projectItems: ProjectItem[] = [
-  {
-    id: 0,
-    name: 'Salvage',
-    description: 'Copy files comfortably and automate your backups.',
-    githubLink: 'https://github.com/RenanSui/salvage',
-    liveDemoLink: 'https://github.com/RenanSui/salvage',
-    imagePreview: 'bg-[url(/images/sections/projects/salvage.png)]',
-  },
-  {
-    id: 1,
-    name: 'Poképedia',
-    description: 'Detailed stats for every creature from the Pokémon games.',
-    githubLink: 'https://github.com/RenanSui/pokedex',
-    liveDemoLink: 'https://ren-pokedex.vercel.app',
-    imagePreview: 'bg-[url(/images/sections/projects/pokedex.png)]',
-  },
-  {
-    id: 2,
-    name: 'Spenso',
-    description: 'Finance web application to track your spending and savings.',
-    githubLink: 'https://github.com/RenanSui/spenso',
-    liveDemoLink: 'https://spenso.vercel.app',
-    imagePreview: 'bg-[url(/images/sections/projects/spenso.png)]',
-  },
-  {
-    id: 3,
-    name: 'Weatherium',
-    description: 'Accurate source of weather forecasts.',
-    githubLink: 'https://github.com/RenanSui/weather-app',
-    liveDemoLink: 'https://ren-weatherapp.vercel.app',
-    imagePreview: 'bg-[url(/images/sections/projects/weatherium.png)]',
-  },
-]
+import { SectionItem, SkillItem, SocialItem } from '../types'
 
 export const sectionItems: SectionItem[] = [
   {
