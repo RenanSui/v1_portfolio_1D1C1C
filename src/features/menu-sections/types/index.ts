@@ -1,6 +1,5 @@
 import { OptionStates } from '@/types'
 import { LucideIcon } from 'lucide-react'
-import type { Image } from 'sanity'
 
 export type SectionItem = {
   id: number
@@ -18,15 +17,6 @@ export type SkillItem = {
   imageLink: string
   bgImage: string
 }
-
-// export type ProjectItem = {
-//   id: number
-//   name: string
-//   description: string
-//   githubLink: string
-//   liveDemoLink: string
-//   imagePreview: string
-// }
 
 export type ProjectItem = {
   id: string
