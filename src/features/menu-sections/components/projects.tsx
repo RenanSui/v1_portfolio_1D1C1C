@@ -26,15 +26,13 @@ import { SectionHeading } from './ui/section-heading'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useItemByMouse<Item>(items: any) {
-  const [id, setId] = useState('')
+  const [id, setId] = useState(items[0].id)
 
-  const item = items.filter((item: { id: string }) => item.id === id) as Item[]
+  const item = items.filter((item: { id: string }) => item.id === id)[0] as Item
 
   const changeItem = (id: string) => setId(id)
 
-  const itemCallback: Item = item[0] ?? items[0]
-
-  return { item: itemCallback, changeItem }
+  return { item, changeItem }
 }
 
 const Projects = ({ projects }: { projects: ProjectItem[] }) => {
@@ -47,11 +45,6 @@ const Projects = ({ projects }: { projects: ProjectItem[] }) => {
   }
 
   const { item, changeItem } = useItemByMouse<ProjectItem>(projects)
-
-  // const loadFirstProject = changeItem(projects[0]?.id || '')
-  // useEffect(() => {
-  //   loadFirstProject()
-  // }, [])
 
   return (
     <section className="z-[60] flex min-h-screen w-full flex-col bg-nier-light-100 text-nier-light-800">
