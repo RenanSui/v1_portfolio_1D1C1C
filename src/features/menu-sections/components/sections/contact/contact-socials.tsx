@@ -78,9 +78,7 @@ export const ContactSocials = () => {
                 <CardSeparator />
               </CardContent>
               <CardFooter className="flex gap-4">
-                <CardButtonLink href={social.contactLink}>
-                  Contact me
-                </CardButtonLink>
+                <CardButtonLink href={social.contactLink}>Contact me</CardButtonLink>
               </CardFooter>
             </Card>
           )

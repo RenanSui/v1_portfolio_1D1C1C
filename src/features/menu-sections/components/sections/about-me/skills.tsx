@@ -47,12 +47,8 @@ export const Skills = () => {
             <CardSeparator />
           </CardContent>
           <CardFooter className="flex gap-4">
-            {item.pdfLink && (
-              <CardButtonLink href={item.pdfLink}>PDF</CardButtonLink>
-            )}
-            {item.imageLink && (
-              <CardButtonLink href={item.imageLink}>Image</CardButtonLink>
-            )}
+            {item.pdfLink && <CardButtonLink href={item.pdfLink}>PDF</CardButtonLink>}
+            {item.imageLink && <CardButtonLink href={item.imageLink}>Image</CardButtonLink>}
           </CardFooter>
         </Card>
       )}
@@ -72,12 +68,8 @@ export const Skills = () => {
                 <CardSeparator />
               </CardContent>
               <CardFooter className="flex gap-4">
-                {skill.pdfLink && (
-                  <CardButtonLink href={skill.pdfLink}>PDF</CardButtonLink>
-                )}
-                {skill.imageLink && (
-                  <CardButtonLink href={skill.imageLink}>Image</CardButtonLink>
-                )}
+                {skill.pdfLink && <CardButtonLink href={skill.pdfLink}>PDF</CardButtonLink>}
+                {skill.imageLink && <CardButtonLink href={skill.imageLink}>Image</CardButtonLink>}
               </CardFooter>
             </Card>
           )

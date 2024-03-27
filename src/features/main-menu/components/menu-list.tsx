@@ -23,28 +23,15 @@ export const MenuList = () => {
       animate={{ opacity: 1, transition: { delay: 0, duration: 0.6 } }}
     >
       <div data-elementtype="menu" className="flex flex-col gap-3">
-        <MenuItem
-          data-active="true"
-          index={0}
-          textHidden={'About Me'}
-          onClick={() => handleMenuSections('about-me')}
-        >
+        <MenuItem data-active="true" index={0} textHidden={'About Me'} onClick={() => handleMenuSections('about-me')}>
           About Me
         </MenuItem>
 
-        <MenuItem
-          index={0.1}
-          textHidden={'Projects'}
-          onClick={() => handleMenuSections('projects')}
-        >
+        <MenuItem index={0.1} textHidden={'Projects'} onClick={() => handleMenuSections('projects')}>
           Projects
         </MenuItem>
 
-        <MenuItem
-          index={0.2}
-          textHidden={'Settings'}
-          onClick={() => handleMenuSections('settings')}
-        >
+        <MenuItem index={0.2} textHidden={'Settings'} onClick={() => handleMenuSections('settings')}>
           Settings
         </MenuItem>
 
@@ -52,19 +39,11 @@ export const MenuList = () => {
           Resume
         </MenuItem>
 
-        <MenuItem
-          index={0.4}
-          textHidden={'Contact'}
-          onClick={() => handleMenuSections('contact')}
-        >
+        <MenuItem index={0.4} textHidden={'Contact'} onClick={() => handleMenuSections('contact')}>
           Contact
         </MenuItem>
 
-        <MenuItem
-          index={0.5}
-          textHidden={'Exit Game'}
-          onClick={() => handleMenuSections('exit-game')}
-        >
+        <MenuItem index={0.5} textHidden={'Exit Game'} onClick={() => handleMenuSections('exit-game')}>
           Exit Game
         </MenuItem>
       </div>

@@ -33,18 +33,12 @@ export const ExitGame = () => {
           <ExitButton onClick={backToMenu}>No</ExitButton>
         </div>
       </section>
-      <div
-        className="absolute z-10 h-full w-full bg-black opacity-50"
-        onClick={backToMenu}
-      />
+      <div className="absolute z-10 h-full w-full bg-black opacity-50" onClick={backToMenu} />
     </>
   )
 }
 
-const ExitButton = ({
-  children,
-  ...props
-}: HTMLAttributes<HTMLButtonElement>) => (
+const ExitButton = ({ children, ...props }: HTMLAttributes<HTMLButtonElement>) => (
   <button
     className="transitin-all group relative flex cursor-default items-center gap-4 bg-nier-light-trans-500 p-2 pl-3 pr-16 text-xl text-black duration-300 hover:bg-nier-light-800 hover:text-nier-light-100 hover:shadow-[_5px_5px_0px_0px_rgba(166,160,136,1)]"
     {...props}

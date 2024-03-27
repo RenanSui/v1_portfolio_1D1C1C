@@ -15,18 +15,11 @@ const NierPatternVariants = cva('transition-all duration-300 z-10', {
   },
 })
 
-interface NierPatternProps
-  extends HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof NierPatternVariants> {
+interface NierPatternProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof NierPatternVariants> {
   children?: string | JSX.Element | JSX.Element[] | (string | JSX.Element)[]
 }
 
-export const NierPattern: FC<NierPatternProps> = ({
-  children,
-  className,
-  variant,
-  ...props
-}) => {
+export const NierPattern: FC<NierPatternProps> = ({ children, className, variant, ...props }) => {
   return (
     <div // Change html tag
       {...props}

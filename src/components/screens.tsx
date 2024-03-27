@@ -1,12 +1,7 @@
 'use client'
 
 import { screenStateAtom } from '@/atoms/global'
-import {
-  BootScreen,
-  Devices,
-  LoadingScreen,
-  MainMenu,
-} from '@/features/screens'
+import { BootScreen, Devices, LoadingScreen, MainMenu } from '@/features/screens'
 import { useAtom } from 'jotai'
 import { AnimatedPresenceShell } from './shells/animated-presence-shell'
 

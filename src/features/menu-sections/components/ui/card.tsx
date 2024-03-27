@@ -5,37 +5,23 @@ import { AnchorHTMLAttributes, HTMLAttributes } from 'react'
 const Card = ({ className, children }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
-      className={cn(
-        'relative z-[10000] flex flex-col bg-nier-light-100 pb-3 shadow-lg md:max-w-[700px]',
-        className,
-      )}
+      className={cn('relative z-[10000] flex flex-col bg-nier-light-100 pb-3 shadow-lg md:max-w-[700px]', className)}
     >
       {children}
     </div>
   )
 }
 
-const CardHeader = ({
-  className,
-  children,
-}: HTMLAttributes<HTMLDivElement>) => {
+const CardHeader = ({ className, children }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div
-      className={cn(
-        'flex items-center gap-3 bg-nier-light-800 px-3 py-2',
-        className,
-      )}
-    >
+    <div className={cn('flex items-center gap-3 bg-nier-light-800 px-3 py-2', className)}>
       <NierSquare className="h-[23px] w-[23px] cursor-default bg-nier-light-100" />
       {children}
     </div>
   )
 }
 
-const CardHeading = ({
-  className,
-  children,
-}: HTMLAttributes<HTMLHeadingElement> & { children: string }) => {
+const CardHeading = ({ className, children }: HTMLAttributes<HTMLHeadingElement> & { children: string }) => {
   return (
     <p className={cn('text-nier-light-100 md:text-xl', className)}>
       <NierLoadingText>{children}</NierLoadingText>
@@ -43,43 +29,26 @@ const CardHeading = ({
   )
 }
 
-const CardContent = ({
-  className,
-  children,
-}: HTMLAttributes<HTMLDivElement>) => {
+const CardContent = ({ className, children }: HTMLAttributes<HTMLDivElement>) => {
   return <div className={cn('m-4', className)}>{children}</div>
 }
 
-const CardImage = ({
-  className,
-  ...props
-}: HTMLAttributes<HTMLButtonElement>) => {
+const CardImage = ({ className, ...props }: HTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
       // role="button"
-      className={cn(
-        'projectImage relative block aspect-video w-full bg-nier-light-800 bg-cover',
-        className,
-      )}
+      className={cn('projectImage relative block aspect-video w-full bg-nier-light-800 bg-cover', className)}
       {...props}
     />
   )
 }
 
-const CardImageLink = ({
-  className,
-  href,
-  children,
-  ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement>) => {
+const CardImageLink = ({ className, href, children, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
     <a
       {...props}
       href={href}
-      className={cn(
-        'projectImage relative block aspect-video cursor-pointer bg-nier-light-800 bg-cover',
-        className,
-      )}
+      className={cn('projectImage relative block aspect-video cursor-pointer bg-nier-light-800 bg-cover', className)}
       target="_blank"
     >
       {children}
@@ -88,15 +57,10 @@ const CardImageLink = ({
 }
 
 const CardSeparator = ({ className }: HTMLAttributes<HTMLDivElement>) => {
-  return (
-    <div className={cn(' h-[1px] bg-nier-light-800 opacity-70', className)} />
-  )
+  return <div className={cn(' h-[1px] bg-nier-light-800 opacity-70', className)} />
 }
 
-const CardDescription = ({
-  className,
-  children,
-}: HTMLAttributes<HTMLHeadingElement> & { children: string }) => {
+const CardDescription = ({ className, children }: HTMLAttributes<HTMLHeadingElement> & { children: string }) => {
   return (
     <p
       className={cn(
@@ -112,10 +76,7 @@ const CardDescription = ({
   )
 }
 
-const CardFooter = ({
-  className,
-  children,
-}: HTMLAttributes<HTMLDivElement>) => {
+const CardFooter = ({ className, children }: HTMLAttributes<HTMLDivElement>) => {
   return <div className={cn('mx-4', className)}>{children}</div>
 }
 

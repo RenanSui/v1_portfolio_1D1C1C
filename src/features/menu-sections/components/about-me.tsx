@@ -1,11 +1,5 @@
 import { menuStateAtom, optionStateAtom } from '@/atoms/global'
-import {
-  NierButton,
-  NierLine,
-  NierPattern,
-  NierSuggestions,
-  NierVignette,
-} from '@/features/nier'
+import { NierButton, NierLine, NierPattern, NierSuggestions, NierVignette } from '@/features/nier'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
 import { Profile } from './sections/about-me/profile'
@@ -56,10 +50,7 @@ const AboutMe = () => {
         <div className="mx-3 flex flex-1 flex-col md:mx-12 ">
           <SectionHeading onClick={backToMenu}>PROFILE</SectionHeading>
 
-          <NierButton
-            className="my-4 flex self-start lg:hidden"
-            onClick={() => changeSectionView('skills')}
-          >
+          <NierButton className="my-4 flex self-start lg:hidden" onClick={() => changeSectionView('skills')}>
             Go to Skills
           </NierButton>
 
@@ -75,10 +66,7 @@ const AboutMe = () => {
         <div className="mx-3 flex flex-1 flex-col md:mx-12">
           <SectionHeading onClick={backToMenu}>SKILLS</SectionHeading>
 
-          <NierButton
-            className="my-4 flex self-start lg:hidden"
-            onClick={() => changeSectionView('profile')}
-          >
+          <NierButton className="my-4 flex self-start lg:hidden" onClick={() => changeSectionView('profile')}>
             Go to Profile
           </NierButton>
 
@@ -90,9 +78,7 @@ const AboutMe = () => {
         </div>
       )}
 
-      <NierSuggestions onClick={backToMenu}>
-        Explore my portfolio
-      </NierSuggestions>
+      <NierSuggestions onClick={backToMenu}>Explore my portfolio</NierSuggestions>
 
       <NierPattern variant={'block'} />
     </section>

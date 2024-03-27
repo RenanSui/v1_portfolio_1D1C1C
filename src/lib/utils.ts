@@ -22,11 +22,7 @@ export const CapitalizeWords = (word: string) => {
   return joinWords
 }
 
-export const getRefAttribute = (
-  ref: HTMLElement,
-  attribute: string,
-  initialValue: string,
-) => {
+export const getRefAttribute = (ref: HTMLElement, attribute: string, initialValue: string) => {
   const elementAttributeValue = ref?.getAttribute(attribute)
 
   if (!elementAttributeValue) {
@@ -42,11 +38,7 @@ export const getRefAttribute = (
   return Value
 }
 
-export const setRefAttribute = (
-  ref: HTMLElement,
-  attribute: string,
-  value: unknown,
-) => {
+export const setRefAttribute = (ref: HTMLElement, attribute: string, value: unknown) => {
   ref?.setAttribute(attribute, String(value))
 }
 
@@ -77,10 +69,7 @@ export const activateAndClick = (elementRef: HTMLElement, clickable = true) => {
   elementClick(element)
 }
 
-export const activateItem = (
-  element: HTMLElement,
-  parentElement: HTMLElement,
-) => {
+export const activateItem = (element: HTMLElement, parentElement: HTMLElement) => {
   // iterate over all childs
   for (let i = 0; i < parentElement.childElementCount; i++) {
     // Set all Children data-active=false

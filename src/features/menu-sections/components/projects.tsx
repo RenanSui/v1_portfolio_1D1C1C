@@ -1,10 +1,5 @@
 import { menuStateAtom, optionStateAtom } from '@/atoms/global'
-import {
-  NierLine,
-  NierPattern,
-  NierSuggestions,
-  NierVignette,
-} from '@/features/nier'
+import { NierLine, NierPattern, NierSuggestions, NierVignette } from '@/features/nier'
 import { activateAndClick } from '@/lib/utils'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
@@ -88,9 +83,7 @@ const Projects = ({ projects }: { projects: ProjectItem[] }) => {
                 <CardSeparator />
               </CardContent>
               <CardFooter className="flex gap-4">
-                <CardButtonLink href={item.liveDemoLink}>
-                  Live demo
-                </CardButtonLink>
+                <CardButtonLink href={item.liveDemoLink}>Live demo</CardButtonLink>
                 <CardButtonLink href={item.githubLink}>Github</CardButtonLink>
               </CardFooter>
             </Card>
@@ -117,12 +110,8 @@ const Projects = ({ projects }: { projects: ProjectItem[] }) => {
                       <CardSeparator />
                     </CardContent>
                     <CardFooter className="flex gap-4">
-                      <CardButtonLink href={project.liveDemoLink}>
-                        Live demo
-                      </CardButtonLink>
-                      <CardButtonLink href={project.githubLink}>
-                        Github
-                      </CardButtonLink>
+                      <CardButtonLink href={project.liveDemoLink}>Live demo</CardButtonLink>
+                      <CardButtonLink href={project.githubLink}>Github</CardButtonLink>
                     </CardFooter>
                   </Card>
                 )

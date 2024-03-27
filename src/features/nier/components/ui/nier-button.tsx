@@ -8,13 +8,7 @@ interface NierButtonProps extends HTMLAttributes<HTMLButtonElement> {
   active?: boolean
 }
 
-export const NierButton = ({
-  children,
-  className,
-  reverse,
-  active,
-  ...props
-}: NierButtonProps) => {
+export const NierButton = ({ children, className, reverse, active, ...props }: NierButtonProps) => {
   return (
     <button
       className={cn(

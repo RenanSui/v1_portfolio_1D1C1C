@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "pnpm run lint && next dev",
+    "build": "pnpm run lint && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "lint-test": "set TIMING=1 && pnpx eslint --ext .js,.jsx,.ts,.tsx src/ --cache --cache-strategy metadata"
   },
   "dependencies": {

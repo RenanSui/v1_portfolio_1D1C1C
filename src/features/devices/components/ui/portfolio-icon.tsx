@@ -3,9 +3,7 @@ import { cn } from '@/lib/utils'
 import { useAtom } from 'jotai'
 import { HTMLAttributes } from 'react'
 
-export const PortfolioIcon = ({
-  className,
-}: HTMLAttributes<HTMLDivElement>) => {
+export const PortfolioIcon = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const [, setScreen] = useAtom(screenStateAtom)
 
   return (

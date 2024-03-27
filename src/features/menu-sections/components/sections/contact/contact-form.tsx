@@ -5,13 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardHeading,
-} from '../../ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardHeading } from '../../ui/card'
 import { FormError } from './form-error'
 import { FormField } from './form-field'
 import { FormInput } from './form-input'
@@ -48,9 +42,7 @@ export const ContactForm = () => {
           <CardHeading className="tracking-[0.4em]">SYSTEM MESSAGE</CardHeading>
         </CardHeader>
         <CardContent className="h-[240px] w-[500px]">
-          <CardDescription className="text-base">
-            Message sended.
-          </CardDescription>
+          <CardDescription className="text-base">Message sended.</CardDescription>
         </CardContent>
       </Card>
     ))
@@ -88,22 +80,13 @@ export const ContactForm = () => {
           User Email
         </FormLabel>
 
-        <FormInput
-          id="email"
-          {...register('email')}
-          disabled={isSubmitting}
-          fieldWatched={watchEmail}
-        />
+        <FormInput id="email" {...register('email')} disabled={isSubmitting} fieldWatched={watchEmail} />
 
         <FormError errorMessage={errors.email?.message} />
       </FormField>
 
       <FormField>
-        <FormLabel
-          htmlFor="message"
-          fieldWatched={watchMessage}
-          maxLength={300}
-        >
+        <FormLabel htmlFor="message" fieldWatched={watchMessage} maxLength={300}>
           Message
         </FormLabel>
 

@@ -27,11 +27,7 @@ export const LoadingScreen = () => {
     return () => clearTimeout(loadingState)
   }, [])
 
-  const { finishAnimation } = useSkipScreen(
-    'loadingAnimation',
-    'menu-screen',
-    1000 * (LoadingState.length * 1.2),
-  )
+  const { finishAnimation } = useSkipScreen('loadingAnimation', 'menu-screen', 1000 * (LoadingState.length * 1.2))
 
   return (
     <AnimatedShell
@@ -56,14 +52,10 @@ export const LoadingScreen = () => {
         <div className="relative flex cursor-default select-none flex-wrap items-center gap-1 text-nier-light-100">
           <h1 className="sr-only">LOADING</h1>
           <span className="text-3xl font-medium tracking-[0.3em] sm:text-4xl lg:text-5xl">
-            <TextGlitched className={`text-nier-light-100`}>
-              LOADING
-            </TextGlitched>
+            <TextGlitched className={`text-nier-light-100`}>LOADING</TextGlitched>
           </span>
           <span className="mr-1 mt-3">—</span>
-          <span className={`self-end text-base font-semibold sm:text-lg`}>
-            BOOTING SYSTEM
-          </span>
+          <span className={`self-end text-base font-semibold sm:text-lg`}>BOOTING SYSTEM</span>
           <span className="self-end sm:mb-[2px]">
             <NierLoadingDots />
           </span>
@@ -79,10 +71,7 @@ export const LoadingScreen = () => {
             {LoadingState.map((text, index) => (
               <div key={index}>
                 <h2 className="sr-only">{text}</h2>
-                <TextGlitched
-                  className="text-nier-light-trans-100"
-                  index={index}
-                >
+                <TextGlitched className="text-nier-light-trans-100" index={index}>
                   {text}
                 </TextGlitched>
               </div>

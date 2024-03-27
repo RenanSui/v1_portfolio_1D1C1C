@@ -1,9 +1,4 @@
-import {
-  NierButton,
-  NierLine,
-  NierPattern,
-  NierVignette,
-} from '@/features/nier'
+import { NierButton, NierLine, NierPattern, NierVignette } from '@/features/nier'
 import Link from 'next/link'
 
 export default function Home() {
