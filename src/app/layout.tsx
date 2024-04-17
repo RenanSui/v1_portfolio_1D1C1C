@@ -9,8 +9,9 @@ import '../styles/globals.css'
 
 export const metadata = {
   title: 'Renan Sui',
-  description: "Renan Sui's Personal Portfolio",
-  metadataBase: new URL('https://renansui.vercel.app'),
+  description:
+    'An old portfolio site built with next.js and aiming for a complete NieR:Automata experience',
+  metadataBase: new URL('v1-renansui.vercel.app'),
   icons: {
     icon: 'images/favicon.ico',
     shortcut: 'images/favicon.ico',
