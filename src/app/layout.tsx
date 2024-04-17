@@ -11,7 +11,7 @@ export const metadata = {
   title: 'Renan Sui',
   description:
     'An old portfolio site built with next.js and aiming for a complete NieR:Automata experience',
-  metadataBase: new URL('v1-renansui.vercel.app'),
+  metadataBase: new URL('https://v1-renansui.vercel.app'),
   icons: {
     icon: 'images/favicon.ico',
     shortcut: 'images/favicon.ico',
