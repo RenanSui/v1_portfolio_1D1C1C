@@ -7,7 +7,12 @@ interface FormLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children: string
 }
 
-export const FormLabel = ({ htmlFor, children, fieldWatched, maxLength = 50 }: FormLabelProps) => {
+export const FormLabel = ({
+  htmlFor,
+  children,
+  fieldWatched,
+  maxLength = 50,
+}: FormLabelProps) => {
   return (
     <label className="text-black" htmlFor={htmlFor}>
       <NierLoadingText>{children}</NierLoadingText>

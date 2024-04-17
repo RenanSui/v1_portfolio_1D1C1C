@@ -2,7 +2,10 @@ import { AnimatedShell } from '@/components/shells/animated-shell'
 import { Icons } from '@/components/ui/icons'
 import { HTMLAttributes } from 'react'
 
-export const NierSuggestions = ({ children, onClick }: HTMLAttributes<HTMLDivElement>) => {
+export const NierSuggestions = ({
+  children,
+  onClick,
+}: HTMLAttributes<HTMLDivElement>) => {
   return (
     <AnimatedShell
       initial={{ opacity: 0, bottom: 72 }}
@@ -38,7 +41,9 @@ export const NierSuggestions = ({ children, onClick }: HTMLAttributes<HTMLDivEle
               Esc
             </span>
 
-            <p className="pointer-events-none group-hover:text-nier-light-100">Back</p>
+            <p className="pointer-events-none group-hover:text-nier-light-100">
+              Back
+            </p>
           </div>
         </div>
       </div>

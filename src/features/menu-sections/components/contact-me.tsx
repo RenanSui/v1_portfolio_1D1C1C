@@ -1,5 +1,11 @@
 import { menuStateAtom, optionStateAtom } from '@/atoms/global'
-import { NierButton, NierLine, NierPattern, NierSuggestions, NierVignette } from '@/features/nier'
+import {
+  NierButton,
+  NierLine,
+  NierPattern,
+  NierSuggestions,
+  NierVignette,
+} from '@/features/nier'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
 import { ContactForm } from './sections/contact/contact-form'
@@ -50,7 +56,10 @@ const ContactMe = () => {
         <div className="mx-3 flex flex-1 flex-col pb-2 md:mx-12">
           <SectionHeading onClick={backToMenu}>Socials</SectionHeading>
 
-          <NierButton className="my-4 flex self-start lg:hidden" onClick={() => changeSectionView('send email')}>
+          <NierButton
+            className="my-4 flex self-start lg:hidden"
+            onClick={() => changeSectionView('send email')}
+          >
             Send Email
           </NierButton>
 
@@ -66,7 +75,10 @@ const ContactMe = () => {
         <div className="mx-3 flex flex-1 flex-col pb-2 md:mx-12">
           <SectionHeading onClick={backToMenu}>Send Email</SectionHeading>
 
-          <NierButton className="my-4 flex self-start lg:hidden" onClick={() => changeSectionView('socials')}>
+          <NierButton
+            className="my-4 flex self-start lg:hidden"
+            onClick={() => changeSectionView('socials')}
+          >
             Socials
           </NierButton>
 

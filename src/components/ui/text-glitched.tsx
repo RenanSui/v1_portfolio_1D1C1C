@@ -9,7 +9,11 @@ interface LoadinTextProps extends HTMLAttributes<HTMLDivElement> {
   index?: number
 }
 
-export const TextGlitched = ({ children, index, className }: LoadinTextProps) => {
+export const TextGlitched = ({
+  children,
+  index,
+  className,
+}: LoadinTextProps) => {
   const [isChecked] = useLocalStorageBoolean('glitchAnimation', true)
 
   if (!isChecked)
@@ -38,7 +42,10 @@ export const TextGlitched = ({ children, index, className }: LoadinTextProps) =>
   )
 }
 
-const GlitchTop = ({ children, className }: HTMLAttributes<HTMLSpanElement>) => (
+const GlitchTop = ({
+  children,
+  className,
+}: HTMLAttributes<HTMLSpanElement>) => (
   <motion.span
     className={cn('absolute left-0 top-0', className)}
     initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}
@@ -55,7 +62,10 @@ const GlitchTop = ({ children, className }: HTMLAttributes<HTMLSpanElement>) => 
   </motion.span>
 )
 
-const GlitchBottom = ({ children, className }: HTMLAttributes<HTMLSpanElement>) => (
+const GlitchBottom = ({
+  children,
+  className,
+}: HTMLAttributes<HTMLSpanElement>) => (
   <motion.span
     className={cn('absolute left-0 top-0', className)}
     initial={{ clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)' }}

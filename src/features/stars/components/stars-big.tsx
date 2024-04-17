@@ -17,7 +17,10 @@ export const StarsBig = ({ index, size: screenSize }: StarsBigProps) => {
     <motion.div
       layout
       key={`B${index}`}
-      className={cn('fixed bg-white will-change-auto', BigStarsStyles[randomStar])}
+      className={cn(
+        'fixed bg-white will-change-auto',
+        BigStarsStyles[randomStar],
+      )}
       style={{
         top: Math.floor(Math.random() * height),
         left: Math.floor(Math.random() * width),

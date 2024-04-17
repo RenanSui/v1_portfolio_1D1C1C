@@ -1,9 +1,13 @@
 import { menuStateAtom, optionStateAtom } from '@/atoms/global'
-import { NierLine, NierPattern, NierSuggestions, NierVignette } from '@/features/nier'
+import {
+  NierLine,
+  NierPattern,
+  NierSuggestions,
+  NierVignette,
+} from '@/features/nier'
 import { activateAndClick } from '@/lib/utils'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
-import { urlForImage } from '../../../../sanity/lib/image'
 import { ProjectItem } from '../types'
 import {
   Card,
@@ -25,7 +29,7 @@ export function useItemByMouse<Item>(items: any) {
 
   const item = items.filter((item: { id: string }) => item.id === id)[0] as Item
 
-  const changeItem = (id: string) => setId(id)
+  const changeItem = (id: number) => setId(id)
 
   return { item, changeItem }
 }
@@ -73,9 +77,7 @@ const Projects = ({ projects }: { projects: ProjectItem[] }) => {
               </CardHeader>
               <CardContent>
                 <CardImageLink
-                  style={{
-                    backgroundImage: `url(${urlForImage(item.titleImage)})`,
-                  }}
+                  className={item.titleImage}
                   href={item.liveDemoLink}
                 />
                 <CardSeparator className="mt-4" />
@@ -83,7 +85,9 @@ const Projects = ({ projects }: { projects: ProjectItem[] }) => {
                 <CardSeparator />
               </CardContent>
               <CardFooter className="flex gap-4">
-                <CardButtonLink href={item.liveDemoLink}>Live demo</CardButtonLink>
+                <CardButtonLink href={item.liveDemoLink}>
+                  Live demo
+                </CardButtonLink>
                 <CardButtonLink href={item.githubLink}>Github</CardButtonLink>
               </CardFooter>
             </Card>
@@ -100,9 +104,7 @@ const Projects = ({ projects }: { projects: ProjectItem[] }) => {
                     </CardHeader>
                     <CardContent>
                       <CardImageLink
-                        style={{
-                          backgroundImage: `url(${urlForImage(project.titleImage)})`,
-                        }}
+                        className={item.titleImage}
                         href={project.liveDemoLink}
                       />
                       <CardSeparator className="mt-4" />
@@ -110,8 +112,12 @@ const Projects = ({ projects }: { projects: ProjectItem[] }) => {
                       <CardSeparator />
                     </CardContent>
                     <CardFooter className="flex gap-4">
-                      <CardButtonLink href={project.liveDemoLink}>Live demo</CardButtonLink>
-                      <CardButtonLink href={project.githubLink}>Github</CardButtonLink>
+                      <CardButtonLink href={project.liveDemoLink}>
+                        Live demo
+                      </CardButtonLink>
+                      <CardButtonLink href={project.githubLink}>
+                        Github
+                      </CardButtonLink>
                     </CardFooter>
                   </Card>
                 )

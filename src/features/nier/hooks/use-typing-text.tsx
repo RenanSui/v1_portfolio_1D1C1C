@@ -20,10 +20,12 @@ export const useTypingText = (words: string, keySpeed = 1000) => {
     }, keySpeed)
 
     const typeLetter = () => {
-      if (wordIndex === words.length) return
+      if (wordIndex === words?.length) return
 
       setWordIndex((prev) => prev + 1)
-      const segmentedWord = words[wordIndex] ? words[wordIndex]?.split('') : ['']
+      const segmentedWord = words[wordIndex]
+        ? words[wordIndex]?.split('')
+        : ['']
       if (segmentedWord) setCurrentWord(currentWord.concat(segmentedWord))
     }
 

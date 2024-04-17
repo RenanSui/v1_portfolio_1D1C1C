@@ -7,10 +7,17 @@ interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
   children: string
 }
 
-export const SectionHeading = ({ children, className, onClick }: HeaderProps) => {
+export const SectionHeading = ({
+  children,
+  className,
+  onClick,
+}: HeaderProps) => {
   return (
     <div className="z-10 flex cursor-default items-center gap-2">
-      <div className="clickable group transition-colors duration-150 hover:bg-nier-light-800" onClick={onClick}>
+      <div
+        className="clickable group transition-colors duration-150 hover:bg-nier-light-800"
+        onClick={onClick}
+      >
         <Icons.chevronLeft className="pointer-events-none h-8 w-8 group-hover:text-nier-light-100" />
       </div>
 

@@ -10,7 +10,9 @@ export const StarsVideo = () => {
         className="pointer-events-none fixed left-0 top-0 h-[100vh] w-[100vw] object-cover opacity-20"
         initial={{ opacity: 0 }}
         animate={{
-          opacity: [0, 0.05, 0.1, 0.15, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0],
+          opacity: [
+            0, 0.05, 0.1, 0.15, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0,
+          ],
           transition: { duration: 14.15, repeat: Infinity },
         }}
       >

@@ -1,4 +1,8 @@
-export const FormError = ({ errorMessage }: { errorMessage: string | undefined }) => {
+export const FormError = ({
+  errorMessage,
+}: {
+  errorMessage: string | undefined
+}) => {
   if (!errorMessage) {
     return (
       <p
@@ -12,5 +16,7 @@ export const FormError = ({ errorMessage }: { errorMessage: string | undefined }
     )
   }
 
-  return <p className="w-full max-w-[590px] pt-1 text-red-800">{errorMessage}</p>
+  return (
+    <p className="w-full max-w-[590px] pt-1 text-red-800">{errorMessage}</p>
+  )
 }

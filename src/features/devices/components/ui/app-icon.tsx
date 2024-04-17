@@ -8,9 +8,18 @@ interface AppIconProps extends HTMLAttributes<HTMLDivElement> {
   notification?: number
 }
 
-export const AppIcon = ({ className, icon, notification = 0 }: AppIconProps) => {
+export const AppIcon = ({
+  className,
+  icon,
+  notification = 0,
+}: AppIconProps) => {
   return (
-    <div className={cn('relative cursor-pointer rounded-xl bg-violet-500 p-2 hover:scale-105', className)}>
+    <div
+      className={cn(
+        'relative cursor-pointer rounded-xl bg-violet-500 p-2 hover:scale-105',
+        className,
+      )}
+    >
       {!!notification && (
         <div className="absolute -right-2 -top-2 h-6 w-6 rounded-full bg-white text-center text-black">
           {notification}

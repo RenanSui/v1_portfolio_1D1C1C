@@ -19,11 +19,9 @@ export type SkillItem = {
 }
 
 export type ProjectItem = {
-  id: string
+  id: number
   title: string
-  slug: string | null
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  titleImage: any
+  titleImage: string
   description: string
   liveDemoLink: string
   githubLink: string

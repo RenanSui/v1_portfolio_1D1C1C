@@ -1,7 +1,13 @@
 import { optionStateAtom } from '@/atoms/global'
 import { AnimatedShell } from '@/components/shells/animated-shell'
-import { AboutMe, ContactMe, ExitGame, Projects, SiteSettings } from '@/features/menu-sections'
-import { useProjects } from '@/hooks/use-projects'
+import {
+  AboutMe,
+  ContactMe,
+  ExitGame,
+  Projects,
+  SiteSettings,
+} from '@/features/menu-sections'
+import { projectItems } from '@/features/menu-sections/config'
 import { cn } from '@/lib/utils'
 import { AnimatePresence } from 'framer-motion'
 import { useAtom } from 'jotai'
@@ -9,13 +15,16 @@ import { useAtom } from 'jotai'
 export const MenuSections = () => {
   const [option, setOption] = useAtom(optionStateAtom)
 
-  const projects = useProjects()
+  const projects = projectItems
 
   if (!projects) return
 
   return (
     <AnimatedShell
-      className={cn('overflow-auto', option === '' ? 'sr-only -z-50 h-0 w-0' : 'z-10 h-full w-full')}
+      className={cn(
+        'overflow-auto',
+        option === '' ? 'sr-only -z-50 h-0 w-0' : 'z-10 h-full w-full',
+      )}
       animate={{ opacity: 1, transition: { delay: 0, duration: 0.6 } }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
       onAnimationComplete={() => setOption(option === '' ? '' : option)}
@@ -23,7 +32,9 @@ export const MenuSections = () => {
       <AnimatePresence>
         {option === 'about-me' && <AboutMe key={'about-me'} />}
 
-        {option === 'projects' && <Projects key={'projects'} projects={projects} />}
+        {option === 'projects' && (
+          <Projects key={'projects'} projects={projects} />
+        )}
 
         {option === 'settings' && <SiteSettings key={'site-settings'} />}
 

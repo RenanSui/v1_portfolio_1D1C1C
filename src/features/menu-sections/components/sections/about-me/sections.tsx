@@ -45,13 +45,18 @@ export const Sections = () => {
             <CardHeading>{item.section}</CardHeading>
           </CardHeader>
           <CardContent>
-            <CardImage className={item.imagePreview} onClick={() => setOption(item.sectionLink)} />
+            <CardImage
+              className={item.imagePreview}
+              onClick={() => setOption(item.sectionLink)}
+            />
             <CardSeparator className="mt-4" />
             <CardDescription>{item.description}</CardDescription>
             <CardSeparator />
           </CardContent>
           <CardFooter className="flex gap-4">
-            <CardButton onClick={() => setOption(item.sectionLink)}>{item.section}</CardButton>
+            <CardButton onClick={() => setOption(item.sectionLink)}>
+              {item.section}
+            </CardButton>
           </CardFooter>
         </Card>
       )}
@@ -65,13 +70,18 @@ export const Sections = () => {
                 <CardHeading>{section.section}</CardHeading>
               </CardHeader>
               <CardContent>
-                <CardImage className={section.imagePreview} onClick={() => setOption(section.sectionLink)} />
+                <CardImage
+                  className={section.imagePreview}
+                  onClick={() => setOption(section.sectionLink)}
+                />
                 <CardSeparator className="mt-4" />
                 <CardDescription>{section.description}</CardDescription>
                 <CardSeparator />
               </CardContent>
               <CardFooter className="flex gap-4">
-                <CardButton onClick={() => setOption(section.sectionLink)}>{section.section}</CardButton>
+                <CardButton onClick={() => setOption(section.sectionLink)}>
+                  {section.section}
+                </CardButton>
               </CardFooter>
             </Card>
           )

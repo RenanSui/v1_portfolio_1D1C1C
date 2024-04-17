@@ -1,5 +1,10 @@
 import { menuStateAtom, optionStateAtom } from '@/atoms/global'
-import { NierLine, NierPattern, NierSuggestions, NierVignette } from '@/features/nier'
+import {
+  NierLine,
+  NierPattern,
+  NierSuggestions,
+  NierVignette,
+} from '@/features/nier'
 import { useAtom } from 'jotai'
 import { useRef } from 'react'
 import { SettingItem } from './sections/settings/settings-item'
@@ -35,15 +40,21 @@ export const SiteSettings = () => {
             <SettingItem keyValue="starAnimation" data-active="true">
               Star Animation
             </SettingItem>
-            <SettingItem keyValue="loadingAnimation">Loading Animation</SettingItem>
+            <SettingItem keyValue="loadingAnimation">
+              Loading Animation
+            </SettingItem>
             <SettingItem keyValue="bootAnimation">Boot Animationn</SettingItem>
             <SettingItem keyValue="textAnimation">Text Animation</SettingItem>
-            <SettingItem keyValue="glitchAnimation">Glitch Animation</SettingItem>
+            <SettingItem keyValue="glitchAnimation">
+              Glitch Animation
+            </SettingItem>
           </section>
         </div>
       </div>
 
-      <NierSuggestions onClick={backToMenu}>Adjust website settings</NierSuggestions>
+      <NierSuggestions onClick={backToMenu}>
+        Adjust website settings
+      </NierSuggestions>
 
       <NierPattern variant="block" />
     </section>
